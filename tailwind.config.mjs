@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from "tailwindcss/plugin";
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,20 +9,21 @@ export default {
   ],
   theme: {
     extend: {
-        colors: {
-          accent: "#CC5500",
-          bg: {
-            primary: "#F5F5F5",
-            inverse: "#000",
-          },
-          f: {
-            primary: "#1C1C14",
-            inverse: "#e5e7eb",
-          },
+      colors: {
+        accent: "#CC5500",
+        s: {
+          primary: "#F5F5F5",
+          secondary: "#2C3E50",
+          inverse: "#000",
+        },
+        f: {
+          primary: "#1C1C14",
+          inverse: "#e5e7eb",
+        },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'],
-        serif: ['var(--font-serif)', 'serif'],
+        sans: ["var(--font-sans)", "sans-serif"],
+        serif: ["var(--font-serif)", "serif"],
       },
     },
   },
