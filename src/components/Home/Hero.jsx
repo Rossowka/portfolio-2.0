@@ -1,12 +1,16 @@
 import Image from "next/image";
 import { useRef } from "react";
+import { setupHeroAnimations } from "./animations";
+import { useGSAP } from "@gsap/react";
+import LittleMarquee from "./LittleMarquee";
+import ScrollIndicator from "./ScrollIndicator";
 
 // -----------------------------------------------------------------------------------
 // THINGS TO TAKE CARE OF
 // -----------------------------------------------------------------------------------
 /*
 
-[] add clip path to invert text color
+[] add clip path to invert text color https://emilkowal.ski/ui/the-magic-of-clip-path
 [] add scroll down encouragement
 [] experiment with the tilting tile animation
 [] add animations
@@ -18,31 +22,17 @@ const heroImage = "/images/hero-image_lg.png";
 const Hero = () => {
   const leftListRef = useRef(null);
   const rightListRef = useRef(null);
-  const littleMarqueeRef = useRef(null);
+
+  useGSAP(() => {
+    setupHeroAnimations(leftListRef, rightListRef);
+  }, []);
 
   return (
-    <section className="pt-[6.5rem] overflow-hidden md:pt-24 lg:pt-32 h-svh">
+    <section className="pt-[6.5rem] overflow-hidden md:pt-24 lg:pt-40 lg:pb-24 h-svh max-h-[1200px] relative">
       <div className="flex flex-col gap-8 h-full relative container pb-8">
-        <div className="z-10 static flex gap-2 font-serif lg:absolute md:ml-auto lg:right-8 lg:top-2 md:w-1/2 lg:w-1/3">
-          <p className="leading-6 text-accent">[</p>
-          {/* text mask */}
-          <div
-            ref={littleMarqueeRef}
-            className="overflow-hidden w-full flex"
-          >
-            <p className="leading-6 w-fit whitespace-nowrap opacity-70">
-              UX Research, Strategy, Product Design, Prototyping, Development,
-              Interaction,
-            </p>
-            <p className="leading-6 w-fit whitespace-nowrap opacity-70">
-              UX Research, Strategy, Product Design, Prototyping, Development,
-              Interaction,
-            </p>
-          </div>
-          <p className="leading-6 text-accent">]</p>
-        </div>
+        <LittleMarquee />
         <div className="h-full relative ">
-          <h1 className="uppercase font-serif max-[400px]:text-[3rem]">
+          <h1 className="tracking-tight uppercase font-serif max-[400px]:text-[3rem] font-bold text-[4rem] leading-[1] md:text-[6rem]">
             {/* hero text left */}
             <span className="z-10 absolute left-0 w-full">
               {/* text mask */}
@@ -85,20 +75,21 @@ const Hero = () => {
               src={heroImage}
               width={400}
               height={400}
-              title="AI generated avatar of the author"
-              alt="Colorful AI generated graphic showing the author's face"
+              title="AI generated avatar of Sara"
+              alt="Colorful AI generated avatar of Sara"
               className="z-0 rounded-3xl md:w-[400px]"
-            ></Image>
+            />
           </div>
         </div>
         {/* welcome note */}
         <div className="z-10 static font-sans lg:absolute lg:left-8 lg:bottom-10 md:w-1/2 lg:w-1/3">
-          <p className="text-f-dark/70">
+          <p className="text-f-primary leading-relaxed">
             Hello, I'm Sara - a Digital Designer & Developer creating delightful
             digital experiences with a knack for design and code.
           </p>
         </div>
       </div>
+      <ScrollIndicator />
     </section>
   );
 };
