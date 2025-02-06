@@ -1,6 +1,6 @@
 "use client";
 
-import { Hero } from "@/components/Home";
+import { FeaturedProjects, Hero, Intro } from "@/components/Home";
 
 // -----------------------------------------------------------------------------------
 // THINGS TO TAKE CARE OF
@@ -16,6 +16,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Intro />
+      <FeaturedProjects />
+      {/* <Outro /> */}
     </>
   );
 }
