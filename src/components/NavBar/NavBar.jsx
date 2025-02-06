@@ -2,10 +2,15 @@
 
 import { navigation } from "@/utils/navigation";
 import { disablePageScroll, enablePageScroll } from "@fluejs/noscroll";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
+import { closeMenu, toggleHeaderOnScroll, openMenu } from "./animations";
 import { SideMenu } from "../SideMenu";
+
+gsap.registerPlugin(useGSAP); // register the hook to avoid React version discrepancies
 
 const NavBar = () => {
   const menuBtnRef = useRef(null);
@@ -18,7 +23,6 @@ const NavBar = () => {
   // define paths for inverse header color
   const textColorClass =
     pathname === "/projects" ? "text-f-inverse" : "text-f-primary";
-
   const toggleMenu = () => {
     if (isMenuOpen) {
       setIsMenuOpen(!isMenuOpen);
@@ -28,6 +32,19 @@ const NavBar = () => {
       disablePageScroll();
     }
   };
+
+  useGSAP(
+    () => {
+      toggleHeaderOnScroll(headerRef, isMenuOpen, textColorClass);
+
+      if (isMenuOpen) {
+        openMenu(menuBtnRef, logoRef);
+      } else {
+        closeMenu(menuBtnRef, logoRef);
+      }
+    },
+    { dependencies: [isMenuOpen] }
+  );
 
   return (
     <>
@@ -45,12 +62,12 @@ const NavBar = () => {
             aria-label="Home"
             href="/"
             ref={logoRef}
-            className="text-2xl/6 font-medium"
+            className="text-2xl/7 font-medium uppercase"
           >
-            SR
+            Sara Rossow
           </Link>
           {/* navigation */}
-          <nav className="hidden lg:block">
+          <nav className="hidden lg:block -mr-8">
             <ul className="flex gap-1">
               {navigation.map((item) => (
                 <li key={item.id}>
