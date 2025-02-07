@@ -1,6 +1,6 @@
 import { inriaSerif, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
-import { NavBar } from "@/components/NavBar";
+import { NavBar, Footer } from "@/components";
 
 // -----------------------------------------------------------------------------------
 // THINGS TO TAKE CARE OF
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
         <NavBar />
         <main>{children}</main>
-        {/* footer */}
+        <Footer />
       </body>
     </html>
   );
