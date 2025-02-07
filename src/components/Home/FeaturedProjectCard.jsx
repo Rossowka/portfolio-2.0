@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowIcon } from "../ArrowIcon";
 
 // -----------------------------------------------------------------------------------
 // THINGS TO TAKE CARE OF
@@ -8,6 +9,7 @@ import Link from "next/link";
 
 [] add thumbnail images
 [] adjust the images to different screen resolutions
+[] add little snake animation to the see the project text
 
 */
 
@@ -55,33 +57,34 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
           {/* title */}
           <div className="flex gap-1 md:gap-16 justify-between">
             <h3 className="title">{project.title}</h3>
-            <div className="min-w-fit">
-              <Image
-                src={"icons/arrow-accent.svg"}
-                className="-rotate-45 md:rotate-0 md:group-hover:-rotate-45 transform transition-all duration-300 ease-in-out"
-                width={24}
-                height={24}
-                alt="Arrow icon"
-              />
+            <div className="min-w-fit relative">
+              <ArrowIcon className="-rotate-45 lg:rotate-0 md:group-hover:-rotate-45 transform transition-all duration-300 ease-in-out text-accent" />
+              <div className="absolute top-8 right-0 h-full w-full">
+                <p className="lg:hidden whitespace-nowrap text-xs text-accent rotate-90">
+                  see the project
+                </p>
+              </div>
             </div>
           </div>
 
           {/* results */}
           <div className="flex -mx-2 lg:-mx-5">
-            {project.results.map((result) => (
-              <div className="pt-8 pb-12 lg:pb-14 px-2 lg:px-5 flex-[0_0_50%] shrink-0 max-w-[50%]">
+            {project.results.map((result, index) => (
+              <div
+                key={index}
+                className="pt-8 pb-12 lg:pb-14 px-2 lg:px-5 flex-[0_0_50%] shrink-0 max-w-[50%]"
+              >
                 <strong className="text-4xl lg:text-5xl leading-tight tracking-tighter font-serif block mb-4">
                   {result.data}
                 </strong>
                 <p className="text-sm lg:text-base leading-normal font-normal max-w-[15rem] opacity-80">
-                  {/* <p className="text-sm leading-normal font-normal max-w-xs opacity-80"> */}
                   {result.text}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* image */}
+          {/* thumbnail */}
           <div className="relative overflow-hidden">
             <div className="pt-[60%] md:pt-[45%] lg:pt-[30%]">
               <div className="absolute inset-0">
