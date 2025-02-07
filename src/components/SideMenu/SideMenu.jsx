@@ -1,13 +1,29 @@
 "use client";
 
 import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { navigation } from "@/utils/navigation";
+import { closeMenu, openMenu } from "./animation";
 import Link from "next/link";
 import { Socials } from "../Socials";
+
+gsap.registerPlugin(useGSAP); // register the hook to avoid React version discrepancies
 
 const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   const menuRef = useRef(null);
   const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      if (isMenuOpen) {
+        openMenu(containerRef, menuRef);
+      } else {
+        closeMenu(containerRef);
+      }
+    },
+    { dependencies: [isMenuOpen], scope: containerRef }
+  );
 
   return (
     <div
@@ -75,7 +91,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
               </li>
             ))}
           </ul>
-          <div className="pl-8 py-6 md:p-8 -mx-6">
+          <div className="pl-8 py-6 md:p-8 -mx-3">
             <Socials />
           </div>
         </div>
