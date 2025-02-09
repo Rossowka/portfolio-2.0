@@ -1,5 +1,3 @@
-import { projects } from "@/utils/projects";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowIcon } from "../ArrowIcon";
 
@@ -12,12 +10,12 @@ import { ArrowIcon } from "../ArrowIcon";
 
 */
 
-const Button = ({ label = "button", sup }) => {
+const Button = ({ label = "button", href, sup }) => {
   return (
     <div className="rounded-3xl bg-accent md:bg-transparent border-[1px] overflow-hidden w-full md:w-fit border-f-inverse/20 hover:border-f-inverse transform transition-all duration-700 ease-in-out">
       {/* <div className="rounded-3xl border-[1px] w-fit overflow-hidden border-f-inverse/20 hover:border-f-inverse transform transition-all duration-700 ease-in-out"> */}
       <Link
-        href="/projects"
+        href={href}
         className="flex group gap-1 px-8 py-4 lg:py-8 lg:px-16 justify-center"
       >
         {/* icon */}
