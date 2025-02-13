@@ -10,6 +10,7 @@ import { ArrowIcon } from "../ArrowIcon";
 [] add thumbnail images
 [] adjust the images to different screen resolutions
 [] add little snake animation to the see the project text
+[] add this animation on hover www.hover.dev/components/cards#shimmer-border-card
 
 */
 
@@ -18,10 +19,6 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
     <li
       key={index}
       className="flex flex-col overflow-hidden group border-[1px] bg-accent/10 border-f-inverse/20 hover:border-f-inverse transform transition-all duration-700"
-      style={{
-        boxShadow:
-          "rgba(0, 0, 0, 0.075) 0px -4.03105px 20.1553px -0.3125px, rgba(0, 0, 0, 0.075) 0px -9.5543px 47.7715px -0.625px, rgba(0, 0, 0, 0.075) 0px -17.428px 87.1402px -0.9375px, rgba(0, 0, 0, 0.075) 0px -28.9741px 144.87px -1.25px, rgba(0, 0, 0, 0.075) 0px -46.7908px 233.954px -1.5625px, rgba(0, 0, 0, 0.075) 0px -76.5918px 382.959px -1.875px, rgba(0, 0, 0, 0.075) 0px -131.886px 659.43px -2.1875px, rgba(0, 0, 0, 0.075) 0px -240px 1200px -2.5px",
-      }}
     >
       <Link href={project.url}>
         {/* inner text */}
@@ -92,7 +89,6 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
                   <Image
                     src={project.thumbnail}
                     className={`w-full h-full object-cover hover:scale-105 transition-transform duration-500`}
-                    // className={`object-cover w-full h-full object-center absolute top-0 left-0 hover:scale-105 transition-transform duration-500`}
                     alt={project.alt}
                     width={540}
                     height={360}
@@ -102,16 +98,6 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
             </div>
           </div>
         </div>
-        {/* <div className={`overflow-hidden h-full`}>
-            <Image
-              src={project.thumbnail}
-              className={`object-cover w-full h-full object-center`}
-              alt={project.alt}
-              width={540}
-              height={360}
-            />
-          </div>
-        </div> */}
       </Link>
     </li>
   );

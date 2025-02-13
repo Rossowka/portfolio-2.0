@@ -28,6 +28,10 @@ export default {
       animation: {
         "spin-slow": "spin 20s linear infinite",
       },
+      backgroundImage: {
+        gradient:
+          "linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,.6)),radial-gradient(at 24% 52%, hsla(210,27%,24%,0.1) 0px, transparent 50%),radial-gradient(at 15% 23%, hsla(24,100%,40%,0.1) 0px, transparent 50%),radial-gradient(at 77% 71%, hsla(24,100%,40%,0.1) 0px, transparent 50%),radial-gradient(at 72% 39%, hsla(210,27%,24%,0.1) 0px, transparent 50%),radial-gradient(at 43% 40%, hsla(24,100%,40%,0.1) 0px, transparent 50%)",
+      },
     },
   },
   plugins: [
@@ -38,18 +42,12 @@ export default {
             {},
         },
         h2: {
-          "@apply font-medium text-[3rem] leading-tight md:text-[4rem] lg:text-[5rem]":
+          "@apply font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight":
             {},
         },
         h3: {
           "@apply font-medium text-lg": {},
         },
-        // h4: {
-        //   "@apply font-medium text-[1.75rem] leading-[1.15]": {},
-        // },
-        // h5: {
-        //   "@apply font-medium text-[0.75rem] md:text-[1rem] leading-[1.05]": {},
-        // },
         p: {
           "@apply font-medium text-[1.125rem] leading-relaxed": {},
         },
@@ -62,11 +60,15 @@ export default {
           "@apply font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight":
             {},
         },
+        ".project-title": {
+          "@apply font-medium text-[2rem] lg:text-[3rem] tracking-tight leading-tight mb-8 lg:mb-8":
+            {},
+        },
         ".title": {
           "@apply text-2xl lg:text-[2.5rem] leading-tight mb-8 lg:mb-16": {},
         },
         ".eyebrow": {
-          "@apply text-f-primary/70 whitespace-nowrap leading-relaxed": {},
+          "@apply text-f-primary/40 whitespace-nowrap leading-relaxed": {},
         },
       });
     }),

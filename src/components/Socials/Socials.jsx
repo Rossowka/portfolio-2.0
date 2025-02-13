@@ -6,7 +6,7 @@ const Socials = ({ className }) => {
     <ul className={`z-10 flex gap-2 ${className ? className : ""}`}>
       {socials.map((item) => (
         <li
-          className="overflow-hidden p-3 lg:p-4 h-fit hover:opacity-40 transform transition-all"
+          className="overflow-hidden p-3 lg:p-4 hover:opacity-40 transform transition-all"
           key={item.id}
         >
           <a
@@ -20,6 +20,7 @@ const Socials = ({ className }) => {
               alt={`${item.title} icon`}
               width={24}
               height={24}
+              className="h-6 w-6"
             />
           </a>
         </li>

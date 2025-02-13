@@ -14,11 +14,11 @@ import { CircularButton } from "../CircularButton";
 const Intro = () => {
   return (
     <section className="pt-16 pb-24 lg:pt-24 lg:pb-72 flex flex-col">
-      <div className="container mt-16 mb-8 md:mb-12 lg:mt-36 lg:mb-24">
+      <header className="container mt-16 mb-8 md:mb-12 lg:mt-36 lg:mb-24">
         <h2 className="page-title md:indent-12 lg:indent-24">
           Let's create something stunning together
         </h2>
-      </div>
+      </header>
       <div className="container flex flex-col md:flex-row relative gap-8">
         <p className="hidden md:inline-block eyebrow md:basis-1/5 lg:basis-1/4">
           [ what I do ]

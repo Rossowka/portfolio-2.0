@@ -17,7 +17,7 @@ const LittleMarquee = () => {
       <div className="overflow-hidden w-full flex">
         {isInView && (
           <motion.div
-            className="flex whitespace-nowrap gap-1"
+            className="flex whitespace-nowrap gap-1 will-change-transform"
             animate={{
               x: [0, "-50%"], // Adjust based on your text width
             }}

@@ -28,7 +28,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-24 overflow-hidden lg:pt-40 lg:pb-24 h-svh max-h-[1200px] relative">
+    <section className="pt-24 pb-8 md:pb-24 overflow-hidden md:pt-40 lg:pb-24 h-svh max-h-[1200px] relative">
       <div className="flex flex-col gap-8 h-full relative container pb-8">
         <LittleMarquee />
         <div className="h-full relative">
@@ -75,9 +75,9 @@ const Hero = () => {
               src={heroImage}
               width={400}
               height={400}
-              title="AI generated avatar of Sara"
               alt="Colorful AI generated avatar of Sara"
               className="-z-50 rounded-3xl md:w-[400px]"
+              quality={100}
             />
           </div>
         </div>
