@@ -22,7 +22,6 @@ const ProjectCard = ({ project }) => {
               <div className="absolute inset-0">
                 <picture className="h-full absolute left-0 top-0 w-full object-cover">
                   <Image
-                    loading="lazy"
                     src={project.thumbnail}
                     className={`object-cover w-full h-full object-center absolute top-0 left-0 hover:scale-105 transition-transform duration-500`}
                     alt="Project thumbnail"

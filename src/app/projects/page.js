@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components";
-import { FilteredPortfolio } from "@/components/Projects";
+import { FilteredPortfolio } from "@/components/ProjectIndex";
 import { PROJECTS } from "@/utils/projects";
 
 // -----------------------------------------------------------------------------------
@@ -29,17 +29,16 @@ export default function Projects() {
             [ project index ]
           </p>
           <p className="max-w-lg">
-            This portfolio showcases a selection of my work, representing the
-            range and diversity of projects I've undertaken. While some pieces
-            are not displayed due to client confidentiality, I believe these
-            examples capture the breadth of what I can bring to each project.
+            This portfolio highlights a selection of my work, showcasing the
+            variety and scope of projects I've completed. I believe these
+            examples demonstrate the wide range of skills I bring to each
+            endeavor.
           </p>
         </div>
       </header>
 
       <FilteredPortfolio />
 
-      {/* button */}
       <div className="container flex justify-center">
         <Button
           label="get to know me"
