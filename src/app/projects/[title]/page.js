@@ -1,9 +1,9 @@
 import { Button } from "@/components";
-import { ImageSection, ProjectDetails, UpNext } from "@/components/Project";
+import { ImageSection, ProjectDetails, UpNext } from "@/components/Snapshot";
 import { PROJECTS } from "@/utils/projects";
 
 // check how the layout looks with buttons and without buttons, how does it affect the divider and text below
-export default async function Project({ params }) {
+export default async function ProjectSnapshot({ params }) {
   const title = (await params).title;
   let index = PROJECTS.findIndex((item) => item.id === title);
   let currentProject = PROJECTS[index];
@@ -15,8 +15,8 @@ export default async function Project({ params }) {
       <section className="pt-32 md:pt-48 relative">
         {/* section title */}
         <header className="container flex flex-col">
-          <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-16">
-            <h1 className="project-title ">
+          <div className="flex flex-col lg:flex-row justify-between">
+            <h1 className="project-title md:mr-8 max-w-2xl">
               <span className="font-serif">{currentProject.client} - </span>
               <span>{currentProject.title}</span>
             </h1>
@@ -43,8 +43,8 @@ export default async function Project({ params }) {
 
           {/* summary text */}
           <div className="md:ms-[16%] mb-10 md:mb-14 lg:mb-28 flex flex-col md:flex-row">
-            <p className="eyebrow mr-12 mb-4">[ project summary ]</p>
-            <p className="max-w-lg">{currentProject.description}</p>
+            <p className="eyebrow mr-12 mb-4">[ context ]</p>
+            <p className="max-w-lg">{currentProject.context}</p>
           </div>
         </header>
 

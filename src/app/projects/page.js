@@ -44,6 +44,7 @@ export default function Projects() {
           label="get to know me"
           className="text-f-inverse"
           href="/about"
+          dark
         />
       </div>
     </section>

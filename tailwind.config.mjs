@@ -68,7 +68,8 @@ export default {
           "@apply text-2xl lg:text-[2.5rem] leading-tight mb-8 lg:mb-16": {},
         },
         ".eyebrow": {
-          "@apply text-f-primary/40 whitespace-nowrap leading-relaxed": {},
+          "@apply text-f-primary/40 whitespace-nowrap leading-relaxed text-base":
+            {},
         },
       });
     }),

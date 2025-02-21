@@ -31,11 +31,11 @@ const FeaturedProjects = () => {
 
       {/* project list */}
       <ul className="container mb-16 lg:mb-28 flex flex-col gap-9 overflow-hidden">
-        {featuredProjects.map((project) => (
+        {featuredProjects.map((project, index) => (
           <FeaturedProjectCard
             key={project.id}
             project={project}
-            index={project.id}
+            index={index}
             featuredProjects={featuredProjects}
           />
         ))}

@@ -22,11 +22,12 @@ const ProjectCard = ({ project }) => {
               <div className="absolute inset-0">
                 <picture className="h-full absolute left-0 top-0 w-full object-cover">
                   <Image
-                    src={project.thumbnail}
+                    src={project.thumbnail.snapshot.src}
                     className={`object-cover w-full h-full object-center absolute top-0 left-0 hover:scale-105 transition-transform duration-500`}
-                    alt="Project thumbnail"
-                    width={540}
-                    height={360}
+                    alt={project.thumbnail.snapshot.alt}
+                    width={600}
+                    height={400}
+                    quality={100}
                   />
                 </picture>
               </div>
