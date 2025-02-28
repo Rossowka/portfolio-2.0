@@ -9,8 +9,8 @@ const AboutSection = () => {
         headingText="my story"
         subheadingText="meet me"
       />
-      {story.map((paragraph) => (
-        <>
+      {story.map((paragraph, index) => (
+        <div key={index}>
           <HeadingL
             headingText={paragraph.heading}
             className="font-serif"
@@ -18,7 +18,7 @@ const AboutSection = () => {
           <p className="pb-5 text-xl leading-relaxed text-f-primary/80">
             {paragraph.text}
           </p>
-        </>
+        </div>
       ))}
       <div className="mt-16 flex flex-col md:flex-row gap-4">
         <Button

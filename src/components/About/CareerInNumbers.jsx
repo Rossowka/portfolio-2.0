@@ -11,8 +11,11 @@ const CareerInNumbers = () => {
         />
       </div>
       <div className="flex flex-col md:flex-row lg:flex-col gap-8">
-        {careerInNumbers.map((stat) => (
-          <div className="p-8 shadow-md rounded-3xl h-fit">
+        {careerInNumbers.map((stat, index) => (
+          <div
+            className="p-8 shadow-md rounded-3xl h-fit"
+            key={index}
+          >
             <p className="pb-1 text-3xl lg:text-6xl leading-tight tracking-tight font-bold">
               {stat.number}
             </p>

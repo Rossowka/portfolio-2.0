@@ -13,7 +13,7 @@ const UpNext = ({ nextProject }) => {
 
       <div className="mb-8">
         <Button
-          label="view next project"
+          label="view project"
           href={nextProject.url}
         />
       </div>
