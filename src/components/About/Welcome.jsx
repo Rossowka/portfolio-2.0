@@ -4,7 +4,7 @@ const avatar = "/images/sara-rossow.png";
 
 const Welcome = () => {
   return (
-    <section className="pt-16 pb-24 lg:pt-48 lg:pb-72 flex flex-col">
+    <section className="pt-16 pb-8 lg:pt-48 flex flex-col">
       <header className="container mt-16 mb-8">
         <div className="sm:hidden mb-4">
           <Image
@@ -16,16 +16,18 @@ const Welcome = () => {
             quality={100}
           />
         </div>
-        <h2 className="page-title ">the sweet spot</h2>
-        <h2 className="page-title md:indent-12 lg:indent-28">
-          of product design
-        </h2>
+        <h1 className="page-title ">
+          the sweet spot
+          <span className="block md:indent-12 lg:indent-28">
+            of product design
+          </span>
+        </h1>
       </header>
       <div className="container">
         <div className=" bg-f-primary/20 h-[1px]"></div>
       </div>
       <div className="container flex flex-col md:flex-row relative gap-8 mt-8 justify-end">
-        <p className="sm:mr-48 max-w-md md:max-w-none md:basis-1/2">
+        <p className="sm:mr-48 max-w-md md:max-w-none text-[1.125rem] md:basis-3/5 md:text-2xl">
           Hey, I am Sara. I am a designer and developer based in{" "}
           <span className="text-f-primary/40 line-through">
             Gdansk, Poland Gold Coast, Australia
