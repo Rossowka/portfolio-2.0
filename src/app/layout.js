@@ -6,7 +6,6 @@ import { NavBar, Footer } from "@/components";
 // THINGS TO TAKE CARE OF
 // -----------------------------------------------------------------------------------
 /*
-  [] add a footer
   [] add analytics
   [] add speed insights
   [] add metadata resource: https://github.com/Rossowka/portfolio-starter-kit/blob/main/app/layout.tsx

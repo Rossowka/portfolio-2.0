@@ -6,7 +6,7 @@ const LittleMarquee = () => {
   const isInView = useInView(marqueeRef, { amount: 0.1 });
 
   const marqueeText =
-    "UX Research, Strategy, Product Design, Prototyping, Development, Motion, ";
+    "Discovering, Strategizing, Collaborating, Creating, Prototyping, Testing, Developing, Delivering,";
 
   return (
     <div

@@ -51,7 +51,7 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
 
           {/* title */}
           <div className="flex gap-1 md:gap-16 justify-between">
-            <h3 className="title">{project.title}</h3>
+            <h3 className="title mb-2 lg:mb-8">{project.title}</h3>
             <div className="min-w-fit relative">
               <ArrowIcon className="-rotate-45 lg:rotate-0 md:group-hover:-rotate-45 transform transition-all duration-300 ease-in-out text-accent" />
               <div className="absolute top-8 right-0 h-full w-full">
@@ -64,12 +64,12 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
 
           {/* results */}
           <div className="flex -mx-2 lg:-mx-5">
-            {project.impact.map((result, index) => (
+            {project.impact.slice(0, 2).map((result, index) => (
               <div
                 key={index}
-                className="pt-8 pb-12 lg:pb-14 px-2 lg:px-5 flex-[0_0_50%] shrink-0 max-w-[50%]"
+                className="pt-4 pb-12 lg:pb-14 px-2 lg:px-5 flex-[0_0_50%] shrink-0 max-w-[50%]"
               >
-                <strong className="text-4xl lg:text-5xl leading-tight tracking-tighter font-serif block mb-4">
+                <strong className="text-4xl lg:text-5xl leading-tight tracking-tighter font-serif block mb-2">
                   {result.data}
                 </strong>
                 <p className="text-sm lg:text-base leading-normal font-normal max-w-[15rem] opacity-80">

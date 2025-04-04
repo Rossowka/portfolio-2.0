@@ -39,57 +39,21 @@ export const closeMenu = (menuBtnRef, logoRef) => {
   return timeline;
 };
 
-export const toggleHeaderOnScroll = (headerRef, isMenuOpen, textColorClass) => {
-  let lastScrollTop = 0;
-  let headerTextColor;
-
-  switch (textColorClass) {
-    case "text-f-primary":
-      headerTextColor = "#1C1C14";
-      break;
-    default:
-      headerTextColor = "#e5e7eb";
-  }
-
-  // Initial state
-  gsap.set(headerRef.current, {
-    yPercent: 0,
-    color: headerTextColor,
-    backgroundColor: "transparent",
-  });
+export const toggleHeaderOnScroll = (headerRef) => {
+  const showAnim = gsap
+    .from(headerRef.current, {
+      yPercent: -100,
+      paused: true,
+      duration: 0.3,
+      ease: "power2.inOut",
+    })
+    .progress(1);
 
   ScrollTrigger.create({
-    start: "top+=100 top",
+    start: "top top",
     end: "max",
     onUpdate: (self) => {
-      if (isMenuOpen) {
-        gsap.to(headerRef.current, {
-          yPercent: 0,
-          backgroundColor: "transparent",
-          duration: 0.3,
-        });
-        return;
-      }
-
-      const scrollTop = window.scrollY;
-
-      if (scrollTop > lastScrollTop) {
-        gsap.to(headerRef.current, {
-          yPercent: -100,
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      } else {
-        gsap.to(headerRef.current, {
-          yPercent: 0,
-          color: scrollTop > 100 ? "#1C1C14" : headerTextColor,
-          backgroundColor: scrollTop > 100 ? "#ffffff" : "transparent",
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      }
-
-      lastScrollTop = scrollTop;
+      self.direction === -1 ? showAnim.play() : showAnim.reverse();
     },
   });
 };

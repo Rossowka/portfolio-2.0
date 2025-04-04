@@ -4,10 +4,10 @@ import { Button } from "../Button";
 
 const AboutSection = () => {
   return (
-    <div className="max-w-xl order-1 lg:order-2 self-center">
+    <div className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-24 lg:pb-24 max-w-xl self-center">
       <HeadingXL
-        headingText="my story"
-        subheadingText="meet me"
+        headingText="here's mine"
+        subheadingText="I believe in stories"
       />
       {story.map((paragraph, index) => (
         <div key={index}>

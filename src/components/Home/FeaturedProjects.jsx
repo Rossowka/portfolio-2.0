@@ -22,23 +22,26 @@ const FeaturedProjects = () => {
       {/* section title */}
       <header className="container flex flex-col items-end">
         <h2 className="page-title md:me-[8%] mb-8 lg:mb-16">
-          featured case studies
+          featured snapshots
         </h2>
         <p className="md:me-[16%] mb-16 md:mb-28 max-w-md">
-          A selection of projects I've been working on. 
+          A selection of recent projects I've been working on. You can find here
+          some interesting case studies for a deep dive into my work process.
         </p>
       </header>
 
       {/* project list */}
       <ul className="container mb-16 lg:mb-28 flex flex-col gap-9 overflow-hidden">
-        {featuredProjects.map((project, index) => (
-          <FeaturedProjectCard
-            key={project.id}
-            project={project}
-            index={index}
-            featuredProjects={featuredProjects}
-          />
-        ))}
+        {[...featuredProjects]
+          .sort((a, b) => b.year - a.year)
+          .map((project, index) => (
+            <FeaturedProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              featuredProjects={featuredProjects}
+            />
+          ))}
       </ul>
 
       {/* button */}

@@ -1,6 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// -----------------------------------------------------------------------------------
+// THINGS TO TAKE CARE OF
+// -----------------------------------------------------------------------------------
+/*
+
+[] add smooth scroll to the button
+ 
+*/
+
 const CircularButton = ({ text, radius, iconSrc }) => {
   const diameter = radius * 2;
   const textHeight = 14;
@@ -35,7 +44,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   return (
     <Link
       href="#featured"
-      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden"
+      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden bg-s-primary"
       style={{
         width: `${diameter}px`,
         height: `${diameter}px`,

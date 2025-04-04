@@ -15,6 +15,6 @@ export const navigation = [
   {
     id: "contact",
     title: "Contact",
-    url: "/contact",
+    url: "#contact",
   },
 ];

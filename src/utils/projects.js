@@ -1,13 +1,15 @@
 const placeholderThumbnail = "/images/placeholder.png";
 
 export const PROJECTS = [
+  // hawe-configurator
   {
     id: "hawe-configurator",
     client: "HAWE",
     title: "Captivating our customers with a new tool showcasing our products.",
-    startDate: "Apr 2023",
-    endDate: "Oct 2024",
-    duration: "(7 months)",
+    startDate: "Apr 2024",
+    endDate: "Dec 2024",
+    year: "2024",
+    duration: "(8 months)",
     role: ["Research", "Strategy", "Design", "Development"],
     team: [
       {
@@ -47,7 +49,7 @@ export const PROJECTS = [
     context:
       "HAWE Hydraulik delivers precision-engineered hydraulic solutions, providing innovative and reliable systems for industries worldwide. They needed to attract more customers with a compelling new tool. I helped them do just that, designing a tool that supports new manufacturing service they were launching.",
     url: "/projects/hawe-configurator",
-    caseStudyUrl: "#",
+    caseStudyUrl: "",
     onlineUrl: "",
     thumbnail: {
       l: {
@@ -75,7 +77,7 @@ export const PROJECTS = [
         alt: "Quote summary page on tablet",
       },
     ],
-    featured: true,
+    featured: false,
   },
   // hawe-pust
   {
@@ -84,15 +86,16 @@ export const PROJECTS = [
     title: "Redesigning Selection Tool for improved recommendation process",
     startDate: "Dec 2023",
     endDate: "Mar 2024",
+    year: "2024",
     duration: "(4 months)",
     role: ["Research", "Design"],
     team: [
       {
-        amount: "2x",
+        count: "2x",
         role: "Product Designer",
       },
       {
-        amount: "1x",
+        count: "1x",
         role: "Head of CX",
       },
     ],
@@ -115,7 +118,7 @@ export const PROJECTS = [
     context:
       "To improve the user experience, I collaborated with a cross-functional teams to revamp and redesign HAWE's smart recommendation tool. Choosing the right product is now more intuitive and the process is more straightforward.",
     url: "/projects/hawe-pust",
-    caseStudyUrl: "#",
+    caseStudyUrl: "",
     onlineUrl: "",
     thumbnail: {
       l: { src: "/images/hawe-pust/thumbnail-l.jpg", alt: "thumbnail" },
@@ -128,32 +131,119 @@ export const PROJECTS = [
     },
     mainShot: { src: "/images/hawe-pust/main.jpg", alt: "..." },
     imageShowcase: [],
-    featured: true,
+    featured: false,
   },
-  // hawe-customer-portal
+  // hawe-ux-maturity
   {
-    id: "hawe-customer-portal",
+    id: "hawe-ux-maturity",
     client: "HAWE",
-    title: "Unifying HAWE's digital experience and crafting a design system",
-    startDate: "Oct 2023",
-    endDate: "ongoing",
-    duration: "(~2 months to first release)",
-    role: ["Research", "Strategy", "Design", "Development"],
+    title: "Elevating HAWE's UX maturity and fostering a user-centric culture",
+    startDate: "Nov 2023",
+    endDate: "Apr 2025",
+    year: "2025",
+    duration: "1.5 years",
+    role: ["Research", "Strategy"],
     team: [
       {
-        amount: "1x",
+        count: "2x",
         role: "Product Designer",
       },
       {
-        amount: "2x",
+        count: "2x",
         role: "UX Consultants",
       },
       {
-        amount: "1x",
+        count: "4x",
+        role: "Developers",
+      },
+      {
+        count: "2x",
+        role: "Product Managers",
+      },
+    ],
+    constraints: [
+      "Low UX maturity",
+      "Teams working in silos",
+      "Limited budget",
+      "Slow adoption",
+    ],
+    impact: [
+      {
+        data: "+",
+        text: "Implemented active user research and user-centric design processes",
+      },
+      {
+        data: "+",
+        text: "Initiated a culture shift to a more collaborative approach",
+      },
+      {
+        data: "+",
+        text: "Developed a design system and revamped the UI, ensuring consistency and efficiency",
+      },
+    ],
+    context:
+      "I worked closely with the Head of CX and the Head of Digitalization on a complete redesign of HAWE’s customer platform. At first, created as a hub for our tools and product catalogue it took a life of its own with each new addition. I encouraged collaboration and turned the focus from products to users. This initiated a cultural shift at HAWE. By aligning our strategy with business goals and client needs, I cultivated UX into HAWE’s culture and made it a core part of our decision-making.",
+    url: "/projects/hawe-ux-maturity",
+    // caseStudyUrl: "/case-study/hawe-ux-maturity",
+    caseStudyUrl: "",
+    onlineUrl: "",
+    thumbnail: {
+      l: {
+        src: "/images/hawe-ux-maturity/thumbnail-l.jpg",
+        alt: "thumbnail",
+      },
+      m: {
+        src: "/images/hawe-ux-maturity/thumbnail-m.jpg",
+      },
+      s: {
+        src: "/images/hawe-ux-maturity/thumbnail-s.jpg",
+      },
+      snapshot: {
+        src: "/images/hawe-ux-maturity/snapshot.jpg",
+        alt: "Couple of components from the design library",
+      },
+    },
+    mainShot: {
+      src: "/images/hawe-ux-maturity/main.jpg",
+      alt: "Collage of components",
+    },
+    imageShowcase: [
+      {
+        src: "/images/hawe-ux-maturity/showcase-1.jpg",
+        alt: "Elements of the design system",
+      },
+      {
+        src: "/images/hawe-ux-maturity/showcase-2.jpg",
+        alt: "Wireframe of the future customer portal vision.",
+      },
+    ],
+    featured: true,
+  },
+  // hawe-design-system
+  {
+    id: "hawe-design-system",
+    client: "HAWE",
+    title: "Unifying HAWE's digital experience and crafting a design system",
+    startDate: "Nov 2023",
+    endDate: "Nov 2024",
+    year: "2024",
+    duration: "1 year",
+    role: ["Research", "Strategy", "Design", "Development"],
+    team: [
+      {
+        count: "1x",
+        role: "Product Designer",
+      },
+      {
+        count: "2x",
+        role: "UX Consultants",
+      },
+      {
+        count: "1x",
         role: "Developer",
       },
       {
-        amount: "1x",
+        count: "1x",
         role: "Head of CX",
       },
     ],
@@ -167,45 +257,46 @@ export const PROJECTS = [
     impact: [
       {
         data: "+",
-        text: "Spearheaded creation of design guidelines and component library",
+        text: "Spearheaded creation of component library and design system",
       },
       {
         data: "+",
-        text: "Defined processes for maintainance and growth of the design system",
+        text: "Defined processes for design system's governance and maintenance",
       },
     ],
     context:
-      "I worked closely with Head of CX on a complete redesign of our customer platform. Initially created as a hub for our tools and product catalogue it took a life of its own with each addition. My goal was to redesign it in line with our corporate identity and needs of our users.",
-    url: "/projects/hawe-customer-portal",
-    caseStudyUrl: "#",
+      "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
+    url: "/projects/hawe-design-system",
+    // caseStudyUrl: "/case-study/hawe-design-system",
+    caseStudyUrl: "",
     onlineUrl: "",
     thumbnail: {
       l: {
-        src: "/images/hawe-customer-portal/thumbnail-l.jpg",
+        src: "/images/hawe-design-system/thumbnail-l.jpg",
         alt: "thumbnail",
       },
       m: {
-        src: "/images/hawe-customer-portal/thumbnail-m.jpg",
+        src: "/images/hawe-design-system/thumbnail-m.jpg",
       },
       s: {
-        src: "/images/hawe-customer-portal/thumbnail-s.jpg",
+        src: "/images/hawe-design-system/thumbnail-s.jpg",
       },
       snapshot: {
-        src: "/images/hawe-customer-portal/snapshot.jpg",
+        src: "/images/hawe-design-system/snapshot.jpg",
         alt: "Couple of components from the design library",
       },
     },
     mainShot: {
-      src: "/images/hawe-customer-portal/main.jpg",
+      src: "/images/hawe-design-system/main.jpg",
       alt: "Collage of components",
     },
     imageShowcase: [
       {
-        src: "/images/hawe-customer-portal/showcase-1.jpg",
+        src: "/images/hawe-design-system/showcase-1.jpg",
         alt: "Elements of the design system",
       },
       {
-        src: "/images/hawe-customer-portal/showcase-2.jpg",
+        src: "/images/hawe-design-system/showcase-2.jpg",
         alt: "Wireframe of the future customer portal vision.",
       },
     ],
@@ -218,6 +309,7 @@ export const PROJECTS = [
     title: "Jazzing up branding for a Big Band website",
     startDate: "Oct 2023",
     endDate: "",
+    year: "2023",
     duration: "",
     role: ["Design"],
     context:
@@ -254,6 +346,7 @@ export const PROJECTS = [
     title: "Helping a local record label manifest their digital presence.",
     startDate: "Oct 2023",
     endDate: "",
+    year: "2023",
     duration: "",
     role: ["Design", "Development"],
     context:

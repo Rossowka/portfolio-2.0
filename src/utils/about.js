@@ -1,19 +1,29 @@
 export const story = [
   {
-    heading: "curiosity-driven design",
-    text: "I believe in stories. Every team and company has one worth telling. To engage with them, I start by carefuly listening to both users and businesses. By asking thoughtful questions I uncover that sweet spot where their needs meet and meaningful connections can happen. That’s where I thrive as a designer, crafting digital experiences that don't just solve problems, but create lasting impressions.",
-  },
-  {
     heading: "hands-on design across mediums",
     text: "While I specialize in designing and developing digital products, I’m a trained architect who enjoys working on physical projects. I tap into my creativity through DIY projects, painting and architectural exploration.",
+  },
+  {
+    heading: "curiosity-driven design",
+    text: "I carefuly listen to both users and businesses. By asking thoughtful questions I uncover that sweet spot where their needs meet and meaningful connections can happen. That’s where I thrive as a designer.",
   },
   {
     heading: "experiences speak louder than words",
     text: "In both professional and personal life, I am looking for ways to create memorable experiences that spark curiosity, build trust, and connect. Because the most powerful stories aren't just told. They're experienced.",
   },
+  {
+    heading: "the explorer mindset",
+    text: "I’m happiest when I’m on the move. Outside of work, I find peace in movement. Whether it's biking around the city, hiking in the mountains, or pushing limits of flexibility and strength practicing yoga. The outdoors clears my mind, keeping me grounded and inspired.",
+  },
 ];
 
 export const careerInNumbers = [
+  {
+    number: ">60",
+    text: "People trained through onboarding sessions and buddy programme",
+    subtext:
+      "I also mentored team members as they transitioned into specialized roles, sharing what I know and helping them build the skills they needed to succeed.",
+  },
   {
     number: "4+",
     text: "Years of experience in creative professions",
@@ -23,13 +33,7 @@ export const careerInNumbers = [
   {
     number: "8/22+",
     text: "Products / Features Designed",
-    subtext: "3 out of 8 were new products",
-  },
-  {
-    number: ">60",
-    text: "People trained through onboarding sessions and buddy programme",
-    subtext:
-      "I also mentored team members as they transitioned into specialized roles, sharing what I know and helping them build the skills they needed to succeed.",
+    subtext: "B2B SaaS, enterprise web-apps, e-commerce, and websites.",
   },
 ];
 

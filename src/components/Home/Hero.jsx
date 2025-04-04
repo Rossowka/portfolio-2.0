@@ -41,7 +41,7 @@ const Hero = () => {
                   className="slide-up drop-shadow-md"
                   ref={leftListRef}
                 >
-                  <li>Creative</li>
+                  <li>Digital</li>
                   <li>Product</li>
                   <li>UX/UI</li>
                   <li>Interaction</li>
@@ -59,9 +59,10 @@ const Hero = () => {
                   className="slide-up"
                   ref={rightListRef}
                 >
+                  <li>Creative</li>
                   <li>Frontend</li>
                   <li>React</li>
-                  <li>Webflow</li>
+                  <li>Low-Code</li>
                 </ul>
               </div>
               <div className="overflow-hidden max-[400px]:h-[3rem] h-[4rem] md:h-[6rem]">
@@ -84,8 +85,8 @@ const Hero = () => {
         {/* welcome note */}
         <div className="z-10 static font-sans lg:absolute lg:left-8 lg:bottom-10 max-w-sm">
           <p className="text-f-primary leading-relaxed">
-            Hi, I'm Sara - a Digital Designer & Developer creating delightful
-            digital experiences with a knack for design and code.
+            I work at the intersection of research, design and development, what
+            I like to call the sweet spot of UX.
           </p>
         </div>
       </div>

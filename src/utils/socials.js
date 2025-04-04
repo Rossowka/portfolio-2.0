@@ -17,12 +17,12 @@ export const socials = [
     iconUrl: "/icons/socials/Dribble.svg",
     url: "https://dribbble.com/Rossowka",
   },
-  {
-    id: "instagram",
-    title: "Instagram",
-    iconUrl: "/icons/socials/Instagram.svg",
-    url: "https://www.instagram.com/designbypinia",
-  },
+  // {
+  //   id: "instagram",
+  //   title: "Instagram",
+  //   iconUrl: "/icons/socials/Instagram.svg",
+  //   url: "https://www.instagram.com/designbypinia",
+  // },
   // {
   //   id: "behance",
   //   title: "Behance",

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ImageSection = ({ currentProject }) => {
   return (
-    <div className="container">
+    <section className="container">
       <Image
         src={currentProject.mainShot.src}
         alt={currentProject.mainShot.alt}
@@ -24,7 +24,7 @@ const ImageSection = ({ currentProject }) => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

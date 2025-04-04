@@ -6,9 +6,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { closeMenu, toggleHeaderOnScroll, openMenu } from "./animations";
 import { SideMenu } from "../SideMenu";
+
+// the underline doesnt change color on the dark background (like in projects page)
 
 gsap.registerPlugin(useGSAP); // register the hook to avoid React version discrepancies
 
@@ -18,11 +20,26 @@ const NavBar = () => {
   const headerRef = useRef(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [textColorClass, setTextColorClass] = useState("text-f-primary");
+  const [bgColorClass, setBgColorClass] = useState("bg-s-primary");
+  const [underlineColorClass, setUnderlineColorClass] =
+    useState("bg-s-inverse");
 
   const pathname = usePathname();
-  // define paths for inverse header color
-  const textColorClass =
-    pathname === "/projects" ? "text-f-inverse" : "text-f-primary";
+
+  // Update text color class when pathname changes
+  useEffect(() => {
+    if (pathname === "/projects") {
+      setTextColorClass("text-f-inverse");
+      setUnderlineColorClass("bg-s-primary");
+      setBgColorClass("bg-s-inverse");
+    } else {
+      setTextColorClass("text-f-primary");
+      setUnderlineColorClass("bg-s-inverse");
+      setBgColorClass("bg-s-primary");
+    }
+  }, [pathname]);
+
   const toggleMenu = () => {
     if (isMenuOpen) {
       setIsMenuOpen(!isMenuOpen);
@@ -33,27 +50,24 @@ const NavBar = () => {
     }
   };
 
-  useGSAP(
-    () => {
-      toggleHeaderOnScroll(headerRef, isMenuOpen, textColorClass);
+  useGSAP(() => {
+    toggleHeaderOnScroll(headerRef);
 
-      if (isMenuOpen) {
-        openMenu(menuBtnRef, logoRef);
-      } else {
-        closeMenu(menuBtnRef, logoRef);
-      }
-    },
-    { dependencies: [isMenuOpen] }
-  );
+    if (isMenuOpen) {
+      openMenu(menuBtnRef, logoRef);
+    } else {
+      closeMenu(menuBtnRef, logoRef);
+    }
+  });
 
   return (
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-0 ${
           isMenuOpen
-            ? "text-f-primary justify-end bg-transparent"
-            : `${textColorClass}`
+            ? `${textColorClass} justify-end bg-transparent`
+            : `${textColorClass} ${bgColorClass}`
         }`}
       >
         <div className="container mx-auto w-full flex items-center justify-between">
@@ -86,12 +100,10 @@ const NavBar = () => {
                       </span>
                       {/* underline */}
                       <span
-                        className={`absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${
-                          textColorClass === "text-f-primary"
-                            ? "bg-s-inverse"
-                            : "bg-s-primary"
-                        } ${
-                          pathname == item.url ? "scale-x-100 bg-s-inverse" : ""
+                        className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass} ${
+                          pathname == item.url
+                            ? `scale-x-100 ${underlineColorClass}`
+                            : ""
                         }`}
                       ></span>
                     </p>

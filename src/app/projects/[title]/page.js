@@ -2,7 +2,6 @@ import { Button } from "@/components";
 import { ImageSection, ProjectDetails, UpNext } from "@/components/Snapshot";
 import { PROJECTS } from "@/utils/projects";
 
-// check how the layout looks with buttons and without buttons, how does it affect the divider and text below
 export default async function ProjectSnapshot({ params }) {
   const title = (await params).title;
   let index = PROJECTS.findIndex((item) => item.id === title);
@@ -43,14 +42,14 @@ export default async function ProjectSnapshot({ params }) {
 
           {/* summary text */}
           <div className="md:ms-[16%] mb-10 md:mb-14 lg:mb-28 flex flex-col md:flex-row">
-            <p className="eyebrow mr-12 mb-4">[ context ]</p>
-            <p className="max-w-lg">{currentProject.context}</p>
+            <p className="eyebrow mr-12 mb-4 mt-1">[ context ]</p>
+            <p className="text-2xl leading-relaxed">{currentProject.context}</p>
           </div>
         </header>
-
-        <ImageSection currentProject={currentProject} />
-        <UpNext nextProject={nextProject} />
       </section>
+
+      <ImageSection currentProject={currentProject} />
+      <UpNext nextProject={nextProject} />
     </>
   );
 }
