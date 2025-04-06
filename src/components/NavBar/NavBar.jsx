@@ -43,9 +43,11 @@ const NavBar = () => {
   const toggleMenu = () => {
     if (isMenuOpen) {
       setIsMenuOpen(!isMenuOpen);
+      closeMenu(menuBtnRef, logoRef);
       enablePageScroll();
     } else {
       setIsMenuOpen(!isMenuOpen);
+      openMenu(menuBtnRef, logoRef);
       disablePageScroll();
     }
   };
@@ -53,11 +55,11 @@ const NavBar = () => {
   useGSAP(() => {
     toggleHeaderOnScroll(headerRef);
 
-    if (isMenuOpen) {
-      openMenu(menuBtnRef, logoRef);
-    } else {
-      closeMenu(menuBtnRef, logoRef);
-    }
+    // if (isMenuOpen) {
+    //   openMenu(menuBtnRef, logoRef);
+    // } else {
+    //   closeMenu(menuBtnRef, logoRef);
+    // }
   });
 
   return (
@@ -76,7 +78,9 @@ const NavBar = () => {
             aria-label="Home"
             href="/"
             ref={logoRef}
-            className="text-2xl/7 font-medium uppercase"
+            className={`text-2xl/7 font-medium uppercase transition-colors duration-700 ${
+              isMenuOpen ? "text-f-inverse" : textColorClass
+            }`}
           >
             Sara Rossow
           </Link>
@@ -116,11 +120,11 @@ const NavBar = () => {
             aria-label="Toggle menu"
             type="button"
             onClick={toggleMenu}
-            className="flex py-8 lg:hidden h-full items-center"
+            className="flex py-4 lg:hidden h-full items-center"
           >
             <div
               ref={menuBtnRef}
-              className={`flex flex-col items-end h-7 overflow-hidden justify-start align-bottom  ${
+              className={`flex flex-col items-end h-7 overflow-hidden justify-start align-bottom transition-colors duration-700 ${
                 isMenuOpen ? "text-f-inverse" : textColorClass
               }`}
             >
