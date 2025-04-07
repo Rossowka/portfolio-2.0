@@ -5,18 +5,6 @@ import { useGSAP } from "@gsap/react";
 import LittleMarquee from "./LittleMarquee";
 import ScrollIndicator from "./ScrollIndicator";
 
-// -----------------------------------------------------------------------------------
-// THINGS TO TAKE CARE OF
-// -----------------------------------------------------------------------------------
-/*
-
-[] add clip path to invert text color https://emilkowal.ski/ui/the-magic-of-clip-path
-[] add scroll down encouragement
-[] experiment with the tilting tile animation
-[] add animations
- 
-*/
-
 const heroImage = "/images/hero-image_lg.png";
 
 const Hero = () => {
@@ -28,7 +16,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-8 md:pb-24 overflow-hidden md:pt-40 lg:pb-24 h-svh max-h-[1200px] relative">
+    <section className="pt-24 pb-2 md:pb-24 overflow-hidden md:pt-40 lg:pb-24 h-svh max-h-[1200px] relative">
       <div className="flex flex-col gap-8 h-full relative container pb-8">
         <LittleMarquee />
         <div className="h-full relative">
