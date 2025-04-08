@@ -2,8 +2,7 @@ import { inriaSerif, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
 import { NavBar, Footer } from "@/components";
 import Script from "next/script";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+import { ConsentManager } from "@/components/ConsentManager";
 
 export const metadata = {
   title: "Sara Rossow • Digital Designer & Developer",
@@ -74,10 +73,10 @@ export default function RootLayout({ children }) {
         <NavBar />
         <main className="flex-grow">{children}</main>
         <Footer />
-        <Analytics />
-        <SpeedInsights />
 
-        {/* Structured data (JSON-LD) for better search engine understanding of my content */}
+        <ConsentManager />
+
+        {/* Structured data for better search engine understanding of my content */}
         <Script
           id="structured-data"
           type="application/ld+json"

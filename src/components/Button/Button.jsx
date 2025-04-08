@@ -17,7 +17,7 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
         dark
           ? "bg-accent md:bg-transparent overflow-hidden border-f-inverse/20 hover:border-f-inverse"
           : primary
-          ? "bg-accent text-white hover:text-f-inverseinverse hover:border-f-inverse/40"
+          ? "bg-accent text-white hover:text-f-inverse hover:border-f-inverse/40"
           : "text-inherit border-f-primary/20 hover:border-f-primary/60 "
       } transform transition-all duration-700 ease-in-out`}
     >
