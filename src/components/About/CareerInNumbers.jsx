@@ -3,9 +3,9 @@ import { HeadingL } from "../Text";
 
 const CareerInNumbers = () => {
   return (
-    <div className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-12 lg:pb-24">
+    <section className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-12 lg:pb-24">
       <HeadingL
-        headingText="career in numbers"
+        headingText="Career in numbers"
         className="text-accent text-right mr-8"
       />
       <div className="flex flex-col md:flex-row gap-8 md:items-end md:justify-end">
@@ -27,7 +27,7 @@ const CareerInNumbers = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,9 +4,9 @@ import { Button } from "../Button";
 
 const AboutSection = () => {
   return (
-    <div className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-24 lg:pb-24 max-w-xl self-center">
+    <section className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-24 lg:pb-24 max-w-xl self-center">
       <HeadingXL
-        headingText="here's mine"
+        headingText="This one is mine"
         subheadingText="I believe in stories"
       />
       {story.map((paragraph, index) => (
@@ -33,7 +33,7 @@ const AboutSection = () => {
           href="https://www.linkedin.com/in/sararossow"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

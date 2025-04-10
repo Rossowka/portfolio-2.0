@@ -1,6 +1,7 @@
-import { Button } from "@/components";
+import { ArrowIcon, Button } from "@/components";
 import { ImageSection, ProjectDetails, UpNext } from "@/components/Snapshot";
 import { PROJECTS } from "@/utils/projects";
+import Link from "next/link";
 
 export default async function ProjectSnapshot({ params }) {
   const title = (await params).title;
@@ -12,8 +13,19 @@ export default async function ProjectSnapshot({ params }) {
   return (
     <>
       <section className="pt-32 md:pt-48 relative">
-        {/* section title */}
         <header className="container flex flex-col">
+          {/* back button */}
+          <Link
+            href="/projects"
+            className="flex group gap-1 py-4 font-medium text-accent mt-1"
+          >
+            <div className="min-w-fit content-center">
+              <ArrowIcon className="transform transition-all duration-300 ease-in-out rotate-180 group-hover:rotate-[225deg]" />
+            </div>
+            Back to all projects
+          </Link>
+
+          {/* section title */}
           <div className="flex flex-col lg:flex-row justify-between">
             <h1 className="project-title md:mr-8 max-w-2xl">
               <span className="font-serif">{currentProject.client} - </span>
