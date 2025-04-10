@@ -1,14 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-
-// -----------------------------------------------------------------------------------
-// THINGS TO TAKE CARE OF
-// -----------------------------------------------------------------------------------
-/*
-
-[] add smooth scroll to the button
- 
-*/
+import { useEffect } from "react";
 
 const CircularButton = ({ text, radius, iconSrc }) => {
   const diameter = radius * 2;
@@ -16,6 +9,32 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   const letterSpacing = 0.25;
   const textPathRadius = radius - textHeight / 2;
   const separator = "-";
+
+  // Add smooth scrolling functionality
+  useEffect(() => {
+    // Apply smooth scrolling behavior to the document
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    // Optional: Clean up when component unmounts
+    return () => {
+      document.documentElement.style.scrollBehavior = "";
+    };
+  }, []);
+
+  // Handle click for smoother scroll experience with fallback
+  const handleSmoothScroll = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href").slice(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Use scrollIntoView for more reliable smooth scrolling
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   // Format text with separators
   const formatCircularText = (text) => {
