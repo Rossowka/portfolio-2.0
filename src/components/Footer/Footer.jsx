@@ -30,10 +30,7 @@ const Footer = () => {
         {/* banner */}
         <div className="flex flex-col md:flex-row md:gap-8 items-center relative">
           {/* image */}
-          <div
-            className="flex-1"
-            // href="mailto:sararossow@mail.com?subject=Getting%20in%20touch&body=Hello%20Sara,"
-          >
+          <div className="flex-1">
             <Image
               src={artBanner}
               width={556}
@@ -46,14 +43,16 @@ const Footer = () => {
 
           {/* text */}
           <div className="flex-shrink-0">
-            <h2
-              className="relative font-bold text-transparent bg-clip-text whitespace-nowrap"
-              style={{
-                backgroundImage: `url(${artBanner})`,
-              }}
-            >
-              Get in touch
-            </h2>
+            <Link href="mailto:sararossow@mail.com?subject=Getting%20in%20touch&body=Hi%20Sara,">
+              <h2
+                className="relative font-bold text-transparent bg-clip-text whitespace-nowrap"
+                style={{
+                  backgroundImage: `url(${artBanner})`,
+                }}
+              >
+                Get in touch
+              </h2>
+            </Link>
             <p className="text-2xl lg:text-[2.5rem] leading-tight ml-1">
               sararossow@mail.com
             </p>
