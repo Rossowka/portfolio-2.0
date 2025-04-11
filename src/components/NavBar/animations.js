@@ -55,5 +55,6 @@ export const toggleHeaderOnScroll = (headerRef) => {
     onUpdate: (self) => {
       self.direction === -1 ? showAnim.play() : showAnim.reverse();
     },
+    onLoad: () => ScrollTrigger.refresh(),
   });
 };

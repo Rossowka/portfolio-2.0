@@ -1,7 +1,11 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const CircularButton = ({ text, radius, iconSrc }) => {
   const diameter = radius * 2;
@@ -10,30 +14,14 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   const textPathRadius = radius - textHeight / 2;
   const separator = "-";
 
-  // Add smooth scrolling functionality
-  useEffect(() => {
-    // Apply smooth scrolling behavior to the document
-    document.documentElement.style.scrollBehavior = "smooth";
-
-    // Optional: Clean up when component unmounts
-    return () => {
-      document.documentElement.style.scrollBehavior = "";
-    };
-  }, []);
-
-  // Handle click for smoother scroll experience with fallback
+  // Handle click for smooth scroll experience
   const handleSmoothScroll = (e) => {
     e.preventDefault();
-    const targetId = e.currentTarget.getAttribute("href").slice(1);
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      // Use scrollIntoView for more reliable smooth scrolling
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: "#featured",
+      ease: "power2.inOut",
+    });
   };
 
   // Format text with separators
@@ -68,6 +56,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
         width: `${diameter}px`,
         height: `${diameter}px`,
       }}
+      onClick={handleSmoothScroll}
     >
       <svg
         className="absolute top-0 left-0 animate-spin-slow"
