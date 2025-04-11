@@ -3,13 +3,12 @@ import { HeadingL } from "../Text";
 
 const CareerInNumbers = () => {
   return (
-    <section className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-12 lg:pb-24">
+    <section className="container pt-16 lg:pt-24 pb-8 md:pb-12 md:pt-12 lg:pb-24">
       <HeadingL
-        headingText="Career in numbers"
+        headingText="career in numbers"
         className="text-accent text-right mr-8"
       />
       <div className="flex flex-col md:flex-row gap-8 md:items-end md:justify-end">
-        {/* <div className="flex flex-col md:flex-row lg:flex-col gap-8"> */}
         {careerInNumbers.map((stat, index) => (
           <div
             className="p-8 shadow-md flex-1 rounded-3xl h-fit"

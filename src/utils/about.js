@@ -1,18 +1,18 @@
 export const story = [
   {
-    heading: "Hands-on design across mediums",
+    heading: "hands-on design across mediums",
     text: "While I specialize in designing and developing digital products, I’m a trained architect who enjoys working on physical projects. I tap into my creativity through DIY projects, painting and architectural exploration.",
   },
   {
-    heading: "Curiosity-driven design",
+    heading: "curiosity-driven design",
     text: "I carefuly listen to both users and businesses. Equipped in thoughtful questions I discover that sweet spot where their needs meet. Where meaningful connections happen - that's where I thrive as a designer.",
   },
   {
-    heading: "Experiences speak louder than words",
+    heading: "experiences speak louder than words",
     text: "In both professional and personal life, I am looking for ways to create memorable experiences that spark curiosity, build trust, and connect. Because the most powerful stories aren't just told. They're experienced.",
   },
   {
-    heading: "The explorer mindset",
+    heading: "the explorer mindset",
     text: "I’m happiest when I’m on the move. Outside of work, I find peace in movement. Whether it's biking around the city, hiking in the mountains, or pushing limits of flexibility and strength practicing yoga. The outdoors clears my mind, keeping me grounded and inspired.",
   },
 ];
@@ -77,27 +77,27 @@ export const photos = [];
 
 export const superpowers = [
   {
-    heading: "Empathetic leadership",
+    heading: "empathetic leadership",
     text: "With a natural ability to connect with people, I am a compassionate collaborator who fosters supportive environment.",
   },
   {
-    heading: "Problem-solving mindset",
+    heading: "problem-solving mindset",
     text: "With my eagle eye I spot challenges before they escalate. I also come up with creative solutions to keep obstacles at bay.",
   },
   {
-    heading: "Flexibility & adaptability",
+    heading: "flexibility & adaptability",
     text: "Comfortable in dynamic environments, my adaptability shines through in  situations involving uncertainty or lack of information. ",
   },
   {
-    heading: "Strategic optimization",
+    heading: "strategic optimization",
     text: "Finding ways to improve even most complex systems is something I genuinely enjoy. I obsess about efficiency and smart iterations.",
   },
   {
-    heading: "Self-motivated growth",
+    heading: "self-motivated growth",
     text: "Learning builds my confidence and I’m always seeking out opportunities to develop my skills and passing on what I’ve learned.",
   },
   {
-    heading: "Accountability & integrity",
+    heading: "accountability & integrity",
     text: "The key to my approach is taking full ownership of commitments. I insist on the highest standards and, in my eyes, long term value outweighs quick wins.",
   },
 ];

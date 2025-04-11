@@ -22,14 +22,13 @@ export default async function ProjectSnapshot({ params }) {
             <div className="min-w-fit content-center">
               <ArrowIcon className="transform transition-all duration-300 ease-in-out rotate-180 group-hover:rotate-[225deg]" />
             </div>
-            Back to all projects
+            back to projects
           </Link>
 
           {/* section title */}
           <div className="flex flex-col lg:flex-row justify-between">
             <h1 className="project-title md:mr-8 max-w-2xl">
-              <span className="font-serif">{currentProject.client} - </span>
-              <span>{currentProject.title}</span>
+              {currentProject.title}
             </h1>
             <ProjectDetails currentProject={currentProject} />
           </div>

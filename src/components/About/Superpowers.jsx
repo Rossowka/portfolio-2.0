@@ -5,10 +5,10 @@ const Superpowers = () => {
   return (
     <section className="pt-32 pb-12 flex flex-col container">
       <HeadingXL
-        headingText="My superpowers"
-        subheadingText="What I bring to the team"
+        headingText="my superpowers"
+        subheadingText="what I bring to the team"
       />
-      <div className="flex flex-wrap -mx-5 ">
+      <div className="flex flex-wrap -mx-5">
         {superpowers.map((paragraph, index) => (
           <div
             key={index}

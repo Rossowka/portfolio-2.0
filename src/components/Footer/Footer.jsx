@@ -18,8 +18,8 @@ const Footer = () => {
       <div className="container flex flex-col mb-16 lg:mb-32">
         <div className="relative">
           <HeadingXL
-            headingText="Let's work together."
-            subheadingText="Sparked your curiosity?"
+            headingText="let's work together."
+            subheadingText="sparked your curiosity?"
           />
           <ArrowIcon
             className="rotate-[135deg] absolute right-[8%] bottom-0 z-10"
