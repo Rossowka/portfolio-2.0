@@ -54,12 +54,6 @@ const NavBar = () => {
 
   useGSAP(() => {
     toggleHeaderOnScroll(headerRef);
-
-    // if (isMenuOpen) {
-    //   openMenu(menuBtnRef, logoRef);
-    // } else {
-    //   closeMenu(menuBtnRef, logoRef);
-    // }
   });
 
   return (
@@ -69,7 +63,7 @@ const NavBar = () => {
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-0 ${
           isMenuOpen
             ? `${textColorClass} justify-end bg-transparent`
-            : `${textColorClass} ${bgColorClass}`
+            : `${textColorClass} ${bgColorClass} delay-1000`
         }`}
       >
         <div className="container mx-auto w-full flex items-center justify-between">

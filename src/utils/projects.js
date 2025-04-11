@@ -143,6 +143,7 @@ export const PROJECTS = [
     year: "2025",
     duration: "1.5 years",
     role: ["Research", "Strategy"],
+    tags: ["Internal System", "Design Process", "Manufacturing", "B2B"],
     team: [
       {
         count: "2x",
@@ -184,8 +185,7 @@ export const PROJECTS = [
     context:
       "I worked closely with the Head of CX and the Head of Digitalization on a complete redesign of HAWE’s customer platform. At first, created as a hub for our tools and product catalogue it took a life of its own with each new addition. I encouraged collaboration and turned the focus from products to users. This initiated a cultural shift at HAWE. By aligning our strategy with business goals and client needs, I cultivated UX into HAWE’s culture and made it a core part of our decision-making.",
     url: "/projects/hawe-ux-maturity",
-    // caseStudyUrl: "/case-study/hawe-ux-maturity",
-    caseStudyUrl: "",
+    caseStudyUrl: "/case-study/hawe-ux-maturity",
     onlineUrl: "",
     thumbnail: {
       l: {

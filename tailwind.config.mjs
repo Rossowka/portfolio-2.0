@@ -49,7 +49,7 @@ export default {
           "@apply font-medium text-lg": {},
         },
         p: {
-          "@apply font-medium text-[1.125rem] leading-relaxed": {},
+          "@apply font-medium text-lg leading-relaxed": {},
         },
       });
       addComponents({
@@ -68,7 +68,7 @@ export default {
           "@apply text-2xl lg:text-[2.5rem] leading-tight mb-8 lg:mb-16": {},
         },
         ".eyebrow": {
-          "@apply font-semibold text-f-primary/40 whitespace-nowrap leading-relaxed text-base":
+          "@apply font-semibold uppercase text-f-primary/40 whitespace-nowrap leading-relaxed text-sm mt-1":
             {},
         },
       });
