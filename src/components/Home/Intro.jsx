@@ -1,16 +1,5 @@
 import { CircularButton } from "../CircularButton";
 
-// -----------------------------------------------------------------------------------
-// THINGS TO TAKE CARE OF
-// -----------------------------------------------------------------------------------
-/*
-
-[] add text animations
-[] add GSAP ScrollToPlugin https://gsap.com/docs/v3/Plugins/ScrollToPlugin/
-[] add a little parallax to circular button
-
-*/
-
 const Intro = () => {
   return (
     <section className="pt-16 pb-24 lg:pt-24 lg:pb-72 flex flex-col">
