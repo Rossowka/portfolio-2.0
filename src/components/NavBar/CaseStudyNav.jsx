@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import { useScrollSpy } from "@/utils/useScrollSpy";
 import Link from "next/link";
 import gsap from "gsap";
@@ -10,7 +10,11 @@ gsap.registerPlugin(ScrollToPlugin);
 export default function SectionNav({ navItems }) {
   // Use the scroll spy hook to track the active section
   const activeSection = useScrollSpy(navItems, { offset: 150 });
-  console.log("activeSection", activeSection);
+
+  useEffect(() => {
+    // Triggerd only when the activeSection changes
+    console.log("Active section changed:", activeSection);
+  }, [activeSection]);
 
   return (
     <nav className="flex-[0_0_25%] max-w-[25%] pt-32 md:pt-36 hidden md:block">
