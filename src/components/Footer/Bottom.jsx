@@ -33,7 +33,7 @@ const Bottom = () => {
             className="px-3 pt-4 hover:text-f-inverse transition-colors"
             aria-label="Reset privacy preferences"
           >
-            Update Cookie Preferences
+            Cookie Preferences
           </button>
           <span className="pt-4">•</span>
           <Link

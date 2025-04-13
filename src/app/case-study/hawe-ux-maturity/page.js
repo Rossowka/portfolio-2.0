@@ -23,13 +23,13 @@ const HUXCaseStudy = async () => {
       <header className="container flex flex-col pt-32 md:pt-40">
         {/* back button */}
         <Link
-          href="/projects"
+          href="/projects/hawe-ux-maturity"
           className="flex group gap-1 py-4 font-medium text-f-primary/40 hover:text-f-primary mt-1 mb-4 uppercase text-xs items-center"
         >
           <div className="min-w-fit content-center">
             <ArrowIcon className="transform transition-all duration-300 ease-in-out rotate-180 group-hover:rotate-[225deg]" />
           </div>
-          back to projects
+          see snapshot
         </Link>
 
         {/* section title */}

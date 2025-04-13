@@ -229,6 +229,7 @@ export const PROJECTS = [
     year: "2024",
     duration: "1 year",
     role: ["Research", "Strategy", "Design", "Development"],
+    tags: ["Design System", "Design Process", "Manufacturing", "B2B"],
     team: [
       {
         count: "1x",
@@ -267,8 +268,7 @@ export const PROJECTS = [
     context:
       "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
     url: "/projects/hawe-design-system",
-    // caseStudyUrl: "/case-study/hawe-design-system",
-    caseStudyUrl: "",
+    caseStudyUrl: "/case-study/hawe-design-system",
     onlineUrl: "",
     thumbnail: {
       l: {

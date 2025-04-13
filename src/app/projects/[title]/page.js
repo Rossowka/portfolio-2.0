@@ -22,7 +22,7 @@ export default async function ProjectSnapshot({ params }) {
             <div className="min-w-fit content-center">
               <ArrowIcon className="transform transition-all duration-300 ease-in-out rotate-180 group-hover:rotate-[225deg]" />
             </div>
-            back to projects
+            see projects
           </Link>
 
           {/* section title */}
