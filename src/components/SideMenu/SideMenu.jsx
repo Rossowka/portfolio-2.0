@@ -28,7 +28,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed w-full h-screen z-40 justify-between ${
+      className={`fixed w-full h-svh z-40 justify-between ${
         isMenuOpen ? "block" : "hidden"
       }
       `}
@@ -91,8 +91,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
               </li>
             ))}
           </ul>
-          {/* <div className="pl-8 py-20 md:p-8 -mx-3"> */}
-          <div className="pl-8 py-6 md:p-12 -mx-3 md:max-w-full">
+          <div className="pl-8 py-20 md:p-8 -mx-3">
             <Socials />
           </div>
         </div>
