@@ -268,7 +268,9 @@ export const PROJECTS = [
     context:
       "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
     url: "/projects/hawe-design-system",
-    caseStudyUrl: "/case-study/hawe-design-system",
+    // TODO: add case study link when available
+    // caseStudyUrl: "/case-study/hawe-design-system",
+    caseStudyUrl: "",
     onlineUrl: "",
     thumbnail: {
       l: {
