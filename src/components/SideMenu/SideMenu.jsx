@@ -91,7 +91,8 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
               </li>
             ))}
           </ul>
-          <div className="pl-8 py-20 md:p-8 -mx-3">
+          {/* <div className="pl-8 py-20 md:p-8 -mx-3"> */}
+          <div className="pl-8 py-6 md:p-12 -mx-3 md:max-w-full">
             <Socials />
           </div>
         </div>
