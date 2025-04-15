@@ -1,8 +1,8 @@
 const HeadingXL = ({ headingText, subheadingText, className }) => {
   return (
-    <div className="flex flex-col pb-4 md:pb-8 lg:pb-12">
+    <div className="flex flex-col mb-4 md:mb-8 lg:mb-16">
       {subheadingText && (
-        <p className="whitespace-nowrap text-base font-semibold text-accent mb-1 ml-1">
+        <p className="whitespace-nowrap uppercase text-xs font-semibold text-accent mb-3 ml-1">
           {subheadingText}
         </p>
       )}

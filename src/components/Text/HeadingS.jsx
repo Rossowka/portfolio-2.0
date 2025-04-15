@@ -1,6 +1,6 @@
 const HeadingS = ({ headingText, className }) => {
   return (
-    <div className="pt-8 pb-4">
+    <div className="mt-8 mb-4">
       <p
         className={`font-semibold text-2xl tracking-tight leading-tight ${className}`}
       >
