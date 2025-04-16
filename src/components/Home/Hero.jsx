@@ -16,13 +16,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-2 md:pb-24 overflow-hidden md:pt-40 lg:pb-24 h-svh max-h-[1200px] relative">
-      <div className="flex flex-col gap-8 h-full relative container pb-8">
+    <section className="pb-2 md:pb-12 overflow-hidden relative">
+      {/* Top padding for menu */}
+      <div className="h-20 md:h-24"></div>
+
+      <div className="flex flex-col gap-8 h-full relative container pt-4 pb-24">
         <LittleMarquee />
-        <div className="h-full relative">
-          <h1 className="tracking-tight uppercase font-serif max-[400px]:text-[3rem] font-bold text-f-inverse text-[4rem] leading-[1] md:text-[6rem] mix-blend-difference">
+        <div className="h-full relative mt-8 lg:mt-16 pt-16 pb-16 lg:pt-32 lg:pb-32">
+          <h1 className="tracking-tight uppercase font-serif max-[400px]:text-[3rem] font-bold text-f-inverse text-[4rem] leading-none md:text-[6rem] mix-blend-difference">
             {/* hero text left */}
-            <span className="z-10 absolute left-0 w-full">
+            <span className="z-10 absolute left-0 w-full top-0">
               {/* text mask */}
               <div className="overflow-hidden max-[400px]:h-[3rem] h-[4rem] md:h-[6rem] flex flex-col">
                 <ul
@@ -59,7 +62,7 @@ const Hero = () => {
             </span>
           </h1>
           {/* middle image */}
-          <div className="absolute px-8 lg:px-0 inset-0 flex justify-center items-center">
+          <div className=" px-8 lg:px-0 inset-0 flex justify-center items-center">
             <Image
               src={heroImage}
               width={400}
@@ -78,7 +81,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ScrollIndicator />
+      {/* <ScrollIndicator /> */}
     </section>
   );
 };
