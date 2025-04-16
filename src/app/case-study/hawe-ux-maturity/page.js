@@ -80,6 +80,7 @@ const HUXCaseStudy = async () => {
 
         {/* the meat of case study goes here */}
         <div>
+          {/* goals */}
           <section
             id={navItems[0].id}
             className="pt-20 md:pt-32 max-w-2xl"
@@ -93,29 +94,79 @@ const HUXCaseStudy = async () => {
               Customer Portal, above all, enables users to quickly find and
               configure products that match their hydraulic needs. With{" "}
               <strong>over 12,000 registered customers</strong> worldwide, HAWE
-              offers dedicated support to each one. <br></br>
-              <br></br>Committed to innovation, the company aspires to improve
-              its digital experience to reflect its vision of being “a company
-              easy to deal with".
+              offers dedicated support to each one.
+              <br />
+              <br />
+              Committed to innovation, the company aspires to improve its
+              digital experience to reflect its vision of being “a company easy
+              to deal with".
             </p>
+            <ul className="flex flex-wrap mt-16 ml-8 md:-mx-5">
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+                <HeadingS
+                  headingText="Make the platform deliver coherent experience"
+                  className="font-serif"
+                />
+                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+                  Using the same fonts and colors across all tools helps keep
+                  our brand consistent and increases customer loyalty.
+                </p>
+              </li>
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+                <div className="mt-8 mb-4">
+                  <p className="font-semibold text-2xl tracking-tight leading-tight font-serif">
+                    Improve <br /> usability
+                  </p>
+                </div>
+                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+                  Simple navigation and functionality make it easier for users
+                  to stick around and keep discovering our products.
+                </p>
+              </li>
+            </ul>
           </section>
+
+          {/* challenges */}
           <section
             id={navItems[1].id}
             className="pt-20 md:pt-32 max-w-2xl"
           >
             <HeadingL
-              headingText="A Disjointed Experience Holding Us Back"
+              headingText="A disjointed experience holding us back"
               subheadingText="challenges"
             />
             <p>
-              When I first joined the team, we faced several challenges. The UI
-              looked different on every screen, teams operated in silos and
-              users were frustrated with inconsistencies. <br></br>
-              <br></br>Without research and research-driven strategy, decisions
-              were often based on assumptions. We were losing potential deals
-              due to poor UI and disjointed user experience.
+              When I first joined, it felt like UX wasn’t really on anyone’s
+              radar. Without research-driven strategy, decisions were often
+              based on assumptions. We were losing potential deals due to poor
+              UI and disjointed user experience.
             </p>
+            <ul className="flex flex-wrap mt-16 ml-8 md:-mx-5">
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+                <HeadingS
+                  headingText="Misunderstanding of UX"
+                  className="font-serif"
+                />
+                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+                  UX was seen as just “making things look nice”, and not a
+                  strategic tool. This made it tough to gain traction in
+                  leadership conversations.
+                </p>
+              </li>
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+                <HeadingS
+                  headingText="Patchworked UI"
+                  className="font-serif"
+                />
+                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+                  Departments were siloed and working with different vendors.
+                  Each introducing their own UI styles.
+                </p>
+              </li>
+            </ul>
           </section>
+
+          {/* approach */}
           <section
             id={navItems[2].id}
             className="pt-20 md:pt-32 max-w-2xl"
@@ -124,22 +175,41 @@ const HUXCaseStudy = async () => {
               headingText="Begin with the user and work backwards"
               subheadingText="the approach"
             />
-            <HeadingM headingText="Understanding Status Quo" />
+            <HeadingM headingText="Understanding the status quo" />
             <p>
-              It was clear, we needed to bridge the gap between design,
-              development, and business goals. The first step was to understand
-              our existing processes. Building trust and communicating my value
-              was key. <br></br>
-              <br></br>I introduced myself across departments as an advocate for
-              User Experience. To better understand the situation, I interviewed
-              over 14 specialists. I gathered their views on our digital
-              products, users, and the challenges they were facing.
+              The first step was to build trust and understand how UX was
+              perceived and practiced across the company. I conducted over 14
+              stakeholder interviews to introduce myself across departments and
+              get a feeling of expectations and issues HAWE was facing.
             </p>
             <HeadingM headingText="Key insights:" />
-            <ul className="flex flex-wrap ml-8 md:-mx-5">
-              <li className="px-5 border-t border-f-primary/10 md:border-none">
+            <p></p>
+            <ul className="flex flex-wrap ml-8 md:-mx-5 -mt-6">
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
                 <HeadingS
-                  headingText="UX demans are loud and clear"
+                  headingText="Design chaos drives up development costs"
+                  className="font-serif"
+                />
+                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+                  Discussions with product teams revealed we lacked processes
+                  for alignment with external vendors and creating new
+                  applications.
+                </p>
+              </li>
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+                <HeadingS
+                  headingText="Sales representatives struggle to find information"
+                  className="font-serif"
+                />
+                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+                  Meeting with field experts revealed a frustrating process. The
+                  portal was slow and forced users to juggle multiple browser
+                  tabs.
+                </p>
+              </li>
+              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+                <HeadingS
+                  headingText="UX demands are loud and clear"
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
@@ -147,77 +217,89 @@ const HUXCaseStudy = async () => {
                   and customer insights.
                 </p>
               </li>
-              <li className="px-5 border-t border-f-primary/10 md:border-none">
-                <HeadingS
-                  headingText="Design chaos drives up costs"
-                  className="font-serif"
-                />
-                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Discussions with product teams revealed we lacked processes
-                  for creating new applications. Neglecting our design manual
-                  was increasing development costs.
-                </p>
-              </li>
-              <li className="px-5 border-t border-f-primary/10 md:border-none">
-                <HeadingS
-                  headingText="Sales struggle to find information"
-                  className="font-serif"
-                />
-                <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Meeting with our field experts revealed a frustrating process.
-                  The portal was slow and poorly organised which forced sales
-                  reps to juggle multiple browser tabs open.
-                </p>
-              </li>
             </ul>
+            <HeadingM headingText="First UX wins" />
+            <p>
+              One of my first big initiatives was a heuristic evaluation of our
+              customer portal. It revealed major usability gaps. Small, targeted
+              changes made big impact. Clearer headers and consistent icons
+              improved usability with little effort.
+              <br />
+              <br />
+              As we mapped each user journey, we could streamline flows and
+              reduce cognitive load. Every screen began doing more, with less
+              effort.
+            </p>
           </section>
+
+          {/* gaining traction */}
           <section
             id={navItems[3].id}
+            className="pt-20 md:pt-32 max-w-2xl"
+          >
+            <HeadingL
+              headingText="From insights to impact"
+              subheadingText="Gaining traction"
+            />
+            <p>
+              At first, my efforts hit walls. While my manager was happy, the
+              ideas we discussed didn’t leave the confinement of our team. At
+              least that's what I thought. Until a lucky strike happened. An
+              innovation manager heard about our initiative and they wanted to
+              involve me in creation of a new tool.
+            </p>
+            <HeadingM headingText="Prototyping to build trust" />
+            <p>
+              I translated early ideas from stakeholders into low-fidelity
+              wireframes and quick prototypes. The project took off and became a
+              springboard for cross-functional collaboration. <br />
+              <br />
+              This momentum helped me get looped into technical conversations
+              and introduced me to engineers from digitalization team, who could
+              help build the tool. This was a direct result of trust earned by
+              solving real problems and showing how UX could unlock real value.
+            </p>
+            <HeadingM headingText="Gaining allies through collaboration" />
+            <p>
+              The digitalization team initially saw UX as a “nice to have,”
+              especially since they worked with external agency. But once we
+              started collaborating on internal tools, they began to see the
+              value of fast iteration and shared standards.
+              <br />
+              <br />
+              Through co-creation and open communication, I gained allies in my
+              design system and ux maturity efforts. What started as a one-off
+              prototype evolved into a strong cross-functional partnership.
+            </p>
+          </section>
+
+          {/* shared vision */}
+          <section
+            id={navItems[4].id}
             className="pt-20 md:pt-32 max-w-2xl"
           >
             <HeadingL
               headingText="Mediating across teams to bring them together"
               subheadingText="shared vision"
             />
-            <HeadingM headingText="Finding allies" />
-            <p>
-              With a weak UX presence, gaining leadership support wasn’t easy. I
-              stayed persistent and used creative problem-solving to get my
-              ideas noticed. <br></br>
-              <br></br>Fortunately, I found people who understood the value of
-              UX, and had the influence to drive change forward. We cooperated
-              with an external UX agency to help guide us through the process of
-              strenghening UX presence in the organisation.
-            </p>
             <HeadingM headingText="Spreading the UX mindset" />
             <p>
-              Together, we preached about the benefits of better usability, how
-              it supports company goals and values, and educated about UX during
-              workshops. <br></br>
-              <br></br>We helped HAWE focus on the user the same way the company
-              was focusing on the customer in person. Step by step, we
-              introduced key UX principles into HAWE’s digital products and
-              processes.
+              We shared our findings with other teams. Together, we preached
+              about usability, how it supports company customer-first values,
+              and educated about UX during workshops.
             </p>
-          </section>
-          <section
-            id={navItems[4].id}
-            className="pt-20 md:pt-32 max-w-2xl"
-          >
-            <HeadingL
-              headingText="Evaluating our products"
-              subheadingText="research"
-            />
-            <HeadingM headingText="Small UX wins" />
+            <HeadingM headingText="Championing data-driven decisions" />
             <p>
-              To show the value of UX, I started with a heuristics evaluation,
-              focusing on quick wins. Small changes made a big impact. Clearer
-              headers, and consistent icons improved usability with little
-              effort.
-              <br></br>
-              <br></br>While working with our design manual and standardizing
-              icons, I realized a need for a cohesive design system. Later on I
-              took it on myself to develop.
+              Thanks to insights from my interviews and usability tests, I
+              created action points for improvements, clear handoff guides and
+              my prototypes became conversation starters. As we gained speed, I
+              co-led the effort to formalize what had been an improvisation so
+              far.
+              <br />
+              <br />
+              We began documenting our workflows, design patterns, and user
+              feedback. I introduced a simple but scalable design system with a
+              governance model to ensure consistency across teams.
             </p>
             <Link
               href="/case-study/hawe-design-system"
@@ -231,18 +313,9 @@ const HUXCaseStudy = async () => {
                 />
               </div>
             </Link>
-            <HeadingM headingText="Championing data-driven decisions" />
-            <p>
-              I led usability tests and user interviews, turning feedback into
-              actionable product improvements. Thanks to these insights I
-              created clear handoff guides. Together, with the team we
-              documented a structured research process.
-              <br></br>
-              <br></br>With these small steps we demonstrated the tangible
-              impact of UX. Our team built a user-centered foundation for a more
-              informed UX approach across the company.
-            </p>
           </section>
+
+          {/* measuring success */}
           <section
             id={navItems[5].id}
             className="pt-20 md:pt-32 max-w-2xl"
@@ -253,24 +326,30 @@ const HUXCaseStudy = async () => {
             />
             <HeadingM headingText="Measuring Success" />
             <p>
-              While we had a solid foundation in qualitative research, we were
-              missing on quantitative data. I introduced the work of our digital
-              marketing team to my product teams. Conversation started on
-              leveraging web analytics tools and using it to measure impact of
-              changes we make. <br></br>
-              <br></br>To get us started, while we wait for the data, I
-              introduced a simple grading system. It helped us during the design
-              process to measure improvements during user testing and
-              post-release.
+              While we had a strong base in qualitative research, we lacked
+              quantitative insights. I brought in input from our digital
+              marketing team and kicked off conversations around using web
+              analytics to track the impact of our changes.
+              <br />
+              <br />
+              To get started, I introduced a simple scorecard that helped us
+              measure improvements during user testing and after release.
             </p>
-            <HeadingM headingText="Embeding UX in the culture" />
+
+            <HeadingM headingText="Creating UX rituals" />
             <p>
-              The real success was the crawling shift in the mindset. We
-              established a weekly UX meeting where we shared improvements and
-              encouraged all team members to contribute ideas. <br></br>
-              <br></br>Design was evolving into a strategic function rather than
-              just an afterthought. The foundation was set, not just for the
-              current products, but for the company’s long-term vision.
+              We opened up a line of communication between teams. We started
+              weekly UX syncs to connect the dots across teams and products.
+              These small implementations created visibility and momentum, even
+              when we couldn’t launch big initiatives.
+            </p>
+
+            <HeadingM headingText="Shifting the mindset" />
+            <p>
+              As we continued to show value, more teams came to us early. Design
+              was evolving into a strategic function rather than just an
+              afterthought. The foundation was set, not just for the current
+              products, but for the company’s long-term vision.
             </p>
           </section>
 
@@ -287,13 +366,11 @@ const HUXCaseStudy = async () => {
             <ul className="flex flex-wrap ml-8 md:-mx-5">
               <li className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5 border-t border-f-primary/10 md:border-none">
                 <HeadingS
-                  headingText="UX change takes some grit"
+                  headingText="Driving UX change takes some grit"
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Driving UX maturity in a traditional organization takes time
-                  and... stubbornness. It is important to keep on going and
-                  document the smallest wins.
+                  Stay persistent and keep documenting every win.
                 </p>
               </li>
               <li className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5 border-t border-f-primary/10 md:border-none">
@@ -302,8 +379,8 @@ const HUXCaseStudy = async () => {
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Bridging the gap between design, development, and business
-                  ensures a holistic approach to user-centered design.
+                  It brings a holistic view to user-centered design and gives
+                  sense of shared ownership.
                 </p>
               </li>
               <li className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5 border-y border-f-primary/10 md:border-none">
@@ -312,9 +389,8 @@ const HUXCaseStudy = async () => {
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Combining research with analytics creates a compelling case
-                  for UX improvements and aligns design decisions with business
-                  goals.
+                  Combining research with analytics makes a strong business case
+                  for UX.
                 </p>
               </li>
             </ul>
@@ -326,8 +402,8 @@ const HUXCaseStudy = async () => {
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Continue evolving the design system by incorporating more
-                  advanced components and adopting further applications.
+                  Continue evolving the design system by adopting further
+                  applications.
                 </p>
               </li>
               <li className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5 border-t border-f-primary/10 md:border-none">
@@ -336,9 +412,8 @@ const HUXCaseStudy = async () => {
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Implement continuous discovery practices to keep an eye on the
-                  data and make sure user voice is at the center of product
-                  development.
+                  Stay close to the data and keep the user voice at the heart of
+                  product decisions.
                 </p>
               </li>
               <li className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5 border-y border-f-primary/10 md:border-none">
@@ -347,9 +422,7 @@ const HUXCaseStudy = async () => {
                   className="font-serif"
                 />
                 <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
-                  Foster a culture of UX by educating other teams, mentoring
-                  junior designers and embedding UX best practices across all
-                  digital touchpoints.
+                  Foster UX culture by mentoring and sharing knowledge.
                 </p>
               </li>
             </ul>
@@ -363,9 +436,10 @@ const HUXCaseStudy = async () => {
               UX maturity is about more than just the design team's work. It's
               about creating a shared mindset, encouraging collaboration, and
               securing a user-centered approach throughout the entire
-              organization. <br></br>
-              <br></br>If you're looking for a designer who can bridge gaps and
-              drive meaningful change, let’s connect.
+              organization. <br />
+              <br />
+              If you're looking for a designer who can bridge gaps and drive
+              meaningful change, let’s connect.
             </p>
           </section>
         </div>
