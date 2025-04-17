@@ -20,7 +20,7 @@ const HUXCaseStudy = async () => {
 
   return (
     <>
-      <header className="container flex flex-col pt-32 md:pt-40">
+      <header className="container flex flex-col pt-16 md:pt-40">
         {/* back button */}
         <Link
           href="/projects/hawe-ux-maturity"
@@ -69,7 +69,11 @@ const HUXCaseStudy = async () => {
         <div className="flex flex-col md:flex-row">
           <p className="eyebrow mr-12 mb-4">[ context ]</p>
           <p className="text-2xl leading-normal lg:text-lg lg:leading-relaxed">
-            {currentProject.context}
+            HAWE delivers custom hydraulic solutions for every need. Its
+            Customer Portal, above all, enables users to quickly find and
+            configure products that match their hydraulic needs. With{" "}
+            <strong>over 12,000 registered customers</strong> worldwide, HAWE
+            offers dedicated support to each one.
           </p>
         </div>
       </header>
@@ -90,19 +94,12 @@ const HUXCaseStudy = async () => {
               subheadingText={"goals"}
             />
             <p>
-              HAWE delivers custom hydraulic solutions for every need. Its
-              Customer Portal, above all, enables users to quickly find and
-              configure products that match their hydraulic needs. With{" "}
-              <strong>over 12,000 registered customers</strong> worldwide, HAWE
-              offers dedicated support to each one.
-              <br />
-              <br />
               Committed to innovation, the company aspires to improve its
               digital experience to reflect its vision of being “a company easy
               to deal with".
             </p>
             <ul className="flex flex-wrap mt-16 ml-8 md:-mx-5">
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <HeadingS
                   headingText="Make the platform deliver coherent experience"
                   className="font-serif"
@@ -112,7 +109,7 @@ const HUXCaseStudy = async () => {
                   our brand consistent and increases customer loyalty.
                 </p>
               </li>
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <div className="mt-8 mb-4">
                   <p className="font-semibold text-2xl tracking-tight leading-tight font-serif">
                     Improve <br /> usability
@@ -142,7 +139,7 @@ const HUXCaseStudy = async () => {
               UI and disjointed user experience.
             </p>
             <ul className="flex flex-wrap mt-16 ml-8 md:-mx-5">
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <HeadingS
                   headingText="Misunderstanding of UX"
                   className="font-serif"
@@ -153,7 +150,7 @@ const HUXCaseStudy = async () => {
                   leadership conversations.
                 </p>
               </li>
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <HeadingS
                   headingText="Patchworked UI"
                   className="font-serif"
@@ -185,7 +182,7 @@ const HUXCaseStudy = async () => {
             <HeadingM headingText="Key insights:" />
             <p></p>
             <ul className="flex flex-wrap ml-8 md:-mx-5 -mt-6">
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <HeadingS
                   headingText="Design chaos drives up development costs"
                   className="font-serif"
@@ -196,7 +193,7 @@ const HUXCaseStudy = async () => {
                   applications.
                 </p>
               </li>
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <HeadingS
                   headingText="Sales representatives struggle to find information"
                   className="font-serif"
@@ -207,7 +204,7 @@ const HUXCaseStudy = async () => {
                   tabs.
                 </p>
               </li>
-              <li className="px-5 border-t border-f-primary/10 md:border-none flex-[0_0_50%] max-w-[50%]">
+              <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
                 <HeadingS
                   headingText="UX demands are loud and clear"
                   className="font-serif"
