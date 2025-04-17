@@ -23,14 +23,14 @@ const Bottom = () => {
           </p>
         </div>
 
-        <div className="order-2 md:order-2 flex text-f-inverse/40 text-xs mt-6 md:mt-0 flex-[0_0_50%] md:flex-[0_0_30%] max-w-[50%] justify-end md:justify-center border-t-[1px] border-f-inverse/20 md:border-t-0">
+        <div className="order-2 md:order-2 items-center flex text-f-inverse/40 text-xs mt-6 md:mt-0 flex-[0_0_50%] md:flex-[0_0_30%] max-w-[50%] justify-end md:justify-center border-t-[1px] border-f-inverse/20 md:border-t-0">
           <button
             onClick={() => {
               // This will clear the stored preference and reload the page
               localStorage.removeItem("analytics-consent-status");
               window.location.reload();
             }}
-            className="px-3 pt-4 hover:text-f-inverse transition-colors"
+            className="px-3 pt-4 hover:text-f-inverse transition-colors text-left"
             aria-label="Reset privacy preferences"
           >
             Cookie Preferences
