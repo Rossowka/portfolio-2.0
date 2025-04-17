@@ -80,10 +80,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
           ref={menuRef}
           className="fixed inset-0 z-0"
           style={{
-            height:
-              contentHeight > window.innerHeight
-                ? `${contentHeight}px`
-                : "100%",
+            height: orientation === "landscape" ? `${contentHeight}px` : "100%",
           }}
         >
           <div className="absolute inset-0 bg-accent h-full"></div>
