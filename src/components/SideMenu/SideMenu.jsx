@@ -70,7 +70,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed w-full top-0 z-40 ${
+      className={`fixed w-full h-fit top-0 z-40 ${
         isMenuOpen ? "block" : "hidden"
       } overflow-auto`}
     >
