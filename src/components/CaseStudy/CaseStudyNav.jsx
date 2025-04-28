@@ -7,7 +7,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-export default function SectionNav({ navItems }) {
+const CaseStudyNav = ({ navItems }) => {
   // Use the scroll spy hook to track the active section
   const activeSection = useScrollSpy(navItems, { offset: 150 });
 
@@ -50,4 +50,6 @@ export default function SectionNav({ navItems }) {
       </ul>
     </nav>
   );
-}
+};
+
+export default CaseStudyNav;
