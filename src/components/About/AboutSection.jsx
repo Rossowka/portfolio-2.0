@@ -1,5 +1,5 @@
 import { story } from "@/utils/about";
-import { HeadingL, HeadingXL } from "../Text";
+import { HeadingM, HeadingXL } from "../Text";
 import { Button } from "../Button";
 
 const AboutSection = () => {
@@ -11,7 +11,7 @@ const AboutSection = () => {
       />
       {story.map((paragraph, index) => (
         <div key={index}>
-          <HeadingL
+          <HeadingM
             headingText={paragraph.heading}
             className="font-serif"
           />
