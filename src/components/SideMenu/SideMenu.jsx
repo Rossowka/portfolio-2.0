@@ -70,17 +70,19 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed w-full top-0 bottom-0 z-40 ${
+      className={`fixed w-full top-0 z-40 ${
         isMenuOpen ? "block" : "hidden"
       } overflow-auto`}
     >
+      {/* <div className="z-0 bg-s-secondary w-full h-full absolute inset-0"></div> */}
       <nav className="w-full h-full relative">
         {/* Background panels for menu slide-in animation */}
         <div
           ref={menuRef}
           className="fixed inset-0 z-0"
           style={{
-            height: orientation === "landscape" ? `${contentHeight}px` : "100%",
+            height:
+              orientation === "landscape" ? `${contentHeight}px` : "100svh",
           }}
         >
           <div className="absolute inset-0 bg-accent h-full"></div>
