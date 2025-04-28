@@ -12,7 +12,7 @@ export default async function ProjectSnapshot({ params }) {
 
   return (
     <>
-      <section className="pt-32 md:pt-48 relative">
+      <section className="pt-16 md:pt-48 relative">
         <header className="container flex flex-col">
           {/* back button */}
           <Link
@@ -53,8 +53,8 @@ export default async function ProjectSnapshot({ params }) {
 
           {/* summary text */}
           <div className="md:ms-[16%] mb-10 md:mb-14 lg:mb-28 flex flex-col md:flex-row">
-            <p className="eyebrow mr-12 mb-4 mt-1">[ context ]</p>
-            <p className="text-2xl leading-relaxed">{currentProject.context}</p>
+            <p className="eyebrow mr-12 mb-4 mt-1">[ summary ]</p>
+            <p className="text-2xl leading-relaxed">{currentProject.summary}</p>
           </div>
         </header>
       </section>

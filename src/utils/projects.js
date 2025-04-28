@@ -182,8 +182,10 @@ export const PROJECTS = [
         text: "Developed a design system and revamped the UI, ensuring consistency and efficiency",
       },
     ],
-    context:
+    summary:
       "I worked closely with the Head of CX and the Head of Digitalization on a complete redesign of HAWE’s customer platform. At first, created as a hub for our tools and product catalogue it took a life of its own with each new addition. I encouraged collaboration and turned the focus from products to users. This initiated a cultural shift at HAWE. By aligning our strategy with business goals and client needs, I cultivated UX into HAWE’s culture and made it a core part of our decision-making.",
+    context:
+      "HAWE delivers custom hydraulic solutions for every need. Its Customer Portal, above all, enables users to quickly find and configure products that match their hydraulic needs. With over 12,000 registered customers worldwide, HAWE offers dedicated support to each one.",
     url: "/projects/hawe-ux-maturity",
     caseStudyUrl: "/case-study/hawe-ux-maturity",
     onlineUrl: "",
@@ -265,12 +267,12 @@ export const PROJECTS = [
         text: "Defined processes for design system's governance and maintenance",
       },
     ],
-    context:
+    summary:
       "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
+    context:
+      "HAWE Hydraulik is a family-owned German company known for engineering precision in hydraulic components and systems. Its Customer Portal serves as a central hub. It powers up internal teams and customers alike with the tools they need to get things done.",
     url: "/projects/hawe-design-system",
-    // TODO: add case study link when available
-    // caseStudyUrl: "/case-study/hawe-design-system",
-    caseStudyUrl: "",
+    caseStudyUrl: "/case-study/hawe-design-system",
     onlineUrl: "",
     thumbnail: {
       l: {

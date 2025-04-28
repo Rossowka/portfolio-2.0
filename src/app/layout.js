@@ -1,8 +1,7 @@
 import { inriaSerif, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
-import { NavBar, Footer } from "@/components";
+import { NavBar, ConsentManager, Footer } from "@/components";
 import Script from "next/script";
-import { ConsentManager } from "@/components/ConsentManager";
 
 export const metadata = {
   title: "Sara Rossow • Digital Designer & Developer",
@@ -68,6 +67,11 @@ export default function RootLayout({ children }) {
           rel="manifest"
           href="/manifest.json"
         />
+        {/* <link
+          rel="preload"
+          href="/images/hero-image.jpg"
+          as="image"
+        /> */}
       </head>
       <body className="min-h-screen flex flex-col">
         <NavBar />
