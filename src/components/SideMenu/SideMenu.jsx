@@ -77,7 +77,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
     >
       <div
         ref={overlayRef}
-        className="z-0 bg-s-secondary w-full h-full absolute inset-0"
+        className="z-0 bg-s-secondary w-full h-svh absolute inset-0"
       ></div>
       <nav className="w-full h-full relative">
         {/* Background panels for menu slide-in animation */}
