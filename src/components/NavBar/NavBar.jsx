@@ -16,6 +16,7 @@ const NavBar = () => {
   const menuBtnRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
+  const scrollTriggerRef = useRef(null); // Store the scroll trigger reference
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [textColorClass, setTextColorClass] = useState("text-f-primary");
@@ -38,10 +39,11 @@ const NavBar = () => {
     }
   }, [pathname]);
 
+  // Toggle between opened and closed menu
   const toggleMenu = () => {
     if (isMenuOpen) {
       setIsMenuOpen(!isMenuOpen);
-      closeMenu(menuBtnRef, logoRef);
+      closeMenu(menuBtnRef, logoRef, headerRef);
       enablePageScroll();
     } else {
       setIsMenuOpen(!isMenuOpen);
@@ -50,9 +52,31 @@ const NavBar = () => {
     }
   };
 
-  useGSAP(() => {
-    toggleHeaderOnScroll(headerRef);
-  });
+  // Create the ScrollTrigger once on component mount
+  useEffect(() => {
+    scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
+
+    // Clean up on unmount
+    return () => {
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+      }
+    };
+  }, []);
+
+  // Toggle ScrollTrigger based on menu state
+  useEffect(() => {
+    if (scrollTriggerRef.current) {
+      if (isMenuOpen) {
+        // Disable ScrollTrigger and ensure header is visible when menu is open
+        scrollTriggerRef.current.disable();
+        gsap.to(headerRef.current, { yPercent: 0, duration: 0.3 });
+      } else {
+        // Re-enable ScrollTrigger when menu is closed
+        scrollTriggerRef.current.enable();
+      }
+    }
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -61,7 +85,7 @@ const NavBar = () => {
         className={`fixed top-0 w-screen max-w-full z-50 transition-colors duration-0 ${
           isMenuOpen
             ? `${textColorClass} bg-transparent`
-            : `${textColorClass} ${bgColorClass} delay-1000`
+            : `${textColorClass} ${bgColorClass} delay-200 duration-500`
         }`}
       >
         <div className="lg:container w-screen px-4 lg:px-8 flex items-center justify-between">
@@ -77,7 +101,10 @@ const NavBar = () => {
             Sara Rossow
           </Link>
           {/* navigation */}
-          <nav className="hidden lg:block lg:-mr-4">
+          {/* make it show the close menu as long as the menu is open (edge case- someone changes orientation while the menu is open on tablet -> they cannot close the menu) */}
+          <nav
+            className={`hidden lg:-mr-4 ${isMenuOpen ? "hidden" : "lg:block"}`}
+          >
             <ul className="flex">
               {navigation.map((item) => (
                 <li key={item.id}>
@@ -112,7 +139,9 @@ const NavBar = () => {
             aria-label="Toggle menu"
             type="button"
             onClick={toggleMenu}
-            className="flex py-4 lg:hidden h-full items-center"
+            className={`flex py-4 h-full items-center ${
+              isMenuOpen ? "" : "lg:hidden"
+            }`}
           >
             <div
               ref={menuBtnRef}

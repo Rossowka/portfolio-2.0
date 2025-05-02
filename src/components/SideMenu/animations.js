@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-export const openMenu = (containerRef, menuRef) => {
+export const openMenu = (containerRef, menuRef, overlayRef) => {
   const timeline = gsap.timeline({
     defaults: {
       ease: "main",
@@ -20,6 +20,13 @@ export const openMenu = (containerRef, menuRef) => {
       { xPercent: 105, skewX: 5 },
       { xPercent: 0, skewX: 0, stagger: 0.12, duration: 0.575 },
       "<"
+    )
+    .fromTo(
+      // Overlay animation
+      overlayRef.current,
+      { xPercent: 105 },
+      { xPercent: 0, duration: 0.3 },
+      "<+=0.30"
     )
     // Text and icon animation
     .fromTo(

@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { navigation } from "@/utils/navigation";
-import { closeMenu, openMenu } from "./animation";
+import { closeMenu, openMenu } from "./animations";
 import Link from "next/link";
 import { Socials } from "../Socials";
 
@@ -15,47 +15,6 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
   const overlayRef = useRef(null);
-  const [orientation, setOrientation] = useState(null);
-  const [contentHeight, setContentHeight] = useState(0);
-
-  // Detect orientation changes
-  useEffect(() => {
-    const updateOrientation = () => {
-      setOrientation(
-        window.innerHeight > window.innerWidth ? "portrait" : "landscape"
-      );
-    };
-
-    // Set initial orientation
-    updateOrientation();
-
-    // Add event listener
-    window.addEventListener("resize", updateOrientation);
-
-    // Clean up
-    return () => window.removeEventListener("resize", updateOrientation);
-  }, []);
-
-  // Update background height when content changes
-  useEffect(() => {
-    if (contentRef.current && isMenuOpen) {
-      const updateHeight = () => {
-        const height = contentRef.current.scrollHeight;
-        setContentHeight(height);
-      };
-
-      updateHeight();
-      // Small delay to ensure all content is rendered
-      const timer = setTimeout(updateHeight, 100);
-
-      window.addEventListener("resize", updateHeight);
-
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener("resize", updateHeight);
-      };
-    }
-  }, [isMenuOpen, orientation]);
 
   useGSAP(
     () => {
@@ -71,33 +30,26 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed w-full top-0 h-svh z-40 ${
-        isMenuOpen ? "block" : "hidden"
-      } overflow-auto`}
+      className={`fixed inset-0 w-full h-dvh z-40 ${
+        isMenuOpen ? "flex flex-col" : "hidden"
+      }`}
     >
+      {/* Background panels for menu slide-in animation */}
       <div
-        ref={overlayRef}
-        className="z-0 bg-s-secondary w-full h-full absolute inset-0"
-      ></div>
-      <nav className="w-full h-full relative">
-        {/* Background panels for menu slide-in animation */}
-        <div
-          ref={menuRef}
-          className="fixed inset-0 z-0"
-          style={{
-            height:
-              orientation === "landscape" ? `${contentHeight}px` : "100svh",
-          }}
-        >
-          <div className="absolute inset-0 bg-accent h-full"></div>
-          <div className="absolute inset-0 bg-f-primary h-full"></div>
-          <div className="absolute inset-0 bg-s-secondary h-full"></div>
-        </div>
+        ref={menuRef}
+        className="fixed inset-0 z-10"
+      >
+        <div className="absolute inset-0 bg-accent h-full"></div>
+        <div className="absolute inset-0 bg-f-primary h-full"></div>
+        <div className="absolute inset-0 bg-s-secondary h-full"></div>
+      </div>
 
+      {/* Scrollable content area */}
+      <nav className="relative z-20 w-full h-full overflow-y-auto">
         {/* Menu inner content */}
         <div
           ref={contentRef}
-          className="flex flex-col z-10 relative text-f-inverse"
+          className="flex flex-col text-f-inverse min-h-full"
         >
           {/* Top padding for menu */}
           <div className="h-16 md:h-24 lg:h-32"></div>
@@ -151,13 +103,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
           </ul>
 
           {/* Social icons */}
-          <div
-            className={`
-            pl-8 -mx-3
-            ${orientation === "landscape" ? "py-8" : "py-6 md:py-8"} 
-            w-full
-          `}
-          >
+          <div className="pl-8 -mx-3 py-8 w-full mt-auto">
             <Socials />
           </div>
         </div>
