@@ -71,13 +71,13 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed w-full top-0 bottom-0 z-40 ${
+      className={`fixed w-full top-0 h-svh z-40 ${
         isMenuOpen ? "block" : "hidden"
       } overflow-auto`}
     >
       <div
         ref={overlayRef}
-        className="z-0 bg-s-secondary w-full h-svh absolute inset-0"
+        className="z-0 bg-s-secondary w-full h-full absolute inset-0"
       ></div>
       <nav className="w-full h-full relative">
         {/* Background panels for menu slide-in animation */}
