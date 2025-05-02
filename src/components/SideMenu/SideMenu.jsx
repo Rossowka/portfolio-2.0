@@ -14,6 +14,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   const menuRef = useRef(null);
   const containerRef = useRef(null);
   const contentRef = useRef(null);
+  const overlayRef = useRef(null);
   const [orientation, setOrientation] = useState(null);
   const [contentHeight, setContentHeight] = useState(0);
 
@@ -59,7 +60,7 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   useGSAP(
     () => {
       if (isMenuOpen) {
-        openMenu(containerRef, menuRef);
+        openMenu(containerRef, menuRef, overlayRef);
       } else {
         closeMenu(containerRef);
       }
@@ -70,11 +71,14 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed w-full h-fit top-0 z-40 ${
+      className={`fixed w-full top-0 bottom-0 z-40 ${
         isMenuOpen ? "block" : "hidden"
       } overflow-auto`}
     >
-      {/* <div className="z-0 bg-s-secondary w-full h-full absolute inset-0"></div> */}
+      <div
+        ref={overlayRef}
+        className="z-0 bg-s-secondary w-full h-full absolute inset-0"
+      ></div>
       <nav className="w-full h-full relative">
         {/* Background panels for menu slide-in animation */}
         <div
