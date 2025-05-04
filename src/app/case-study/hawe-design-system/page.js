@@ -38,21 +38,20 @@ const HDSCaseStudy = async () => {
             sectionTag="goals"
           >
             <p>
-              With a commitment to quality and efficiency, HAWE aspires to unify
-              its digital experience and streamline the design process to
-              minimize development costs. I led the efforts to bring that vision
-              to life.
+              As our digital products evolved, cracks started to show. With a
+              commitment to quality and efficiency, HAWE aimed to unify its
+              digital experience and streamline processes to minimize design
+              debt and development costs. I led the initiative to bring that
+              vision to life.
             </p>
             <CaseStudyList>
               <CaseStudyListItem
                 title="Establish visual and functional consistency"
-                text="Using the same component look and behavior leads to cohesive
-                  user experience and brand identity across platforms."
+                text="Create shared UI components to unify the look, feel, and behavior across tools."
               />
               <CaseStudyListItem
-                title="Improve efficiency and collaboration"
-                text="Creating a shared language between design and development
-                  teams helps us work together more effectively."
+                title="Streamline collaboration and development"
+                text="Bridge gaps between design and dev through a shared source of truth."
               />
             </CaseStudyList>
           </CaseStudySection>
@@ -64,32 +63,28 @@ const HDSCaseStudy = async () => {
             sectionTag="challenges"
           >
             <p>
-              As our customer portal expanded rapidly, keeping digital
-              experiences consistent across the platform became a real
-              challenge.
-              <br></br>
-              <br></br>
-              What was the biggest obstacle? The voice of our digital presence
-              didn't match the trust and customer-first vibe we wanted to give
-              off. The tools were raw with unclear interfaces and felt
-              impersonal, which in the end was undermining our credibility.
+              Every tool had its own aesthetic and logic. Without a unified
+              approach, we ended up with fragmented journeys, inconsistent
+              visuals, and inefficient workflows. Outsourced design and dev made
+              scaling a headache.
             </p>
-            <CaseStudyList title="Where we struggled:">
+
+            <CaseStudyList title="What we were up against:">
               <CaseStudyListItem
-                title="Lack of code ownership"
-                text="We relied on external contractors for majority of our code, limiting our ability to implement design changes independently."
+                title="No code ownership"
+                text="Most of our front-end work was outsourced, which made iterating on designs slow and clunky. We couldn’t move fast."
               />
               <CaseStudyListItem
-                title="Too many cooks"
-                text="Each tool was built and managed by different contracted agencies, with different tech-stacks. Result was a bumpy experience and coordination issues."
+                title="Too many cooks in the kitchen"
+                text="Each tool was built by a different agency. That meant different UI patterns, no reusable components and a very patchy experience."
               />
               <CaseStudyListItem
-                title="Poor documentation and onboarding"
-                text="Even though we had a design manual not all teams were aware of it. Some applications ignored the design manual entirely."
+                title="Documentation? Sort of..."
+                text="We had a design manual, but it wasn’t widely used. Some teams followed it, others didn’t know it existed."
               />
               <CaseStudyListItem
                 title="Design team of one"
-                text="With limited resources, I had to wear many hats. Prioritizing time was essential and focusing on the most impactful steps was key to success."
+                text="With limited resources, I juggled design, strategy, and stakeholder alignment. It pushed me to build a system all could rally around."
               />
             </CaseStudyList>
           </CaseStudySection>
@@ -101,85 +96,84 @@ const HDSCaseStudy = async () => {
             sectionTag="approach"
           >
             <p>
-              In response to the challenges we faced, I took a lead on creating
-              the design system. Since I was working alone, I started small. I
-              gathered up feedback from the product teams and conducted a
-              lightweight UX audit of the existing tools.
+              I kicked things off with a cross-product audit. I talked to teams
+              and gathered my suspects: mismatched buttons, inconsistent
+              patterns and interactions. This helped visualize just how
+              fragmented our experience had become, and it gave me a clear place
+              to start.
             </p>
-            <HeadingM headingText="Prototyping to show impact" />
-            <p>
-              Within days, I mocked up a set of redesigned interfaces, taking
-              Material UI library as a base. Showing our tools in a consistent
-              and visually unified version helped me get engagement from the
-              stakeholders.
-            </p>
-            <HeadingM headingText="Start small with intent to scale gradually" />
-            <p>
-              We picked one product to pilot the new design system. Armed with
-              Atomic Design principles and a mindset for scalable, cross-product
-              impact, I began building our design system library.
-            </p>
-          </CaseStudySection>
+            {/* Image suggestions: (1) Screenshot of messy pre-audit UI components (2) Figma inventory file (3) Comparison of duplicated components */}
 
-          {/* research */}
-          <CaseStudySection
-            id={navItems[3].id}
-            sectionTitle="Capturing the current state"
-            sectionTag="research"
-          >
+            <HeadingM headingText="Prototyping to build buy-in" />
             <p>
-              To build a strong foundation, I started by cataloguing existing UI
-              components across our products. Buttons, input fields, modals,
-              icons - you name it. This inventory in Figma became a visual map
-              of inconsistencies and gave us a clear prioritization path for
-              standarizing components.
+              Using Material UI as a base, I quickly mocked up clean, consistent
+              interfaces. Stakeholders saw the value, and we shifted from
+              debating theory of "nice-to-haves" to exploring solutions.
             </p>
+            {/* Image suggestions: (1) Before/after interface mockups (2) Figma prototype preview (3) Stakeholder feedback quotes overlaying prototype */}
+
+            <HeadingM headingText="Starting small, scaling smart" />
+            <p>
+              We piloted the system on one product. I followed Atomic Design
+              principles to build tokens, components, and patterns. Early dev
+              feedback helped me refine things fast.
+            </p>
+            {/* Image suggestions: (1) Atomic design component structure (2) Screenshot of component use in the pilot tool (3) Design token definition examples */}
+
+            <HeadingM headingText="From one designer to a shared language" />
+            <p>
+              With regular critiques, open Teams threads, and async walkthroughs
+              I helped the system become collaborative. By creating visibility
+              early and inviting others in, we turned a design system into a
+              shared language.
+            </p>
+            {/* Image suggestions: (1) Slack convo with devs (2) Screenshot of design critiques (3) Loom walk-through snippet */}
+
             <HeadingM headingText="Joining forces" />
             <p>
-              At first, it was just me. Then a fellow designer/researcher joined
-              the mission. Our dynamic brought fresh perspectives. I got to
-              teach Figma, and share system thinking. We held regular design
-              critiques, improving components and sharpening decisions together.
+              Initially a solo mission, I was later joined by a fellow designer.
+              This collaboration sharpened decision-making, boosted component
+              quality, and added momentum through regular design critiques.
             </p>
+            {/* Image suggestions: ... */}
           </CaseStudySection>
 
           {/* design */}
           <CaseStudySection
-            id={navItems[4].id}
+            id={navItems[3].id}
             sectionTitle="Anatomy of a button"
             sectionTag="design"
           >
             <p>
-              Designing components wasn’t just about how they looked. It was
-              about how they worked. Our external development teams needed
-              clarity, and all we wanted was consistency. To achieve that, I
-              created specs that blended design, behavior, and rules, accessible
-              to all teams, internal or external.
+              Designing components wasn’t just about looks. Dev teams needed
+              clarity, and we needed consistency. To achieve that, I documented
+              specs covering design, behavior, and best practices.
             </p>
-            <CaseStudyList title="Every component spec I created documented:">
+            <CaseStudyList title="Each component spec included:">
               <CaseStudyListItem
-                title="Visual design"
-                text="Design tokens for colors, shadows, responsive typography and spacing, and other visual elements."
+                title="Design tokens"
+                text="Colors, spacing, type, and other visual elements - all consistent, all reusable."
               />
               <CaseStudyListItem
-                title="Interaction and animation"
-                text="How the user can interact with the component and what happens, including rules on animation."
+                title="Interaction rules"
+                text="Hover states, focus behavior, animation timing - no guesswork."
               />
               <CaseStudyListItem
-                title="Usage guidelines"
-                text="Best practices for using the component variants in different contexts, including accessibility and edge cases."
+                title="Guidelines and edge cases"
+                text="Usage do’s and don’ts, accessibility guide, and examples."
               />
               <CaseStudyListItem
-                title="Code snippets"
-                text="Providing developers with the code they need to implement the component."
+                title="Dev-ready snippets"
+                text="HTML/CSS snippets to make implementation smoother."
               />
             </CaseStudyList>
+            {/* Image suggestions: (1) Figma component with annotation (2) Spec doc screenshot (3) Live implementation side-by-side with design */}
           </CaseStudySection>
 
           {/* operations */}
           <CaseStudySection
-            id={navItems[5].id}
-            sectionTitle="Making the system work for us"
+            id={navItems[4].id}
+            sectionTitle="Building a living system"
             sectionTag="operations"
           >
             <p>
@@ -205,17 +199,63 @@ const HDSCaseStudy = async () => {
               our system was not just functional, but future-ready.
             </p>
           </CaseStudySection>
+          <CaseStudySection
+            id={navItems[4].id}
+            sectionTitle="Keeping it alive (and useful)"
+            sectionTag="operations"
+          >
+            <p>
+              To expand adoption, I built playbooks and wrote guidelines for
+              contribution, versioning, and ongoing feedback. Our system quickly
+              matured into a team-wide asset, saving hours otherwise spent on
+              repeated work.
+            </p>
+
+            <HeadingM headingText="Version control to the rescue" />
+            <p>
+              Accidentaly pulling an update was causing chaos in prototypes. To
+              solve this, I introduced a versioning practice inspired by
+              front-end workflows. Designers could now test changes safely
+              before "pushing to production".
+            </p>
+
+            <HeadingM headingText="External critique for internal confidence" />
+            <p>
+              A senior UX consultant reviewed our work before launch. Their
+              outside eye helped sharpen accessibility and logic - turning a
+              solid system into a robust one.
+            </p>
+            {/* Image suggestions: (1) Screenshot of changelog/versioning UI (2) Feedback doc from UX audit (3) Versioning diagram */}
+          </CaseStudySection>
 
           {/* summary */}
           <CaseStudySection
-            id={navItems[6].id}
+            id={navItems[5].id}
             sectionTitle="Looking back and in the future"
-            sectionTag="summary"
+            sectionTag="results"
           >
-            <CaseStudyList title="Key learnings:">
+            <CaseStudyList title="What we achieved:">
+              <CaseStudyListItem
+                title="Design time cut by around 50%"
+                text="Reusable components sped up new feature creation and design iterations."
+              />
+              <CaseStudyListItem
+                title="Consistency across 4+ products achieved"
+                text="No more guessing games for users. A single design language replaced fragmented visuals."
+              />
+              <CaseStudyListItem
+                title="Increased developer and PM satisfaction"
+                text="Less back-and-forth, clearer specs, and a shared language made handoff smoother."
+              />
+              <CaseStudyListItem
+                title="Shared ownership unlocked"
+                text="The system wasn’t mine anymore. Thanks to governance and maintenance guidelines the team was empowered to co-create."
+              />
+            </CaseStudyList>
+            <CaseStudyList title="What I learned:">
               <CaseStudyListItem
                 title="The visible system isn't the whole system"
-                text="True success depends on governance, shared purpose, and evolving the system intentionally—not just creating components."
+                text="True success depends on governance, shared purpose, and evolving the system intentionally - not just creating components."
               />
               <CaseStudyListItem
                 title="Shared vision unlocks real adoption"
@@ -227,10 +267,14 @@ const HDSCaseStudy = async () => {
               />
             </CaseStudyList>
 
-            <CaseStudyList title="Future objectives:">
+            <CaseStudyList title="What’s next:">
               <CaseStudyListItem
-                title="Strengthen contribution processes"
-                text="Encourage more teams to engage in co-creation by reinforcing clear guidelines and governance structures."
+                title="Strengthen contribution models"
+                text="Making it even easier for devs and designers to co-create and expand the library."
+              />
+              <CaseStudyListItem
+                title="Introduce design system KPIs"
+                text="Track and measure usage, adoption, and a feedback loop for continuous improvement."
               />
               <CaseStudyListItem
                 title="Build a living system, not a frozen one"
@@ -244,13 +288,14 @@ const HDSCaseStudy = async () => {
             sectionTag="Reach out"
           >
             <p>
-              This project was more than building a design system. It was about
-              creating a shared foundation for better, faster, more delightful
-              products. I started alone. But by the end, we had a living system,
-              a growing team, and a culture that valued UX. <br />
+              This wasn’t just a design system. It was about creating a shared
+              foundation for better, faster, more delightful products. I started
+              alone. By the end, we had a living system, a growing team, and a
+              culture that valued UX. <br />
               <br />
-              If you're looking for a designer who can think in systems and
-              bring clarity to cross-team collaboration, let’s connect.
+              If you're tackling messy systems and want a design partner who
+              brings systems thinking, momentum and clarity to cross-team
+              collaboration, let’s connect.
             </p>
           </CaseStudySection>
         </div>

@@ -259,8 +259,8 @@ export const PROJECTS = [
     ],
     impact: [
       {
-        data: "+",
-        text: "Spearheaded creation of component library and design system",
+        data: "~50%",
+        text: "Cut in design-to-product time. The tool became crucial to cross-team collaboration",
       },
       {
         data: "+",

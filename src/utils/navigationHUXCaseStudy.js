@@ -5,5 +5,5 @@ export const navItems = [
   { id: "gaining-traction", label: "04 - Gaining Traction" },
   { id: "shared-vision", label: "05 - Shared Vision" },
   { id: "strategy", label: "06 - Strategy" },
-  { id: "summary", label: "07 - Summary" },
+  { id: "results", label: "07 - Results" },
 ];
