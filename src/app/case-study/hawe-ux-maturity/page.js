@@ -254,9 +254,31 @@ const HUXCaseStudy = async () => {
           <CaseStudySection
             id={navItems[6].id}
             sectionTitle="Looking back and in the future"
-            sectionTag="summary"
+            sectionTag="results"
           >
-            <CaseStudyList title="Key learnings:">
+            <CaseStudyList title="What we achieved:">
+              <CaseStudyListItem
+                title="UX became part of the conversation"
+                text="More teams invited UX early in the process, shifting design from a visual afterthought to a strategic tool."
+              />
+              <CaseStudyListItem
+                title="Streamlined cross-team collaboration"
+                text="Shared practices, regular UX syncs, and clear documentation helped dissolve silos and align priorities."
+              />
+              <CaseStudyListItem
+                title="Improved usability with minimal effort"
+                text="Small changes, like better headers and clearer icons, reduced cognitive load and improved user flows."
+              />
+              <CaseStudyListItem
+                title="Increased stakeholder confidence"
+                text="Low-fidelity prototypes helped translate abstract goals into tangible solutions, leading to executive buy-in."
+              />
+              <CaseStudyListItem
+                title="Set a foundation for future scale"
+                text="Established processes, rituals, and reusable patterns to support long-term growth in UX maturity."
+              />
+            </CaseStudyList>
+            <CaseStudyList title="What I learned:">
               <CaseStudyListItem
                 title="Driving UX change takes some grit"
                 text="Stay persistent and keep documenting every win."
@@ -272,7 +294,7 @@ const HUXCaseStudy = async () => {
                   for UX."
               />
             </CaseStudyList>
-            <CaseStudyList title="Future objectives:">
+            <CaseStudyList title="What’s next:">
               <CaseStudyListItem
                 title="Expand the design system"
                 text="Continue evolving the design system by adopting further
