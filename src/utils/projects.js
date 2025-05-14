@@ -260,7 +260,7 @@ export const PROJECTS = [
     impact: [
       {
         data: "~50%",
-        text: "Cut in design-to-product time. The tool became crucial to cross-team collaboration",
+        text: "Cut in idea-to-product time. The tool became crucial to cross-team collaboration",
       },
       {
         data: "+",

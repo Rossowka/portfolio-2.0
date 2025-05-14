@@ -1,12 +1,13 @@
 import {
   CaseStudyHeader,
+  CaseStudyImage,
   CaseStudyList,
   CaseStudyListItem,
   CaseStudyNav,
   CaseStudySection,
+  UpNext,
+  HeadingM,
 } from "@/components";
-import { UpNext } from "@/components/Snapshot";
-import { HeadingM } from "@/components/Text";
 import { navItems } from "@/utils/navigationHDSCaseStudy";
 import { PROJECTS } from "@/utils/projects";
 
@@ -44,6 +45,7 @@ const HDSCaseStudy = async () => {
               debt and development costs. I led the initiative to bring that
               vision to life.
             </p>
+            <div></div>
             <CaseStudyList>
               <CaseStudyListItem
                 title="Establish visual and functional consistency"
@@ -68,6 +70,11 @@ const HDSCaseStudy = async () => {
               visuals, and inefficient workflows. Outsourced design and dev made
               scaling a headache.
             </p>
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-challenge.jpg"
+              alt="Screenshots of different tools with different UI patterns"
+              height={300}
+            />
 
             <CaseStudyList title="What we were up against:">
               <CaseStudyListItem
@@ -97,12 +104,17 @@ const HDSCaseStudy = async () => {
           >
             <p>
               I kicked things off with a cross-product audit. I talked to teams
-              and gathered my suspects: mismatched buttons, inconsistent
-              patterns and interactions. This helped visualize just how
-              fragmented our experience had become, and it gave me a clear place
-              to start.
+              and gathered my suspects in an inventory: mismatched buttons,
+              inconsistent patterns and interactions. This helped visualize just
+              how fragmented our experience had become, and it gave me a clear
+              place to start.
             </p>
-            {/* Image suggestions: (1) Screenshot of messy pre-audit UI components (2) Figma inventory file (3) Comparison of duplicated components */}
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-audit.jpg"
+              alt="Screenshot of messy Header components and documentation defining the component"
+              height={313}
+              caption="Based on the same documentation, different teams created different components. This was a great starting point to show the need for a design system."
+            />
 
             <HeadingM headingText="Prototyping to build buy-in" />
             <p>
@@ -110,7 +122,12 @@ const HDSCaseStudy = async () => {
               interfaces. Stakeholders saw the value, and we shifted from
               debating theory of "nice-to-haves" to exploring solutions.
             </p>
-            {/* Image suggestions: (1) Before/after interface mockups (2) Figma prototype preview (3) Stakeholder feedback quotes overlaying prototype */}
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-prototyping.jpg"
+              alt="Before and after interface mockup"
+              height={251}
+              caption="Prototyping helped to visualize the design system and its components. It was a great way to show the value of the system."
+            />
 
             <HeadingM headingText="Starting small, scaling smart" />
             <p>
@@ -118,8 +135,12 @@ const HDSCaseStudy = async () => {
               principles to build tokens, components, and patterns. Early dev
               feedback helped me refine things fast.
             </p>
-            {/* Image suggestions: (1) Atomic design component structure (2) Screenshot of component use in the pilot tool (3) Design token definition examples */}
-
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-start.jpg"
+              alt="Design token definition in Figma"
+              height={251}
+              caption="Design tokens were the first step in creating a design system. They helped us to define the visual language of the system."
+            />
             <HeadingM headingText="From one designer to a shared language" />
             <p>
               With regular critiques, open Teams threads, and async walkthroughs
@@ -127,7 +148,12 @@ const HDSCaseStudy = async () => {
               early and inviting others in, we turned a design system into a
               shared language.
             </p>
-            {/* Image suggestions: (1) Slack convo with devs (2) Screenshot of design critiques (3) Loom walk-through snippet */}
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-walkthrough.jpg"
+              alt="Loom walk-through snippet"
+              height={338}
+              caption="Quick Teams calls and Loom recordings were a great way to explain the design system, its components and implementations."
+            />
 
             <HeadingM headingText="Joining forces" />
             <p>
@@ -135,7 +161,12 @@ const HDSCaseStudy = async () => {
               This collaboration sharpened decision-making, boosted component
               quality, and added momentum through regular design critiques.
             </p>
-            {/* Image suggestions: ... */}
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-collaboration.jpg"
+              alt="Screenshot of brainstorming session"
+              height={322}
+              caption="Brainstorming sessions with the team helped us to align on the design system requirements and its components."
+            />
           </CaseStudySection>
 
           {/* design */}
@@ -149,6 +180,11 @@ const HDSCaseStudy = async () => {
               clarity, and we needed consistency. To achieve that, I documented
               specs covering design, behavior, and best practices.
             </p>
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-component.jpg"
+              alt="Screenshot of component documentation in Figma"
+              height={300}
+            />
             <CaseStudyList title="Each component spec included:">
               <CaseStudyListItem
                 title="Design tokens"
@@ -167,50 +203,20 @@ const HDSCaseStudy = async () => {
                 text="HTML/CSS snippets to make implementation smoother."
               />
             </CaseStudyList>
-            {/* Image suggestions: (1) Figma component with annotation (2) Spec doc screenshot (3) Live implementation side-by-side with design */}
           </CaseStudySection>
 
           {/* operations */}
-          <CaseStudySection
-            id={navItems[4].id}
-            sectionTitle="Building a living system"
-            sectionTag="operations"
-          >
-            <p>
-              To grow adoption beyond our bubble, I hosted walkthroughs in team
-              meetings, wrote clear contribution guidelines, and created
-              feedback loops for continuous improvement. Soon, our fledgling
-              design system became a shared language used by multiple teams, and
-              saving hours of duplicated work.
-            </p>
-            <HeadingM headingText="Introducing version control" />
-            <p>
-              Once we started using the design system on different projects,
-              updating the component library became a struggle. Accidentaly
-              pulling an update to the library would affect our prototypes. To
-              solve this, I followed version control practices I know from
-              frontend development and introduced it in our system.
-            </p>
-            <HeadingM headingText="Ensuring our design system is solid" />
-            <p>
-              Before finalizing the system, I consulted a senior designer from
-              an external UX agency. Their fresh perspective helped surface
-              small improvements around accessibility and edge cases, ensuring
-              our system was not just functional, but future-ready.
-            </p>
-          </CaseStudySection>
           <CaseStudySection
             id={navItems[4].id}
             sectionTitle="Keeping it alive (and useful)"
             sectionTag="operations"
           >
             <p>
-              To expand adoption, I built playbooks and wrote guidelines for
-              contribution, versioning, and ongoing feedback. Our system quickly
-              matured into a team-wide asset, saving hours otherwise spent on
-              repeated work.
+              To expand adoption beyond our bubble, I built playbooks and wrote
+              guidelines for contribution, versioning, and ongoing feedback. Our
+              system quickly matured into a team-wide asset, saving hours
+              otherwise spent on repeated work.
             </p>
-
             <HeadingM headingText="Version control to the rescue" />
             <p>
               Accidentaly pulling an update was causing chaos in prototypes. To
@@ -218,14 +224,24 @@ const HDSCaseStudy = async () => {
               front-end workflows. Designers could now test changes safely
               before "pushing to production".
             </p>
-
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-versioning.jpg"
+              alt="Screenshots of change log page"
+              caption="Versioning was a great way to keep track of changes in the design system. It helped us to avoid breaking changes and to communicate updates to the team."
+              height={300}
+            />
             <HeadingM headingText="External critique for internal confidence" />
             <p>
-              A senior UX consultant reviewed our work before launch. Their
-              outside eye helped sharpen accessibility and logic - turning a
-              solid system into a robust one.
+              Before launch, we consulted with an external agency for a last
+              review. Their fresh perspective helped sharpen accessibility and
+              reinforced our vision and direction - turning a solid system into
+              a robust one.
             </p>
-            {/* Image suggestions: (1) Screenshot of changelog/versioning UI (2) Feedback doc from UX audit (3) Versioning diagram */}
+            <CaseStudyImage
+              src="/images/hawe-design-system/cs-tree.jpg"
+              alt="View of the design system tree"
+              height={672}
+            />{" "}
           </CaseStudySection>
 
           {/* summary */}
