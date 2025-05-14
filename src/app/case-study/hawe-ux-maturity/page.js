@@ -7,6 +7,7 @@ import {
   CaseStudyList,
   CaseStudyListItem,
   HeadingM,
+  CaseStudyParagraph,
 } from "@/components";
 import { navItems } from "@/utils/navigationHUXCaseStudy";
 import { PROJECTS } from "@/utils/projects";
@@ -39,11 +40,11 @@ const HUXCaseStudy = async () => {
             sectionTitle="Redesign of the platform to reflect HAWE's approach to customers"
             sectionTag="goals"
           >
-            <p>
+            <CaseStudyParagraph>
               Committed to innovation, the company aspires to improve its
               digital experience to reflect its vision of being “a company easy
               to deal with".
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyList>
               <CaseStudyListItem
                 title="Make the platform deliver seamless experience"
@@ -69,12 +70,12 @@ const HUXCaseStudy = async () => {
             sectionTitle="A disjointed experience holding us back"
             sectionTag="challenges"
           >
-            <p>
+            <CaseStudyParagraph>
               When I first joined, it felt like UX wasn’t really on anyone’s
               radar. Without research-driven strategy, decisions were often
               based on assumptions. We were losing potential deals due to poor
               UI and disjointed user experience.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyList>
               <CaseStudyListItem
                 title="Misunderstanding of UX"
@@ -99,12 +100,12 @@ const HUXCaseStudy = async () => {
             sectionTag="approach"
           >
             <HeadingM headingText="Understanding the status quo" />
-            <p>
+            <CaseStudyParagraph>
               The first step was to build trust and understand how UX was
               perceived and practiced across the company. I conducted over 14
               stakeholder interviews to introduce myself across departments and
               get a feeling of expectations and issues HAWE was facing.
-            </p>
+            </CaseStudyParagraph>
 
             <CaseStudyList title="Key insights:">
               <CaseStudyListItem
@@ -122,7 +123,7 @@ const HUXCaseStudy = async () => {
             </CaseStudyList>
 
             <HeadingM headingText="First UX wins" />
-            <p>
+            <CaseStudyParagraph>
               One of my first big initiatives was a heuristic evaluation of our
               customer portal. It revealed major usability gaps. Small, targeted
               changes made big impact. Clearer headers and consistent icons
@@ -132,7 +133,7 @@ const HUXCaseStudy = async () => {
               As we mapped each user journey, we could streamline flows and
               reduce cognitive load. Every screen began doing more, with less
               effort.
-            </p>
+            </CaseStudyParagraph>
           </CaseStudySection>
 
           {/* gaining traction */}
@@ -141,16 +142,16 @@ const HUXCaseStudy = async () => {
             sectionTitle="From insights to impact"
             sectionTag="gaining traction"
           >
-            <p>
+            <CaseStudyParagraph>
               At first, my efforts hit walls. While my manager was happy, the
               ideas we discussed didn’t leave the confinement of our team. At
               least that's what I thought. Until a lucky strike happened. An
               innovation manager heard about our initiative and they wanted to
               involve me in creation of a new tool.
-            </p>
+            </CaseStudyParagraph>
 
             <HeadingM headingText="Prototyping to build trust" />
-            <p>
+            <CaseStudyParagraph>
               I translated early ideas from stakeholders into low-fidelity
               wireframes and quick prototypes. The project took off and became a
               springboard for cross-functional collaboration. <br />
@@ -159,10 +160,10 @@ const HUXCaseStudy = async () => {
               and introduced me to engineers from digitalization team, who could
               help build the tool. This was a direct result of trust earned by
               solving real problems and showing how UX could unlock real value.
-            </p>
+            </CaseStudyParagraph>
 
             <HeadingM headingText="Gaining allies through collaboration" />
-            <p>
+            <CaseStudyParagraph>
               The digitalization team initially saw UX as a “nice to have,”
               especially since they worked with external agency. But once we
               started collaborating on internal tools, they began to see the
@@ -172,7 +173,7 @@ const HUXCaseStudy = async () => {
               Through co-creation and open communication, I gained allies in my
               design system and ux maturity efforts. What started as a one-off
               prototype evolved into a strong cross-functional partnership.
-            </p>
+            </CaseStudyParagraph>
           </CaseStudySection>
 
           {/* shared vision */}
@@ -182,14 +183,14 @@ const HUXCaseStudy = async () => {
             sectionTag="shared vision"
           >
             <HeadingM headingText="Spreading the UX mindset" />
-            <p>
+            <CaseStudyParagraph>
               We shared our findings with other teams. Together, we preached
               about usability, how it supports company customer-first values,
               and educated about UX during workshops.
-            </p>
+            </CaseStudyParagraph>
 
             <HeadingM headingText="Championing data-driven decisions" />
-            <p>
+            <CaseStudyParagraph>
               Thanks to insights from my interviews and usability tests, I
               created action points for improvements, clear handoff guides and
               my prototypes became conversation starters. As we gained speed, I
@@ -200,7 +201,7 @@ const HUXCaseStudy = async () => {
               We began documenting our workflows, design patterns, and user
               feedback. I introduced a simple but scalable design system with a
               governance model to ensure consistency across teams.
-            </p>
+            </CaseStudyParagraph>
             <Link
               href="/case-study/hawe-design-system"
               className="flex group gap-1 py-4 font-medium text-accent mt-1"
@@ -222,7 +223,7 @@ const HUXCaseStudy = async () => {
             sectionTag="measuring success"
           >
             <HeadingM headingText="Measuring Success" />
-            <p>
+            <CaseStudyParagraph>
               While we had a strong base in qualitative research, we lacked
               quantitative insights. I brought in input from our digital
               marketing team and kicked off conversations around using web
@@ -231,23 +232,23 @@ const HUXCaseStudy = async () => {
               <br />
               To get started, I introduced a simple scorecard that helped us
               measure improvements during user testing and after release.
-            </p>
+            </CaseStudyParagraph>
 
             <HeadingM headingText="Creating UX rituals" />
-            <p>
+            <CaseStudyParagraph>
               We opened up a line of communication between teams. We started
               weekly UX syncs to connect the dots across teams and products.
               These small implementations created visibility and momentum, even
               when we couldn’t launch big initiatives.
-            </p>
+            </CaseStudyParagraph>
 
             <HeadingM headingText="Shifting the mindset" />
-            <p>
+            <CaseStudyParagraph>
               As we continued to show value, more teams came to us early. Design
               was evolving into a strategic function rather than just an
               afterthought. The foundation was set, not just for the current
               products, but for the company’s long-term vision.
-            </p>
+            </CaseStudyParagraph>
           </CaseStudySection>
 
           {/* summary section */}
@@ -316,7 +317,7 @@ const HUXCaseStudy = async () => {
             sectionTitle="Let’s talk UX evolution"
             sectionTag="Reach out"
           >
-            <p>
+            <CaseStudyParagraph>
               UX maturity is about more than just the design team's work. It's
               about creating a shared mindset, encouraging collaboration, and
               securing a user-centered approach throughout the entire
@@ -324,7 +325,7 @@ const HUXCaseStudy = async () => {
               <br />
               If you're looking for a designer who can bridge gaps and drive
               meaningful change, let’s connect.
-            </p>
+            </CaseStudyParagraph>
           </CaseStudySection>
         </div>
       </div>

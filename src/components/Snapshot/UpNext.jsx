@@ -1,8 +1,22 @@
+"use client";
+
 import { Button } from "../Button";
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { useRef } from "react";
 
 const UpNext = ({ nextProject }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+
   return (
-    <section className="container p-8 mt-16 -mb-14 border-t-[1px] border-b-[1px] border-f-inverse">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="container p-8 mt-16 -mb-14 border-t-[1px] border-b-[1px] border-f-inverse"
+    >
       <div className="flex flex-col">
         <p className="eyebrow mb-6">[ up next ]</p>
         <h1 className="project-title ">
@@ -24,7 +38,7 @@ const UpNext = ({ nextProject }) => {
           />
         )}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

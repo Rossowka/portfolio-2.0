@@ -5,6 +5,7 @@ import {
   CaseStudyListItem,
   CaseStudyNav,
   CaseStudySection,
+  CaseStudyParagraph,
   UpNext,
   HeadingM,
 } from "@/components";
@@ -38,14 +39,13 @@ const HDSCaseStudy = async () => {
             sectionTitle="Achieve consistency and clarity across teams"
             sectionTag="goals"
           >
-            <p>
+            <CaseStudyParagraph>
               As our digital products evolved, cracks started to show. With a
               commitment to quality and efficiency, HAWE aimed to unify its
               digital experience and streamline processes to minimize design
               debt and development costs. I led the initiative to bring that
               vision to life.
-            </p>
-            <div></div>
+            </CaseStudyParagraph>
             <CaseStudyList>
               <CaseStudyListItem
                 title="Establish visual and functional consistency"
@@ -64,16 +64,16 @@ const HDSCaseStudy = async () => {
             sectionTitle="Scaling a platform without systems in place"
             sectionTag="challenges"
           >
-            <p>
+            <CaseStudyParagraph>
               Every tool had its own aesthetic and logic. Without a unified
               approach, we ended up with fragmented journeys, inconsistent
               visuals, and inefficient workflows. Outsourced design and dev made
               scaling a headache.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-challenge.jpg"
               alt="Screenshots of different tools with different UI patterns"
-              height={300}
+              aspect="2.35/1"
             />
 
             <CaseStudyList title="What we were up against:">
@@ -102,69 +102,67 @@ const HDSCaseStudy = async () => {
             sectionTitle="One system to bring them together"
             sectionTag="approach"
           >
-            <p>
+            <CaseStudyParagraph>
               I kicked things off with a cross-product audit. I talked to teams
               and gathered my suspects in an inventory: mismatched buttons,
               inconsistent patterns and interactions. This helped visualize just
               how fragmented our experience had become, and it gave me a clear
               place to start.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-audit.jpg"
               alt="Screenshot of messy Header components and documentation defining the component"
-              height={313}
               caption="Based on the same documentation, different teams created different components. This was a great starting point to show the need for a design system."
             />
 
             <HeadingM headingText="Prototyping to build buy-in" />
-            <p>
+            <CaseStudyParagraph>
               Using Material UI as a base, I quickly mocked up clean, consistent
               interfaces. Stakeholders saw the value, and we shifted from
               debating theory of "nice-to-haves" to exploring solutions.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-prototyping.jpg"
               alt="Before and after interface mockup"
-              height={251}
+              aspect="2.35/1"
               caption="Prototyping helped to visualize the design system and its components. It was a great way to show the value of the system."
             />
 
             <HeadingM headingText="Starting small, scaling smart" />
-            <p>
+            <CaseStudyParagraph>
               We piloted the system on one product. I followed Atomic Design
               principles to build tokens, components, and patterns. Early dev
               feedback helped me refine things fast.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-start.jpg"
               alt="Design token definition in Figma"
-              height={251}
+              aspect="2.35/1"
               caption="Design tokens were the first step in creating a design system. They helped us to define the visual language of the system."
             />
             <HeadingM headingText="From one designer to a shared language" />
-            <p>
+            <CaseStudyParagraph>
               With regular critiques, open Teams threads, and async walkthroughs
               I helped the system become collaborative. By creating visibility
               early and inviting others in, we turned a design system into a
               shared language.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-walkthrough.jpg"
               alt="Loom walk-through snippet"
-              height={338}
               caption="Quick Teams calls and Loom recordings were a great way to explain the design system, its components and implementations."
             />
 
             <HeadingM headingText="Joining forces" />
-            <p>
+            <CaseStudyParagraph>
               Initially a solo mission, I was later joined by a fellow designer.
               This collaboration sharpened decision-making, boosted component
               quality, and added momentum through regular design critiques.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-collaboration.jpg"
               alt="Screenshot of brainstorming session"
-              height={322}
+              aspect="2.35/1"
               caption="Brainstorming sessions with the team helped us to align on the design system requirements and its components."
             />
           </CaseStudySection>
@@ -175,15 +173,15 @@ const HDSCaseStudy = async () => {
             sectionTitle="Anatomy of a button"
             sectionTag="design"
           >
-            <p>
+            <CaseStudyParagraph>
               Designing components wasn’t just about looks. Dev teams needed
               clarity, and we needed consistency. To achieve that, I documented
               specs covering design, behavior, and best practices.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-component.jpg"
               alt="Screenshot of component documentation in Figma"
-              height={300}
+              aspect="2.35/1"
             />
             <CaseStudyList title="Each component spec included:">
               <CaseStudyListItem
@@ -211,36 +209,35 @@ const HDSCaseStudy = async () => {
             sectionTitle="Keeping it alive (and useful)"
             sectionTag="operations"
           >
-            <p>
+            <CaseStudyParagraph>
               To expand adoption beyond our bubble, I built playbooks and wrote
               guidelines for contribution, versioning, and ongoing feedback. Our
               system quickly matured into a team-wide asset, saving hours
               otherwise spent on repeated work.
-            </p>
+            </CaseStudyParagraph>
             <HeadingM headingText="Version control to the rescue" />
-            <p>
+            <CaseStudyParagraph>
               Accidentaly pulling an update was causing chaos in prototypes. To
               solve this, I introduced a versioning practice inspired by
               front-end workflows. Designers could now test changes safely
               before "pushing to production".
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-versioning.jpg"
               alt="Screenshots of change log page"
               caption="Versioning was a great way to keep track of changes in the design system. It helped us to avoid breaking changes and to communicate updates to the team."
-              height={300}
+              aspect="2.35/1"
             />
             <HeadingM headingText="External critique for internal confidence" />
-            <p>
+            <CaseStudyParagraph>
               Before launch, we consulted with an external agency for a last
               review. Their fresh perspective helped sharpen accessibility and
               reinforced our vision and direction - turning a solid system into
               a robust one.
-            </p>
+            </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-tree.jpg"
               alt="View of the design system tree"
-              height={672}
             />{" "}
           </CaseStudySection>
 
@@ -303,7 +300,7 @@ const HDSCaseStudy = async () => {
             sectionTitle="Let's build something together"
             sectionTag="Reach out"
           >
-            <p>
+            <CaseStudyParagraph>
               This wasn’t just a design system. It was about creating a shared
               foundation for better, faster, more delightful products. I started
               alone. By the end, we had a living system, a growing team, and a
@@ -312,7 +309,7 @@ const HDSCaseStudy = async () => {
               If you're tackling messy systems and want a design partner who
               brings systems thinking, momentum and clarity to cross-team
               collaboration, let’s connect.
-            </p>
+            </CaseStudyParagraph>
           </CaseStudySection>
         </div>
       </div>

@@ -1,4 +1,8 @@
+"use client";
+
+import { slideUp } from "@/utils/animations";
 import { HeadingS } from "../Text";
+import { motion } from "motion/react";
 
 const CaseStudyListItem = ({
   title = "placeholder title",
@@ -6,7 +10,10 @@ const CaseStudyListItem = ({
   noBreak,
 }) => {
   return (
-    <li className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]">
+    <motion.li
+      variants={slideUp}
+      className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]"
+    >
       <HeadingS
         headingText={title}
         className="font-serif"
@@ -15,7 +22,7 @@ const CaseStudyListItem = ({
       <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
         {text}
       </p>
-    </li>
+    </motion.li>
   );
 };
 

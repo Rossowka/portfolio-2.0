@@ -4,15 +4,27 @@ import { useScrollSpy } from "@/utils/useScrollSpy";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { useRef } from "react";
+import { slideRight } from "@/utils/animations";
 
 gsap.registerPlugin(ScrollToPlugin);
 
 const CaseStudyNav = ({ navItems }) => {
   // Use the scroll spy hook to track the active section
   const activeSection = useScrollSpy(navItems, { offset: 150 });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
 
   return (
-    <nav className="flex-[0_0_25%] max-w-[25%] pt-28 hidden md:block">
+    <motion.nav
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={slideRight}
+      className="flex-[0_0_25%] max-w-[25%] pt-28 hidden md:block"
+    >
       <ul className="gap-1 sticky top-32">
         {navItems.map((item) => (
           <li key={item.id}>
@@ -48,7 +60,7 @@ const CaseStudyNav = ({ navItems }) => {
           </li>
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -5,25 +5,21 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 
-const HeadingM = ({ headingText, className }) => {
+const CaseStudyParagraph = ({ children }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
 
   return (
-    <motion.div
+    <motion.p
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={slideUp}
-      className="mt-16 mb-8"
+      className="mb-6"
     >
-      <p
-        className={`font-bold text-3xl tracking-tight leading-tight ${className}`}
-      >
-        {headingText}
-      </p>
-    </motion.div>
+      {children}
+    </motion.p>
   );
 };
 
-export default HeadingM;
+export default CaseStudyParagraph;

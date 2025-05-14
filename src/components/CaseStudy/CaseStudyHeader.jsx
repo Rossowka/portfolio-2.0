@@ -1,10 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "../Button";
 import { ArrowIcon } from "../ArrowIcon";
+import { motion } from "motion/react";
 
 const CaseStudyHeader = ({ currentProject }) => {
   return (
-    <header className="container flex flex-col pt-16 md:pt-40">
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="container flex flex-col pt-16 md:pt-40"
+    >
       {/* back button */}
       <Link
         href={currentProject.url}
@@ -56,7 +64,7 @@ const CaseStudyHeader = ({ currentProject }) => {
           {currentProject.context}
         </p>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -6,6 +6,7 @@ export {
   CaseStudyList,
   CaseStudyListItem,
   CaseStudyImage,
+  CaseStudyParagraph,
 } from "./CaseStudy";
 export { Footer } from "./Footer";
 export { CircularButton } from "./CircularButton";
