@@ -11,9 +11,9 @@ const Hero = () => {
   const leftListRef = useRef(null);
   const rightListRef = useRef(null);
 
-  // useGSAP(() => {
-  //   setupHeroAnimations(leftListRef, rightListRef);
-  // }, []);
+  useGSAP(() => {
+    setupHeroAnimations(leftListRef, rightListRef);
+  }, []);
 
   return (
     <section className="pb-2 md:pb-12 overflow-hidden relative">
