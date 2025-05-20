@@ -7,14 +7,14 @@ import { useRef } from "react";
 
 const UpNext = ({ nextProject }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px 0px" });
 
   return (
     <motion.section
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
+      transition={{ duration: 0.8, delay: 0.25 }}
       className="container p-8 mt-16 -mb-14 border-t-[1px] border-b-[1px] border-f-inverse"
     >
       <div className="flex flex-col">

@@ -9,8 +9,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { closeMenu, toggleHeaderOnScroll, openMenu } from "./animations";
 import { SideMenu } from "../SideMenu";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(useGSAP); // register the hook to avoid React version discrepancies
+gsap.registerPlugin(useGSAP, ScrollToPlugin); // register the hook to avoid React version discrepancies
 
 const NavBar = () => {
   const menuBtnRef = useRef(null);
@@ -101,36 +102,67 @@ const NavBar = () => {
             Sara Rossow
           </Link>
           {/* navigation */}
-          {/* make it show the close menu as long as the menu is open (edge case- someone changes orientation while the menu is open on tablet -> they cannot close the menu) */}
           <nav
             className={`hidden lg:-mr-4 ${isMenuOpen ? "hidden" : "lg:block"}`}
           >
             <ul className="flex">
               {navigation.map((item) => (
                 <li key={item.id}>
-                  <Link
-                    href={item.url}
-                    className="block group px-4 py-4 lg:px-5 lg:py-8"
-                  >
-                    <p className="relative overflow-visible whitespace-nowrap">
-                      <span>
-                        {item.title}
-                        {item.sup && (
-                          <sup className="text-xs leading-none pl-1 text-accent">
-                            {item.sup}
-                          </sup>
-                        )}
-                      </span>
-                      {/* underline */}
-                      <span
-                        className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass} ${
-                          pathname == item.url
-                            ? `scale-x-100 ${underlineColorClass}`
-                            : ""
-                        }`}
-                      ></span>
-                    </p>
-                  </Link>
+                  {item.id === "contact" ? (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(`#${item.id}`);
+                        if (target) {
+                          gsap.to(window, {
+                            duration: 1,
+                            scrollTo: { y: target, offsetY: 80 },
+                            ease: "power2.inOut",
+                          });
+                        }
+                      }}
+                      className="block group px-4 py-4 lg:px-5 lg:py-8"
+                    >
+                      <p className="relative overflow-visible whitespace-nowrap">
+                        <span>
+                          {item.title}
+                          {item.sup && (
+                            <sup className="text-xs leading-none pl-1 text-accent">
+                              {item.sup}
+                            </sup>
+                          )}
+                        </span>
+                        {/* underline */}
+                        <span
+                          className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass}`}
+                        ></span>
+                      </p>
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.url}
+                      className="block group px-4 py-4 lg:px-5 lg:py-8"
+                    >
+                      <p className="relative overflow-visible whitespace-nowrap">
+                        <span>
+                          {item.title}
+                          {item.sup && (
+                            <sup className="text-xs leading-none pl-1 text-accent">
+                              {item.sup}
+                            </sup>
+                          )}
+                        </span>
+                        {/* underline */}
+                        <span
+                          className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass} ${
+                            pathname == item.url
+                              ? `scale-x-100 ${underlineColorClass}`
+                              : ""
+                          }`}
+                        ></span>
+                      </p>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

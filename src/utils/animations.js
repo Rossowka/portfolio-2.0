@@ -2,16 +2,29 @@ export const fadeIn = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.6 },
+    transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
   },
 };
 
-export const slideUp = {
+export const fadeInUp = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.6 },
+    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] },
+  },
+};
+
+export const fadeInScale = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.45,
+      delay: 0.35,
+      ease: [0.33, 1, 0.68, 1],
+    },
   },
 };
 
@@ -20,7 +33,7 @@ export const slideRight = {
   visible: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.5, delay: 0.3 },
+    transition: { duration: 0.4, delay: 0.2, ease: [0.33, 1, 0.68, 1] },
   },
 };
 
