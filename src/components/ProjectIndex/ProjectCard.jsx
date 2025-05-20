@@ -1,11 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/utils/animations";
 
 const ProjectCard = ({ project }) => {
   return (
-    <li
-      className="mb-8 px-4 group transform transition-all duration-700 w-full md:max-w-[50%] md:flex-[50%] overflow-hidden"
+    <motion.li
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUp}
+      viewport={{ once: true, amount: 0.4 }}
+      whileHover={{
+        scale: 1.04,
+        transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] },
+      }}
+      className="mb-8 px-4 w-full md:max-w-[50%] md:flex-[50%] overflow-hidden"
       style={{
         boxShadow:
           "rgba(0, 0, 0, 0.075) 0px -4.03105px 20.1553px -0.3125px, rgba(0, 0, 0, 0.075) 0px -9.5543px 47.7715px -0.625px, rgba(0, 0, 0, 0.075) 0px -17.428px 87.1402px -0.9375px, rgba(0, 0, 0, 0.075) 0px -28.9741px 144.87px -1.25px, rgba(0, 0, 0, 0.075) 0px -46.7908px 233.954px -1.5625px, rgba(0, 0, 0, 0.075) 0px -76.5918px 382.959px -1.875px, rgba(0, 0, 0, 0.075) 0px -131.886px 659.43px -2.1875px, rgba(0, 0, 0, 0.075) 0px -240px 1200px -2.5px",
@@ -17,21 +28,17 @@ const ProjectCard = ({ project }) => {
       >
         <figure>
           {/* thumbnail */}
-          <div className="relative overflow-hidden">
-            <div className="pt-[62.6%] ">
-              <div className="absolute inset-0">
-                <picture className="h-full absolute left-0 top-0 w-full object-cover">
-                  <Image
-                    src={project.thumbnail.snapshot.src}
-                    className={`object-cover w-full h-full object-center absolute top-0 left-0 hover:scale-105 transition-transform duration-500`}
-                    alt={project.thumbnail.snapshot.alt}
-                    width={600}
-                    height={400}
-                    quality={100}
-                  />
-                </picture>
-              </div>
-            </div>
+          <div className="relative aspect-video w-full overflow-hidden">
+            <Image
+              src={project.thumbnail.snapshot.src}
+              alt={project.thumbnail.snapshot.alt}
+              fill
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={project.thumbnail.snapshot.src}
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 572px"
+            />
           </div>
           {/* description */}
           <figcaption>
@@ -44,7 +51,7 @@ const ProjectCard = ({ project }) => {
           </figcaption>
         </figure>
       </Link>
-    </li>
+    </motion.li>
   );
 };
 

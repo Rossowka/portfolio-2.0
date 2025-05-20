@@ -1,6 +1,6 @@
 "use client";
 
-import { slideUp } from "@/utils/animations";
+import { fadeInUp } from "@/utils/animations";
 import { HeadingS } from "../Text";
 import { motion } from "motion/react";
 
@@ -11,7 +11,7 @@ const CaseStudyListItem = ({
 }) => {
   return (
     <motion.li
-      variants={slideUp}
+      variants={fadeInUp}
       className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]"
     >
       <HeadingS

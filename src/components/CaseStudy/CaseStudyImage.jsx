@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import { slideUp } from "@/utils/animations";
+import { fadeInUp } from "@/utils/animations";
 
 const CaseStudyImage = ({ src, alt, caption, aspect = "16/9" }) => {
   const ref = useRef(null);
@@ -15,7 +15,7 @@ const CaseStudyImage = ({ src, alt, caption, aspect = "16/9" }) => {
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={slideUp}
+      variants={fadeInUp}
       className="mt-8 mb-4"
     >
       <div

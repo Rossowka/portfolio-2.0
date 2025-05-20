@@ -1,25 +1,32 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowIcon } from "../ArrowIcon";
-
-// -----------------------------------------------------------------------------------
-// THINGS TO TAKE CARE OF
-// -----------------------------------------------------------------------------------
-/*
-
-[] add that cool button animation on hover/click
-
-*/
+import { motion } from "motion/react";
+import { fadeInScale } from "@/utils/animations";
 
 const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInScale}
+      viewport={{ once: true, amount: 0.4 }}
+      whileHover={{
+        scale: 1.04,
+        transition: { duration: 0.15, ease: [0.4, 0, 0.2, 1] },
+      }}
+      whileTap={{
+        scale: 0.97,
+        transition: { duration: 0.1, ease: [0.4, 0, 0.2, 1] },
+      }}
       className={`rounded-3xl w-full md:w-fit border-[1px] ${
         dark
-          ? "bg-accent md:bg-transparent overflow-hidden border-f-inverse/20 hover:border-f-inverse"
+          ? "bg-accent md:bg-transparent overflow-hidden border-f-inverse/20 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700"
           : primary
-          ? "bg-accent text-white hover:text-f-inverse hover:border-f-inverse/40"
-          : "text-inherit border-f-primary/20 hover:border-f-primary/60 "
-      } transform transition-all duration-700 ease-in-out`}
+          ? "bg-accent text-white focus:outline-2 focus:outline-offset-4 focus:outline-accent active:bg-accentDark"
+          : "text-inherit border-f-primary/20 "
+      }`}
     >
       <Link
         href={href}
@@ -55,7 +62,7 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
           )}
         </p>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

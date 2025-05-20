@@ -1,6 +1,6 @@
 "use client";
 
-import { slideUp } from "@/utils/animations";
+import { fadeInUp } from "@/utils/animations";
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
@@ -14,7 +14,7 @@ const CaseStudyParagraph = ({ children }) => {
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={slideUp}
+      variants={fadeInUp}
       className="mb-6"
     >
       {children}

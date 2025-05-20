@@ -4,13 +4,14 @@ import Link from "next/link";
 import { Button } from "../Button";
 import { ArrowIcon } from "../ArrowIcon";
 import { motion } from "motion/react";
+import { fadeInUp } from "@/utils/animations";
 
 const CaseStudyHeader = ({ currentProject }) => {
   return (
     <motion.header
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
       className="container flex flex-col pt-16 md:pt-40"
     >
       {/* back button */}
