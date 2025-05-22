@@ -13,8 +13,8 @@ const ProjectCard = ({ project }) => {
       variants={fadeInUp}
       viewport={{ once: true, amount: 0.4 }}
       whileHover={{
-        scale: 1.04,
-        transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] },
+        y: -2,
+        transition: { duration: 0.15, ease: [0.4, 0, 0.2, 1] },
       }}
       className="mb-8 px-4 w-full md:max-w-[50%] md:flex-[50%] overflow-hidden"
       style={{

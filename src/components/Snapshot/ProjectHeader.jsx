@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "../Button";
+import { Button, RowOfButtons } from "../Button";
 import { BackButton, ProjectTitle } from ".";
 import { motion } from "framer-motion";
-import { fadeIn, fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/utils/animations";
 
 const ProjectHeader = ({ currentProject }) => {
   return (
@@ -15,9 +15,7 @@ const ProjectHeader = ({ currentProject }) => {
     >
       <BackButton />
       <ProjectTitle currentProject={currentProject} />
-
-      {/* row of buttons */}
-      <div className="mb-10 flex flex-col md:flex-row gap-4">
+      <RowOfButtons>
         {currentProject.caseStudyUrl && (
           <Button
             primary
@@ -31,7 +29,7 @@ const ProjectHeader = ({ currentProject }) => {
             href={currentProject.onlineUrl}
           />
         )}
-      </div>
+      </RowOfButtons>
       <div className="bg-f-inverse h-[1px] mb-10"></div>
 
       {/* summary text */}

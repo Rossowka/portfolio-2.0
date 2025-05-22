@@ -1,6 +1,22 @@
+"use client";
+
+import { fadeInUp } from "@/utils/animations";
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { useRef } from "react";
+
 const HeadingXL = ({ headingText, subheadingText, className }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+
   return (
-    <div className="flex flex-col mb-4 md:mb-8 lg:mb-16">
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={fadeInUp}
+      className="flex flex-col mb-4 md:mb-8 lg:mb-16"
+    >
       {subheadingText && (
         <p className="whitespace-nowrap uppercase text-xs font-semibold text-accent mb-3 ml-1">
           {subheadingText}
@@ -11,7 +27,7 @@ const HeadingXL = ({ headingText, subheadingText, className }) => {
       >
         {headingText}
       </h2>
-    </div>
+    </motion.div>
   );
 };
 
