@@ -13,7 +13,7 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
       variants={fadeInScale}
       viewport={{ once: true, amount: 0.4 }}
       whileHover={{
-        scale: 1.04,
+        y: -2,
         transition: { duration: 0.15, ease: [0.4, 0, 0.2, 1] },
       }}
       whileTap={{
