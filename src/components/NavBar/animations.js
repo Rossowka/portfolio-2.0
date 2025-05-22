@@ -5,6 +5,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const openMenu = (menuBtnRef, logoRef) => {
+  if (!menuBtnRef?.current || !logoRef?.current) return;
+
+  const menuChildren = Array.from(menuBtnRef.current.children);
+  if (menuChildren.length === 0) return;
+
   const timeline = gsap.timeline({
     defaults: {
       ease: [0.65, 0.01, 0.05, 0.99],
@@ -13,7 +18,7 @@ export const openMenu = (menuBtnRef, logoRef) => {
   });
 
   timeline
-    .to(menuBtnRef.current.children, {
+    .to(menuChildren, {
       yPercent: -100,
       stagger: 0.2,
     })
@@ -23,6 +28,16 @@ export const openMenu = (menuBtnRef, logoRef) => {
 };
 
 export const closeMenu = (menuBtnRef, logoRef, headerRef) => {
+  if (
+    !menuBtnRef?.current ||
+    !logoRef?.current ||
+    !headerRef?.current ||
+    !headerRef.current.querySelector("nav")
+  )
+    return;
+
+  const menuChildren = Array.from(menuBtnRef.current.children);
+
   const timeline = gsap.timeline({
     defaults: {
       ease: [0.65, 0.01, 0.05, 0.99],
@@ -31,7 +46,7 @@ export const closeMenu = (menuBtnRef, logoRef, headerRef) => {
   });
 
   timeline
-    .to(menuBtnRef.current.children, {
+    .to(menuChildren, {
       yPercent: 0,
     })
     .to(logoRef.current, { yPercent: 0, opacity: 1 }, "<")

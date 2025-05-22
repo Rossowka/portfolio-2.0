@@ -1,6 +1,10 @@
 import gsap from "gsap";
 
-export const openMenu = (containerRef, menuRef, overlayRef) => {
+export const openMenu = (containerRef, menuRef, overlayRef, logoRef) => {
+  const panels = menuRef.current.querySelectorAll(
+    "div.bg-accent, div.bg-f-primary, div.bg-s-secondary"
+  );
+
   const timeline = gsap.timeline({
     defaults: {
       ease: "main",
@@ -14,9 +18,10 @@ export const openMenu = (containerRef, menuRef, overlayRef) => {
       duration: 0,
       display: "block",
     })
+    .set(logoRef.current, { clearProps: "transform" })
     .fromTo(
       // Slide in animation
-      menuRef.current.children,
+      panels,
       { xPercent: 105, skewX: 5 },
       { xPercent: 0, skewX: 0, stagger: 0.12, duration: 0.575 },
       "<"

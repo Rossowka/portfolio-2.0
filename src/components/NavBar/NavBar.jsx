@@ -5,7 +5,6 @@ import { disablePageScroll, enablePageScroll } from "@fluejs/noscroll";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { closeMenu, toggleHeaderOnScroll, openMenu } from "./animations";
 import { SideMenu } from "../SideMenu";
@@ -13,44 +12,34 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(useGSAP, ScrollToPlugin); // register the hook to avoid React version discrepancies
 
-const NavBar = () => {
+const NavBar = ({ pathname }) => {
   const menuBtnRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
   const scrollTriggerRef = useRef(null); // Store the scroll trigger reference
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [textColorClass, setTextColorClass] = useState("text-f-primary");
-  const [bgColorClass, setBgColorClass] = useState("bg-s-primary");
-  const [underlineColorClass, setUnderlineColorClass] =
-    useState("bg-s-inverse");
 
-  const pathname = usePathname();
-
-  // Update text color class when pathname changes
-  useEffect(() => {
-    if (pathname === "/projects") {
-      setTextColorClass("text-f-inverse");
-      setUnderlineColorClass("bg-s-primary");
-      setBgColorClass("bg-s-inverse");
-    } else {
-      setTextColorClass("text-f-primary");
-      setUnderlineColorClass("bg-s-inverse");
-      setBgColorClass("bg-s-primary");
-    }
-  }, [pathname]);
+  const textColorClass =
+    pathname === "/projects" ? "text-f-inverse" : "text-f-primary";
+  const bgColorClass =
+    pathname === "/projects" ? "bg-s-inverse" : "bg-s-primary";
+  const underlineColorClass =
+    pathname === "/projects" ? "bg-s-primary" : "bg-s-inverse";
 
   // Toggle between opened and closed menu
   const toggleMenu = () => {
-    if (isMenuOpen) {
-      setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      // menu is about to open
+      requestAnimationFrame(() => {
+        openMenu(menuBtnRef, logoRef);
+      });
+      disablePageScroll();
+    } else {
       closeMenu(menuBtnRef, logoRef, headerRef);
       enablePageScroll();
-    } else {
-      setIsMenuOpen(!isMenuOpen);
-      openMenu(menuBtnRef, logoRef);
-      disablePageScroll();
     }
+    setIsMenuOpen((prev) => !prev);
   };
 
   // Create the ScrollTrigger once on component mount
@@ -72,8 +61,8 @@ const NavBar = () => {
     scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
 
     return () => {
-      if (scrollTriggerRef.current) scrollTriggerRef.current.kill();
       ctx.revert(); // clean up GSAP context
+      if (scrollTriggerRef.current) scrollTriggerRef.current.kill();
     };
   }, []);
 
@@ -101,7 +90,7 @@ const NavBar = () => {
             : `${textColorClass} ${bgColorClass} delay-200 duration-500`
         }`}
       >
-        <div className="lg:container w-screen px-4 lg:px-8 flex items-center justify-between">
+        <div className="lg:container w-screen px-4 lg:px-8 flex items-center justify-between overflow-hidden">
           {/* initial logo */}
           <Link
             aria-label="Home"
@@ -203,6 +192,7 @@ const NavBar = () => {
         isMenuOpen={isMenuOpen}
         handleClick={toggleMenu}
         pathname={pathname}
+        logoRef={logoRef}
       />
     </>
   );

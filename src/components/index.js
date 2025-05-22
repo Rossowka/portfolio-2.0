@@ -1,4 +1,4 @@
-export { NavBar } from "./NavBar";
+export { NavBar, NavBarWrapper } from "./NavBar";
 export {
   CaseStudyHeader,
   CaseStudyNav,

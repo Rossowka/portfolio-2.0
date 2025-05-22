@@ -10,7 +10,7 @@ import { Socials } from "../Socials";
 
 gsap.registerPlugin(useGSAP);
 
-const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
+const SideMenu = ({ handleClick, isMenuOpen, pathname, logoRef }) => {
   const menuRef = useRef(null);
   const containerRef = useRef(null);
   const contentRef = useRef(null);
@@ -18,11 +18,13 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
 
   useGSAP(
     () => {
-      if (isMenuOpen) {
-        openMenu(containerRef, menuRef, overlayRef);
-      } else {
-        closeMenu(containerRef);
-      }
+      requestAnimationFrame(() => {
+        if (isMenuOpen) {
+          openMenu(containerRef, menuRef, overlayRef, logoRef);
+        } else {
+          closeMenu(containerRef);
+        }
+      });
     },
     { dependencies: [isMenuOpen], scope: containerRef }
   );
@@ -41,7 +43,10 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname }) => {
       >
         <div className="absolute inset-0 bg-accent h-full"></div>
         <div className="absolute inset-0 bg-f-primary h-full"></div>
-        <div className="absolute inset-0 bg-s-secondary h-full"></div>
+        <div
+          ref={overlayRef}
+          className="absolute inset-0 bg-s-secondary h-full"
+        ></div>
       </div>
 
       {/* Scrollable content area */}
