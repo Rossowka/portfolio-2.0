@@ -55,13 +55,25 @@ const NavBar = () => {
 
   // Create the ScrollTrigger once on component mount
   useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { y: -94, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          delay: 1.2,
+          ease: "power2.out",
+        }
+      );
+    });
+
     scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
 
-    // Clean up on unmount
     return () => {
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-      }
+      if (scrollTriggerRef.current) scrollTriggerRef.current.kill();
+      ctx.revert(); // clean up GSAP context
     };
   }, []);
 
