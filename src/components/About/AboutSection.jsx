@@ -1,6 +1,7 @@
 import { story } from "@/utils/about";
 import { HeadingM, HeadingXL } from "../Text";
-import { Button } from "../Button";
+import { Button, RowOfButtons } from "../Button";
+import { AboutParagraph } from ".";
 
 const AboutSection = () => {
   return (
@@ -15,12 +16,10 @@ const AboutSection = () => {
             headingText={paragraph.heading}
             className="font-serif"
           />
-          <p className="pb-5 text-xl leading-relaxed text-f-primary/80">
-            {paragraph.text}
-          </p>
+          <AboutParagraph>{paragraph.text}</AboutParagraph>
         </div>
       ))}
-      <div className="mt-16 flex flex-col md:flex-row gap-4">
+      <RowOfButtons>
         <Button
           label="my work"
           className="text-f-inverse"
@@ -28,11 +27,11 @@ const AboutSection = () => {
           primary
         />
         <Button
-          label="my cv on linkedin"
+          label="my linkedIN"
           className="text-f-inverse"
           href="https://www.linkedin.com/in/sararossow"
         />
-      </div>
+      </RowOfButtons>
     </section>
   );
 };

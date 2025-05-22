@@ -1,5 +1,6 @@
 import { careerInNumbers } from "@/utils/about";
 import { HeadingL } from "../Text";
+import { CareerCard } from ".";
 
 const CareerInNumbers = () => {
   return (
@@ -10,20 +11,10 @@ const CareerInNumbers = () => {
       />
       <div className="flex flex-col md:flex-row gap-8 md:items-end md:justify-end">
         {careerInNumbers.map((stat, index) => (
-          <div
-            className="p-8 shadow-md flex-1 rounded-3xl h-fit"
+          <CareerCard
+            stat={stat}
             key={index}
-          >
-            <p className="pb-1 text-3xl lg:text-6xl leading-tight tracking-tight font-bold">
-              {stat.number}
-            </p>
-            <p className="pb-8 text-base lg:text-xl leading-normal  font-serif font-bold">
-              {stat.text}
-            </p>
-            <p className="text-xs lg:text-sm text-f-primary/60">
-              {stat.subtext}
-            </p>
-          </div>
+          />
         ))}
       </div>
     </section>

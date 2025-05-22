@@ -1,10 +1,19 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/utils/animations";
 import Image from "next/image";
 
 const avatar = "/images/sara-rossow.png";
 
 const Welcome = () => {
   return (
-    <section className="pt-16 pb-8 lg:pt-48 flex flex-col container">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUp}
+      className="pt-16 pb-8 lg:pt-48 flex flex-col container"
+    >
       <header className="mt-16 mb-8">
         <div className="sm:hidden mb-4">
           <Image
@@ -13,7 +22,7 @@ const Welcome = () => {
             height={180}
             alt="Photo of Sara Rossow"
             className="w-1/3 max-w-40"
-            quality={100}
+            sizes="(max-width: 768px) 33vw, (max-width: 1200px) 160px"
           />
         </div>
         <h1 className="page-title ">
@@ -45,7 +54,7 @@ const Welcome = () => {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

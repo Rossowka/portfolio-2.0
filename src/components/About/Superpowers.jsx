@@ -1,5 +1,6 @@
 import { superpowers } from "@/utils/about";
 import { HeadingM, HeadingXL } from "../Text";
+import { AboutParagraph } from ".";
 
 const Superpowers = () => {
   return (
@@ -18,9 +19,7 @@ const Superpowers = () => {
               headingText={paragraph.heading}
               className="font-serif"
             />
-            <p className="pb-5 text-base leading-relaxed text-f-primary/80">
-              {paragraph.text}
-            </p>
+            <AboutParagraph small>{paragraph.text}</AboutParagraph>
           </div>
         ))}
       </div>
