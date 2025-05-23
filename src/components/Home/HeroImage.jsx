@@ -1,6 +1,5 @@
 "use client";
 
-import { fadeInScale } from "@/utils/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -29,8 +28,8 @@ const HeroImage = ({ src, alt }) => {
           alt={alt}
           width={400}
           height={400}
-          className="rounded-3xl md:w-[400px]"
           quality={100}
+          className="rounded-3xl md:w-[400px]"
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 400px"
         />
