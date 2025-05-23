@@ -71,7 +71,7 @@ const HDSCaseStudy = async () => {
               scaling a headache.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-challenge.jpg"
+              src="/images/hawe-design-system/cs-challenge.webp"
               alt="Screenshots of different tools with different UI patterns"
               aspect="2.35/1"
             />
@@ -110,7 +110,7 @@ const HDSCaseStudy = async () => {
               place to start.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-audit.jpg"
+              src="/images/hawe-design-system/cs-audit.webp"
               alt="Screenshot of messy Header components and documentation defining the component"
               caption="Based on the same documentation, different teams created different components. This was a great starting point to show the need for a design system."
             />
@@ -122,7 +122,7 @@ const HDSCaseStudy = async () => {
               debating theory of "nice-to-haves" to exploring solutions.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-prototyping.jpg"
+              src="/images/hawe-design-system/cs-prototyping.webp"
               alt="Before and after interface mockup"
               aspect="2.35/1"
               caption="Prototyping helped to visualize the design system and its components. It was a great way to show the value of the system."
@@ -135,7 +135,7 @@ const HDSCaseStudy = async () => {
               feedback helped me refine things fast.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-start.jpg"
+              src="/images/hawe-design-system/cs-start.webp"
               alt="Design token definition in Figma"
               aspect="2.35/1"
               caption="Design tokens were the first step in creating a design system. They helped us to define the visual language of the system."
@@ -148,7 +148,7 @@ const HDSCaseStudy = async () => {
               shared language.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-walkthrough.jpg"
+              src="/images/hawe-design-system/cs-walkthrough.webp"
               alt="Loom walk-through snippet"
               caption="Quick Teams calls and Loom recordings were a great way to explain the design system, its components and implementations."
             />
@@ -160,7 +160,7 @@ const HDSCaseStudy = async () => {
               quality, and added momentum through regular design critiques.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-collaboration.jpg"
+              src="/images/hawe-design-system/cs-collaboration.webp"
               alt="Screenshot of brainstorming session"
               aspect="2.35/1"
               caption="Brainstorming sessions with the team helped us to align on the design system requirements and its components."
@@ -179,7 +179,7 @@ const HDSCaseStudy = async () => {
               specs covering design, behavior, and best practices.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-component.jpg"
+              src="/images/hawe-design-system/cs-component.webp"
               alt="Screenshot of component documentation in Figma"
               aspect="2.35/1"
             />
@@ -223,7 +223,7 @@ const HDSCaseStudy = async () => {
               before "pushing to production".
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-versioning.jpg"
+              src="/images/hawe-design-system/cs-versioning.webp"
               alt="Screenshots of change log page"
               caption="Versioning was a great way to keep track of changes in the design system. It helped us to avoid breaking changes and to communicate updates to the team."
               aspect="2.35/1"
@@ -236,7 +236,7 @@ const HDSCaseStudy = async () => {
               a robust one.
             </CaseStudyParagraph>
             <CaseStudyImage
-              src="/images/hawe-design-system/cs-tree.jpg"
+              src="/images/hawe-design-system/cs-tree.webp"
               alt="View of the design system tree"
             />{" "}
           </CaseStudySection>

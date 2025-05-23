@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { fadeInUp, slideRight } from "@/utils/animations";
 import Image from "next/image";
 
-const avatar = "/images/sara-rossow.png";
+const avatar = "/images/sara-rossow.webp";
 
 const Welcome = () => {
   return (

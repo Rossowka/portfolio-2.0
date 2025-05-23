@@ -66,7 +66,7 @@ const Footer = () => {
             className="flex-1 overflow-hidden rounded-2xl"
           >
             <Image
-              src="/images/banner.png"
+              src="/images/banner.webp"
               width={556}
               height={184}
               quality={100}
@@ -87,7 +87,7 @@ const Footer = () => {
             >
               <h2
                 className="font-bold text-transparent bg-clip-text whitespace-nowrap"
-                style={{ backgroundImage: `url(/images/banner.png)` }}
+                style={{ backgroundImage: `url(/images/banner.webp)` }}
               >
                 Get in touch
               </h2>

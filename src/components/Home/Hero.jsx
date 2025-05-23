@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="h-full relative mt-8 lg:mt-16 pt-16 pb-16 lg:pt-32 lg:pb-32">
           <HeroText />
           <HeroImage
-            src="/images/hero-image_lg.png"
+            src="/images/hero-image.webp"
             alt="Colorful AI generated avatar of Sara"
           />
         </div>

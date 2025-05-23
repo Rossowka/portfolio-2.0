@@ -1,5 +1,3 @@
-const placeholderThumbnail = "/images/placeholder.png";
-
 export const PROJECTS = [
   // hawe-configurator
   {
@@ -53,27 +51,27 @@ export const PROJECTS = [
     onlineUrl: "",
     thumbnail: {
       l: {
-        src: "/images/hawe-configurator/thumbnail-l.jpg",
+        src: "/images/hawe-configurator/thumbnail-l.webp",
         alt: "thumbnail",
       },
-      m: { src: "/images/hawe-configurator/thumbnail-m.jpg" },
-      s: { src: "/images/hawe-configurator/thumbnail-s.jpg" },
+      m: { src: "/images/hawe-configurator/thumbnail-m.webp" },
+      s: { src: "/images/hawe-configurator/thumbnail-s.webp" },
       snapshot: {
-        src: "/images/hawe-configurator/snapshot.jpg",
+        src: "/images/hawe-configurator/snapshot.webp",
         alt: "Product selection list from HAWE configuration tool on tablet",
       },
     },
     mainShot: {
-      src: "/images/hawe-configurator/main.jpg",
+      src: "/images/hawe-configurator/main.webp",
       alt: "Product selection page on PC",
     },
     imageShowcase: [
       {
-        src: "/images/hawe-configurator/showcase-1.jpg",
+        src: "/images/hawe-configurator/showcase-1.webp",
         alt: "Feature definition page on tablet",
       },
       {
-        src: "/images/hawe-configurator/showcase-2.jpg",
+        src: "/images/hawe-configurator/showcase-2.webp",
         alt: "Quote summary page on tablet",
       },
     ],
@@ -121,15 +119,15 @@ export const PROJECTS = [
     caseStudyUrl: "",
     onlineUrl: "",
     thumbnail: {
-      l: { src: "/images/hawe-pust/thumbnail-l.jpg", alt: "thumbnail" },
-      m: { src: "/images/hawe-pust/thumbnail-m.jpg" },
-      s: { src: "/images/hawe-pust/thumbnail-s.jpg" },
+      l: { src: "/images/hawe-pust/thumbnail-l.webp", alt: "thumbnail" },
+      m: { src: "/images/hawe-pust/thumbnail-m.webp" },
+      s: { src: "/images/hawe-pust/thumbnail-s.webp" },
       snapshot: {
-        src: "/images/hawe-pust/snapshot.jpg",
+        src: "/images/hawe-pust/snapshot.webp",
         alt: "Final step of the HAWE configuration tool on tablet",
       },
     },
-    mainShot: { src: "/images/hawe-pust/main.jpg", alt: "..." },
+    mainShot: { src: "/images/hawe-pust/main.webp", alt: "..." },
     imageShowcase: [],
     featured: false,
   },
@@ -191,31 +189,31 @@ export const PROJECTS = [
     onlineUrl: "",
     thumbnail: {
       l: {
-        src: "/images/hawe-ux-maturity/thumbnail-l.jpg",
+        src: "/images/hawe-ux-maturity/thumbnail-l.webp",
         alt: "thumbnail",
       },
       m: {
-        src: "/images/hawe-ux-maturity/thumbnail-m.jpg",
+        src: "/images/hawe-ux-maturity/thumbnail-m.webp",
       },
       s: {
-        src: "/images/hawe-ux-maturity/thumbnail-s.jpg",
+        src: "/images/hawe-ux-maturity/thumbnail-s.webp",
       },
       snapshot: {
-        src: "/images/hawe-ux-maturity/snapshot.jpg",
+        src: "/images/hawe-ux-maturity/snapshot.webp",
         alt: "Couple of components from the design library",
       },
     },
     mainShot: {
-      src: "/images/hawe-ux-maturity/main.jpg",
+      src: "/images/hawe-ux-maturity/main.webp",
       alt: "Collage of components",
     },
     imageShowcase: [
       {
-        src: "/images/hawe-ux-maturity/showcase-1.jpg",
+        src: "/images/hawe-ux-maturity/showcase-1.webp",
         alt: "Elements of the design system",
       },
       {
-        src: "/images/hawe-ux-maturity/showcase-2.jpg",
+        src: "/images/hawe-ux-maturity/showcase-2.webp",
         alt: "Wireframe of the future customer portal vision.",
       },
     ],
@@ -276,31 +274,31 @@ export const PROJECTS = [
     onlineUrl: "",
     thumbnail: {
       l: {
-        src: "/images/hawe-design-system/thumbnail-l.jpg",
+        src: "/images/hawe-design-system/thumbnail-l.webp",
         alt: "thumbnail",
       },
       m: {
-        src: "/images/hawe-design-system/thumbnail-m.jpg",
+        src: "/images/hawe-design-system/thumbnail-m.webp",
       },
       s: {
-        src: "/images/hawe-design-system/thumbnail-s.jpg",
+        src: "/images/hawe-design-system/thumbnail-s.webp",
       },
       snapshot: {
-        src: "/images/hawe-design-system/snapshot.jpg",
+        src: "/images/hawe-design-system/snapshot.webp",
         alt: "Couple of components from the design library",
       },
     },
     mainShot: {
-      src: "/images/hawe-design-system/main.jpg",
+      src: "/images/hawe-design-system/main.webp",
       alt: "Collage of components",
     },
     imageShowcase: [
       {
-        src: "/images/hawe-design-system/showcase-1.jpg",
+        src: "/images/hawe-design-system/showcase-1.webp",
         alt: "Elements of the design system",
       },
       {
-        src: "/images/hawe-design-system/showcase-2.jpg",
+        src: "/images/hawe-design-system/showcase-2.webp",
         alt: "Wireframe of the future customer portal vision.",
       },
     ],
@@ -323,21 +321,21 @@ export const PROJECTS = [
     onlineUrl: "",
     thumbnail: {
       snapshot: {
-        src: "/images/swingin-fireballs/snapshot.jpg",
+        src: "/images/swingin-fireballs/snapshot.webp",
         alt: "Landing page for Swingin' Fireballs on tablet",
       },
     },
     mainShot: {
-      src: "/images/swingin-fireballs/main.jpg",
+      src: "/images/swingin-fireballs/main.webp",
       alt: "Landing page for Swingin' Fireballs",
     },
     imageShowcase: [
       {
-        src: "/images/swingin-fireballs/showcase-1.jpg",
+        src: "/images/swingin-fireballs/showcase-1.webp",
         alt: "Mobile view on discography",
       },
       {
-        src: "/images/swingin-fireballs/showcase-2.jpg",
+        src: "/images/swingin-fireballs/showcase-2.webp",
         alt: "Mobile view on footer and subscription",
       },
     ],
@@ -360,21 +358,21 @@ export const PROJECTS = [
     onlineUrl: "",
     thumbnail: {
       snapshot: {
-        src: "/images/blue-central-records/snapshot.jpg",
+        src: "/images/blue-central-records/snapshot.webp",
         alt: "Landing page for Blue Central Records on tablet",
       },
     },
     mainShot: {
-      src: "/images/blue-central-records/main.jpg",
+      src: "/images/blue-central-records/main.webp",
       alt: "Landing page for Blue Central Records",
     },
     imageShowcase: [
       {
-        src: "/images/blue-central-records/showcase-2.jpg",
+        src: "/images/blue-central-records/showcase-2.webp",
         alt: "Artist page on mobile",
       },
       {
-        src: "/images/blue-central-records/showcase-1.jpg",
+        src: "/images/blue-central-records/showcase-1.webp",
         alt: "Mobile view on footer and contact",
       },
     ],
