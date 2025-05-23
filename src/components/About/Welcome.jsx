@@ -21,6 +21,8 @@ const Welcome = () => {
             src={avatar}
             width={160}
             height={180}
+            priority
+            quality={100}
             alt="Photo of Sara Rossow"
             className="w-1/3 max-w-40"
             sizes="(max-width: 768px) 33vw, (max-width: 1200px) 160px"
