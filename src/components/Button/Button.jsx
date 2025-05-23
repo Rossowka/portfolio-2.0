@@ -22,9 +22,9 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
       }}
       className={`rounded-3xl w-full md:w-fit border-[1px] ${
         dark
-          ? "bg-accent md:bg-transparent overflow-hidden border-f-inverse/20 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700"
+          ? "bg-accent md:bg-transparent overflow-hidden border-f-inverse/20 focus:outline-2 focus:outline-offset-2 focus:outline-accent active:bg-accentDark"
           : primary
-          ? "bg-accent text-white focus:outline-2 focus:outline-offset-4 focus:outline-accent active:bg-accentDark"
+          ? "bg-accent border-accentDark text-white focus:outline-2 focus:outline-offset-4 focus:outline-accent active:bg-accentDark"
           : "text-inherit border-f-primary/20 "
       }`}
     >

@@ -1,6 +1,6 @@
 import { inriaSerif, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
-import { NavBar, ConsentManager, Footer } from "@/components";
+import { ConsentManager, Footer, NavBarWrapper } from "@/components";
 import Script from "next/script";
 
 export const metadata = {
@@ -59,22 +59,9 @@ export default function RootLayout({ children }) {
           href="/favicon.ico"
           sizes="any"
         />
-        <link
-          rel="apple-touch-icon"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="manifest"
-          href="/manifest.json"
-        />
-        {/* <link
-          rel="preload"
-          href="/images/hero-image.jpg"
-          as="image"
-        /> */}
       </head>
       <body className="min-h-screen flex flex-col">
-        <NavBar />
+        <NavBarWrapper />
         <main className="flex-grow">{children}</main>
         <Footer />
 

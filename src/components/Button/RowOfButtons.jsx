@@ -8,7 +8,7 @@ const RowOfButtons = ({ children }) => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer}
       className="mb-10 mt-16 flex flex-col md:flex-row gap-4"
     >

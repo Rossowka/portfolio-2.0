@@ -1,28 +1,48 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowIcon } from "../ArrowIcon";
+import { Button } from "../Button";
 
-// -----------------------------------------------------------------------------------
-// THINGS TO TAKE CARE OF
-// -----------------------------------------------------------------------------------
-/*
-
-[] add little snake animation to the see the project text
-[] add this animation on hover www.hover.dev/components/cards#shimmer-border-card
-
-*/
+import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { useRef } from "react";
 
 const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+
   return (
-    <li
+    <motion.li
       key={index}
-      className="flex flex-col overflow-hidden group border-[1px] bg-accent/10 border-f-inverse/20 hover:border-f-inverse transform transition-all duration-700"
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={fadeInUp}
+      className="flex flex-col overflow-hidden border-[1px] rounded-3xl bg-accent/10 border-f-inverse/20"
     >
-      <Link href={project.url}>
+      {/* thumbnail */}
+      <div className="relative overflow-hidden aspect-[1110/400] md:aspect- w-full p-4 md:p-8">
+        <Image
+          src={project.thumbnail.l.src}
+          alt={project.thumbnail.l.alt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1110px"
+          className="object-cover w-full h-full"
+        />
+      </div>
+
+      <div>
         {/* inner text */}
-        <div className={`grow p-4 md:p-8 flex flex-col`}>
+        <motion.div
+          variants={staggerContainer}
+          className={`grow p-4 md:p-8 flex flex-col`}
+        >
           {/* top line */}
-          <div className="flex justify-between mb-4">
+          <motion.div
+            variants={fadeInUp}
+            className="flex justify-between mb-4"
+          >
             <div className="flex gap-1">
               <p className="leading-4">[ 0{index + 1} ]</p>
               <p className="text-xs leading-4 opacity-80">
@@ -30,13 +50,19 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
               </p>
             </div>
             <p className="text-xs leading-4">{project.year}</p>
-          </div>
+          </motion.div>
 
           {/* separator */}
-          <div className="container bg-f-inverse/20 h-[1px]"></div>
+          <motion.div
+            variants={fadeInUp}
+            className="container bg-f-inverse/20 h-[1px]"
+          ></motion.div>
 
           {/* tags */}
-          <div className="mt-4 mb-4 lg:mb-8 text-xs md:text-sm">
+          <motion.div
+            variants={fadeInUp}
+            className="mt-4 mb-4 lg:mb-8 text-xs md:text-sm"
+          >
             <ul className="flex gap-4 mb-4 lg:mb-6 md:gap-4 ">
               {project.role.map((tag) => (
                 <li
@@ -47,23 +73,21 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* title */}
-          <div className="flex gap-1 md:gap-16 justify-between">
-            <h3 className="title mb-2 lg:mb-8">{project.title}</h3>
-            <div className="min-w-fit relative">
-              <ArrowIcon className="-rotate-45 lg:rotate-0 md:group-hover:-rotate-45 transform transition-all duration-300 ease-in-out text-accent" />
-              <div className="absolute top-8 right-0 h-full w-full">
-                <p className="lg:hidden whitespace-nowrap text-xs text-accent rotate-90">
-                  explore project
-                </p>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            variants={fadeInUp}
+            className="flex gap-1 md:gap-16 justify-between"
+          >
+            <h3 className="title mb-2 md:mr-8 lg:mb-8">{project.title}</h3>
+          </motion.div>
 
           {/* results */}
-          <div className="flex -mx-2 lg:-mx-5">
+          <motion.div
+            variants={fadeInUp}
+            className="flex -mx-2 lg:-mx-5"
+          >
             {project.impact.slice(0, 2).map((result, index) => (
               <div
                 key={index}
@@ -77,36 +101,25 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
                 </p>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* thumbnail */}
-          <div className="relative overflow-hidden">
-            <div className="pt-[60%] md:pt-[45%] lg:pt-[35%]">
-              <div className="absolute inset-0">
-                <picture className="h-full absolute left-0 top-0 w-full object-cover">
-                  <source
-                    srcSet={project.thumbnail.s.src}
-                    media="(max-width: 640px)"
-                  />
-                  <source
-                    srcSet={project.thumbnail.m.src}
-                    media="(max-width: 1024px)"
-                  />
-                  <Image
-                    src={project.thumbnail.l.src}
-                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500`}
-                    alt={project.thumbnail.l.alt}
-                    width={1110}
-                    height={400}
-                    quality={100}
-                  />
-                </picture>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Link>
-    </li>
+          <motion.div
+            variants={staggerContainer}
+            className="flex flex-col md:flex-row gap-4 justify-end lg:mt-6"
+          >
+            <Button
+              label="project snapshot"
+              href={project.url}
+            />
+            <Button
+              primary
+              label="see full case study"
+              href={project.caseStudyUrl}
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.li>
   );
 };
 
