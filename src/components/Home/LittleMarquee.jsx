@@ -11,17 +11,13 @@ const LittleMarquee = () => {
   return (
     <motion.div
       ref={marqueeRef}
-      initial="hidden"
-      whileInView="visible"
-      variants={{
-        hidden: { x: 20, opacity: 0 },
-        visible: {
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.4, delay: 0.6, ease: [0.33, 1, 0.68, 1] },
-        },
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 0.5,
+        ease: [0.33, 1, 0.68, 1],
+        delay: 0.4,
       }}
-      viewport={{ once: true, amount: 0.4 }}
       className="z-10 static flex gap-2 font-serif lg:absolute md:ml-auto lg:right-8 lg:top-2 md:w-1/2 lg:w-1/3"
     >
       <p className="leading-6 text-accent">[</p>
