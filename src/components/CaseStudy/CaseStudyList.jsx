@@ -18,6 +18,7 @@ const CaseStudyList = ({ title, children }) => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={staggerContainer}
+        custom={1}
         className={`flex flex-wrap ${title ? "-mt-4" : "mt-16"} ml-8 md:-mx-5`}
       >
         {children}

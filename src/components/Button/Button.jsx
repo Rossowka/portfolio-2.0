@@ -25,7 +25,7 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
           ? "bg-accent md:bg-transparent overflow-hidden border-f-inverse/20 focus:outline-2 focus:outline-offset-2 focus:outline-accent active:bg-accentDark"
           : primary
           ? "bg-accent border-accentDark text-white focus:outline-2 focus:outline-offset-4 focus:outline-accent active:bg-accentDark"
-          : "text-inherit border-f-primary/20 "
+          : "text-inherit border-accent/20"
       }`}
     >
       <Link

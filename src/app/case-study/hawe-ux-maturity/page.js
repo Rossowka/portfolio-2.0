@@ -2,7 +2,6 @@ import {
   ArrowIcon,
   CaseStudyNav,
   CaseStudyHeader,
-  CaseStudySection,
   UpNext,
   CaseStudyList,
   CaseStudyListItem,
@@ -11,7 +10,12 @@ import {
 } from "@/components";
 import { navItems } from "@/utils/navigationHUXCaseStudy";
 import { PROJECTS } from "@/utils/projects";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+
+const CaseStudySection = dynamic(() =>
+  import("@/components/CaseStudy/CaseStudySection")
+);
 
 const HUXCaseStudy = async () => {
   let title = "hawe-ux-maturity";

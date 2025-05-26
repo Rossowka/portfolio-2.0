@@ -1,10 +1,8 @@
 "use client";
 
-import { fadeIn } from "@/utils/animations";
+import { staggerContainer } from "@/utils/animations";
 import { HeadingL } from "../Text";
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
 
 const CaseStudySection = ({
   id,
@@ -12,16 +10,13 @@ const CaseStudySection = ({
   sectionTag = "placeholder tag",
   children,
 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
-
   return (
     <motion.section
       id={id}
-      ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={fadeIn}
+      whileInView="visible"
+      variants={staggerContainer}
+      custom={1}
       className="pt-20 md:pt-32 max-w-2xl"
     >
       <HeadingL

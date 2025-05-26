@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import {
-  motion,
-  useAnimation,
-  useInView,
-  useReducedMotion,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowIcon } from "../ArrowIcon";
 import Bottom from "./Bottom";
 import { HeadingXL } from "../Text";
@@ -20,27 +14,20 @@ const hoverLink = {
 };
 
 const Footer = () => {
-  const ref = useRef(null);
-  const controls = useAnimation();
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-  const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (inView) controls.start("visible");
-  }, [controls, inView]);
-
   return (
-    <motion.footer
-      ref={ref}
+    <footer
       id="contact"
       className="pt-32 lg:pt-48"
-      initial="hidden"
-      animate={shouldReduceMotion ? "visible" : controls}
-      variants={staggerContainer}
-      custom={1}
     >
       {/* Contact CTA */}
-      <div className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col mb-16 lg:mb-32">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={staggerContainer}
+        viewport={{ once: true, amount: 0.2 }}
+        custom={1}
+        className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col mb-16 lg:mb-32"
+      >
         <motion.div
           variants={fadeInUp}
           className="relative"
@@ -97,11 +84,11 @@ const Footer = () => {
             </Link>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Bottom section */}
       <Bottom />
-    </motion.footer>
+    </footer>
   );
 };
 

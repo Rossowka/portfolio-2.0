@@ -9,7 +9,7 @@ const Intro = () => {
         initial="hidden"
         whileInView="visible"
         variants={fadeInUp}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="max-w-[77.5rem] mx-auto px-4 lg:px-8 mt-16 mb-8 md:mb-12 lg:mt-36 lg:mb-24"
       >
         <h2 className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight md:indent-12 lg:indent-24">

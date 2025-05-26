@@ -11,7 +11,7 @@ const ProjectCard = ({ project }) => {
       initial="hidden"
       whileInView="visible"
       variants={fadeInUp}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.2 }}
       whileHover={{
         y: -2,
         transition: { duration: 0.15, ease: [0.4, 0, 0.2, 1] },

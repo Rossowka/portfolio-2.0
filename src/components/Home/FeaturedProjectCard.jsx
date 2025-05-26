@@ -3,22 +3,17 @@
 import Image from "next/image";
 import { Button } from "../Button";
 
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp } from "@/utils/animations";
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
 
 const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
-
   return (
     <motion.li
       key={index}
-      ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate="visible"
       variants={fadeInUp}
+      viewport={{ once: true, amount: 0.4 }}
       className="flex flex-col overflow-hidden border-[1px] rounded-3xl bg-accent/10 border-f-inverse/20"
     >
       {/* thumbnail */}
@@ -34,15 +29,9 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
 
       <div>
         {/* inner text */}
-        <motion.div
-          variants={staggerContainer}
-          className={`grow p-4 md:p-8 flex flex-col`}
-        >
+        <div className={`grow p-4 md:p-8 flex flex-col`}>
           {/* top line */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex justify-between mb-4"
-          >
+          <div className="flex justify-between mb-4">
             <div className="flex gap-1">
               <p className="leading-4">[ 0{index + 1} ]</p>
               <p className="text-xs leading-4 opacity-80">
@@ -50,19 +39,13 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
               </p>
             </div>
             <p className="text-xs leading-4">{project.year}</p>
-          </motion.div>
+          </div>
 
           {/* separator */}
-          <motion.div
-            variants={fadeInUp}
-            className="max-w-[77.5rem] mx-auto px-4 lg:px-8 bg-f-inverse/20 h-[1px]"
-          ></motion.div>
+          <div className="w-full mx-auto px-4 lg:px-8 bg-f-inverse/20 h-[1px]"></div>
 
           {/* tags */}
-          <motion.div
-            variants={fadeInUp}
-            className="mt-4 mb-4 lg:mb-8 text-xs md:text-sm"
-          >
+          <div className="mt-4 mb-4 lg:mb-8 text-xs md:text-sm">
             <ul className="flex gap-4 mb-4 lg:mb-6 md:gap-4 ">
               {project.role.map((tag) => (
                 <li
@@ -73,23 +56,17 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* title */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex gap-1 md:gap-16 justify-between"
-          >
+          <div className="flex gap-1 md:gap-16 justify-between">
             <h3 className="text-2xl lg:text-[2.5rem] leading-tight mb-2 md:mr-8 lg:mb-8">
               {project.title}
             </h3>
-          </motion.div>
+          </div>
 
           {/* results */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex -mx-2 lg:-mx-5"
-          >
+          <div className="flex -mx-2 lg:-mx-5">
             {project.impact.slice(0, 2).map((result, index) => (
               <div
                 key={index}
@@ -103,12 +80,9 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
                 </p>
               </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={staggerContainer}
-            className="flex flex-col md:flex-row gap-4 justify-end lg:mt-6"
-          >
+          <div className="flex flex-col md:flex-row gap-4 justify-end lg:mt-6">
             <Button
               label="project snapshot"
               href={project.url}
@@ -118,8 +92,8 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
               label="see full case study"
               href={project.caseStudyUrl}
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </motion.li>
   );

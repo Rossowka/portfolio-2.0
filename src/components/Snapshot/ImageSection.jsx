@@ -2,19 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
 
 const ImageSection = ({ currentProject }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
-
   return (
     <motion.section
-      ref={ref}
       initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
       className="max-w-[77.5rem] mx-auto px-4 lg:px-8"
     >
       <Image

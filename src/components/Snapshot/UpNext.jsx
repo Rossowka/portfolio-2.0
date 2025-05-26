@@ -1,20 +1,16 @@
 "use client";
 
+import { staggerContainer } from "@/utils/animations";
 import { Button } from "../Button";
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
 
 const UpNext = ({ nextProject }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px 0px" });
-
   return (
     <motion.section
-      ref={ref}
       initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.8, delay: 0.25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="max-w-[77.5rem] mx-auto px-4 lg:px-8 p-8 mt-16 -mb-14 border-t-[1px] border-b-[1px] border-f-inverse"
     >
       <div className="flex flex-col">
@@ -27,7 +23,13 @@ const UpNext = ({ nextProject }) => {
         </h1>
       </div>
 
-      <div className="mb-8 flex flex-col md:flex-row gap-4">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={staggerContainer}
+        viewport={{ once: true, amount: 0.2 }}
+        className="mb-8 flex flex-col md:flex-row gap-4"
+      >
         <Button
           label="view project snapshot"
           href={nextProject.url}
@@ -39,7 +41,7 @@ const UpNext = ({ nextProject }) => {
             href={nextProject.caseStudyUrl}
           />
         )}
-      </div>
+      </motion.div>
     </motion.section>
   );
 };
