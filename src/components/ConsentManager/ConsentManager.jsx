@@ -50,7 +50,7 @@ export default function ConsentManager() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 1 }}
             className="fixed inset-x-0 bottom-0 z-50 bg-s-primary border-t border-[rgb(174,181,185)]/25 p-4 shadow-lg backdrop-blur-sm"
             role="dialog"
             aria-label="Cookie consent"

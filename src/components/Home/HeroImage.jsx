@@ -12,7 +12,6 @@ const HeroImage = ({ src, alt }) => {
         transition={{
           duration: 0.5,
           ease: [0.33, 1, 0.68, 1],
-          delay: 0.1,
         }}
         className="aspect-square relative rounded-3xl overflow-hidden"
       >

@@ -20,7 +20,7 @@ const HeroText = () => {
         transition={{
           duration: 0.5,
           ease: [0.33, 1, 0.68, 1],
-          delay: 0.2,
+          delay: 0.25,
         }}
         className="z-10 absolute left-0 w-full top-0"
       >
