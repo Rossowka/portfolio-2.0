@@ -46,28 +46,28 @@ export const setupHeroAnimations = (leftListRef, rightListRef) => {
   const leftWords = Array.from(leftListRef.current.children);
   const rightWords = Array.from(rightListRef.current.children);
 
-  requestAnimationFrame(() => {
-    const leftWordHeight = leftWords[0].offsetHeight;
-    const rightWordHeight = rightWords[0].offsetHeight;
+  const leftWordHeight = leftWords[0].offsetHeight;
+  const rightWordHeight = rightWords[0].offsetHeight;
 
-    const loopLeftList = createListAnimation(
-      leftListRef,
-      0,
-      leftWordHeight,
-      leftWords
-    );
-    const loopRightList = createListAnimation(
-      rightListRef,
-      0,
-      rightWordHeight,
-      rightWords
-    );
+  let leftIndex = 0;
+  let rightIndex = 0;
 
-    const masterTimeline = gsap.timeline({ delay: 3 });
-    masterTimeline.call(loopLeftList).to({}, { duration: 3 }).repeat(-1);
-    masterTimeline
-      .call(loopRightList, [], 2)
-      .to({}, { duration: 6 })
-      .repeat(-1);
-  });
+  const loopLeftList = createListAnimation(
+    leftListRef,
+    leftIndex,
+    leftWordHeight,
+    leftWords
+  );
+  const loopRightList = createListAnimation(
+    rightListRef,
+    rightIndex,
+    rightWordHeight,
+    rightWords
+  );
+
+  const masterTimeline = gsap.timeline({ delay: 3 });
+
+  masterTimeline.call(loopLeftList).to({}, { duration: 3 }).repeat(-1);
+
+  masterTimeline.call(loopRightList, [], 2).to({}, { duration: 6 }).repeat(-1);
 };

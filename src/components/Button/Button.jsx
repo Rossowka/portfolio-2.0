@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { ArrowIcon } from "../ArrowIcon";
 import { motion } from "motion/react";
-import { fadeInScale } from "@/utils/animations";
+import { fadeInUp } from "@/utils/animations";
 
 const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      variants={fadeInScale}
+      variants={fadeInUp}
       viewport={{ once: true, amount: 0.4 }}
       whileHover={{
         y: -2,

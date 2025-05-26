@@ -1,13 +1,11 @@
 "use client";
 
+import { useGsapScrollTo } from "@/utils/useGsapScrollTo";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
-gsap.registerPlugin(ScrollToPlugin);
 
 const CircularButton = ({ text, radius, iconSrc }) => {
+  const scrollTo = useGsapScrollTo();
   const diameter = radius * 2;
   const textHeight = 14;
   const letterSpacing = 0.25;
@@ -17,11 +15,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   // Handle click for smooth scroll experience
   const handleSmoothScroll = (e) => {
     e.preventDefault();
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: "#featured",
-      ease: "power2.inOut",
-    });
+    scrollTo("featured");
   };
 
   // Format text with separators
