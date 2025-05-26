@@ -4,7 +4,7 @@ import { AboutParagraph } from ".";
 
 const Superpowers = () => {
   return (
-    <section className="pt-32 pb-12 flex flex-col container">
+    <section className="pt-32 pb-12 flex flex-col max-w-[77.5rem] mx-auto px-4 lg:px-8">
       <HeadingXL
         headingText="my superpowers"
         subheadingText="what I bring to the team"

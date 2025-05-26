@@ -28,7 +28,7 @@ const FeaturedProjects = () => {
       </ul>
 
       {/* button */}
-      <div className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex justify-center px-8">
+      <div className="max-w-[77.5rem] mx-auto lg:px-8 flex justify-center px-8">
         <Button
           label="more work"
           sup={PROJECTS.length}

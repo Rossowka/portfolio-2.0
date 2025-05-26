@@ -12,7 +12,7 @@ const CaseStudyHeader = ({ currentProject }) => {
       initial="hidden"
       animate="visible"
       variants={fadeInUp}
-      className="container flex flex-col pt-16 md:pt-40"
+      className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col pt-16 md:pt-40"
     >
       {/* back button */}
       <Link
@@ -27,11 +27,13 @@ const CaseStudyHeader = ({ currentProject }) => {
 
       {/* section title */}
       <div className="flex flex-col ">
-        <p className="text-sm pb-5 text-accent font-bold">
+        <p className="text-sm pb-5 text-accent font-bold leading-relaxed">
           {currentProject.client} | {currentProject.startDate} -{" "}
           {currentProject.endDate}
         </p>
-        <h1 className="page-title md:mr-8">{currentProject.title}</h1>
+        <h1 className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight md:mr-8">
+          {currentProject.title}
+        </h1>
       </div>
 
       {/* chips */}
@@ -60,8 +62,10 @@ const CaseStudyHeader = ({ currentProject }) => {
 
       {/* summary text */}
       <div className="flex flex-col md:flex-row">
-        <p className="eyebrow mr-12 mb-4">[ context ]</p>
-        <p className="text-2xl leading-normal lg:text-lg lg:leading-relaxed">
+        <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap leading-relaxed text-sm mt-1 mr-12 mb-4">
+          [ context ]
+        </p>
+        <p className="text-2xl leading-normal lg:text-lg lg:leading-relaxed font-medium">
           {currentProject.context}
         </p>
       </div>

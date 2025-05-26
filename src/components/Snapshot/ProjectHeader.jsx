@@ -11,7 +11,7 @@ const ProjectHeader = ({ currentProject }) => {
       initial="hidden"
       animate="visible"
       variants={fadeInUp}
-      className="container flex flex-col"
+      className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col"
     >
       <BackButton />
       <ProjectTitle currentProject={currentProject} />
@@ -39,8 +39,12 @@ const ProjectHeader = ({ currentProject }) => {
         variants={fadeInUp}
         className="md:ms-[16%] mb-10 md:mb-14 lg:mb-28 flex flex-col md:flex-row"
       >
-        <p className="eyebrow mr-12 mb-4 mt-1">[ summary ]</p>
-        <p className="text-2xl leading-relaxed">{currentProject.summary}</p>
+        <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap leading-relaxed text-sm mr-12 mb-4 mt-1">
+          [ summary ]
+        </p>
+        <p className="text-2xl leading-relaxed font-medium">
+          {currentProject.summary}
+        </p>
       </motion.div>
     </motion.header>
   );

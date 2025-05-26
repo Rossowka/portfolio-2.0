@@ -5,7 +5,7 @@ import { useState } from "react";
 import FilterChip from "./FilterChip";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
-import { slideRight, staggerContainer } from "@/utils/animations";
+import { slideRight } from "@/utils/animations";
 
 const FilteredPortfolio = () => {
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -34,7 +34,7 @@ const FilteredPortfolio = () => {
         initial="hidden"
         animate="visible"
         variants={slideRight}
-        className="container flex justify-end gap-3 pb-4 mb-4 lg:pb-14"
+        className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex justify-end gap-3 pb-4 mb-4 lg:pb-14"
       >
         {FILTER_OPTIONS.map((option) => (
           <FilterChip
@@ -47,7 +47,7 @@ const FilteredPortfolio = () => {
       </motion.div>
 
       {/* filter results */}
-      <div className="container mb-8 z-0">
+      <div className="max-w-[77.5rem] mx-auto px-4 lg:px-8 mb-8 z-0">
         <motion.ul
           key={selectedFilter}
           initial="hidden"

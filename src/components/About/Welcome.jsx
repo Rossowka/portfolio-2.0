@@ -8,7 +8,7 @@ const avatar = "/images/sara-rossow.webp";
 
 const Welcome = () => {
   return (
-    <section className="pt-16 pb-8 lg:pt-48 flex flex-col container">
+    <section className="pt-16 pb-8 lg:pt-48 flex flex-col max-w-[77.5rem] mx-auto px-4 lg:px-8">
       <header className="mt-16 mb-8">
         <motion.div
           initial="hidden"
@@ -33,7 +33,7 @@ const Welcome = () => {
           whileInView="visible"
           variants={slideRight}
           viewport={{ once: true, amount: 0.4 }}
-          className="page-title"
+          className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight"
         >
           the sweet spot
           <span className="block md:indent-12 lg:indent-28">

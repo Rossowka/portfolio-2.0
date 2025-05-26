@@ -41,7 +41,7 @@ const CaseStudyNav = ({ navItems }) => {
               }}
             >
               <p
-                className={`relative overflow-visible text-xs w-max ${
+                className={`relative overflow-visible text-xs w-max font-medium leading-relaxed ${
                   activeSection === item.id
                     ? "text-accent"
                     : "text-f-primary/40"

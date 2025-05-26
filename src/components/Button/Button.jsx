@@ -47,7 +47,9 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
 
         {/* text */}
         <p
-          className={`whitespace-nowrap ${dark ? "text-f-inverse" : "inherit"}`}
+          className={`whitespace-nowrap text-lg leading-relaxed font-medium ${
+            dark ? "text-f-inverse" : "inherit"
+          }`}
         >
           {label}
           {/*  superscript */}

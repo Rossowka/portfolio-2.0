@@ -29,7 +29,7 @@ const HUXCaseStudy = async () => {
     <>
       <CaseStudyHeader currentProject={currentProject} />
 
-      <div className="flex container">
+      <div className="flex max-w-[77.5rem] mx-auto px-4 lg:px-8">
         <CaseStudyNav navItems={navItems} />
 
         {/* the meat of case study goes here */}

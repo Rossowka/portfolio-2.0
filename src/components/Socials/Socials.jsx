@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Socials = ({ className }) => {
   return (
-    <ul className={`z-10 flex gap-2 ${className ? className : ""}`}>
+    <ul className={`z-10 flex w-fit gap-2 ${className ? className : ""}`}>
       {socials.map((item) => (
         <li
           className="overflow-hidden p-3 lg:p-4 hover:opacity-40 transform transition-all"

@@ -18,14 +18,14 @@ const Bottom = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={staggerContainer}
-        className="container flex flex-wrap md:items-center md:justify-between"
+        className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-wrap md:items-center md:justify-between"
       >
         {/* Date */}
         <motion.div
           variants={fadeInUp}
           className="order-3 md:order-1 mt-6 md:mt-0 flex-[0_0_100%] md:flex-[0_0_30%] border-t border-f-inverse/20 md:border-t-0"
         >
-          <p className="text-f-inverse/40 text-xs font-normal uppercase px-3 pt-4 text-right md:text-left">
+          <p className="text-f-inverse/40 text-xs font-normal uppercase px-3 pt-4 text-right md:text-left leading-relaxed">
             {year !== null ? (
               `${year} © Sara Rossow`
             ) : (

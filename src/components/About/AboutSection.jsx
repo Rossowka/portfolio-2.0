@@ -5,7 +5,7 @@ import { AboutParagraph } from ".";
 
 const AboutSection = () => {
   return (
-    <section className="container pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-24 lg:pb-24 max-w-xl self-center">
+    <section className="mx-auto px-4 lg:px-8 pt-16 lg:pt-32 pb-8 md:pb-12 md:pt-24 lg:pb-24 max-w-xl self-center">
       <HeadingXL
         headingText="here's mine"
         subheadingText="I believe in stories"

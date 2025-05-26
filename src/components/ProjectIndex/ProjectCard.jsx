@@ -42,7 +42,7 @@ const ProjectCard = ({ project }) => {
           </div>
           {/* description */}
           <figcaption>
-            <h3 className="pt-4 md:pt-5 w-full">
+            <h3 className="pt-4 md:pt-5 w-full font-medium text-lg">
               <span className="font-serif text-[110%]">
                 {project.client} -{" "}
               </span>

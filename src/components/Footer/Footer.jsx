@@ -40,7 +40,7 @@ const Footer = () => {
       custom={1}
     >
       {/* Contact CTA */}
-      <div className="container flex flex-col mb-16 lg:mb-32">
+      <div className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col mb-16 lg:mb-32">
         <motion.div
           variants={fadeInUp}
           className="relative"
@@ -86,12 +86,12 @@ const Footer = () => {
               className="block"
             >
               <h2
-                className="font-bold text-transparent bg-clip-text whitespace-nowrap"
+                className="font-bold text-transparent bg-clip-text whitespace-nowrap text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight"
                 style={{ backgroundImage: `url(/images/banner.webp)` }}
               >
                 Get in touch
               </h2>
-              <p className="text-2xl lg:text-[2.5rem] leading-tight ml-1">
+              <p className="text-2xl lg:text-[2.5rem] leading-tight ml-1 font-medium">
                 sararossow@mail.com
               </p>
             </Link>

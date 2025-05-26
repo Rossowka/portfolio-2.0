@@ -24,7 +24,9 @@ const CareerCard = ({ stat }) => {
       <p className="pb-8 text-base lg:text-xl leading-normal  font-serif font-bold">
         {stat.text}
       </p>
-      <p className="text-xs lg:text-sm text-f-primary/60">{stat.subtext}</p>
+      <p className="text-xs lg:text-sm text-f-primary/60 leading-relaxed">
+        {stat.subtext}
+      </p>
     </motion.div>
   );
 };

@@ -15,7 +15,7 @@ const ImageSection = ({ currentProject }) => {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.8 }}
-      className="container"
+      className="max-w-[77.5rem] mx-auto px-4 lg:px-8"
     >
       <Image
         src={currentProject.mainShot.src}

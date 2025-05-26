@@ -18,7 +18,7 @@ const HeadingL = ({ headingText, subheadingText, className }) => {
       className="mb-12"
     >
       {subheadingText && (
-        <p className="whitespace-nowrap text-xs uppercase font-semibold text-accent mb-4 ml-1">
+        <p className="whitespace-nowrap text-xs uppercase font-semibold text-accent mb-4 ml-1 leading-relaxed">
           {subheadingText}
         </p>
       )}
