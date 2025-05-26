@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { setupHeroAnimations } from "./animations";
 import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/utils/animations";
 
 const HeroText = () => {
   const leftListRef = useRef(null);
@@ -13,24 +12,16 @@ const HeroText = () => {
   }, []);
 
   return (
-    <h1 className="tracking-tight uppercase font-serif max-[400px]:text-[3rem] font-bold text-f-inverse text-[4rem] leading-none md:text-[6rem] mix-blend-difference">
+    <h1 className="tracking-tight uppercase font-serif max-[400px]:text-[3rem] font-bold text-f-inverse text-[4rem] leading-none md:text-[6rem] mix-blend-difference lg:text-[6rem]">
       {/* hero text left */}
       <motion.span
-        initial="hidden"
-        whileInView="visible"
-        variants={{
-          hidden: { y: 20, opacity: 0 },
-          visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-              duration: 0.6,
-              delay: 0.35,
-              ease: [0.33, 1, 0.68, 1],
-            },
-          },
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: [0.33, 1, 0.68, 1],
+          delay: 0.2,
         }}
-        viewport={{ once: true, amount: 0.4 }}
         className="z-10 absolute left-0 w-full top-0"
       >
         {/* text mask */}

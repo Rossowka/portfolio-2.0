@@ -14,7 +14,7 @@ const FeaturedProjects = () => {
       <FeaturedProjectsHeader />
 
       {/* project list */}
-      <ul className="container mb-16 lg:mb-28 flex flex-col gap-9 overflow-hidden">
+      <ul className="max-w-[77.5rem] mx-auto px-4 lg:px-8 mb-16 lg:mb-28 flex flex-col gap-9 overflow-hidden">
         {[...featuredProjects]
           .sort((a, b) => b.year - a.year)
           .map((project, index) => (
@@ -28,7 +28,7 @@ const FeaturedProjects = () => {
       </ul>
 
       {/* button */}
-      <div className="container flex justify-center px-8">
+      <div className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex justify-center px-8">
         <Button
           label="more work"
           sup={PROJECTS.length}

@@ -1,10 +1,10 @@
 import { inriaSerif, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
-import { ConsentManager, Footer, NavBarWrapper } from "@/components";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 
 export const metadata = {
-  title: "Sara Rossow • Digital Designer & Developer",
+  title: "Sara Rossow Portfolio • Digital Designer & Developer",
   description:
     "The sweet spot of product design. Delivering delightful experiences through thoughtful design and craft of beautiful interfaces.",
   metadataBase: new URL("https://www.sararossow.com"), //change to baseURL that will be located in sitemap (you also have to create that)
@@ -47,6 +47,11 @@ export const metadata = {
   ],
 };
 
+const Footer = dynamic(() => import("@/components/Footer/Footer"));
+const NavBarWrapper = dynamic(() =>
+  import("@/components/NavBar/NavBarWrapper")
+);
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -64,8 +69,6 @@ export default function RootLayout({ children }) {
         <NavBarWrapper />
         <main className="flex-grow">{children}</main>
         <Footer />
-
-        <ConsentManager />
 
         {/* Structured data for better search engine understanding of my content */}
         <Script

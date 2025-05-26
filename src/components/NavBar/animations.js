@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
-
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,4 +81,47 @@ export const toggleHeaderOnScroll = (headerRef) => {
   });
 
   return trigger;
+};
+
+export const useNavBarAnimation = (headerRef, isMenuOpen) => {
+  const scrollTriggerRef = useRef(null);
+
+  // Create the ScrollTrigger once on component mount
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { y: -94, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.4,
+          delay: 1.2,
+          ease: "power2.out",
+          onComplete: () => {
+            scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
+          },
+        }
+      );
+    });
+
+    scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
+
+    return () => {
+      ctx.revert();
+      if (scrollTriggerRef.current) scrollTriggerRef.current.kill();
+    };
+  }, []);
+
+  // Toggle ScrollTrigger based on menu state
+  useEffect(() => {
+    if (scrollTriggerRef.current) {
+      if (isMenuOpen) {
+        scrollTriggerRef.current.disable();
+        gsap.to(headerRef.current, { yPercent: 0, duration: 0.3 });
+      } else {
+        scrollTriggerRef.current.enable();
+      }
+    }
+  }, [isMenuOpen]);
 };

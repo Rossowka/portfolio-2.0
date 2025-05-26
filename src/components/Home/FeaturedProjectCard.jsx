@@ -55,7 +55,7 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
           {/* separator */}
           <motion.div
             variants={fadeInUp}
-            className="container bg-f-inverse/20 h-[1px]"
+            className="max-w-[77.5rem] mx-auto px-4 lg:px-8 bg-f-inverse/20 h-[1px]"
           ></motion.div>
 
           {/* tags */}
@@ -80,7 +80,9 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
             variants={fadeInUp}
             className="flex gap-1 md:gap-16 justify-between"
           >
-            <h3 className="title mb-2 md:mr-8 lg:mb-8">{project.title}</h3>
+            <h3 className="text-2xl lg:text-[2.5rem] leading-tight mb-2 md:mr-8 lg:mb-8">
+              {project.title}
+            </h3>
           </motion.div>
 
           {/* results */}

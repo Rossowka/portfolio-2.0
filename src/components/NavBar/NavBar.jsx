@@ -2,38 +2,30 @@
 
 import { navigation } from "@/utils/navigation";
 import { disablePageScroll, enablePageScroll } from "@fluejs/noscroll";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { closeMenu, toggleHeaderOnScroll, openMenu } from "./animations";
+import { useRef, useState } from "react";
+import { closeMenu, openMenu, useNavBarAnimation } from "./animations";
 import { SideMenu } from "../SideMenu";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+import { useGsapScrollTo } from "@/utils/useGsapScrollTo";
 
-gsap.registerPlugin(useGSAP, ScrollToPlugin); // register the hook to avoid React version discrepancies
-
-const NavBar = ({ pathname }) => {
+const NavBar = ({
+  pathname,
+  textColorClass,
+  bgColorClass,
+  underlineColorClass,
+}) => {
   const menuBtnRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
-  const scrollTriggerRef = useRef(null); // Store the scroll trigger reference
 
+  const scrollTo = useGsapScrollTo();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const textColorClass =
-    pathname === "/projects" ? "text-f-inverse" : "text-f-primary";
-  const bgColorClass =
-    pathname === "/projects" ? "bg-s-inverse" : "bg-s-primary";
-  const underlineColorClass =
-    pathname === "/projects" ? "bg-s-primary" : "bg-s-inverse";
 
   // Toggle between opened and closed menu
   const toggleMenu = () => {
     if (!isMenuOpen) {
       // menu is about to open
-      requestAnimationFrame(() => {
-        openMenu(menuBtnRef, logoRef);
-      });
+      requestAnimationFrame(() => openMenu(menuBtnRef, logoRef));
       disablePageScroll();
     } else {
       closeMenu(menuBtnRef, logoRef, headerRef);
@@ -42,55 +34,19 @@ const NavBar = ({ pathname }) => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  // Create the ScrollTrigger once on component mount
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current,
-        { y: -94, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.4,
-          delay: 1.2,
-          ease: "power2.out",
-        }
-      );
-    });
-
-    scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
-
-    return () => {
-      ctx.revert(); // clean up GSAP context
-      if (scrollTriggerRef.current) scrollTriggerRef.current.kill();
-    };
-  }, []);
-
-  // Toggle ScrollTrigger based on menu state
-  useEffect(() => {
-    if (scrollTriggerRef.current) {
-      if (isMenuOpen) {
-        // Disable ScrollTrigger and ensure header is visible when menu is open
-        scrollTriggerRef.current.disable();
-        gsap.to(headerRef.current, { yPercent: 0, duration: 0.3 });
-      } else {
-        // Re-enable ScrollTrigger when menu is closed
-        scrollTriggerRef.current.enable();
-      }
-    }
-  }, [isMenuOpen]);
+  useNavBarAnimation(headerRef, isMenuOpen);
 
   return (
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 w-screen max-w-full z-50 transition-colors duration-0 ${
+        className={`fixed top-0 w-screen opacity-0 invisible max-w-full z-50 transition-colors duration-0 ${
           isMenuOpen
             ? `${textColorClass} bg-transparent`
             : `${textColorClass} ${bgColorClass} delay-200 duration-500`
         }`}
       >
-        <div className="lg:container w-screen px-4 lg:px-8 flex items-center justify-between overflow-hidden">
+        <div className="lg:max-w-[77.5rem] lg:mx-auto w-screen px-4 lg:px-8 flex items-center justify-between overflow-hidden">
           {/* initial logo */}
           <Link
             aria-label="Home"
@@ -113,14 +69,7 @@ const NavBar = ({ pathname }) => {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        const target = document.querySelector(`#${item.id}`);
-                        if (target) {
-                          gsap.to(window, {
-                            duration: 1,
-                            scrollTo: { y: target, offsetY: 80 },
-                            ease: "power2.inOut",
-                          });
-                        }
+                        scrollTo(item.id);
                       }}
                       className="block group px-4 py-4 lg:px-5 lg:py-8"
                     >
