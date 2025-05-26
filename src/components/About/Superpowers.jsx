@@ -1,6 +1,10 @@
+"use client";
+
 import { superpowers } from "@/utils/about";
 import { HeadingM, HeadingXL } from "../Text";
 import { AboutParagraph } from ".";
+import { motion } from "motion/react";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 const Superpowers = () => {
   return (
@@ -9,9 +13,17 @@ const Superpowers = () => {
         headingText="my superpowers"
         subheadingText="what I bring to the team"
       />
-      <div className="flex flex-wrap -mx-5">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+        className="flex flex-wrap -mx-5"
+      >
         {superpowers.map((paragraph, index) => (
-          <div
+          <motion.div
+            variants={fadeInUp}
+            viewport={{ once: true, amount: 0.4 }}
             key={index}
             className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5"
           >
@@ -20,9 +32,9 @@ const Superpowers = () => {
               className="font-serif"
             />
             <AboutParagraph small>{paragraph.text}</AboutParagraph>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

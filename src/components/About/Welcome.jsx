@@ -12,9 +12,9 @@ const Welcome = () => {
       <header className="mt-16 mb-8">
         <motion.div
           initial="hidden"
-          whileInView="visible"
+          animate="visible"
           variants={slideRight}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true }}
           className="sm:hidden mb-4"
         >
           <Image
@@ -32,7 +32,7 @@ const Welcome = () => {
           initial="hidden"
           whileInView="visible"
           variants={slideRight}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true }}
           className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight"
         >
           the sweet spot
@@ -45,7 +45,7 @@ const Welcome = () => {
         initial="hidden"
         whileInView="visible"
         variants={slideRight}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true }}
         className=" bg-f-primary/20 h-[1px]"
       ></motion.div>
       <div className="flex flex-col md:flex-row relative gap-8 mt-8 justify-end">
@@ -75,12 +75,11 @@ const Welcome = () => {
               scale: 1,
               transition: {
                 duration: 0.45,
-                delay: 0.35,
                 ease: [0.33, 1, 0.68, 1],
               },
             },
           }}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true }}
           className="self-end absolute hidden sm:block md:bottom-2/3 sm:right-8 lg:right-12"
         >
           <Image

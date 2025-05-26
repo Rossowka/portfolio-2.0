@@ -8,8 +8,6 @@ import { fadeInUp } from "@/utils/animations";
 const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
       variants={fadeInUp}
       viewport={{ once: true, amount: 0.4 }}
       whileHover={{

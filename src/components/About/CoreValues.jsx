@@ -1,4 +1,4 @@
-import { HeadingL, HeadingXL } from "../Text";
+import { HeadingXL } from "../Text";
 
 const CoreValues = () => {
   return (

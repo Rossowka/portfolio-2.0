@@ -39,13 +39,13 @@ export const slideRight = {
 
 export const staggerContainer = {
   hidden: { opacity: 0 },
-  visible: (i = 1) => ({
+  visible: {
     opacity: 1,
-    y: 0,
     transition: {
       when: "beforeChildren",
+      ease: [0.33, 1, 0.68, 1],
+      duration: 0.6,
       staggerChildren: 0.15,
-      delayChildren: 0.2 * i,
     },
-  }),
+  },
 };
