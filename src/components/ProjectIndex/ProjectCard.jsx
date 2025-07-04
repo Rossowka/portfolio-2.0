@@ -30,12 +30,12 @@ const ProjectCard = ({ project }) => {
           {/* thumbnail */}
           <div className="relative aspect-video w-full overflow-hidden">
             <Image
-              src={project.thumbnail.snapshot.src}
-              alt={project.thumbnail.snapshot.alt}
+              src={project.snapshot.src}
+              alt={project.snapshot.alt}
               fill
               loading="lazy"
               placeholder="blur"
-              blurDataURL={project.thumbnail.snapshot.src}
+              blurDataURL={project.snapshot.src}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 572px"
             />

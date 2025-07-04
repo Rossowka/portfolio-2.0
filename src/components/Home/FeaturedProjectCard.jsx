@@ -19,8 +19,8 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
       {/* thumbnail */}
       <div className="relative overflow-hidden aspect-[1110/400] md:aspect- w-full p-4 md:p-8">
         <Image
-          src={project.thumbnail.l.src}
-          alt={project.thumbnail.l.alt}
+          src={project.thumbnail.src}
+          alt={project.thumbnail.alt}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1110px"
           className="object-cover w-full h-full"
