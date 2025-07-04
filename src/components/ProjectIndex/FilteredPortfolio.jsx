@@ -25,6 +25,14 @@ const FilteredPortfolio = () => {
       default:
         return true;
     }
+  }).sort((a, b) => {
+    // When "all" is selected, sort featured projects to the top
+    if (selectedFilter === "all") {
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
+      return 0;
+    }
+    return 0;
   });
 
   return (
