@@ -5,7 +5,7 @@ import { ArrowIcon } from "../ArrowIcon";
 import { motion } from "motion/react";
 import { fadeInUp } from "@/utils/animations";
 
-const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
+const Button = ({ label = "button", href = "#", sup, primary, dark, noIcon = false }) => {
   return (
     <motion.div
       variants={fadeInUp}
@@ -31,7 +31,7 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
         className="flex group gap-1 px-8 py-4 lg:py-8 lg:px-16 justify-center"
       >
         {/* icon */}
-        <div className="min-w-fit content-center">
+        {!noIcon && <div className="min-w-fit content-center">
           <ArrowIcon
             className={` transform transition-all duration-300 ease-in-out  ${
               dark ? "lg:text-accent -rotate-45 lg:rotate-0" : "text-inherit"
@@ -41,7 +41,7 @@ const Button = ({ label = "button", href = "#", sup, primary, dark }) => {
                 : "rotate-0 md:group-hover:-rotate-45"
             }`}
           />
-        </div>
+        </div>}
 
         {/* text */}
         <p

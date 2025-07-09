@@ -5,6 +5,8 @@ import { Button } from "../Button";
 
 import { fadeInUp } from "@/utils/animations";
 import { motion } from "motion/react";
+import Link from "next/link";
+import { ArrowIcon } from "../ArrowIcon";
 
 const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
   return (
@@ -60,7 +62,7 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
 
           {/* title */}
           <div className="flex gap-1 md:gap-16 justify-between">
-            <h3 className="text-2xl lg:text-[2.5rem] leading-tight mb-2 md:mr-8 lg:mb-8">
+            <h3 className="text-2xl lg:text-[2.5rem] leading-tight mb-2 md:mr-8 lg:mb-8 text-balance">
               {project.title}
             </h3>
           </div>
@@ -72,26 +74,31 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
                 key={index}
                 className="pt-4 pb-12 lg:pb-14 px-2 lg:px-5 flex-[0_0_50%] shrink-0 max-w-[50%]"
               >
-                <strong className="text-4xl lg:text-5xl leading-tight tracking-tighter font-serif block mb-2">
+                <strong className="text-4xl lg:text-5xl leading-tight tracking-tighter font-serif block mb-2 lg:mb-4">
                   {result.data}
                 </strong>
-                <p className="text-sm lg:text-base leading-normal font-normal max-w-[15rem] opacity-80">
+                <p className="text-sm lg:text-base leading-normal font-normal max-w-[15rem] opacity-80 text-balance">
                   {result.text}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4 justify-end lg:mt-6">
-            <Button
-              label="project snapshot"
-              href={project.url}
-            />
-            <Button
-              primary
-              label="see full case study"
+          <div className="flex justify-end lg:mt-6">
+            <Link
               href={project.caseStudyUrl}
-            />
+              className="flex gap-1 px-8 py-4 justify-center text-accent hover:text-f-inverse transition-transform hover:translate-y-[-4px]"
+            >
+              {/* text */}
+              <p className="whitespace-nowrap text-lg leading-relaxed font-medium text-inherit">
+                Read more
+              </p>
+
+              {/* icon */}
+              <div className="min-w-fit content-center">
+                <ArrowIcon className="text-inherit -rotate-45 lg:rotate-0" />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
