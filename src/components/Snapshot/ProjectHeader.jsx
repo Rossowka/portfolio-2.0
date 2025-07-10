@@ -20,7 +20,8 @@ const ProjectHeader = ({ currentProject }) => {
       {/* section title */}
       <div className="flex flex-col mb-8 md:mb-20 lg:mb-32">
         <p className="text-sm pb-5 text-accent font-semibold leading-relaxed">
-          {currentProject.client} | {currentProject.startDate} -{" "}
+          {currentProject.client} | {currentProject.startDate}
+          {currentProject.endDate && " - "}
           {currentProject.endDate}
         </p>
         <ProjectTitle currentProject={currentProject} />
