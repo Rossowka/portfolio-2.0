@@ -1,4 +1,159 @@
 export const PROJECTS = [
+  // hawe-design-system
+  {
+    id: "hawe-design-system",
+    client: "HAWE",
+    title: "Unifying HAWE's digital experience and crafting a design system",
+    startDate: "Nov 2023",
+    endDate: "Nov 2024",
+    year: "2024",
+    duration: "1 year",
+    role: ["Research", "Strategy", "Design", "Development"],
+    tags: ["Design System", "Design Process"],
+    productTags: ["Design System", "Manufacturing / Hydraulics", "B2B"],
+    focusAreasTags: [
+      "Brand Implementation",
+      "Component Library",
+      "Documentation",
+      "Cross-Team Alignment",
+    ],
+    team: [
+      {
+        count: "1x",
+        role: "Product Designer",
+      },
+      {
+        count: "2x",
+        role: "UX Consultants",
+      },
+      {
+        count: "1x",
+        role: "Developer",
+      },
+      {
+        count: "1x",
+        role: "Head of CX",
+      },
+    ],
+    constraints: [
+      "Limited resources",
+      "Evolving corporate identity",
+      "Legacy code",
+      "Tech stack limitations",
+      "Slow adoption",
+    ],
+    impact: [
+      {
+        data: "~50%",
+        text: "Cut in idea-to-product time. The tool became crucial to cross-team collaboration",
+      },
+      {
+        data: "+",
+        text: "Defined processes for design system's governance and maintenance",
+      },
+    ],
+    summary:
+      "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
+    context:
+      "HAWE Hydraulik is a family-owned German company known for engineering precision in hydraulic components and systems. Its Customer Portal serves as a central hub. It powers up internal teams and customers alike with the tools they need to get things done.",
+    url: "/case-study/hawe-design-system",
+    onlineUrl: "",
+    thumbnail: {
+      src: "/images/hawe-design-system/thumbnail-l.webp",
+      alt: "thumbnail",
+    },
+    snapshot: {
+      src: "/images/hawe-design-system/snapshot.webp",
+      alt: "Couple of components from the design library",
+    },
+    mainShot: {
+      src: "/images/hawe-design-system/main.webp",
+      alt: "Collage of components",
+    },
+    imageShowcase: [],
+    featured: true,
+  },
+  // hawe-ux-maturity
+  {
+    id: "hawe-ux-maturity",
+    client: "HAWE",
+    title: "Elevating HAWE's UX maturity and fostering a user-centric culture",
+    startDate: "Nov 2023",
+    endDate: "Apr 2025",
+    year: "2025",
+    duration: "1.5 years",
+    role: ["Research", "Strategy"],
+    tags: ["Internal System", "Design Process", "Manufacturing", "B2B"],
+    productTags: [
+      "Internal Platform Tools",
+      "Manufacturing / Hydraulics",
+      "B2B",
+    ],
+    focusAreasTags: [
+      "UX Strategy",
+      "Workshop Facilitation",
+      "Design Ops",
+      "Cross-Tool Ecosystem Mapping",
+    ],
+    team: [
+      {
+        count: "2x",
+        role: "Product Designer",
+      },
+      {
+        count: "2x",
+        role: "UX Consultants",
+      },
+      {
+        count: "4x",
+        role: "Developers",
+      },
+      {
+        count: "2x",
+        role: "Product Managers",
+      },
+    ],
+    constraints: [
+      "Low UX maturity",
+      "Teams working in silos",
+      "Limited budget",
+      "Slow adoption",
+    ],
+    impact: [
+      {
+        data: "+",
+        text: "Implemented active user research and user-centric design processes",
+      },
+      {
+        data: "+",
+        text: "Initiated a culture shift to a more collaborative approach",
+      },
+      {
+        data: "+",
+        text: "Developed a design system and revamped the UI, ensuring consistency and efficiency",
+      },
+    ],
+    summary:
+      "I worked closely with the Head of CX and the Head of Digitalization on a complete redesign of HAWE’s customer platform. At first, created as a hub for our tools and product catalogue it took a life of its own with each new addition. I encouraged collaboration and turned the focus from products to users. This initiated a cultural shift at HAWE. By aligning our strategy with business goals and client needs, I cultivated UX into HAWE’s culture and made it a core part of our decision-making.",
+    context:
+      "HAWE delivers custom hydraulic solutions for every need. Its Customer Portal, above all, enables users to quickly find and configure products that match their hydraulic needs. With over 12,000 registered customers worldwide, HAWE offers dedicated support to each one.",
+    url: "/case-study/hawe-ux-maturity",
+    onlineUrl: "",
+    thumbnail: {
+      src: "/images/hawe-ux-maturity/thumbnail-l.webp",
+      alt: "thumbnail",
+    },
+    snapshot: {
+      src: "/images/hawe-ux-maturity/snapshot.webp",
+      alt: "Couple of components from the design library",
+    },
+    mainShot: {
+      src: "/images/hawe-ux-maturity/main.webp",
+      alt: "Collage of components",
+    },
+    imageShowcase: [],
+    featured: true,
+  },
   // hawe-configurator
   {
     id: "hawe-configurator",
@@ -157,161 +312,7 @@ export const PROJECTS = [
     imageShowcase: [],
     featured: false,
   },
-  // hawe-design-system
-  {
-    id: "hawe-design-system",
-    client: "HAWE",
-    title: "Unifying HAWE's digital experience and crafting a design system",
-    startDate: "Nov 2023",
-    endDate: "Nov 2024",
-    year: "2024",
-    duration: "1 year",
-    role: ["Research", "Strategy", "Design", "Development"],
-    tags: ["Design System", "Design Process"],
-    productTags: ["Design System", "Manufacturing / Hydraulics", "B2B"],
-    focusAreasTags: [
-      "Brand Implementation",
-      "Component Library",
-      "Documentation",
-      "Cross-Team Alignment",
-    ],
-    team: [
-      {
-        count: "1x",
-        role: "Product Designer",
-      },
-      {
-        count: "2x",
-        role: "UX Consultants",
-      },
-      {
-        count: "1x",
-        role: "Developer",
-      },
-      {
-        count: "1x",
-        role: "Head of CX",
-      },
-    ],
-    constraints: [
-      "Limited resources",
-      "Evolving corporate identity",
-      "Legacy code",
-      "Tech stack limitations",
-      "Slow adoption",
-    ],
-    impact: [
-      {
-        data: "~50%",
-        text: "Cut in idea-to-product time. The tool became crucial to cross-team collaboration",
-      },
-      {
-        data: "+",
-        text: "Defined processes for design system's governance and maintenance",
-      },
-    ],
-    summary:
-      "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
-    context:
-      "HAWE Hydraulik is a family-owned German company known for engineering precision in hydraulic components and systems. Its Customer Portal serves as a central hub. It powers up internal teams and customers alike with the tools they need to get things done.",
-    url: "/case-study/hawe-design-system",
-    onlineUrl: "",
-    thumbnail: {
-      src: "/images/hawe-design-system/thumbnail-l.webp",
-      alt: "thumbnail",
-    },
-    snapshot: {
-      src: "/images/hawe-design-system/snapshot.webp",
-      alt: "Couple of components from the design library",
-    },
-    mainShot: {
-      src: "/images/hawe-design-system/main.webp",
-      alt: "Collage of components",
-    },
-    imageShowcase: [],
-    featured: true,
-  },
-  // hawe-ux-maturity
-  {
-    id: "hawe-ux-maturity",
-    client: "HAWE",
-    title: "Elevating HAWE's UX maturity and fostering a user-centric culture",
-    startDate: "Nov 2023",
-    endDate: "Apr 2025",
-    year: "2025",
-    duration: "1.5 years",
-    role: ["Research", "Strategy"],
-    tags: ["Internal System", "Design Process", "Manufacturing", "B2B"],
-    productTags: [
-      "Internal Platform Tools",
-      "Manufacturing / Hydraulics",
-      "B2B",
-    ],
-    focusAreasTags: [
-      "UX Strategy",
-      "Workshop Facilitation",
-      "Design Ops",
-      "Cross-Tool Ecosystem Mapping",
-    ],
-    team: [
-      {
-        count: "2x",
-        role: "Product Designer",
-      },
-      {
-        count: "2x",
-        role: "UX Consultants",
-      },
-      {
-        count: "4x",
-        role: "Developers",
-      },
-      {
-        count: "2x",
-        role: "Product Managers",
-      },
-    ],
-    constraints: [
-      "Low UX maturity",
-      "Teams working in silos",
-      "Limited budget",
-      "Slow adoption",
-    ],
-    impact: [
-      {
-        data: "+",
-        text: "Implemented active user research and user-centric design processes",
-      },
-      {
-        data: "+",
-        text: "Initiated a culture shift to a more collaborative approach",
-      },
-      {
-        data: "+",
-        text: "Developed a design system and revamped the UI, ensuring consistency and efficiency",
-      },
-    ],
-    summary:
-      "I worked closely with the Head of CX and the Head of Digitalization on a complete redesign of HAWE’s customer platform. At first, created as a hub for our tools and product catalogue it took a life of its own with each new addition. I encouraged collaboration and turned the focus from products to users. This initiated a cultural shift at HAWE. By aligning our strategy with business goals and client needs, I cultivated UX into HAWE’s culture and made it a core part of our decision-making.",
-    context:
-      "HAWE delivers custom hydraulic solutions for every need. Its Customer Portal, above all, enables users to quickly find and configure products that match their hydraulic needs. With over 12,000 registered customers worldwide, HAWE offers dedicated support to each one.",
-    url: "/case-study/hawe-ux-maturity",
-    onlineUrl: "",
-    thumbnail: {
-      src: "/images/hawe-ux-maturity/thumbnail-l.webp",
-      alt: "thumbnail",
-    },
-    snapshot: {
-      src: "/images/hawe-ux-maturity/snapshot.webp",
-      alt: "Couple of components from the design library",
-    },
-    mainShot: {
-      src: "/images/hawe-ux-maturity/main.webp",
-      alt: "Collage of components",
-    },
-    imageShowcase: [],
-    featured: true,
-  },
+
   // swingin-fireballs
   {
     id: "swingin-fireballs",

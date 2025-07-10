@@ -17,7 +17,7 @@ const UpNext = ({ nextProject }) => {
         <p className="font-semibold uppercase text-accent whitespace-nowrap leading-relaxed text-sm mt-1 mb-6">
           - up next
         </p>
-        <h1 className="font-medium text-[2rem] lg:text-[3rem] tracking-tight leading-tight mb-8 lg:mb-8">
+        <h1 className="font-medium text-[2rem] lg:text-[3rem] tracking-tight leading-tight mb-8 lg:mb-8 text-balance">
           <span className="font-serif">{nextProject.client} - </span>
           <span>{nextProject.title}</span>
         </h1>
