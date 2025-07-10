@@ -1,9 +1,12 @@
-import { ProjectHeader } from "@/components/Snapshot";
+import { ImageSection, ProjectHeader } from "@/components/Snapshot";
 import { PROJECTS } from "@/utils/projects";
 import dynamic from "next/dynamic";
 
-const ImageSection = dynamic(() =>
-  import("@/components/Snapshot/ImageSection")
+const MainImageSection = dynamic(() =>
+  import("@/components/Snapshot/MainImageSection")
+);
+const SummarySection = dynamic(() =>
+  import("@/components/Snapshot/SummarySection")
 );
 const UpNext = dynamic(() => import("@/components/Snapshot/UpNext"));
 
@@ -16,11 +19,16 @@ export default async function ProjectSnapshot({ params }) {
 
   return (
     <>
-      <section className="pt-16 md:pt-32 relative">
+      <section className="pt-16 md:pt-32 mb-16 relative">
         <ProjectHeader currentProject={currentProject} />
       </section>
+      <MainImageSection currentProject={currentProject} />
+      <SummarySection currentProject={currentProject} />
 
-      <ImageSection currentProject={currentProject} />
+      {currentProject.imageShowcase && (
+        <ImageSection currentProject={currentProject} />
+      )}
+
       <UpNext nextProject={nextProject} />
     </>
   );

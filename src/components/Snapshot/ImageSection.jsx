@@ -12,18 +12,6 @@ const ImageSection = ({ currentProject }) => {
       viewport={{ once: true, amount: "some" }}
       className="max-w-[77.5rem] mx-auto px-4 lg:px-8"
     >
-      <Image
-        src={currentProject.mainShot.src}
-        alt={currentProject.mainShot.alt}
-        className={`object-cover w-full h-full object-center`}
-        width={1176}
-        height={662}
-        quality={100}
-        loading="lazy"
-        placeholder="blur"
-        blurDataURL={currentProject.mainShot.src}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 1176px"
-      />
       <div className="flex mt-8 gap-8 overflow-hidden flex-wrap">
         {currentProject.imageShowcase.map((image, index) => (
           <Image

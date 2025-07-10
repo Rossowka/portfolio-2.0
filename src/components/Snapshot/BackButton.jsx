@@ -11,7 +11,7 @@ const BackButton = () => {
         <div className="min-w-fit content-center">
           <ArrowIcon className="transform transition-all duration-300 ease-in-out rotate-180 group-hover:rotate-[225deg]" />
         </div>
-        <p className="uppercase text-xs mt-1">see projects</p>
+        <p className="uppercase text-xs mt-1">back to projects</p>
       </Link>
     </div>
   );

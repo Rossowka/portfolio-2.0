@@ -1,18 +1,24 @@
 import {
   ArrowIcon,
   CaseStudyNav,
-  CaseStudyHeader,
   UpNext,
   CaseStudyList,
   CaseStudyListItem,
   HeadingM,
   CaseStudyParagraph,
 } from "@/components";
+import { ImageSection, ProjectHeader } from "@/components/Snapshot";
 import { navItems } from "@/utils/navigationHUXCaseStudy";
 import { PROJECTS } from "@/utils/projects";
-import dynamic from "next/dynamic";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
+const MainImageSection = dynamic(() =>
+  import("@/components/Snapshot/MainImageSection")
+);
+const SummarySection = dynamic(() =>
+  import("@/components/Snapshot/SummarySection")
+);
 const CaseStudySection = dynamic(() =>
   import("@/components/CaseStudy/CaseStudySection")
 );
@@ -24,14 +30,27 @@ const HUXCaseStudy = async () => {
   );
   let index = featuredProjects.findIndex((item) => item.id === title);
   let currentProject = featuredProjects[index];
+  // let nextProject =
+  //   index === featuredProjects.length - 1
+  //     ? featuredProjects[0]
+  //     : featuredProjects[index + 1];
   let nextProject =
-    index === featuredProjects.length - 1
-      ? featuredProjects[0]
-      : featuredProjects[index + 1];
+    index === PROJECTS.length - 1 ? PROJECTS[0] : PROJECTS[index + 1];
 
   return (
     <>
-      <CaseStudyHeader currentProject={currentProject} />
+      {/* <CaseStudyHeader currentProject={currentProject} /> */}
+      <section className="pt-16 md:pt-32 mb-16 relative">
+        <ProjectHeader currentProject={currentProject} />
+      </section>
+      <MainImageSection currentProject={currentProject} />
+      <SummarySection currentProject={currentProject} />
+
+      {currentProject.imageShowcase.length > 0 ? (
+        <ImageSection currentProject={currentProject} />
+      ) : (
+        <div className="max-w-[77.5rem] mx-auto bg-f-inverse h-[1px] mb-10"></div>
+      )}
 
       <div className="flex max-w-[77.5rem] mx-auto px-4 lg:px-8">
         <CaseStudyNav navItems={navItems} />

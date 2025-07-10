@@ -86,7 +86,7 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
 
           <div className="flex justify-end lg:mt-6">
             <Link
-              href={project.caseStudyUrl}
+              href={project.url}
               className="flex gap-1 px-8 py-4 justify-center text-accent hover:text-f-inverse transition-transform hover:translate-y-[-4px]"
             >
               {/* text */}

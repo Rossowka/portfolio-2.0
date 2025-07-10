@@ -1,84 +1,76 @@
 const ProjectDetails = ({ currentProject }) => {
   return (
-    <div className="flex flex-col md:flex-row w-full lg:w-fit mb-8 lg:mb-0 gap-4">
-      {/* first column */}
-      <div className="mt-2 flex flex-1 lg:flex-col lg:w-40 lg:flex-none gap-4 ">
-        <div className="flex-1 order-3 md:order-1 lg:flex-none">
-          <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap mt-1 mb-2 text-xs leading-normal">
-            [ timeline ]
+    <div className="mt-2 flex lg:flex-none md:gap-8 flex-wrap md:flex-nowrap">
+      {currentProject.impact && (
+        <div className="md:flex-1 lg:flex-none flex-[0_0_50%] max-w-[50%] pl-8 md:pl-0 order-2 md:order-none">
+          <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
+            Impact
           </p>
-          <p className="text-xs leading-normal font-serif">
-            {currentProject.startDate}{" "}
-            {currentProject.endDate && `- ${currentProject.endDate}`}
-          </p>
-          <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap mt-1 text-xs leading-normal font-serif">
-            {currentProject.duration}
-          </p>
+          <div className="flex flex-col lg:flex-row">
+            {currentProject.impact.slice(0, 2).map((result, index) => (
+              <div
+                key={index}
+                className="text-xs leading-normal font-serif pb-2 lg:flex-[0_0_50%] lg:shrink-0 lg:max-w-[50%] pr-4"
+              >
+                <strong className="text-3xl leading-tight tracking-tighter block whitespace-nowrap">
+                  {result.data}
+                </strong>
+                <p className="text-balance">{result.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="lg:ml-0 flex-1 order-2 lg:flex-none">
-          <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap mt-1 mb-2 text-xs leading-normal">
-            [ roles ]
+      )}
+
+      <div className="bg-f-inverse w-[1px] hidden md:block"></div>
+
+      <div className="lg:ml-0 md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] order-1 md:order-none">
+        <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
+          Role
+        </p>
+        {currentProject.role.map((role) => (
+          <p
+            key={role}
+            className="text-xs leading-normal font-serif pb-1"
+          >
+            {role}
           </p>
-          {currentProject.role.map((role) => (
+        ))}
+      </div>
+
+      <div className="bg-f-inverse w-[1px] hidden md:block"></div>
+
+      {currentProject.constraints && currentProject.constraints.length > 0 && (
+        <div className="md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] pt-6 md:pt-0 order-3 md:order-none">
+          <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
+            Constraints
+          </p>
+          {currentProject.constraints.map((limitation, index) => (
             <p
-              key={role}
+              key={index}
               className="text-xs leading-normal font-serif pb-1"
             >
-              {role}
+              {limitation}
             </p>
           ))}
         </div>
-        {currentProject.team && (
-          <div className="lg:ml-0 flex-1 order-1 md:order-3 lg:flex-none">
-            <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap mt-1 mb-2 text-xs leading-normal">
-              [ team ]
-            </p>
-            {currentProject.team.map((member) => (
-              <p
-                key={member.role}
-                className="text-xs leading-normal font-serif pb-1"
-              >
-                {member.count} {member.role}
-              </p>
-            ))}
-          </div>
-        )}
-      </div>
+      )}
 
-      {/* second column */}
-      {currentProject.impact && currentProject.constraints && (
-        <div className="mt-2 flex flex-1 lg:flex-col lg:w-60 lg:flex-none gap-4 md:ml-8 lg:ml-0">
-          {currentProject.impact && (
-            <div className="max-w-60 w-2/3 mr-4 md:mr-0 lg:w-full">
-              <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap mt-1 mb-2 text-xs leading-normal">
-                [ impact ]
-              </p>
-              {currentProject.impact.map((result, index) => (
-                <p
-                  key={index}
-                  className="text-xs leading-normal font-serif pb-1"
-                >
-                  {result.data} {result.text}
-                </p>
-              ))}
-            </div>
-          )}
-          {currentProject.constraints &&
-            currentProject.constraints.length > 0 && (
-              <div className="lg:max-w-60 w-1/3 lg:w-full">
-                <p className="font-semibold uppercase text-f-primary/40 whitespace-nowrap mt-1 mb-2 text-xs leading-normal">
-                  [ constraints ]
-                </p>
-                {currentProject.constraints.map((limitation, index) => (
-                  <p
-                    key={index}
-                    className="text-xs leading-normal font-serif pb-1"
-                  >
-                    {limitation}
-                  </p>
-                ))}
-              </div>
-            )}
+      <div className="bg-f-inverse w-[1px] hidden md:block"></div>
+
+      {currentProject.team && (
+        <div className="lg:ml-0 md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] pl-8 md:pl-0 pt-6 md:pt-0 order-4 md:order-none">
+          <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
+            Team
+          </p>
+          {currentProject.team.map((member) => (
+            <p
+              key={member.role}
+              className="text-xs leading-normal font-serif pb-1"
+            >
+              {member.count} {member.role}
+            </p>
+          ))}
         </div>
       )}
     </div>
