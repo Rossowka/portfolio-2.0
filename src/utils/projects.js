@@ -3,7 +3,8 @@ export const PROJECTS = [
   {
     id: "hawe-design-system",
     client: "HAWE",
-    title: "Unifying HAWE's digital experience and crafting a design system",
+    title:
+      "Unifying digital experience across customer platform and crafting a design system",
     startDate: "Nov 2023",
     endDate: "Nov 2024",
     year: "2024",
@@ -77,7 +78,8 @@ export const PROJECTS = [
   {
     id: "hawe-ux-maturity",
     client: "HAWE",
-    title: "Elevating HAWE's UX maturity and fostering a user-centric culture",
+    title:
+      "Elevating company's UX maturity and fostering a user-centric culture",
     startDate: "Nov 2023",
     endDate: "Apr 2025",
     year: "2025",
@@ -90,10 +92,11 @@ export const PROJECTS = [
       "B2B",
     ],
     focusAreasTags: [
-      "UX Strategy",
+      "UX Research",
       "Workshop Facilitation",
-      "Design Ops",
+      "UX Strategy",
       "Cross-Tool Ecosystem Mapping",
+      "Design Ops",
     ],
     team: [
       {
@@ -158,7 +161,9 @@ export const PROJECTS = [
   {
     id: "hawe-configurator",
     client: "HAWE",
-    title: "Captivating our customers with a new tool showcasing our products.",
+    // title: "Captivating our customers with a new tool showcasing our products.",
+    title:
+      "Enabling E-commerce with a new tool showcasing our brand new products.",
     startDate: "Apr 2024",
     endDate: "Dec 2024",
     year: "2024",

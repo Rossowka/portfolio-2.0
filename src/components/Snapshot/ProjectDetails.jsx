@@ -38,40 +38,42 @@ const ProjectDetails = ({ currentProject }) => {
         ))}
       </div>
 
-      <div className="bg-f-inverse w-[1px] hidden md:block"></div>
-
       {currentProject.constraints && currentProject.constraints.length > 0 && (
-        <div className="md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] pt-6 md:pt-0 order-3 md:order-none">
-          <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
-            Constraints
-          </p>
-          {currentProject.constraints.map((limitation, index) => (
-            <p
-              key={index}
-              className="text-xs leading-normal font-serif pb-1"
-            >
-              {limitation}
+        <>
+          <div className="bg-f-inverse w-[1px] hidden md:block"></div>
+          <div className="md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] pt-6 md:pt-0 order-3 md:order-none">
+            <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
+              Constraints
             </p>
-          ))}
-        </div>
+            {currentProject.constraints.map((limitation, index) => (
+              <p
+                key={index}
+                className="text-xs leading-normal font-serif pb-1"
+              >
+                {limitation}
+              </p>
+            ))}
+          </div>
+        </>
       )}
 
-      <div className="bg-f-inverse w-[1px] hidden md:block"></div>
-
-      {currentProject.team && (
-        <div className="lg:ml-0 md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] pl-8 md:pl-0 pt-6 md:pt-0 order-4 md:order-none">
-          <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
-            Team
-          </p>
-          {currentProject.team.map((member) => (
-            <p
-              key={member.role}
-              className="text-xs leading-normal font-serif pb-1"
-            >
-              {member.count} {member.role}
+      {currentProject.team && currentProject.team.length > 0 && (
+        <>
+          <div className="bg-f-inverse w-[1px] hidden md:block"></div>
+          <div className="lg:ml-0 md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] pl-8 md:pl-0 pt-6 md:pt-0 order-4 md:order-none">
+            <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
+              Team
             </p>
-          ))}
-        </div>
+            {currentProject.team.map((member) => (
+              <p
+                key={member.role}
+                className="text-xs leading-normal font-serif pb-1"
+              >
+                {member.count} {member.role}
+              </p>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

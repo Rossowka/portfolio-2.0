@@ -70,19 +70,18 @@ const HUXCaseStudy = async () => {
             </CaseStudyParagraph>
             <CaseStudyList>
               <CaseStudyListItem
-                title="Make the platform deliver seamless experience"
-                text="Using the same fonts and colors across all tools helps keep
-                  our brand consistent and increases customer loyalty."
-              />
-              <CaseStudyListItem
                 title="Improve usability"
-                text="Simple navigation and functionality make it easier for users
-                  to stick around and keep discovering our products."
+                text="Clear navigation and intuitive user journey encourage users
+                  to explore our products and smoothly quides towards requesting a quote."
               />
               <CaseStudyListItem
                 title="Attract new distributors to the platform"
                 text="A well-designed platform is a powerful tool for attracting new
-                  partners."
+                    partners."
+              />
+              <CaseStudyListItem
+                title="Lower entry barriers"
+                text="Unify look & feel across tools to reduce cognitive load, helping users engage faster, convert sooner and stick around for longer."
               />
             </CaseStudyList>
           </CaseStudySection>
@@ -148,14 +147,15 @@ const HUXCaseStudy = async () => {
             <HeadingM headingText="First UX wins" />
             <CaseStudyParagraph>
               One of my first big initiatives was a heuristic evaluation of our
-              customer portal. It revealed major usability gaps. Small, targeted
-              changes made big impact. Clearer headers and consistent icons
-              improved usability with little effort.
+              customer portal. I workshopped with stakeholders to reveal major
+              usability gaps and strategize which issues to tackle first. Small,
+              targeted changes made big impact. Clearer headers and consistent
+              icons improved usability with little effort.
               <br />
               <br />
-              As we mapped each user journey, we could streamline flows and
-              reduce cognitive load. Every screen began doing more, with less
-              effort.
+              As we mapped each user journey, we could refine our flows to
+              simplify the process users were going through. Every screen began
+              doing more, with less effort.
             </CaseStudyParagraph>
           </CaseStudySection>
 
@@ -184,6 +184,19 @@ const HUXCaseStudy = async () => {
               help build the tool. This was a direct result of trust earned by
               solving real problems and showing how UX could unlock real value.
             </CaseStudyParagraph>
+            {/* <Link
+              href="/case-study/hawe-configurator"
+              className="flex group gap-1 py-4 font-medium text-accent mt-1"
+            >
+              See how I helped sales team aquire a major client with a UX
+              initiative
+              <div className="min-w-fit content-center">
+                <ArrowIcon
+                  className="transform transition-all duration-300 ease-in-out
+                -rotate-45 md:group-hover:rotate-0"
+                />
+              </div>
+            </Link> */}
 
             <HeadingM headingText="Gaining allies through collaboration" />
             <CaseStudyParagraph>
@@ -232,7 +245,7 @@ const HUXCaseStudy = async () => {
               See how I improved efficiency with a design system
               <div className="min-w-fit content-center">
                 <ArrowIcon
-                  className="transform transition-all duration-300 ease-in-out 
+                  className="transform transition-all duration-300 ease-in-out
                 -rotate-45 md:group-hover:rotate-0"
                 />
               </div>

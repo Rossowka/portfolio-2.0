@@ -19,7 +19,7 @@ const CaseStudyListItem = ({
         className="font-serif"
         noBreak={noBreak}
       />
-      <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80">
+      <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80 text-balance">
         {text}
       </p>
     </motion.li>

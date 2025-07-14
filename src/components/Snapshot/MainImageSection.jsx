@@ -15,7 +15,7 @@ const MainImageSection = ({ currentProject }) => {
       <Image
         src={currentProject.mainShot.src}
         alt={currentProject.mainShot.alt}
-        className={`object-cover w-full h-full object-center`}
+        className={`object-cover w-full h-full object-center rounded-lg`}
         width={1176}
         height={662}
         quality={100}
