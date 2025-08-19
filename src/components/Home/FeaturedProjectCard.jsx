@@ -91,7 +91,7 @@ const FeaturedProjectCard = ({ project, index, featuredProjects }) => {
             >
               {/* text */}
               <p className="whitespace-nowrap text-lg leading-relaxed font-medium text-inherit">
-                Read more
+                {project.cta || "Explore the impact"}
               </p>
 
               {/* icon */}

@@ -73,6 +73,7 @@ export const PROJECTS = [
     },
     imageShowcase: [],
     featured: true,
+    cta: "Explore Time-to-Market boost",
   },
   // hawe-ux-maturity
   {
@@ -156,14 +157,13 @@ export const PROJECTS = [
     },
     imageShowcase: [],
     featured: true,
+    cta: "See what changed at HAWE",
   },
   // hawe-configurator
   {
     id: "hawe-configurator",
     client: "HAWE",
-    // title: "Captivating our customers with a new tool showcasing our products.",
-    title:
-      "Enabling E-commerce with a new tool showcasing our brand new products.",
+    title: "Enabling E-commerce with a tool showcasing our brand-new products.",
     startDate: "Apr 2024",
     endDate: "Dec 2024",
     year: "2024",
@@ -245,6 +245,7 @@ export const PROJECTS = [
       },
     ],
     featured: false,
+    cta: "Explore the configurator",
   },
   // hawe-pust
   {
@@ -316,6 +317,7 @@ export const PROJECTS = [
     mainShot: { src: "/images/hawe-pust/main.webp", alt: "..." },
     imageShowcase: [],
     featured: false,
+    cta: "",
   },
 
   // swingin-fireballs
@@ -358,6 +360,7 @@ export const PROJECTS = [
       },
     ],
     featured: false,
+    cta: "",
   },
   // blue-central-records
   {
@@ -400,5 +403,6 @@ export const PROJECTS = [
       },
     ],
     featured: false,
+    cta: "",
   },
 ];
