@@ -6,6 +6,7 @@ import {
   CaseStudyListItem,
   HeadingM,
   CaseStudyParagraph,
+  CaseStudyImage,
 } from "@/components";
 import { ImageSection, ProjectHeader } from "@/components/Snapshot";
 import { navItems } from "@/utils/navigationHUXCaseStudy";
@@ -121,13 +122,19 @@ const HUXCaseStudy = async () => {
             sectionTitle="Begin with the user and work backwards"
             sectionTag="approach"
           >
-            <HeadingM headingText="Understanding the status quo" />
+            {/* <HeadingM headingText="Understanding the status quo" /> */}
             <CaseStudyParagraph>
               The first step was to build trust and understand how UX was
               perceived and practiced across the company. I conducted over 14
               stakeholder interviews to introduce myself across departments and
               get a feeling of expectations and issues HAWE was facing.
             </CaseStudyParagraph>
+            <CaseStudyImage
+              src="/images/hawe-ux-maturity/cs-approach.webp"
+              alt="Lightweight design process diagram"
+              aspect="2.35/1"
+              caption="Previously, there was no user research done in the company and we needed to understand the status quo. Interviewing the stakeholders was step one of the lightweight design process that I introduced."
+            />
 
             <CaseStudyList title="Key insights:">
               <CaseStudyListItem
@@ -153,10 +160,16 @@ const HUXCaseStudy = async () => {
               icons improved usability with little effort.
               <br />
               <br />
-              As we mapped each user journey, we could refine our flows to
+              As we mapped each user journey, I could refine our flows to
               simplify the process users were going through. Every screen began
               doing more, with less effort.
             </CaseStudyParagraph>
+            <CaseStudyImage
+              src="/images/hawe-ux-maturity/cs-workshop.webp"
+              alt="Image presenting workshop board and participants"
+              aspect="2.35/1"
+              caption="I lead workshops to identify the biggest issues our stakeholders and users struggled with."
+            />
           </CaseStudySection>
 
           {/* gaining traction */}
@@ -172,12 +185,12 @@ const HUXCaseStudy = async () => {
               innovation manager heard about our initiative and they wanted to
               involve me in creation of a new tool.
             </CaseStudyParagraph>
-
             <HeadingM headingText="Prototyping to build trust" />
             <CaseStudyParagraph>
-              I translated early ideas from stakeholders into low-fidelity
-              wireframes and quick prototypes. The project took off and became a
-              springboard for cross-functional collaboration. <br />
+              I translated early ideas from stakeholders into quick prototypes.
+              The third one worked. The project took off and became a
+              springboard for cross-functional collaboration.
+              <br />
               <br />
               This momentum helped me get looped into technical conversations
               and introduced me to engineers from digitalization team, who could
@@ -197,7 +210,12 @@ const HUXCaseStudy = async () => {
                 />
               </div>
             </Link> */}
-
+            <CaseStudyImage
+              src="/images/hawe-ux-maturity/cs-prototype.webp"
+              alt="Figma screenshot of our first prototype"
+              aspect="2.35/1"
+              caption="First prototype I presented across the company to show our vision and results of our work."
+            />
             <HeadingM headingText="Gaining allies through collaboration" />
             <CaseStudyParagraph>
               The digitalization team initially saw UX as a “nice to have,”
@@ -306,10 +324,10 @@ const HUXCaseStudy = async () => {
                 title="Improved usability with minimal effort"
                 text="Small changes, like better headers and clearer icons, reduced cognitive load and improved user flows."
               />
-              <CaseStudyListItem
+              {/* <CaseStudyListItem
                 title="Increased stakeholder confidence"
                 text="Low-fidelity prototypes helped translate abstract goals into tangible solutions, leading to executive buy-in."
-              />
+              /> */}
               <CaseStudyListItem
                 title="Set a foundation for future scale"
                 text="Established processes, rituals, and reusable patterns to support long-term growth in UX maturity."
