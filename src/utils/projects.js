@@ -1,19 +1,181 @@
 export const PROJECTS = [
+  // hawe-product-finder
+  // {
+  //   id: "hawe-product-finder",
+  //   client: "HAWE",
+  //   title: "Simplified product findability for engineers on manufacturer's customer platform",
+  //   startDate: "Jan 2025",
+  //   endDate: "Apr 2025",
+  //   year: "2025",
+  //   duration: "(4 months)",
+  //   role: ["Research", "UX Design", "Implementation"],
+  //   productTags: [
+  //     "Internal & Customer-facing SaaS",
+  //     "Industrial Engineering",
+  //     "Feature Improvement",
+  //     "B2B",
+  //   ],
+  //   focusAreasTags: ["Redesign", "Prototyping", "User Testing", "Cross-functional Collaboration"],
+  //   team: [
+  //     {
+  //       count: "1x",
+  //       role: "Product Designer",
+  //     },
+  //     {
+  //       count: "1x",
+  //       role: "Product Manager",
+  //     },
+  //     {
+  //       count: "2x",
+  //       role: "Developers",
+  //     },
+  //   ],
+  //   constraints: ["Significant amount of products", "Legacy systems", "Design team of one"],
+  //   impact: [
+  //     {
+  //       data: "est. 30%",
+  //       text: "Faster product discovery",
+  //     },
+  //     {
+  //       data: "20%",
+  //       text: "Customer support tickets drop",
+  //     },
+  //   ],
+  //   summary:
+  //     "HAWE Hydraulik, a global manufacturer of precision hydraulic components, needed to make it easier for engineers to find the right products. Customer support tickets highlighted that navigating the catalog was challenging. Through usability testing and research, I identified the obstacles and turned them into opportunities for improvement. I designed solutions to simplify the search and filter process, helping engineers find the right hydraulic products quickly. Finally, I collaborated with developers to implement the features, removing friction and enabling users to reach the right solution faster.",
+  //   url: "/projects/hawe-product-finder",
+  //   onlineUrl: "",
+  //   thumbnail: {
+  //     src: "/images/hawe-product-finder/thumbnail-l.webp",
+  //     alt: "thumbnail",
+  //   },
+  //   snapshot: {
+  //     src: "/images/hawe-product-finder/snapshot.webp",
+  //     alt: "Product selection list from HAWE configuration tool on tablet",
+  //   },
+  //   mainShot: {
+  //     src: "/images/hawe-product-finder/main.webp",
+  //     alt: "Product selection page on PC",
+  //   },
+  //   imageShowcase: [
+  //     {
+  //       src: "/images/hawe-product-finder/showcase-1.webp",
+  //       alt: "Feature definition page on tablet",
+  //     },
+  //     {
+  //       src: "/images/hawe-product-finder/showcase-2.webp",
+  //       alt: "Quote summary page on tablet",
+  //     },
+  //   ],
+  //   featured: false,
+  //   caseStudy: false,
+  //   cta: "",
+  // },
+  // hawe-configurator
+  {
+    id: "hawe-configurator",
+    client: "HAWE",
+    title: "Delivering a partnership-winning product that became blueprint for digital change",
+    startDate: "Apr 2024",
+    endDate: "Dec 2024",
+    year: "2024",
+    duration: "(8 months)",
+    role: ["Research", "Strategy", "Design", "Implementation"],
+    productTags: [
+      "Internal & Customer-facing",
+      "E-Commerce Enablement",
+      "Industrial Engineering",
+      "Web App",
+      "MVP",
+      "B2B",
+    ],
+    focusAreasTags: [
+      "End-To-End Design",
+      "Prototyping",
+      "User Testing",
+      "RITE Method",
+      "Strategy",
+      "Workshop Facilitation",
+    ],
+    team: [
+      {
+        count: "1x",
+        role: "Product Designer",
+      },
+      {
+        count: "1x",
+        role: "Product Manager",
+      },
+      {
+        count: "2x",
+        role: "Innovation Managers",
+      },
+      {
+        count: "2x",
+        role: "Developers",
+      },
+    ],
+    constraints: [
+      "Tight deadline",
+      "Tech trade-off",
+      "Market specific issues",
+      "Missing analytics",
+      "No external user access",
+    ],
+    impact: [
+      {
+        data: "Overwhelming",
+        text: "Positive internal feedback highlighting major usability leap",
+      },
+      {
+        data: "~ €930k",
+        text: "worth of products introduced to the market",
+      },
+    ],
+    summary:
+      "HAWE Hydraulik needed a digital tool to match competitors and win a key cartridge manufacturer partnership. In just 8 months, I designed and launched their first cartridge selection tool. Working as the only designer, I split one ambitious project into two MVPs, navigated tough technical constraints, and delivered the product that reached it's goal. It became the foundation for HAWE digital transformation.",
+    url: "/case-study/hawe-configurator",
+    onlineUrl: "",
+    thumbnail: {
+      src: "/images/hawe-configurator/thumbnail-l.webp",
+      alt: "thumbnail",
+    },
+    snapshot: {
+      src: "/images/hawe-configurator/snapshot.webp",
+      alt: "Product selection list from HAWE configuration tool on tablet",
+    },
+    mainShot: {
+      src: "/images/hawe-configurator/main.webp",
+      alt: "Product selection page on PC",
+    },
+    imageShowcase: [
+      {
+        src: "/images/hawe-configurator/showcase-1.webp",
+        alt: "Feature definition page on tablet",
+      },
+      {
+        src: "/images/hawe-configurator/showcase-2.webp",
+        alt: "Quote summary page on tablet",
+      },
+    ],
+    featured: true,
+    caseStudy: true,
+    cta: "Dive into this digital transformation",
+  },
   // hawe-design-system
   {
     id: "hawe-design-system",
     client: "HAWE",
-    title:
-      "Unifying digital experience across customer platform and crafting a design system",
+    title: "Unifying digital experience across customer platform and crafting a design system",
     startDate: "Nov 2023",
     endDate: "Nov 2024",
     year: "2024",
     duration: "1 year",
     role: ["Research", "Strategy", "Design", "Development"],
     tags: ["Design System", "Design Process"],
-    productTags: ["Design System", "Manufacturing / Hydraulics", "B2B"],
+    productTags: ["Design System", "Industrial Engineering", "B2B"],
     focusAreasTags: [
-      "Brand Implementation",
+      "Corporate Identity Development",
       "Component Library",
       "Documentation",
       "Cross-Team Alignment",
@@ -54,7 +216,7 @@ export const PROJECTS = [
       },
     ],
     summary:
-      "As a result of our ongoing efforts to increase UX maturity in the company, I led the Design Systems initiative for HAWE. Equipped in a design manual defining our corporate identity, and atomic design ideology, I carefully planned out the core and component libraries which constituted the building blocks of the design system.",
+      "As a result of digital transformation and our ongoing efforts to increase customer-centricity in the company, I led the Design System initiative for HAWE. Equipped in a design manual, and atomic design ideology, I carefully planned out  component libraries which constituted the building blocks of the design system. Thanks to close collaboration with development team, we slowly brought the design system, piece by piece, to life.",
     context:
       "HAWE Hydraulik is a family-owned German company known for engineering precision in hydraulic components and systems. Its Customer Portal serves as a central hub. It powers up internal teams and customers alike with the tools they need to get things done.",
     url: "/case-study/hawe-design-system",
@@ -73,25 +235,21 @@ export const PROJECTS = [
     },
     imageShowcase: [],
     featured: true,
-    cta: "Explore Time-to-Market boost",
+    caseStudy: true,
+    cta: "Explore the time-to-market boost",
   },
   // hawe-ux-maturity
   {
     id: "hawe-ux-maturity",
     client: "HAWE",
-    title:
-      "Elevating company's UX maturity and fostering a user-centric culture",
+    title: "Elevating company's UX maturity and fostering a user-centric culture",
     startDate: "Nov 2023",
     endDate: "Apr 2025",
-    year: "2025",
+    year: "2024",
     duration: "1.5 years",
     role: ["Research", "Strategy"],
     tags: ["Internal System", "Design Process", "Manufacturing", "B2B"],
-    productTags: [
-      "Internal Platform Tools",
-      "Manufacturing / Hydraulics",
-      "B2B",
-    ],
+    productTags: ["Internal Platform Tools", "Industrial Engineering", "B2B"],
     focusAreasTags: [
       "UX Research",
       "Workshop Facilitation",
@@ -117,12 +275,7 @@ export const PROJECTS = [
         role: "Product Managers",
       },
     ],
-    constraints: [
-      "Low UX maturity",
-      "Teams working in silos",
-      "Limited budget",
-      "Slow adoption",
-    ],
+    constraints: ["Low UX maturity", "Teams working in silos", "Limited budget", "Slow adoption"],
     impact: [
       {
         data: "+",
@@ -157,95 +310,8 @@ export const PROJECTS = [
     },
     imageShowcase: [],
     featured: true,
+    caseStudy: true,
     cta: "See what changed at HAWE",
-  },
-  // hawe-configurator
-  {
-    id: "hawe-configurator",
-    client: "HAWE",
-    title: "Enabling E-commerce with a tool showcasing our brand-new products.",
-    startDate: "Apr 2024",
-    endDate: "Dec 2024",
-    year: "2024",
-    duration: "(8 months)",
-    role: ["Research", "Strategy", "Design", "Development"],
-    productTags: [
-      "Internal & Customer-facing SaaS",
-      "E-Commerce Enablement",
-      "Manufacturing / Hydraulics",
-      "MVP",
-      "B2B",
-    ],
-    focusAreasTags: [
-      "End-To-End Design",
-      "Prototyping",
-      "User Testing",
-      "Workshop Facilitation",
-      "Design Systems",
-    ],
-    team: [
-      {
-        count: "1x",
-        role: "Product Designer",
-      },
-      {
-        count: "1x",
-        role: "Product Visionary",
-      },
-      {
-        count: "1x",
-        role: "Innovation Manager",
-      },
-      {
-        count: "4x",
-        role: "Developers",
-      },
-    ],
-    constraints: [
-      "Limited time",
-      "Tech stack limitations",
-      "Strategy changes",
-      "Limited budget",
-      "Design team of one",
-    ],
-    impact: [
-      {
-        data: "90%",
-        text: "Positive user feedback",
-      },
-      {
-        data: "~ €930k",
-        text: "worth of products introduced to the market",
-      },
-    ],
-    summary:
-      "HAWE Hydraulik delivers precision-engineered hydraulic solutions, providing innovative and reliable systems for industries worldwide. They needed to attract more customers with a compelling new tool. I helped them do just that, designing a tool that supports new manufacturing service they were launching.",
-    url: "/projects/hawe-configurator",
-    onlineUrl: "",
-    thumbnail: {
-      src: "/images/hawe-configurator/thumbnail-l.webp",
-      alt: "thumbnail",
-    },
-    snapshot: {
-      src: "/images/hawe-configurator/snapshot.webp",
-      alt: "Product selection list from HAWE configuration tool on tablet",
-    },
-    mainShot: {
-      src: "/images/hawe-configurator/main.webp",
-      alt: "Product selection page on PC",
-    },
-    imageShowcase: [
-      {
-        src: "/images/hawe-configurator/showcase-1.webp",
-        alt: "Feature definition page on tablet",
-      },
-      {
-        src: "/images/hawe-configurator/showcase-2.webp",
-        alt: "Quote summary page on tablet",
-      },
-    ],
-    featured: false,
-    cta: "Explore the configurator",
   },
   // hawe-pust
   {
@@ -257,25 +323,9 @@ export const PROJECTS = [
     year: "2024",
     duration: "(4 months)",
     role: ["Research", "Design"],
-    tags: [
-      "Design System",
-      "Prototype",
-      "Configurator",
-      "Manufacturing",
-      "B2B",
-    ],
-    productTags: [
-      "Internal & Customer-facing SaaS",
-      "Prototype",
-      "Manufacturing / Hydraulics",
-      "B2B",
-    ],
-    focusAreasTags: [
-      "User Research",
-      "Prototyping",
-      "User Testing",
-      "Design Systems",
-    ],
+    tags: ["Design System", "Prototype", "Configurator", "Manufacturing", "B2B"],
+    productTags: ["Internal & Customer-facing SaaS", "Prototype", "Industrial Engineering", "B2B"],
+    focusAreasTags: ["User Research", "Prototyping", "User Testing", "Design Systems"],
     team: [
       {
         count: "2x",
@@ -317,6 +367,7 @@ export const PROJECTS = [
     mainShot: { src: "/images/hawe-pust/main.webp", alt: "..." },
     imageShowcase: [],
     featured: false,
+    caseStudy: false,
     cta: "",
   },
 
@@ -332,11 +383,7 @@ export const PROJECTS = [
     role: ["Design"],
     tags: ["Concept", "Music Industry"],
     productTags: ["Website", "Concept", "Music", "B2C"],
-    focusAreasTags: [
-      "UX/UI Redesign",
-      "Visual Design",
-      "Responsive Web Design",
-    ],
+    focusAreasTags: ["UX/UI Redesign", "Visual Design", "Responsive Web Design"],
     summary:
       "Swingin' Fireballs brings back the quality entertainment of the '60s. With this website redesign proposition, I defined a new visual identity while staying true to the band's original playful and lighthearted character.",
     url: "/projects/swingin-fireballs",
@@ -360,6 +407,7 @@ export const PROJECTS = [
       },
     ],
     featured: false,
+    caseStudy: false,
     cta: "",
   },
   // blue-central-records
@@ -403,6 +451,7 @@ export const PROJECTS = [
       },
     ],
     featured: false,
+    caseStudy: false,
     cta: "",
   },
 ];

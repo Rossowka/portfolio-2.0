@@ -29,8 +29,8 @@ const SummarySection = ({ currentProject }) => {
           </p>
         </div>
 
-        <div className="flex mt-16 gap-8">
-          <div className="lg:ml-0 md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] order-1 md:order-none">
+        <div className="flex mt-16 gap-8 flex-col md:flex-row">
+          <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
             <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
               Product Context
             </p>
@@ -46,7 +46,7 @@ const SummarySection = ({ currentProject }) => {
             </div>
           </div>
 
-          <div className="lg:ml-0 md:flex-1 flex-[0_0_50%] shrink-0 max-w-[50%] order-1 md:order-none">
+          <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
             <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
               Focus Areas
             </p>

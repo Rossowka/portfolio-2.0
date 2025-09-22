@@ -23,13 +23,13 @@ const Intro = () => {
         viewport={{ once: true, amount: 0.4 }}
         className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col md:flex-row relative gap-8 mt-8"
       >
-        <p className="hidden md:inline-block font-semibold uppercase text-f-primary/40 whitespace-nowrap leading-relaxed text-sm mt-1 md:basis-1/5 lg:basis-1/4">
-          [ what I do ]
+        <p className="hidden md:inline-block font-semibold uppercase tracking-wider text-f-primary/40 whitespace-nowrap leading-relaxed text-sm mt-1 md:basis-1/5 lg:basis-1/4">
+          what I do
         </p>
         <p className="sm:mr-48 md:basis-1/2">
-          I help brands create great digital products. I tell engaging stories,
-          craft beautiful interfaces and shape people’s experiences in elegantly
-          simple ways.
+          I work at the intersection of research, design and development, what I like to call the
+          sweet spot of UX. Through engaging stories and beautiful interfaces, I shape people’s
+          experiences in elegantly simple ways.
         </p>
         <div className="self-end sm:absolute sm:bottom-0 md:bottom-1/2 sm:right-8 lg:right-12">
           <CircularButton

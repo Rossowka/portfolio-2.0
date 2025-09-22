@@ -13,30 +13,19 @@ import { PROJECTS } from "@/utils/projects";
 import { ImageSection, ProjectHeader } from "@/components/Snapshot";
 import dynamic from "next/dynamic";
 
-const MainImageSection = dynamic(() =>
-  import("@/components/Snapshot/MainImageSection")
-);
-const SummarySection = dynamic(() =>
-  import("@/components/Snapshot/SummarySection")
-);
+const MainImageSection = dynamic(() => import("@/components/Snapshot/MainImageSection"));
+const SummarySection = dynamic(() => import("@/components/Snapshot/SummarySection"));
 
 const HDSCaseStudy = async () => {
   let title = "hawe-design-system";
-  let featuredProjects = PROJECTS.filter(
-    (project) => project.featured === true
-  );
+  let featuredProjects = PROJECTS.filter((project) => project.caseStudy === true);
   let index = featuredProjects.findIndex((item) => item.id === title);
   let currentProject = featuredProjects[index];
-  // let nextProject =
-  //   index === featuredProjects.length - 1
-  //     ? featuredProjects[0]
-  //     : featuredProjects[index + 1];
   let nextProject =
-    index === PROJECTS.length - 1 ? PROJECTS[0] : PROJECTS[index + 1];
+    index === featuredProjects.length - 1 ? featuredProjects[0] : featuredProjects[index + 1];
 
   return (
     <>
-      {/* <CaseStudyHeader currentProject={currentProject} /> */}
       <section className="pt-16 md:pt-32 mb-16 relative">
         <ProjectHeader currentProject={currentProject} />
       </section>
@@ -62,11 +51,10 @@ const HDSCaseStudy = async () => {
             sectionTag="goals"
           >
             <CaseStudyParagraph>
-              As our digital products evolved, cracks started to show. With a
-              commitment to quality and efficiency, HAWE aimed to unify its
-              digital experience and streamline processes to minimize design
-              debt and development costs. I led the initiative to bring that
-              vision to life.
+              As our digital products evolved, cracks started to show. With a commitment to quality
+              and efficiency, HAWE aimed to unify its digital experience and streamline processes to
+              minimize design debt and development costs. I led the initiative to bring that vision
+              to life.
             </CaseStudyParagraph>
             <CaseStudyList>
               <CaseStudyListItem
@@ -87,10 +75,9 @@ const HDSCaseStudy = async () => {
             sectionTag="challenges"
           >
             <CaseStudyParagraph>
-              Every tool had its own aesthetic and logic. Without a unified
-              approach, we ended up with fragmented journeys, inconsistent
-              visuals, and inefficient workflows. Outsourced design and dev made
-              scaling a headache.
+              Every tool had its own aesthetic and logic. Without a unified approach, we ended up
+              with fragmented journeys, inconsistent visuals, and inefficient workflows. Outsourced
+              design and dev made scaling a headache.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-challenge.webp"
@@ -125,11 +112,10 @@ const HDSCaseStudy = async () => {
             sectionTag="approach"
           >
             <CaseStudyParagraph>
-              I kicked things off with a cross-product audit. I talked to teams
-              and gathered my suspects in an inventory: mismatched buttons,
-              inconsistent patterns and interactions. This helped visualize just
-              how fragmented our experience had become, and it gave me a clear
-              place to start.
+              I kicked things off with a cross-product audit. I talked to teams and gathered my
+              suspects in an inventory: mismatched buttons, inconsistent patterns and interactions.
+              This helped visualize just how fragmented our experience had become, and it gave me a
+              clear place to start.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-audit.webp"
@@ -139,9 +125,9 @@ const HDSCaseStudy = async () => {
 
             <HeadingM headingText="Prototyping to build buy-in" />
             <CaseStudyParagraph>
-              Using Material UI as a base, I quickly mocked up clean, consistent
-              interfaces. Stakeholders saw the value, and we shifted from
-              debating theory of "nice-to-haves" to exploring solutions.
+              Using Material UI as a base, I quickly mocked up clean, consistent interfaces.
+              Stakeholders saw the value, and we shifted from debating theory of "nice-to-haves" to
+              exploring solutions.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-prototyping.webp"
@@ -152,9 +138,8 @@ const HDSCaseStudy = async () => {
 
             <HeadingM headingText="Starting small, scaling smart" />
             <CaseStudyParagraph>
-              We piloted the system on one product. I followed Atomic Design
-              principles to build tokens, components, and patterns. Early dev
-              feedback helped me refine things fast.
+              We piloted the system on one product. I followed Atomic Design principles to build
+              tokens, components, and patterns. Early dev feedback helped me refine things fast.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-start.webp"
@@ -164,10 +149,9 @@ const HDSCaseStudy = async () => {
             />
             <HeadingM headingText="From one designer to a shared language" />
             <CaseStudyParagraph>
-              With regular critiques, open Teams threads, and async walkthroughs
-              I helped the system become collaborative. By creating visibility
-              early and inviting others in, we turned a design system into a
-              shared language.
+              With regular critiques, open Teams threads, and async walkthroughs I helped the system
+              become collaborative. By creating visibility early and inviting others in, we turned a
+              design system into a shared language.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-walkthrough.webp"
@@ -177,9 +161,9 @@ const HDSCaseStudy = async () => {
 
             <HeadingM headingText="Joining forces" />
             <CaseStudyParagraph>
-              Initially a solo mission, I was later joined by a fellow designer.
-              This collaboration sharpened decision-making, boosted component
-              quality, and added momentum through regular design critiques.
+              Initially a solo mission, I was later joined by a fellow designer. This collaboration
+              sharpened decision-making, boosted component quality, and added momentum through
+              regular design critiques.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-collaboration.webp"
@@ -196,9 +180,9 @@ const HDSCaseStudy = async () => {
             sectionTag="design"
           >
             <CaseStudyParagraph>
-              Designing components wasn’t just about looks. Dev teams needed
-              clarity, and we needed consistency. To achieve that, I documented
-              specs covering design, behavior, and best practices.
+              Designing components wasn’t just about looks. Dev teams needed clarity, and we needed
+              consistency. To achieve that, I documented specs covering design, behavior, and best
+              practices.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-component.webp"
@@ -232,17 +216,15 @@ const HDSCaseStudy = async () => {
             sectionTag="operations"
           >
             <CaseStudyParagraph>
-              To expand adoption beyond our bubble, I built playbooks and wrote
-              guidelines for contribution, versioning, and ongoing feedback. Our
-              system quickly matured into a team-wide asset, saving hours
-              otherwise spent on repeated work.
+              To expand adoption beyond our bubble, I built playbooks and wrote guidelines for
+              contribution, versioning, and ongoing feedback. Our system quickly matured into a
+              team-wide asset, saving hours otherwise spent on repeated work.
             </CaseStudyParagraph>
             <HeadingM headingText="Version control to the rescue" />
             <CaseStudyParagraph>
-              Accidentaly pulling an update was causing chaos in prototypes. To
-              solve this, I introduced a versioning practice inspired by
-              front-end workflows. Designers could now test changes safely
-              before "pushing to production".
+              Accidentaly pulling an update was causing chaos in prototypes. To solve this, I
+              introduced a versioning practice inspired by front-end workflows. Designers could now
+              test changes safely before "pushing to production".
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-versioning.webp"
@@ -252,10 +234,9 @@ const HDSCaseStudy = async () => {
             />
             <HeadingM headingText="External critique for internal confidence" />
             <CaseStudyParagraph>
-              Before launch, we consulted with an external agency for a last
-              review. Their fresh perspective helped sharpen accessibility and
-              reinforced our vision and direction - turning a solid system into
-              a robust one.
+              Before launch, we consulted with an external agency for a last review. Their fresh
+              perspective helped sharpen accessibility and reinforced our vision and direction -
+              turning a solid system into a robust one.
             </CaseStudyParagraph>
             <CaseStudyImage
               src="/images/hawe-design-system/cs-tree.webp"
@@ -323,14 +304,12 @@ const HDSCaseStudy = async () => {
             sectionTag="Reach out"
           >
             <CaseStudyParagraph>
-              This wasn’t just a design system. It was about creating a shared
-              foundation for better, faster, more delightful products. I started
-              alone. By the end, we had a living system, a growing team, and a
-              culture that valued UX. <br />
+              Creating a design system is creating a shared language for better, faster
+              collaboration and more delightful products. I started alone. By the end, we had a
+              living system, a growing team, and a culture that valued UX. <br />
               <br />
-              If you're tackling messy systems and want a design partner who
-              brings systems thinking, momentum and clarity to cross-team
-              collaboration, let’s connect.
+              If you're tackling messy systems and want a design partner who brings systems
+              thinking, momentum and clarity to cross-team collaboration, let’s connect.
             </CaseStudyParagraph>
           </CaseStudySection>
         </div>

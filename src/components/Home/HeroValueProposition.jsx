@@ -12,8 +12,8 @@ const HeroValueProposition = () => {
       className="z-10 static font-sans lg:absolute lg:left-8 lg:bottom-24 max-w-sm"
     >
       <p className="text-f-primary leading-relaxed">
-        I work at the intersection of research, design and development, what I
-        like to call the sweet spot of UX.
+        I help stakeholders translate business, and technical complexity into digital clarity
+        without wasting resources on misaligned features.
       </p>
     </motion.div>
   );

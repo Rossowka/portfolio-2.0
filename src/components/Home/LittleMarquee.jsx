@@ -6,7 +6,7 @@ const LittleMarquee = () => {
   const isInView = useInView(marqueeRef, { amount: 0.1 });
 
   const marqueeText =
-    "Discovering, Strategizing, Collaborating, Creating, Prototyping, Testing, Developing, Delivering,";
+    "Product/UX Alignment • Design-to-Business Translation • Cross-Functional Collaboration • Strategic Thinking • AI-Augmented Research & Prototyping • ";
 
   return (
     <motion.div
@@ -37,12 +37,8 @@ const LittleMarquee = () => {
               },
             }}
           >
-            <p className="leading-6 w-fit whitespace-nowrap opacity-70">
-              {marqueeText}
-            </p>
-            <p className="leading-6 w-fit whitespace-nowrap opacity-70">
-              {marqueeText}
-            </p>
+            <p className="leading-6 w-fit whitespace-nowrap opacity-70">{marqueeText}</p>
+            <p className="leading-6 w-fit whitespace-nowrap opacity-70">{marqueeText}</p>
           </motion.div>
         )}
       </div>
