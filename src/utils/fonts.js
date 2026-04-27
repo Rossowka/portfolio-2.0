@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans, Inria_Serif } from "next/font/google";
+import { Plus_Jakarta_Sans, Cormorant } from "next/font/google";
 
 export const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -7,10 +7,9 @@ export const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
 });
 
-export const inriaSerif = Inria_Serif({
-  weight: ["300", "400", "700"],
+export const cormorant = Cormorant({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-serif",
 });

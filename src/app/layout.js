@@ -1,4 +1,4 @@
-import { inriaSerif, plusJakartaSans } from "@/utils/fonts";
+import { cormorant, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
 import Script from "next/script";
 import dynamic from "next/dynamic";
@@ -39,24 +39,17 @@ export const metadata = {
       maxVideoPreview: -1,
     },
   },
-  keywords: [
-    "product design",
-    "UX/UI design",
-    "digital design",
-    "designer Hamburg",
-  ],
+  keywords: ["product design", "UX/UI design", "digital design", "designer Hamburg"],
 };
 
 const Footer = dynamic(() => import("@/components/Footer/Footer"));
-const NavBarWrapper = dynamic(() =>
-  import("@/components/NavBar/NavBarWrapper")
-);
+const NavBarWrapper = dynamic(() => import("@/components/NavBar/NavBarWrapper"));
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`font-sans text-base bg-s-primary text-f-primary ${plusJakartaSans.variable} ${inriaSerif.variable}`}
+      className={`font-sans text-base bg-s-primary text-f-primary ${plusJakartaSans.variable} ${cormorant.variable}`}
     >
       <head>
         <link
