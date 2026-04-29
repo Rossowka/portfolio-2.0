@@ -1,77 +1,53 @@
 import gsap from "gsap";
 
-export const openMenu = (containerRef, menuRef, overlayRef, logoRef) => {
+export const buildOpenMenuTimeline = (containerRef, menuRef, overlayRef, logoRef) => {
+  const container = containerRef.current;
   const panels = menuRef.current.querySelectorAll(
-    "div.bg-accent, div.bg-f-primary, div.bg-s-secondary"
+    "div.bg-accent, div.bg-sandyBrown, div.bg-s-secondary"
   );
 
-  const timeline = gsap.timeline({
-    defaults: {
-      ease: "main",
-      duration: 0.7,
-    },
-  });
-
-  timeline
-    .set(containerRef.current, {
-      xPercent: 0,
-      duration: 0,
-      display: "block",
-    })
-    .set(logoRef.current, { clearProps: "transform" })
-    .fromTo(
-      // Slide in animation
-      panels,
-      { xPercent: 105, skewX: 5 },
-      { xPercent: 0, skewX: 0, stagger: 0.12, duration: 0.575 },
-      "<"
-    )
-    .fromTo(
+  return (
+    gsap
+      .timeline({ defaults: { ease: "power2.out", duration: 0.6 } })
+      .set(container, { display: "flex", xPercent: 0 })
+      .set(logoRef.current, { clearProps: "transform" })
+      .fromTo(
+        // Slide in animation
+        panels,
+        { xPercent: 105, skewX: 5 },
+        { xPercent: 0, skewX: 0, stagger: 0.12, duration: 0.6 },
+        "<"
+      )
       // Overlay animation
-      overlayRef.current,
-      { xPercent: 105 },
-      { xPercent: 0, duration: 0.3 },
-      "<+=0.30"
-    )
-    // Text and icon animation
-    .fromTo(
-      "a",
-      { yPercent: 140, rotate: 10 },
-      { yPercent: 0, rotate: 0, stagger: 0.05 },
-      "<+=0.35"
-    )
-    .fromTo(
-      "img",
-      { yPercent: 160, rotate: 10 },
-      { yPercent: 0, rotate: 0, stagger: 0.05 },
-      "<+=0.30"
-    )
-    .fromTo(
-      ".underline",
-      { scaleX: 0, transformOrigin: "left" },
-      { scaleX: 1 },
-      "<+=0.25"
-    );
-
-  return timeline;
+      .fromTo(overlayRef.current, { xPercent: 105 }, { xPercent: 0, duration: 0.3 }, "<+=0.30")
+      // Text and icon animation
+      // Scoped selectors — only target elements inside the container
+      .fromTo(
+        container.querySelectorAll("a"),
+        { yPercent: 140, rotate: 10 },
+        { yPercent: 0, rotate: 0, stagger: 0.05 },
+        "<+=0.35"
+      )
+      .fromTo(
+        container.querySelectorAll("img"),
+        { yPercent: 160, rotate: 10 },
+        { yPercent: 0, rotate: 0, stagger: 0.05 },
+        "<+=0.30"
+      )
+      .fromTo(
+        container.querySelectorAll(".underline"),
+        { scaleX: 0, transformOrigin: "left" },
+        { scaleX: 1 },
+        "<+=0.25"
+      )
+  );
 };
 
-export const closeMenu = (containerRef) => {
-  const timeline = gsap.timeline({
-    defaults: {
-      ease: "main",
-      duration: 0.3,
-    },
-  });
+export const buildCloseMenuTimeline = (containerRef) => {
+  const container = containerRef.current;
 
-  timeline
-    .fromTo(
-      // Slide in animation
-      containerRef.current,
-      { xPercent: 0, duration: 0.3 },
-      { xPercent: 105 }
-    )
-    .set(containerRef.current, { display: "none" }, "<+=0.30");
-
-  return timeline;
+  return gsap
+    .timeline({ defaults: { ease: "power2.in", duration: 0.3 } })
+    .to(container, { xPercent: 105 })
+    .set(container, { display: "none", xPercent: 0 });
 };

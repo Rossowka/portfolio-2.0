@@ -4,64 +4,65 @@ import { navigation } from "@/utils/navigation";
 import { disablePageScroll, enablePageScroll } from "@fluejs/noscroll";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { closeMenu, openMenu, useNavBarAnimation } from "./animations";
+import { useMenuAnimation, useNavBarAnimation } from "./animations";
 import { SideMenu } from "../SideMenu";
 import { useGsapScrollTo } from "@/utils/useGsapScrollTo";
 
-const NavBar = ({
-  pathname,
-  textColorClass,
-  bgColorClass,
-  underlineColorClass,
-}) => {
+const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass }) => {
   const menuBtnRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
+  // Track the running timeline so toggleMenu can kill it before reversing
+  const activeTimelineRef = useRef(null);
 
   const scrollTo = useGsapScrollTo();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { open: openMenu, close: closeMenu } = useMenuAnimation(menuBtnRef, logoRef, headerRef);
+  useNavBarAnimation(headerRef, isMenuOpen);
+
   // Toggle between opened and closed menu
   const toggleMenu = () => {
-    if (!isMenuOpen) {
-      // menu is about to open
-      requestAnimationFrame(() => openMenu(menuBtnRef, logoRef));
-      disablePageScroll();
-    } else {
-      closeMenu(menuBtnRef, logoRef, headerRef);
-      enablePageScroll();
-    }
-    setIsMenuOpen((prev) => !prev);
-  };
+    // Kill any in-progress animation before starting the opposite one
+    activeTimelineRef.current?.kill();
 
-  useNavBarAnimation(headerRef, isMenuOpen);
+    setIsMenuOpen((prev) => {
+      if (!prev) {
+        disablePageScroll();
+        activeTimelineRef.current = openMenu();
+      } else {
+        enablePageScroll();
+        activeTimelineRef.current = closeMenu();
+      }
+      return !prev;
+    });
+  };
 
   return (
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 w-screen opacity-0 invisible max-w-full z-50 transition-colors duration-0 ${
+        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors duration-0 ${
           isMenuOpen
             ? `${textColorClass} bg-transparent`
             : `${textColorClass} ${bgColorClass} delay-200 duration-500`
         }`}
       >
-        <div className="lg:max-w-[77.5rem] lg:mx-auto w-screen px-4 lg:px-8 flex items-center justify-between overflow-hidden">
+        <div className="lg:max-w-7xl lg:mx-auto w-screen px-6 flex items-center justify-between overflow-hidden">
           {/* initial logo */}
           <Link
             aria-label="Home"
             href="/"
             ref={logoRef}
-            className={`text-2xl/7 font-medium uppercase transition-colors duration-700 py-4 ${
+            className={`text-2xl/7 font-medium transition-colors duration-700 py-4 ${
               isMenuOpen ? "text-f-inverse" : textColorClass
             }`}
           >
-            Sara Rossow
+            sara rossow
           </Link>
+
           {/* navigation */}
-          <nav
-            className={`hidden lg:-mr-4 ${isMenuOpen ? "hidden" : "lg:block"}`}
-          >
+          <nav className={`hidden lg:-mr-4 ${isMenuOpen ? "hidden" : "lg:block"}`}>
             <ul className="flex">
               {navigation.map((item) => (
                 <li key={item.id}>
@@ -77,11 +78,10 @@ const NavBar = ({
                         <span>
                           {item.title}
                           {item.sup && (
-                            <sup className="text-xs leading-none pl-1 text-accent">
-                              {item.sup}
-                            </sup>
+                            <sup className="text-xs leading-none pl-1 text-accent">{item.sup}</sup>
                           )}
                         </span>
+
                         {/* underline */}
                         <span
                           className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass}`}
@@ -97,17 +97,14 @@ const NavBar = ({
                         <span>
                           {item.title}
                           {item.sup && (
-                            <sup className="text-xs leading-none pl-1 text-accent">
-                              {item.sup}
-                            </sup>
+                            <sup className="text-xs leading-none pl-1 text-accent">{item.sup}</sup>
                           )}
                         </span>
+
                         {/* underline */}
                         <span
                           className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass} ${
-                            pathname == item.url
-                              ? `scale-x-100 ${underlineColorClass}`
-                              : ""
+                            pathname == item.url ? `scale-x-100 ${underlineColorClass}` : ""
                           }`}
                         ></span>
                       </p>
@@ -121,9 +118,7 @@ const NavBar = ({
             aria-label="Toggle menu"
             type="button"
             onClick={toggleMenu}
-            className={`flex py-4 h-full items-center ${
-              isMenuOpen ? "" : "lg:hidden"
-            }`}
+            className={`flex py-4 h-full items-center ${isMenuOpen ? "" : "lg:hidden"}`}
           >
             <div
               ref={menuBtnRef}
@@ -137,6 +132,7 @@ const NavBar = ({
           </button>
         </div>
       </header>
+
       <SideMenu
         isMenuOpen={isMenuOpen}
         handleClick={toggleMenu}

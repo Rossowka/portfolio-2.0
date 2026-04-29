@@ -4,27 +4,36 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { navigation } from "@/utils/navigation";
-import { closeMenu, openMenu } from "./animations";
+import { buildOpenMenuTimeline, buildCloseMenuTimeline } from "./animations";
 import Link from "next/link";
 import { Socials } from "../Socials";
 
 gsap.registerPlugin(useGSAP);
 
 const SideMenu = ({ handleClick, isMenuOpen, pathname, logoRef }) => {
-  const menuRef = useRef(null);
   const containerRef = useRef(null);
-  const contentRef = useRef(null);
+  const menuRef = useRef(null);
   const overlayRef = useRef(null);
+  const activeTimelineRef = useRef(null);
 
   useGSAP(
     () => {
-      requestAnimationFrame(() => {
-        if (isMenuOpen) {
-          openMenu(containerRef, menuRef, overlayRef, logoRef);
-        } else {
-          closeMenu(containerRef);
-        }
-      });
+      activeTimelineRef.current?.kill();
+
+      if (isMenuOpen) {
+        activeTimelineRef.current = buildOpenMenuTimeline(
+          containerRef,
+          menuRef,
+          overlayRef,
+          logoRef
+        );
+      } else {
+        // Skip close animation on first render (menu starts hidden)
+        if (!containerRef.current || gsap.getProperty(containerRef.current, "display") === "none")
+          return;
+
+        activeTimelineRef.current = buildCloseMenuTimeline(containerRef);
+      }
     },
     { dependencies: [isMenuOpen], scope: containerRef }
   );
@@ -32,34 +41,26 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname, logoRef }) => {
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-0 w-full h-dvh z-40 ${
-        isMenuOpen ? "flex flex-col" : "hidden"
-      }`}
+      className="fixed inset-0 w-full h-dvh z-40 hidden flex-col"
     >
-      {/* Background panels for menu slide-in animation */}
+      {/* Background panels */}
       <div
         ref={menuRef}
         className="fixed inset-0 z-10"
       >
-        <div className="absolute inset-0 bg-accent h-full"></div>
-        <div className="absolute inset-0 bg-f-primary h-full"></div>
+        <div className="absolute inset-0 bg-accent h-full" />
+        <div className="absolute inset-0 bg-sandyBrown h-full" />
         <div
           ref={overlayRef}
           className="absolute inset-0 bg-s-secondary h-full"
-        ></div>
+        />
       </div>
 
-      {/* Scrollable content area */}
+      {/* Scrollable content */}
       <nav className="relative z-20 w-full h-full overflow-y-auto">
-        {/* Menu inner content */}
-        <div
-          ref={contentRef}
-          className="flex flex-col text-f-inverse min-h-full"
-        >
-          {/* Top padding for menu */}
-          <div className="h-16 md:h-24 lg:h-32"></div>
+        <div className="flex flex-col text-f-inverse min-h-full">
+          <div className="h-16 md:h-24 lg:h-32" />
 
-          {/* Menu items */}
           <ul className="flex flex-col">
             <li className="overflow-hidden">
               <Link
@@ -69,15 +70,15 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname, logoRef }) => {
               >
                 <p className="relative font-semibold text-6xl md:text-8xl w-fit">
                   <span>Home</span>
-                  {/* Underline */}
                   <span
-                    className={`underline absolute left-0 -bottom-2 w-full h-0.5 ${
-                      pathname == "/" ? "bg-s-primary" : "hide"
+                    className={`underline absolute left-0 -bottom-2 w-full h-1 ${
+                      pathname === "/" ? "bg-s-primary" : "hide"
                     }`}
-                  ></span>
+                  />
                 </p>
               </Link>
             </li>
+
             {navigation.map((item) => (
               <li
                 className="overflow-hidden"
@@ -91,23 +92,19 @@ const SideMenu = ({ handleClick, isMenuOpen, pathname, logoRef }) => {
                   <p className="relative font-semibold text-6xl md:text-8xl w-fit">
                     <span>
                       {item.title}
-                      {item.sup && (
-                        <sup className="pl-3 text-accent">{item.sup}</sup>
-                      )}
+                      {item.sup && <sup className="pl-3 text-sandyBrown">{item.sup}</sup>}
                     </span>
-                    {/* Underline */}
                     <span
                       className={`underline absolute left-0 -bottom-2 w-full h-0.5 ${
-                        pathname == item.url ? "bg-s-primary" : "hide"
+                        pathname === item.url ? "bg-s-primary" : "hide"
                       }`}
-                    ></span>
+                    />
                   </p>
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Social icons */}
           <div className="pl-8 -mx-3 py-8 w-full mt-auto">
             <Socials />
           </div>

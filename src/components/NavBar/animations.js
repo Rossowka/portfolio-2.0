@@ -1,127 +1,117 @@
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-export const openMenu = (menuBtnRef, logoRef) => {
-  if (!menuBtnRef?.current || !logoRef?.current) return;
+// --- Standalone timeline factories (no React, no side-effects) ---
+
+export const buildOpenMenuTimeline = (menuBtnRef, logoRef) => {
+  if (!menuBtnRef?.current || !logoRef?.current) return null;
 
   const menuChildren = Array.from(menuBtnRef.current.children);
-  if (menuChildren.length === 0) return;
+  if (menuChildren.length === 0) return null;
 
-  const timeline = gsap.timeline({
-    defaults: {
-      ease: [0.65, 0.01, 0.05, 0.99],
-      duration: 0.7,
-    },
-  });
-
-  timeline
-    .to(menuChildren, {
-      yPercent: -100,
-      stagger: 0.2,
-    })
-    .to(logoRef.current, { yPercent: -300, opacity: 0 }, "<+=0.15");
-
-  return timeline;
+  return (
+    gsap
+      .timeline({
+        defaults: { ease: "power2.out", duration: 0.6 },
+      })
+      // Hard-reset before animating so killed mid-flight state doesn't bleed in
+      .set(menuChildren, { yPercent: 0 })
+      .to(menuChildren, { yPercent: -100, stagger: 0.8 })
+      .to(logoRef.current, { yPercent: -10, opacity: 0 }, "<+=0.15")
+  );
 };
 
-export const closeMenu = (menuBtnRef, logoRef, headerRef) => {
-  if (
-    !menuBtnRef?.current ||
-    !logoRef?.current ||
-    !headerRef?.current ||
-    !headerRef.current.querySelector("nav")
-  )
-    return;
+export const buildCloseMenuTimeline = (menuBtnRef, logoRef, headerRef) => {
+  const nav = headerRef?.current?.querySelector("nav");
+  if (!menuBtnRef?.current || !logoRef?.current || !nav) return null;
 
   const menuChildren = Array.from(menuBtnRef.current.children);
 
-  const timeline = gsap.timeline({
-    defaults: {
-      ease: [0.65, 0.01, 0.05, 0.99],
-      duration: 0.7,
-    },
-  });
-
-  timeline
-    .to(menuChildren, {
-      yPercent: 0,
+  return gsap
+    .timeline({
+      defaults: { ease: "power2.out", duration: 0.6 },
     })
+    .set(menuChildren, { yPercent: -100 })
+    .to(menuChildren, { yPercent: 0 })
     .to(logoRef.current, { yPercent: 0, opacity: 1 }, "<")
-    .fromTo(
-      headerRef.current.querySelector("nav"),
-      { yPercent: -100 },
-      { yPercent: 0 },
-      "<+=0.15"
-    );
-
-  return timeline;
+    .fromTo(nav, { yPercent: -100 }, { yPercent: 0 }, "<+=0.15");
 };
 
-export const toggleHeaderOnScroll = (headerRef) => {
-  const showAnim = gsap
-    .from(headerRef.current, {
-      yPercent: -100,
-      paused: true,
-      duration: 0.3,
-      ease: "power2.inOut",
-    })
-    .progress(1);
+// --- Hook: open/close callbacks scoped to the menu container ---
 
-  // Create the ScrollTrigger with an ID for reference
-  const trigger = ScrollTrigger.create({
-    id: "headerScroll",
-    start: "top top",
-    end: "max",
-    onUpdate: (self) => {
-      self.direction === -1 ? showAnim.play() : showAnim.reverse();
-    },
-  });
+export const useMenuAnimation = (menuBtnRef, logoRef, headerRef) => {
+  const open = useCallback(() => buildOpenMenuTimeline(menuBtnRef, logoRef), [menuBtnRef, logoRef]);
 
-  return trigger;
+  const close = useCallback(
+    () => buildCloseMenuTimeline(menuBtnRef, logoRef, headerRef),
+    [menuBtnRef, logoRef, headerRef]
+  );
+
+  return { open, close };
 };
+
+// --- Hook: navbar entrance + scroll-hide/show ---
 
 export const useNavBarAnimation = (headerRef, isMenuOpen) => {
+  // Only needed for the enable/disable toggle between renders
   const scrollTriggerRef = useRef(null);
 
-  // Create the ScrollTrigger once on component mount
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  // Mount animation + ScrollTrigger — useGSAP auto-reverts on unmount
+  useGSAP(
+    () => {
+      if (!headerRef.current) return;
+
       gsap.fromTo(
         headerRef.current,
         { y: -94, autoAlpha: 0 },
         {
           y: 0,
           autoAlpha: 1,
-          duration: 0.4,
-          delay: 1.2,
+          duration: 0.6,
           ease: "power2.out",
           onComplete: () => {
-            scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
+            // Register the scroll trigger AFTER the entrance animation
+            const showAnim = gsap
+              .from(headerRef.current, {
+                yPercent: -100,
+                paused: true,
+                duration: 0.3,
+                ease: "power2.out",
+              })
+              .progress(1);
+
+            scrollTriggerRef.current = ScrollTrigger.create({
+              id: "headerScroll",
+              start: "top top",
+              end: "max",
+              onUpdate: (self) => {
+                self.direction === -1 ? showAnim.play() : showAnim.reverse();
+              },
+            });
           },
         }
       );
-    });
+    },
+    { scope: headerRef, dependencies: [] }
+  );
 
-    scrollTriggerRef.current = toggleHeaderOnScroll(headerRef);
+  // Reactively enable/disable scroll behaviour when menu opens/closes
+  useGSAP(
+    () => {
+      const trigger = scrollTriggerRef.current;
+      if (!trigger || !headerRef.current) return;
 
-    return () => {
-      ctx.revert();
-      if (scrollTriggerRef.current) scrollTriggerRef.current.kill();
-    };
-  }, []);
-
-  // Toggle ScrollTrigger based on menu state
-  useEffect(() => {
-    if (scrollTriggerRef.current) {
       if (isMenuOpen) {
-        scrollTriggerRef.current.disable();
+        trigger.disable();
         gsap.to(headerRef.current, { yPercent: 0, duration: 0.3 });
       } else {
-        scrollTriggerRef.current.enable();
+        trigger.enable();
       }
-    }
-  }, [isMenuOpen]);
+    },
+    { dependencies: [isMenuOpen], scope: headerRef }
+  );
 };
