@@ -33,7 +33,7 @@ const HeroExperience = () => {
         Available for work
       </p>
 
-      <div className="leading-normal text-sm flex flex-col w-5/6 lg:max-w-[290px]">
+      <div className="leading-normal text-sm flex flex-col w-5/6 lg:max-w-[290px] text-f-primary/80">
         <p>4+ years in design</p>
         <p>2 years in B2B Enterprise SaaS</p>
       </div>

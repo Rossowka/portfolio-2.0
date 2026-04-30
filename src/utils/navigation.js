@@ -13,8 +13,8 @@ export const navigation = [
     sup: PROJECTS.length,
   },
   {
-    id: "contact",
-    title: "Contact",
-    url: "#contact",
+    id: "playground",
+    title: "Playground",
+    url: "/playground",
   },
 ];

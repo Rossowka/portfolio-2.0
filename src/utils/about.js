@@ -1,3 +1,5 @@
+export const EMAIL = "sararossow@mail.com";
+
 export const story = [
   {
     heading: "hands-on design across mediums",

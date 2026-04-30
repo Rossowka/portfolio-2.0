@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { useMenuAnimation, useNavBarAnimation } from "./animations";
 import { SideMenu } from "../SideMenu";
 import { useGsapScrollTo } from "@/utils/useGsapScrollTo";
+import NavBarEmail from "./NavBarEmail";
 
 const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass }) => {
   const menuBtnRef = useRef(null);
@@ -48,72 +49,58 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass })
             : `${textColorClass} ${bgColorClass} delay-200 duration-500`
         }`}
       >
-        <div className="lg:max-w-7xl lg:mx-auto w-screen px-6 flex items-center justify-between overflow-hidden">
-          {/* initial logo */}
-          <Link
-            aria-label="Home"
-            href="/"
-            ref={logoRef}
-            className={`text-2xl/7 font-medium transition-colors duration-700 py-4 ${
-              isMenuOpen ? "text-f-inverse" : textColorClass
-            }`}
-          >
-            sara rossow
-          </Link>
-
+        <div className="lg:max-w-7xl lg:mx-auto w-screen px-6 flex">
           {/* navigation */}
-          <nav className={`hidden lg:-mr-4 ${isMenuOpen ? "hidden" : "lg:block"}`}>
-            <ul className="flex">
+          <nav className={`flex w-full lg:w-8/12 justify-between items-center`}>
+            {/* initial logo */}
+            <Link
+              aria-label="Home"
+              href="/"
+              ref={logoRef}
+              className={`text-2xl/7 font-medium transition-colors duration-700 py-4 whitespace-nowrap justify-items-center ${
+                isMenuOpen ? "text-f-inverse" : textColorClass
+              }`}
+            >
+              sara rossow
+            </Link>
+
+            <ul className={`w-5/6 justify-end -mr-4 hidden ${isMenuOpen ? "hidden" : "lg:flex"}`}>
               {navigation.map((item) => (
                 <li key={item.id}>
-                  {item.id === "contact" ? (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(item.id);
-                      }}
-                      className="block group px-4 py-4 lg:px-5 lg:py-8"
-                    >
-                      <p className="relative overflow-visible whitespace-nowrap">
-                        <span>
-                          {item.title}
-                          {item.sup && (
-                            <sup className="text-xs leading-none pl-1 text-accent">{item.sup}</sup>
-                          )}
-                        </span>
+                  <Link
+                    href={item.url}
+                    className="block group px-4 py-4 lg:px-5 lg:py-8"
+                  >
+                    <p className="relative overflow-visible whitespace-nowrap">
+                      <span>
+                        {item.title}
+                        {item.sup && (
+                          <sup className="text-xs leading-none pl-1 text-accent">{item.sup}</sup>
+                        )}
+                      </span>
 
-                        {/* underline */}
-                        <span
-                          className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass}`}
-                        ></span>
-                      </p>
-                    </button>
-                  ) : (
-                    <Link
-                      href={item.url}
-                      className="block group px-4 py-4 lg:px-5 lg:py-8"
-                    >
-                      <p className="relative overflow-visible whitespace-nowrap">
-                        <span>
-                          {item.title}
-                          {item.sup && (
-                            <sup className="text-xs leading-none pl-1 text-accent">{item.sup}</sup>
-                          )}
-                        </span>
-
-                        {/* underline */}
-                        <span
-                          className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass} ${
-                            pathname == item.url ? `scale-x-100 ${underlineColorClass}` : ""
-                          }`}
-                        ></span>
-                      </p>
-                    </Link>
-                  )}
+                      {/* underline */}
+                      <span
+                        className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left scale-x-0 group-hover:scale-x-100 ${underlineColorClass} ${
+                          pathname == item.url ? `scale-x-100 ${underlineColorClass}` : ""
+                        }`}
+                      ></span>
+                    </p>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
+
+          {/* CTA */}
+          <div
+            className={`group gap-1 pl-10 py-4  lg:py-8 justify-end w-4/12 hidden ${isMenuOpen ? "hidden" : "lg:flex"}`}
+          >
+            <p>Let's chat:</p>
+            <NavBarEmail />
+          </div>
+
+          {/* mobile menu */}
           <button
             aria-label="Toggle menu"
             type="button"
