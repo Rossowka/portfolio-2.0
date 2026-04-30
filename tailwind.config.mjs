@@ -9,15 +9,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: "#C75300",
+        accent: "#A35139",
+        sandyBrown: "#FFB162",
+        reddishBrown: "#A35139",
+        charchoalBlue: "#2C3B4D",
+        jetBlack: "#1B2632",
         accentDark: "#A34400",
         s: {
-          primary: "#F5F5F5",
-          secondary: "#2C3E50",
+          primary: "#FAFAFA",
+          secondary: "#1B2632",
           inverse: "#000",
+          brand: "#29140E",
         },
         f: {
           primary: "#1C1C14",
+          secondary: "#535862",
+          brandLight: "#9B7B6B",
+          brandDark: "#6B5248",
           inverse: "#e5e7eb",
         },
       },
