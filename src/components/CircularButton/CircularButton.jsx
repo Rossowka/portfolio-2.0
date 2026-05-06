@@ -72,7 +72,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
           />
         </defs>
         <text
-          className="fill-f-primary uppercase"
+          className="fill-f-inverse uppercase"
           style={{
             fontSize: `${textHeight}px`,
             letterSpacing: `${letterSpacing}em`,
@@ -91,9 +91,9 @@ const CircularButton = ({ text, radius, iconSrc }) => {
       </svg>
 
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
         rounded-full flex items-center justify-center
-        group-hover:bg-paleOak transition-colors duration-300"
+        bg-paleOak transition-colors duration-300"
         style={{
           width: `${radius}px`,
           height: `${radius}px`,

@@ -35,7 +35,7 @@ const Intro = () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 50%",
+            start: "top 60%",
             once: true,
           },
         });
@@ -71,16 +71,16 @@ const Intro = () => {
           });
         });
 
-        gsap.to(cta, {
-          y: -80,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.8,
-          },
-        });
+        // gsap.to(cta, {
+        //   y: -80,
+        //   ease: "none",
+        //   scrollTrigger: {
+        //     trigger: sectionRef.current,
+        //     start: "top bottom",
+        //     end: "bottom top",
+        //     scrub: 0.8,
+        //   },
+        // });
       });
 
       // ── MOBILE ───────────────────────────────────────────────
@@ -95,8 +95,7 @@ const Intro = () => {
 
         gsap.set(heading, { autoAlpha: 1 });
         gsap.set(split.chars, { y: 20, autoAlpha: 0 });
-        gsap.set(body, { autoAlpha: 1 });
-        gsap.set(bodySplit.lines, { y: 12, autoAlpha: 0 });
+        gsap.set(body, { y: 12, autoAlpha: 0 });
         gsap.set([label, cta], { y: 12, autoAlpha: 0 });
 
         // Heading animates on its own trigger
@@ -127,15 +126,14 @@ const Intro = () => {
           })
           .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
           .to(
-            bodySplit.lines,
+            body,
             {
               y: 0,
               autoAlpha: 1,
               duration: 1,
-              stagger: 0.08,
               ease: "power2.out",
             },
-            "-=0.6"
+            "-=0.4"
           )
           .to(cta, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, "-=0.6");
       });
@@ -146,14 +144,14 @@ const Intro = () => {
   return (
     <section
       ref={sectionRef}
-      className="pt-16 pb-24 lg:py-48 flex flex-col bg-linen"
+      className="py-24 px-6 lg:py-48 flex flex-col bg-linen"
     >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-5">
-        <h2 className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight md:w-4/12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-between">
+        <h2 className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight sm:w-1/3 lg:w-5/12">
           let's create something stunning together
         </h2>
 
-        <div className="flex flex-col relative gap-10 mt-5 w-full md:w-8/12 md:ml-44">
+        <div className="flex flex-col relative gap-10 mt-5 w-full sm:w-1/2 md:w-7/12">
           <p className="intro-label font-semibold uppercase tracking-widest text-reddishBrown whitespace-nowrap leading-normal text-base">
             what I do
           </p>
@@ -161,7 +159,7 @@ const Intro = () => {
             I design digital products: web apps, internal tools, e-commerce platforms and solutions
             for complex B2B environments.
           </p>
-          <div className="intro-cta self-end sm:absolute -bottom-20 sm:right-8 lg:right-0">
+          <div className="intro-cta self-end absolute  sm:right-8 -bottom-3/4 lg:right-0 lg:-bottom-1/4 overflow-hidden mix-blend-difference">
             <CircularButton
               text={"Explore my work"}
               radius={85}
