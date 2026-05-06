@@ -1,44 +1,175 @@
-import { fadeInUp } from "@/utils/animations";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 import { CircularButton } from "../CircularButton";
-import { motion } from "framer-motion";
+
+gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
 const Intro = () => {
+  const sectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const heading = sectionRef.current.querySelector(".intro-heading");
+      const label = sectionRef.current.querySelector(".intro-label");
+      const body = sectionRef.current.querySelector(".intro-body");
+      const cta = sectionRef.current.querySelector(".intro-cta");
+
+      if (!heading || !body || !cta) return;
+
+      const mm = gsap.matchMedia();
+
+      // ── DESKTOP ──────────────────────────────────────────────
+      mm.add("(min-width: 768px)", () => {
+        const split = SplitText.create(heading, {
+          type: "words,chars",
+          wordsClass: "inline-block",
+        });
+
+        gsap.set(heading, { autoAlpha: 1 });
+        gsap.set(split.chars, { y: 20, autoAlpha: 0 });
+        gsap.set([label, body, cta], { y: 12, autoAlpha: 0 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 50%",
+            once: true,
+          },
+        });
+
+        tl.to(split.chars, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          stagger: 0.03,
+          ease: "power2.out",
+        })
+          .to(label, { y: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, "-=0.6")
+          .to(body, { y: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, "-=0.7")
+          .to(cta, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, "-=0.7");
+
+        split.chars.forEach((char) => {
+          char.addEventListener("mouseenter", () => {
+            gsap.to(char, {
+              y: -8,
+              rotationZ: gsap.utils.random(-6, 6),
+              duration: 0.25,
+              ease: "back.out(2)",
+              overwrite: "auto",
+            });
+            gsap.to(char, {
+              y: 0,
+              rotationZ: 0,
+              duration: 0.5,
+              ease: "elastic.out(1, 0.4)",
+              delay: 0.2,
+              overwrite: false,
+            });
+          });
+        });
+
+        gsap.to(cta, {
+          y: -80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        });
+      });
+
+      // ── MOBILE ───────────────────────────────────────────────
+      mm.add("(max-width: 767px)", () => {
+        const split = SplitText.create(heading, {
+          type: "words,chars",
+          wordsClass: "inline-block",
+        });
+
+        // Body split into lines — mirrors Hero's value proposition
+        const bodySplit = SplitText.create(body, { type: "lines" });
+
+        gsap.set(heading, { autoAlpha: 1 });
+        gsap.set(split.chars, { y: 20, autoAlpha: 0 });
+        gsap.set(body, { autoAlpha: 1 });
+        gsap.set(bodySplit.lines, { y: 12, autoAlpha: 0 });
+        gsap.set([label, cta], { y: 12, autoAlpha: 0 });
+
+        // Heading animates on its own trigger
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: heading,
+              start: "top 80%",
+              once: true,
+            },
+          })
+          .to(split.chars, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            stagger: 0.03,
+            ease: "power2.out",
+          });
+
+        // Body block animates separately, further down
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: body,
+              start: "top 85%",
+              once: true,
+            },
+          })
+          .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
+          .to(
+            bodySplit.lines,
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 1,
+              stagger: 0.08,
+              ease: "power2.out",
+            },
+            "-=0.6"
+          )
+          .to(cta, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, "-=0.6");
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section className="pt-16 pb-24 lg:pt-24 lg:pb-72 flex flex-col">
-      <motion.header
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUp}
-        viewport={{ once: true, amount: 0.3 }}
-        className="max-w-[77.5rem] mx-auto px-4 lg:px-8 mt-16 mb-8 md:mb-12 lg:mt-36 lg:mb-24"
-      >
-        <h2 className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight md:indent-12 lg:indent-24">
+    <section
+      ref={sectionRef}
+      className="pt-16 pb-24 lg:py-48 flex flex-col bg-linen"
+    >
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-5">
+        <h2 className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight md:w-4/12">
           let's create something stunning together
         </h2>
-      </motion.header>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUp}
-        viewport={{ once: true, amount: 0.4 }}
-        className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col md:flex-row relative gap-8 mt-8"
-      >
-        <p className="hidden md:inline-block font-semibold uppercase tracking-wider text-f-primary/40 whitespace-nowrap leading-relaxed text-sm mt-1 md:basis-1/5 lg:basis-1/4">
-          what I do
-        </p>
-        <p className="sm:mr-48 md:basis-1/2">
-          I work at the intersection of research, design and development, what I like to call the
-          sweet spot of UX. Through engaging stories and beautiful interfaces, I shape people’s
-          experiences in elegantly simple ways.
-        </p>
-        <div className="self-end sm:absolute sm:bottom-0 md:bottom-1/2 sm:right-8 lg:right-12">
-          <CircularButton
-            text={"Explore my work"}
-            radius={80}
-            iconSrc={"icons/arrow-down-left.svg"}
-          />
+
+        <div className="flex flex-col relative gap-10 mt-5 w-full md:w-8/12 md:ml-44">
+          <p className="intro-label font-semibold uppercase tracking-widest text-reddishBrown whitespace-nowrap leading-normal text-base">
+            what I do
+          </p>
+          <p className="intro-body text-[26px] leading-relaxed max-w-lg">
+            I design digital products: web apps, internal tools, e-commerce platforms and solutions
+            for complex B2B environments.
+          </p>
+          <div className="intro-cta self-end sm:absolute -bottom-20 sm:right-8 lg:right-0">
+            <CircularButton
+              text={"Explore my work"}
+              radius={85}
+              iconSrc={"icons/arrow-down-left.svg"}
+            />
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

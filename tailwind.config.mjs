@@ -10,11 +10,13 @@ export default {
     extend: {
       colors: {
         accent: "#A35139",
+        accentDark: "#A34400",
         sandyBrown: "#FFB162",
         reddishBrown: "#A35139",
         charchoalBlue: "#2C3B4D",
         jetBlack: "#1B2632",
-        accentDark: "#A34400",
+        linen: "#EEE9DF",
+        paleOak: "#C9C1B1",
         s: {
           primary: "#FAFAFA",
           secondary: "#1B2632",
@@ -23,7 +25,7 @@ export default {
         },
         f: {
           primary: "#1C1C14",
-          secondary: "#535862",
+          secondary: "#665C47",
           brandLight: "#9B7B6B",
           brandDark: "#6B5248",
           inverse: "#e5e7eb",
