@@ -7,8 +7,8 @@ import Link from "next/link";
 const CircularButton = ({ text, radius, iconSrc }) => {
   const scrollTo = useGsapScrollTo();
   const diameter = radius * 2;
-  const textHeight = 14;
-  const letterSpacing = 0.25;
+  const textHeight = 16;
+  const letterSpacing = 0.28;
   const textPathRadius = radius - textHeight / 2;
   const separator = "-";
 
@@ -45,7 +45,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   return (
     <Link
       href="#featured"
-      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden bg-s-primary"
+      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden"
       style={{
         width: `${diameter}px`,
         height: `${diameter}px`,
@@ -66,17 +66,13 @@ const CircularButton = ({ text, radius, iconSrc }) => {
             d={`
                 M ${radius},${radius} 
                 m -${textPathRadius},0 
-                a ${textPathRadius},${textPathRadius} 0 1,1 ${
-              textPathRadius * 2
-            },0 
-                a ${textPathRadius},${textPathRadius} 0 1,1 -${
-              textPathRadius * 2
-            },0
+                a ${textPathRadius},${textPathRadius} 0 1,1 ${textPathRadius * 2},0 
+                a ${textPathRadius},${textPathRadius} 0 1,1 -${textPathRadius * 2},0
                 `}
           />
         </defs>
         <text
-          className="fill-f-dark/70 group-hover:fill-f-dark uppercase"
+          className="fill-f-primary uppercase"
           style={{
             fontSize: `${textHeight}px`,
             letterSpacing: `${letterSpacing}em`,
@@ -97,7 +93,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
         rounded-full flex items-center justify-center
-        group-hover:bg-accent/40 transition-colors duration-300"
+        group-hover:bg-paleOak transition-colors duration-300"
         style={{
           width: `${radius}px`,
           height: `${radius}px`,
