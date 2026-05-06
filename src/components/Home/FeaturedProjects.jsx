@@ -5,36 +5,34 @@ import { FeaturedProjectsHeader } from ".";
 
 const FeaturedProjects = () => {
   const featuredProjects = PROJECTS.filter((project) => project.featured);
+  const sorted = [...featuredProjects].sort((a, b) => b.year - a.year);
 
   return (
     <section
       id="featured"
-      className="py-24 md:py-16 lg:pt-24 lg:pb-36 bg-s-inverse text-f-inverse"
+      className="py-24 lg:py-48 px-6 bg-s-secondary text-f-inverse overflow-hidden"
     >
       <FeaturedProjectsHeader />
 
-      {/* project list */}
-      <ul className="max-w-[77.5rem] mx-auto px-4 lg:px-8 mb-16 lg:mb-28 flex flex-col gap-9 overflow-hidden">
-        {[...featuredProjects]
-          .sort((a, b) => b.year - a.year)
-          .map((project, index) => (
-            <FeaturedProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-              featuredProjects={featuredProjects}
-            />
-          ))}
+      <ul className="max-w-7xl mx-auto flex flex-col gap-24 mb-10 md:mb-32 lg:mb-28">
+        {sorted.map((project, index) => (
+          <FeaturedProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            total={sorted.length}
+            imageOnRight={index % 2 === 0}
+          />
+        ))}
       </ul>
 
-      {/* button */}
-      <div className="max-w-[77.5rem] mx-auto lg:px-8 flex justify-center px-8">
+      <div className="max-w-7xl mx-auto flex justify-center">
         <Button
           label="more work"
           sup={PROJECTS.length}
           className="text-f-inverse"
           href="/projects"
-          dark
+          variant="dark"
         />
       </div>
     </section>

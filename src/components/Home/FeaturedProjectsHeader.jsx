@@ -1,30 +1,86 @@
 "use client";
 
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "motion/react";
-import { useInView } from "motion/react";
 import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
 const FeaturedProjectsHeader = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+  const headerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const label = headerRef.current.querySelector(".fph-label");
+      const heading = headerRef.current.querySelector(".fph-heading");
+      const para = headerRef.current.querySelector(".fph-para");
+
+      if (!label || !heading || !para) return;
+
+      const headingSplit = SplitText.create(heading, {
+        type: "words,chars",
+        wordsClass: "inline-block",
+      });
+
+      gsap.set(heading, { autoAlpha: 1 });
+      gsap.set(headingSplit.chars, { y: 20, autoAlpha: 0 });
+      gsap.set(label, { y: 12, autoAlpha: 0 });
+      gsap.set(para, { y: 12, autoAlpha: 0 });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        })
+        .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
+        .to(
+          headingSplit.chars,
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            stagger: 0.03,
+            ease: "power2.out",
+          },
+          "-=0.6"
+        )
+        .to(
+          para,
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        );
+    },
+    { scope: headerRef }
+  );
 
   return (
-    <motion.header
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={fadeInUp}
-      className="max-w-[77.5rem] mx-auto px-4 lg:px-8 lg:pt-20 flex flex-col items-end"
+    <header
+      ref={headerRef}
+      className="max-w-7xl mx-auto flex flex-col"
     >
-      <h2 className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight md:me-[8%] mb-8 lg:mb-16">
-        featured work
-      </h2>
-      <p className="md:me-[16%] mb-16 md:mb-28 max-w-md">
-        A selection of recent projects I've been working on. You can find here
-        some interesting case studies for a deep dive into my work process.
+      <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
+        <p className="fph-label font-semibold uppercase tracking-widest text-sandyBrown whitespace-nowrap leading-normal text-base pt-4 w-full">
+          what I create
+        </p>
+        <h2 className="fph-heading text-[42px] lg:text-[68px] tracking-tight leading-tight mb-8 lg:mb-10 w-full">
+          featured work
+        </h2>
+      </div>
+
+      <p className="fph-para mb-16 md:mb-[168px] md:w-5/12 ml-auto text-[26px] leading-normal pl-5 text-pretty">
+        selection of projects focused on turning complex requirements into structured design.
       </p>
-    </motion.header>
+    </header>
   );
 };
 
