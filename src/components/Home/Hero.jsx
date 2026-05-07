@@ -5,12 +5,12 @@ import HeroValueProposition from "./HeroValueProposition";
 
 const Hero = () => {
   return (
-    <section className="pb-2 md:pb-12 overflow-hidden relative">
+    <section className="pb-5 md:pb-12 lg:pb-48 overflow-hidden relative px-3 sm:px-6">
       {/* Top padding for menu */}
       <div className="h-[60px] md:h-24" />
 
-      <div className="flex flex-col sm:flex-row justify-between max-w-7xl mx-auto lg:px-0 sm:pt-10 pb-24 relative">
-        <div className="flex flex-col order-2 sm:order-1 w-full sm:w-1/2 lg:w-8/12 md:pr-4 px-6">
+      <div className="flex flex-col sm:flex-row justify-between max-w-7xl mx-auto lg:px-0 sm:pt-10 md:pt-20 lg:pt-32 relative">
+        <div className="flex flex-col order-2 sm:order-1 w-full sm:w-1/2 lg:w-8/12 md:pr-4 px-3 sm:px-0">
           <HeroText />
           <HeroValueProposition />
           <HeroExperience />

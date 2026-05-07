@@ -27,7 +27,7 @@ const HeroImage = ({ src, alt }) => {
 
   return (
     <div
-      className="relative overflow-hidden order-1 sm:order-2 w-full sm:w-1/2 lg:w-4/12 z-0 px-3 sm:px-6 sm:justify-items-end invisible"
+      className="relative overflow-hidden order-1 sm:order-2 w-full sm:w-1/2 lg:w-4/12 z-0 sm:justify-items-end invisible"
       ref={imageRef}
     >
       <Image

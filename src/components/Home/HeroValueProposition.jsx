@@ -28,14 +28,12 @@ const HeroValueProposition = () => {
   );
 
   return (
-    <div className="flex justify-end pt-10 lg:pt-20">
+    <div className="flex sm:justify-end pl-5 sm:pl-0 pt-10 lg:pt-20">
       <p
         ref={paragraphRef}
-        className="text-f-primary leading-normal font-sans w-5/6 lg:max-w-[290px] text-pretty text-sm invisible"
+        className="text-f-primary leading-normal font-sans w-5/6 lg:max-w-[290px] text-pretty text-base invisible"
       >
-        Hello, I’m Sara — a strategic designer creating products for high-stakes humans and helping
-        teams make decisions that stick. I make sure we’re solving the right problem — then we ship,
-        learn, do better.
+        Hello, I’m Sara – a strategic designer creating digital products for high-stakes humans.
       </p>
     </div>
   );

@@ -26,14 +26,14 @@ const HeroExperience = () => {
 
   return (
     <div
-      className="flex flex-col-reverse lg:flex-row items-end pt-2 md:pt-5 lg:pt-10 invisible"
+      className="flex flex-col-reverse lg:flex-row pl-5 sm:pl-0 sm:items-end pt-5 lg:pt-10 invisible h-full"
       ref={paragraphRef}
     >
-      <p className="text-f-primary leading-normal font-sans text-pretty text-sm w-5/6  mt-5 font-bold tracking-wide">
-        Available for work
+      <p className="text-f-primary leading-normal font-sans text-pretty text-base w-5/6  mt-5 font-bold tracking-widest">
+        available for work
       </p>
 
-      <div className="leading-normal text-sm flex flex-col w-5/6 lg:max-w-[290px] text-f-primary/80">
+      <div className="leading-normal text-base flex flex-col w-5/6 lg:max-w-[290px] text-f-secondary ">
         <p>4+ years in design</p>
         <p>2 years in B2B Enterprise SaaS</p>
       </div>
