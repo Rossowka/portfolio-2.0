@@ -5,19 +5,17 @@ const Socials = ({ className }) => {
   return (
     <ul className={`z-10 flex w-fit gap-2 ${className ? className : ""}`}>
       {socials.map((item) => (
-        <li
-          className="overflow-hidden p-3 lg:p-4 hover:opacity-40 transform transition-all"
-          key={item.id}
-        >
+        <li key={item.id}>
           <a
             target="_blank"
             href={item.url}
             rel="noopener noreferrer"
-            aria-label={`Link to ${item.title} profile`}
+            aria-label={`Link to Sara's ${item.title} profile`}
+            className="block p-3 lg:p-4 transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+     focus-visible:outline-reddishBrown"
           >
             <Image
               src={item.iconUrl}
-              alt={`${item.title} icon`}
               width={24}
               height={24}
               className="h-6 w-6"

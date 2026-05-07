@@ -38,7 +38,7 @@ const FeaturedProjectCard = ({ project, imageOnRight }) => {
   return (
     <li
       ref={cardRef}
-      className={`flex flex-col lg:flex-row gap-10 overflow-hidden`}
+      className={`flex flex-col lg:flex-row gap-10`}
     >
       {/* image — order swaps based on imageOnRight */}
       <div
@@ -89,7 +89,8 @@ const FeaturedProjectCard = ({ project, imageOnRight }) => {
         <div className="flex">
           <Link
             href={project.url}
-            className="flex gap-1 px-8 py-4 justify-center text-sandyBrown -ml-8 group"
+            className="flex gap-1 px-8 py-4 justify-center text-sandyBrown -ml-8 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+     focus-visible:outline-reddishBrown"
           >
             <div className="min-w-fit content-center">
               <ArrowIcon className="text-inherit -rotate-45" />
