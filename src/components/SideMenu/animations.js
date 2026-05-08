@@ -3,7 +3,7 @@ import gsap from "gsap";
 export const buildOpenMenuTimeline = (containerRef, menuRef, overlayRef, logoRef) => {
   const container = containerRef.current;
   const panels = menuRef.current.querySelectorAll(
-    "div.bg-accent, div.bg-sandyBrown, div.bg-s-secondary"
+    "div.bg-sandyBrown, div.bg-linen, div.bg-s-secondary"
   );
 
   return (
@@ -23,7 +23,7 @@ export const buildOpenMenuTimeline = (containerRef, menuRef, overlayRef, logoRef
       // Text and icon animation
       // Scoped selectors — only target elements inside the container
       .fromTo(
-        container.querySelectorAll("a"),
+        container.querySelectorAll(".slide-up"),
         { yPercent: 140, rotate: 10 },
         { yPercent: 0, rotate: 0, stagger: 0.05 },
         "<+=0.35"
@@ -35,11 +35,12 @@ export const buildOpenMenuTimeline = (containerRef, menuRef, overlayRef, logoRef
         "<+=0.30"
       )
       .fromTo(
-        container.querySelectorAll(".underline"),
+        container.querySelectorAll(".underline-slide"),
         { scaleX: 0, transformOrigin: "left" },
         { scaleX: 1 },
         "<+=0.25"
       )
+      .fromTo(container.querySelectorAll(".appear"), { autoAlpha: 0 }, { autoAlpha: 1 }, "<+=0")
   );
 };
 

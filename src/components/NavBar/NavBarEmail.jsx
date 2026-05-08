@@ -52,7 +52,7 @@ export default function NavBarEmail({ tooltipPosition = "bottom", className }) {
     font-[inherit] text-[inherit] leading-[inherit]
     cursor-pointer select-none
     text-f-tetriary hover:text-current
-    underline underline-offset-[3px] decoration-transparent hover:decoration-current
+    underline underline-offset-[6px] lg:decoration-[transparent] hover:decoration-current
     transition-colors duration-200
     ${active ? "opacity-55" : "opacity-100"}
     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
@@ -71,7 +71,7 @@ export default function NavBarEmail({ tooltipPosition = "bottom", className }) {
           pointer-events-none
           inline-flex items-center gap-1.5
           whitespace-nowrap
-          text-[11.5px] font-medium tracking-[0.01em] text-f-inverse
+          text-[10px] font-medium tracking-[0.01em] text-f-inverse
           bg-s-inverse rounded-md px-2.5 py-1
           ${isAbove ? "bottom-[calc(100%+10px)]" : "top-[calc(100%+10px)]"}
           transition-all duration-[180ms] ease-out
