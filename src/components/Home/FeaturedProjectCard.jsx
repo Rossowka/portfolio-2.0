@@ -48,10 +48,10 @@ const FeaturedProjectCard = ({ project, imageOnRight }) => {
       >
         <div className="relative w-full aspect-video">
           <Image
-            src={project.thumbnail.src}
-            alt={project.thumbnail.alt}
+            src={project.snapshot.src}
+            alt={project.snapshot.alt}
             fill
-            sizes="(max-width: 768px) 100vw, 620px"
+            sizes="(max-width: 768px) 100vw, 640px"
             className="object-cover"
           />
         </div>

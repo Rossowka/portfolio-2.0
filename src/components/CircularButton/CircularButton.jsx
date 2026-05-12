@@ -45,7 +45,8 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   return (
     <Link
       href="#featured"
-      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden"
+      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+     focus-visible:outline-reddishBrown"
       style={{
         width: `${diameter}px`,
         height: `${diameter}px`,
@@ -104,7 +105,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
           className="group-hover:-rotate-45 transform transition-all duration-300 ease-in-out"
           width={36}
           height={36}
-          alt="Arrow pointing down and left"
+          alt=""
         />
       </div>
     </Link>

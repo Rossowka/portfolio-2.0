@@ -43,13 +43,13 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass })
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors duration-0 ${
+        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors duration-0 px-6  ${
           isMenuOpen
             ? `${textColorClass} bg-transparent`
             : `${textColorClass} ${bgColorClass} delay-200 duration-500`
         }`}
       >
-        <div className="lg:max-w-7xl lg:mx-auto w-screen px-6 flex">
+        <div className="lg:max-w-7xl lg:mx-auto flex">
           {/* navigation */}
           <nav className={`flex w-full lg:w-8/12 justify-between items-center`}>
             {/* initial logo */}
@@ -57,19 +57,19 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass })
               aria-label="Home"
               href="/"
               ref={logoRef}
-              className={`text-2xl/7 font-medium transition-colors duration-700 py-4 whitespace-nowrap justify-items-center ${
-                isMenuOpen ? "text-f-inverse" : textColorClass
-              }`}
+              className={`text-2xl/7 font-medium transition-colors duration-700 py-4 whitespace-nowrap justify-items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+     focus-visible:outline-reddishBrown ${isMenuOpen ? "text-f-inverse" : textColorClass}`}
             >
               sara rossow
             </Link>
 
-            <ul className={`w-5/6 justify-end -mr-4 hidden ${isMenuOpen ? "hidden" : "lg:flex"}`}>
+            <ul className={`justify-end hidden ${isMenuOpen ? "hidden" : "lg:flex"}`}>
               {navigation.map((item) => (
                 <li key={item.id}>
                   <Link
                     href={item.url}
-                    className="block group px-4 py-4 lg:px-5 lg:py-8"
+                    className="block group px-[20px] py-4 lg:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+     focus-visible:outline-reddishBrown"
                   >
                     <p className="relative overflow-visible whitespace-nowrap">
                       <span>
@@ -94,9 +94,9 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass })
 
           {/* CTA */}
           <div
-            className={`group gap-1 pl-10 py-4  lg:py-8 justify-end w-4/12 hidden ${isMenuOpen ? "hidden" : "lg:flex"}`}
+            className={`group gap-1 pl-10 py-4 lg:py-8 justify-end w-4/12 hidden ${isMenuOpen ? "hidden" : "lg:flex"}`}
           >
-            <p>Let's chat:</p>
+            <p>let's chat:</p>
             <NavBarEmail />
           </div>
 
