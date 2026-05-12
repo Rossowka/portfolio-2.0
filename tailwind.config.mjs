@@ -10,7 +10,6 @@ export default {
     extend: {
       colors: {
         accent: "#A35139",
-        accentDark: "#A34400",
         sandyBrown: "#FFB162",
         reddishBrown: "#A35139",
         charchoalBlue: "#2C3B4D",

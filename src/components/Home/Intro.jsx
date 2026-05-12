@@ -144,7 +144,7 @@ const Intro = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6 lg:py-48 flex flex-col bg-linen"
+      className="py-24 px-6 md:py-36 lg:py-48 flex flex-col bg-linen"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-between">
         <h2 className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight sm:w-1/3 lg:w-5/12">

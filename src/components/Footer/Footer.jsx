@@ -138,20 +138,20 @@ const Footer = () => {
       id="contact"
       aria-label="Contact and footer"
     >
-      <div className="px-6 py-24 lg:py-40">
+      <div className="px-6 py-24 md:py-20 lg:py-40">
         <div className="max-w-7xl mx-auto flex flex-col gap-5 md:gap-10">
           {/* Heading row */}
           <div className="footer-email-row flex flex-col md:flex-row justify-between items-stretch gap-5">
             <h2 className="footer-heading text-[42px] lg:text-[80px] tracking-tight leading-tight invisible">
               let's work together
             </h2>
-            <div className="w-full sm:w-[400px] flex justify-between">
+            <div className="w-full sm:w-[400px] flex justify-between relative">
               <NavBarEmail
                 tooltipPosition="top"
                 className="text-[26px] self-end pb-3"
               />
               <ArrowIcon
-                className="rotate-[135deg]"
+                className="rotate-[135deg] absolute bottom-1/2 right-0"
                 size="42"
                 aria-hidden="true"
               />
@@ -162,7 +162,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-5 lg:gap-10 items-center relative">
             <div className="footer-banner overflow-hidden rounded-lg">
               <Image
-                src="/images/banner.webp"
+                src="/images/banner.svg"
                 width={400}
                 height={120}
                 alt=""
@@ -175,7 +175,7 @@ const Footer = () => {
             <div className="footer-get-in-touch flex-shrink-0 ">
               <h2
                 className="font-bold text-transparent bg-clip-text whitespace-nowrap text-[42px] md:text-[68px] lg:text-[112px] tracking-tight leading-tight"
-                style={{ backgroundImage: "url(/images/banner.webp)" }}
+                style={{ backgroundImage: "url(/images/banner-flipped.svg)" }}
               >
                 Get in touch
               </h2>

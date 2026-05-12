@@ -15,7 +15,7 @@ const Bottom = () => {
   }, []);
 
   return (
-    <div className="py-6 bg-linen text-f-primary w-full">
+    <div className="py-6 px-3 bg-linen text-f-primary w-full">
       <motion.div
         initial="hidden"
         whileInView="visible"
