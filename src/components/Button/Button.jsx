@@ -129,21 +129,28 @@ const Button = ({ label = "button", href = "#", sup, variant = "default", noIcon
   );
 
   return (
-    <Link
-      href={href}
+    <div
       ref={wrapperRef}
       className="relative w-full md:w-fit focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
      focus-visible:outline-reddishBrown"
     >
       <div
         ref={containerRef}
-        className={`relative w-full md:w-fit border overflow-hidden cursor-pointer [will-change:transform] ${styles.container}`}
+        className={`relative w-full md:w-fit border cursor-pointer [will-change:transform] ${styles.container}`}
       >
         <span
-          ref={rippleRef}
-          className={`pointer-events-none absolute top-0 left-0 [will-change:transform] ${styles.ripple}`}
-        />
-        <div className="relative z-10 flex gap-1 px-8 py-4 lg:py-8 lg:px-16 justify-center group">
+          className="absolute inset-0 overflow-hidden rounded-[inherit] pointer-events-none"
+          aria-hidden="true"
+        >
+          <span
+            ref={rippleRef}
+            className={`pointer-events-none absolute top-0 left-0 [will-change:transform] ${styles.ripple}`}
+          />
+        </span>
+        <Link
+          href={href}
+          className="relative z-10 flex gap-1 px-8 py-4 lg:py-8 lg:px-16 justify-center group"
+        >
           <div
             ref={textRef}
             className={`flex gap-1 items-center [will-change:transform] ${styles.text}`}
@@ -174,9 +181,9 @@ const Button = ({ label = "button", href = "#", sup, variant = "default", noIcon
               )}
             </p>
           </div>
-        </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 
