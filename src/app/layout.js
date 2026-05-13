@@ -2,6 +2,7 @@ import { cormorant, plusJakartaSans } from "@/utils/fonts";
 import "./globals.css";
 import Script from "next/script";
 import dynamic from "next/dynamic";
+import { NavBarWrapper } from "@/components";
 
 export const metadata = {
   title: "Sara Rossow Portfolio • Digital Designer & Developer",
@@ -43,7 +44,6 @@ export const metadata = {
 };
 
 const Footer = dynamic(() => import("@/components/Footer/Footer"));
-const NavBarWrapper = dynamic(() => import("@/components/NavBar/NavBarWrapper"));
 
 export default function RootLayout({ children }) {
   return (

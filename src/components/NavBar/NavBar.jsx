@@ -6,17 +6,21 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { useMenuAnimation, useNavBarAnimation } from "./animations";
 import { SideMenu } from "../SideMenu";
-import { useGsapScrollTo } from "@/utils/useGsapScrollTo";
 import NavBarEmail from "./NavBarEmail";
 
-const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass }) => {
+const NavBar = ({
+  pathname,
+  textColorClass,
+  bgColorClass,
+  underlineColorClass,
+  accentColorClass,
+}) => {
   const menuBtnRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
   // Track the running timeline so toggleMenu can kill it before reversing
   const activeTimelineRef = useRef(null);
 
-  const scrollTo = useGsapScrollTo();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { open: openMenu, close: closeMenu } = useMenuAnimation(menuBtnRef, logoRef, headerRef);
@@ -75,7 +79,9 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, underlineColorClass })
                       <span>
                         {item.title}
                         {item.sup && (
-                          <sup className="text-xs leading-none pl-1 text-accent">{item.sup}</sup>
+                          <sup className={`text-xs leading-none pl-1 ${accentColorClass}`}>
+                            {item.sup}
+                          </sup>
                         )}
                       </span>
 

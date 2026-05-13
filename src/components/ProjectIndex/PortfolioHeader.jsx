@@ -1,34 +1,94 @@
 "use client";
 
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 import { PROJECTS } from "@/utils/projects";
-import { motion } from "framer-motion";
-import { fadeInUp } from "@/utils/animations";
+import { SplitText } from "gsap/all";
+
+gsap.registerPlugin(SplitText, useGSAP);
 
 const PortfolioHeader = () => {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const heading = containerRef.current.querySelector(".pf-heading");
+      const label = containerRef.current.querySelector(".pf-label");
+      const body = containerRef.current.querySelector(".pf-body");
+
+      const split = SplitText.create(heading, {
+        type: "words,chars",
+        wordsClass: "inline-block",
+      });
+
+      gsap.set(heading, { autoAlpha: 1 });
+      gsap.set(split.chars, { y: 20, autoAlpha: 0 });
+      gsap.set([label, body], { y: 12, autoAlpha: 0 });
+
+      gsap.from(containerRef.current, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+
+      const tl = gsap.timeline();
+
+      tl.to(split.chars, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+        stagger: 0.025,
+        ease: "power2.out",
+      })
+        .to(label, { y: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }, 0.6)
+        .to(body, { y: 0, autoAlpha: 1, duration: 1.4, ease: "power2.out" }, 0.8);
+
+      split.chars.forEach((char) => {
+        char.addEventListener("mouseenter", () => {
+          gsap.to(char, {
+            y: -8,
+            rotationZ: gsap.utils.random(-6, 6),
+            duration: 0.25,
+            ease: "back.out(2)",
+            overwrite: "auto",
+          });
+          gsap.to(char, {
+            y: 0,
+            rotationZ: 0,
+            duration: 0.5,
+            ease: "elastic.out(1, 0.4)",
+            delay: 0.2,
+            overwrite: false,
+          });
+        });
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-      className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col"
+    <header
+      ref={containerRef}
+      className="max-w-7xl mx-auto flex flex-col"
     >
-      <h1 className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight mb-8 lg:mb-16">
+      <h1 className="pf-heading tracking-tight font-normal text-[68px] leading-none md:text-[80px] lg:text-[110px] mb-20 ms-[8%] invisible">
         my digital footprint
-        <sup className="text-[1.25rem]/[1.5] pl-2 top-0 md:text-[2rem]/[1.5] lg:text-[2.75rem]/[1.5] align-text-top lg:pl-4 text-accent h-full">
+        <sup className="text-[26px] pl-2 top-0 md:text-[42px] lg:text-[68px] align-text-top leading-normal lg:pl-4 text-sandyBrown h-full">
           {PROJECTS.length}
         </sup>
       </h1>
-      <div className="md:ms-[16%] mb-10 md:mb-14 lg:mb-28 flex flex-col md:flex-row">
-        <p className="font-semibold uppercase whitespace-nowrap leading-relaxed tracking-wider text-sm mt-1 text-f-inverse/40 mr-12 mb-4">
+      <div className="mb-20 md:mb-28 lg:mb-40 flex flex-col md:flex-row gap-5">
+        <p className="invisible pf-label font-semibold uppercase tracking-widest text-sandyBrown whitespace-nowrap leading-normal text-base w-full sm:w-5/12 sm:text-right pr-5">
           project index
         </p>
-        <p className="max-w-lg">
-          This portfolio highlights a selection of my work, showcasing the variety and scope of
-          projects I've completed. I believe these examples demonstrate the wide range of skills I
-          bring to each endeavor.
+        <p className="invisible pf-body leading-normal text-pretty text-base w-full sm:w-7/12 max-w-[510px]">
+          A space where ideas come to life with thoughtfulness. I shape digital experiences from
+          enterprise ecosystems and design systems to brands and websites that connect with people.
         </p>
       </div>
-    </motion.header>
+    </header>
   );
 };
 
