@@ -72,8 +72,8 @@ const NavBar = ({
                 <li key={item.id}>
                   <Link
                     href={item.url}
-                    className="block group px-[20px] py-4 lg:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
-     focus-visible:outline-reddishBrown"
+                    className={`block group px-[20px] py-4 lg:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+     focus-visible:outline-reddishBrown ${item.id == "playground" ? "opacity-50 pointer-events-none" : ""}`}
                   >
                     <p className="relative overflow-visible whitespace-nowrap">
                       <span>
