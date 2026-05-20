@@ -20,9 +20,9 @@ const VARIANTS = {
     text: "text-white",
   },
   dark: {
-    container: "bg-reddishBrown md:bg-transparent border-f-inverse/20",
+    container: "bg-sandyBrown md:bg-transparent border-f-inverse/20",
     ripple: "bg-sandyBrown",
-    text: "text-f-inverse",
+    text: "text-f-primary md:text-f-inverse",
   },
 };
 
@@ -174,7 +174,7 @@ const Button = ({ label = "button", href = "#", sup, variant = "default", noIcon
               {label}
               {sup && (
                 <sup
-                  className={`text-xs pl-1 ${variant === "dark" ? "text-sandyBrown group-hover:text-f-primary" : ""}`}
+                  className={`text-xs pl-1 ${variant === "dark" ? "sm:text-sandyBrown group-hover:text-f-primary text-f-primary" : ""}`}
                 >
                   {sup}
                 </sup>

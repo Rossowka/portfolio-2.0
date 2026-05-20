@@ -10,7 +10,7 @@ import { ArrowIcon } from "../ArrowIcon";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const FeaturedProjectCard = ({ project, imageOnRight }) => {
+const FeaturedProjectCard = ({ project }) => {
   const cardRef = useRef(null);
 
   useGSAP(
@@ -36,76 +36,82 @@ const FeaturedProjectCard = ({ project, imageOnRight }) => {
   );
 
   return (
-    <li
-      ref={cardRef}
-      className={`flex flex-col lg:flex-row gap-10`}
-    >
-      {/* image — order swaps based on imageOnRight */}
-      <div
-        className={`relative w-full lg:max-w-[50%] lg:shrink-0 md:self-start ${
-          imageOnRight ? "lg:order-last" : "lg:order-first"
-        }`}
+    <>
+      <div className=" bg-white/20 h-[1px]"></div>
+
+      <li
+        ref={cardRef}
+        className={`flex flex-col lg:flex-row gap-10 py-20`}
       >
-        <div className="relative w-full aspect-video">
-          <Image
-            src={project.snapshot.src}
-            alt={project.snapshot.alt}
-            fill
-            sizes="(max-width: 768px) 100vw, 640px"
-            className="object-cover"
-          />
+        <div className="relative w-full">
+          <div className="relative w-max-[620px] aspect-video">
+            <Image
+              src={project.snapshot.src}
+              alt={project.snapshot.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 620px"
+              className="object-cover"
+            />
+          </div>
         </div>
 
-        {/* caption */}
-        <div className="flex justify-between gap-5 pt-5 text-base">
-          <p className="opacity-80">{project.client}</p>
-          <p className="opacity-50">{project.year}</p>
-        </div>
-      </div>
+        {/* content */}
+        <div className="grow flex flex-col gap-5 w-full">
+          {/* title */}
+          <div className="flex gap-x-4 flex-wrap">
+            {project.productTags.map((result, i) => (
+              <p
+                key={i}
+                className="text-f-inverse/60 whitespace-nowrap text-[10px] leading-none tracking-wider pb-1"
+              >
+                {result}
+              </p>
+            ))}
+          </div>
 
-      {/* content */}
-      <div className="grow flex flex-col">
-        {/* title */}
-        <h3 className="text-2xl lg:text-[42px] leading-tight tracking-tight mb-5 lg:mb-10 text-balance">
-          {project.title}
-        </h3>
+          <p className="text-[26px] leading-none font-medium">{project.client}</p>
 
-        {/* results */}
-        <div className="flex -mx-2 lg:-mx-5 mt-auto lowercase">
-          {project.impact.slice(0, 2).map((result, i) => (
-            <div
-              key={i}
-              className="pt-4 pb-8 px-2 lg:px-5 flex-[0_0_50%] max-w-[50%]"
-            >
-              <strong className="text-4xl lg:text-[32px] leading-none tracking-normal font-serif block mb-2 lg:mb-4">
-                {result.data}
-              </strong>
-              <p className="text-base opacity-80 text-balance">{result.text}</p>
-            </div>
-          ))}
-        </div>
+          <h3 className="text-[26px] leading-tight tracking-tight text-balance text-f-inverse/80">
+            {project.title}
+          </h3>
 
-        {/* cta */}
-        <div className="flex">
-          <Link
-            href={project.url}
-            className="flex gap-1 px-8 py-4 justify-center text-sandyBrown -ml-8 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+          {/* results */}
+          <div className="flex flex-col sm:flex-row -mx-2 lg:-mx-5 pt-5 mb-auto lowercase gap-y-5">
+            {project.impact.slice(0, 2).map((result, i) => (
+              <div
+                key={i}
+                className="px-2 lg:px-5 sm:flex-[0_0_50%] sm:max-w-[50%]"
+              >
+                <strong className="text-[26px] leading-loose block mb-2 font-medium">
+                  {result.data}
+                </strong>
+                <p className="text-base text-f-inverse/80 text-balance">{result.text}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* cta */}
+          <div className="flex justify-end mt-5 sm:mt-0">
+            <Link
+              href={project.url}
+              className="flex justify-end gap-1 px-8 py-4 text-sandyBrown -ml-8 group w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
      focus-visible:outline-reddishBrown"
-          >
-            <div className="min-w-fit content-center">
-              <ArrowIcon className="text-inherit -rotate-45" />
-            </div>
-            <p className="whitespace-nowrap text-lg leading-relaxed font-medium text-inherit relative overflow-visible">
-              <span>{project.cta || "Explore the impact"}</span>
-              {/* underline */}
-              <span
-                className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left lg:scale-x-0 group-hover:scale-x-100 bg-sandyBrown`}
-              ></span>
-            </p>
-          </Link>
+            >
+              <p className="whitespace-nowrap text-lg leading-relaxed font-medium text-inherit relative overflow-visible">
+                <span className="truncate">{project.cta || "Explore the impact"}</span>
+                {/* underline */}
+                <span
+                  className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left lg:scale-x-0 group-hover:scale-x-100 bg-sandyBrown`}
+                ></span>
+              </p>
+              <div className="min-w-fit content-center">
+                <ArrowIcon className="text-inherit -rotate-45" />
+              </div>
+            </Link>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
+    </>
   );
 };
 

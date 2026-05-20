@@ -14,19 +14,17 @@ const FeaturedProjects = () => {
     >
       <FeaturedProjectsHeader />
 
-      <ul className="max-w-7xl mx-auto flex flex-col gap-24 mb-10 md:mb-32 lg:mb-28">
+      <ul className="max-w-7xl mx-auto flex flex-col mb-10 md:mb-32 lg:mb-28">
         {sorted.map((project, index) => (
           <FeaturedProjectCard
             key={project.id}
             project={project}
             index={index}
-            total={sorted.length}
-            imageOnRight={index % 2 === 0}
           />
         ))}
       </ul>
 
-      <div className="max-w-7xl mx-auto flex justify-center">
+      <div className="max-w-7xl mx-auto flex justify-center -mt-20 sm:-mt-0">
         <Button
           label="more work"
           sup={PROJECTS.length}

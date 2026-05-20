@@ -23,7 +23,7 @@ export default {
           brand: "#29140E",
         },
         f: {
-          primary: "#1C1C14",
+          primary: "#181D27",
           secondary: "#665C47",
           brandLight: "#9B7B6B",
           brandDark: "#6B5248",

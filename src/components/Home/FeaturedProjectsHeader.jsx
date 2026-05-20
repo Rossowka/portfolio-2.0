@@ -53,7 +53,7 @@ const FeaturedProjectsHeader = () => {
           para,
           {
             y: 0,
-            autoAlpha: 1,
+            autoAlpha: 0.8,
             duration: 1,
             ease: "power2.out",
           },
@@ -66,7 +66,7 @@ const FeaturedProjectsHeader = () => {
   return (
     <header
       ref={headerRef}
-      className="max-w-7xl mx-auto flex flex-col"
+      className="max-w-7xl mx-auto flex flex-col mt-20 lg:mb-10"
     >
       <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
         <p className="fph-label font-semibold uppercase tracking-widest text-sandyBrown whitespace-nowrap leading-normal text-base pt-4 w-full">
@@ -77,7 +77,7 @@ const FeaturedProjectsHeader = () => {
         </h2>
       </div>
 
-      <p className="fph-para mb-16 md:mb-[168px] md:w-5/12 ml-auto text-[26px] leading-normal pl-5 text-pretty">
+      <p className="fph-para mb-16 lg:mb-[168px] md:w-5/12 ml-auto text-[26px] leading-normal pl-5 text-pretty">
         selection of projects focused on turning complex requirements into structured design.
       </p>
     </header>
