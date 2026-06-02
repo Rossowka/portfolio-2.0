@@ -10,7 +10,7 @@ const About = () => {
     <>
       <Bio />
       <AboutSection />
-      <AfterWork />
+      {/* <AfterWork /> */}
     </>
   );
 };
