@@ -1,13 +1,16 @@
-import { AboutSection, Bio, CareerInNumbers, CoreValues, Superpowers } from "@/components/About";
+import { AboutSection, Bio } from "@/components/About";
+
+import dynamic from "next/dynamic";
+
+// Lazy load components to improve performance
+const AfterWork = dynamic(() => import("@/components/About/AfterWork"));
 
 const About = () => {
   return (
     <>
       <Bio />
-      {/* <AboutSection /> */}
-      {/* <CoreValues /> */}
-      {/* <CareerInNumbers /> */}
-      {/* <Superpowers /> */}
+      <AboutSection />
+      <AfterWork />
     </>
   );
 };

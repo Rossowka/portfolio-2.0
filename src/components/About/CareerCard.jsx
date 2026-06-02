@@ -1,29 +1,11 @@
 "use client";
 
-import { motion } from "motion/react";
-import { fadeInUp } from "@/utils/animations";
-
 const CareerCard = ({ stat }) => {
   return (
-    <motion.div
-      variants={fadeInUp}
-      viewport={{ once: true, amount: 0.4 }}
-      whileHover={{
-        y: -2,
-        transition: { duration: 0.15, ease: [0.4, 0, 0.2, 1] },
-      }}
-      className="p-8 flex-1 rounded-3xl h-fit border-[1px] shadow-sm"
-    >
-      <p className="pb-1 text-3xl lg:text-6xl leading-tight tracking-tight font-bold">
-        {stat.number}
-      </p>
-      <p className="pb-8 text-base lg:text-xl leading-normal  font-serif font-bold">
-        {stat.text}
-      </p>
-      <p className="text-xs lg:text-sm text-f-primary/60 leading-relaxed">
-        {stat.subtext}
-      </p>
-    </motion.div>
+    <div className="flex-1 flex flex-col gap-5">
+      <p className="text-[42px] leading-tight tracking-tight font-semibold">{stat.number}</p>
+      <p className="text-[26px] leading-normal text-f-inverse/60 text-balance">{stat.text}</p>
+    </div>
   );
 };
 

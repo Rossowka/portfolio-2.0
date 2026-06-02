@@ -1,41 +1,33 @@
 "use client";
 
-import { superpowers } from "@/utils/about";
-import { HeadingM, HeadingXL } from "../Text";
-import { AboutParagraph } from ".";
-import { motion } from "motion/react";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { whyMe } from "@/utils/about";
 
 const Superpowers = () => {
   return (
-    <section className="pt-32 pb-12 flex flex-col max-w-[77.5rem] mx-auto px-4 lg:px-8">
-      <HeadingXL
-        headingText="my superpowers"
-        subheadingText="what I bring to the team"
-      />
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={staggerContainer}
-        className="flex flex-wrap -mx-5"
-      >
-        {superpowers.map((paragraph, index) => (
-          <motion.div
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.4 }}
-            key={index}
-            className="sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333333%] md:max-w-[33.333333%] px-5"
+    <div className="flex flex-col xl:flex-row gap-10 justify-between py-10 md:py-40 w-full">
+      {/* left side */}
+      <div className="flex flex-col relative gap-10 mt-5 w-full sm:w-1/2 xl:w-[330px]">
+        <h2 className="font-semibold uppercase tracking-widest text-sandyBrown whitespace-nowrap leading-normal text-base">
+          what I bring to the team
+        </h2>
+        <p className="text-[42px] tracking-tight leading-tight">
+          thoughtfulness, clarity, and a spark of optimism
+        </p>
+      </div>
+
+      {/* right side */}
+      <div className="pt-20 lg:px-[110px] w-full lowercase">
+        {whyMe.map((item) => (
+          <div
+            key={item.heading}
+            className="flex flex-col md:flex-row gap-5 pt-5 pb-10 border-t-[1px] border-white/20 justify-between w-full"
           >
-            <HeadingM
-              headingText={paragraph.heading}
-              className="font-serif"
-            />
-            <AboutParagraph small>{paragraph.text}</AboutParagraph>
-          </motion.div>
+            <p className="text-[26px] md:w-[220px] leading-tight">{item.heading}</p>
+            <p className="text-base text-f-inverse/60 md:w-[400px] text-pretty ">{item.text}</p>
+          </div>
         ))}
-      </motion.div>
-    </section>
+      </div>
+    </div>
   );
 };
 
