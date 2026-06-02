@@ -1,19 +1,13 @@
-import {
-  AboutSection,
-  CareerInNumbers,
-  CoreValues,
-  Superpowers,
-  Welcome,
-} from "@/components/About";
+import { AboutSection, Bio, CareerInNumbers, CoreValues, Superpowers } from "@/components/About";
 
 const About = () => {
   return (
     <>
-      <Welcome />
-      <AboutSection />
-      <CoreValues />
-      <CareerInNumbers />
-      <Superpowers />
+      <Bio />
+      {/* <AboutSection /> */}
+      {/* <CoreValues /> */}
+      {/* <CareerInNumbers /> */}
+      {/* <Superpowers /> */}
     </>
   );
 };
