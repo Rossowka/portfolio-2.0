@@ -2,20 +2,26 @@ export const EMAIL = "sararossow@mail.com";
 
 export const story = [
   {
-    heading: "hands-on design across mediums",
-    text: "While I specialize in designing and developing digital products, I’m a trained architect who enjoys working on physical projects. I tap into my creativity through DIY projects, painting and architectural exploration.",
+    label: "areas",
+    text: "Brand Strategy, UX+UI Design, Design Systems, Workshop facilitation, frontend implementation, cross-functional collaboration, AI Prototyping, ",
   },
   {
-    heading: "curiosity-driven design",
-    text: "I carefuly listen to both users and businesses. Equipped in thoughtful questions I discover that sweet spot where their needs meet. Where meaningful connections happen - that's where I thrive as a designer.",
+    label: "experience",
+    text: [
+      { company: "Amazon", dates: "2019 - 2021" },
+      { company: "Sanacorp Pharmahandel", dates: "2021 - 2023" },
+      { company: "Freelance Designer", dates: "2021 - 2023" },
+      { company: "corpo-two", dates: "2023" },
+      { company: "HAWE Hydraulik", dates: "2023 - 2025" },
+    ],
   },
   {
-    heading: "experiences speak louder than words",
-    text: "In both professional and personal life, I am looking for ways to create memorable experiences that spark curiosity, build trust, and connect. Because the most powerful stories aren't just told. They're experienced.",
+    label: "education",
+    text: "B. Sc. + M. Sc. in Architecture",
   },
   {
-    heading: "the explorer mindset",
-    text: "I’m happiest when I’m on the move. Outside of work, I find peace in movement. Whether it's biking around the city, hiking in the mountains, or pushing limits of flexibility and strength practicing yoga. The outdoors clears my mind, keeping me grounded and inspired.",
+    label: "industries",
+    text: "Manufacturing, Logistics, Architecture, Professional Services, Entertainment, Food & Beverage",
   },
 ];
 

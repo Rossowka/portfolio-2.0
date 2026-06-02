@@ -57,7 +57,7 @@ const FeaturedProjectsHeader = () => {
             duration: 1,
             ease: "power2.out",
           },
-          "-=0.4"
+          "-=0.8"
         );
     },
     { scope: headerRef }

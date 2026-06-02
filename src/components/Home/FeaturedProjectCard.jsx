@@ -71,7 +71,7 @@ const FeaturedProjectCard = ({ project }) => {
 
           <p className="text-[26px] leading-none font-medium">{project.client}</p>
 
-          <h3 className="text-[26px] leading-tight tracking-tight text-balance text-f-inverse/80">
+          <h3 className="text-[26px] leading-tight tracking-tight text-balance text-f-inverse/60">
             {project.title}
           </h3>
 

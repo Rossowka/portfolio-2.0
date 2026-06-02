@@ -1,19 +1,19 @@
 export const socials = [
   {
     id: "linkedin",
-    title: "Linkedin",
+    title: "linkedin",
     iconUrl: "/icons/socials/Linkedin.svg",
     url: "https://www.linkedin.com/in/sararossow",
   },
   {
     id: "github",
-    title: "Github",
+    title: "github",
     iconUrl: "/icons/socials/Github.svg",
     url: "https://github.com/Rossowka",
   },
   {
     id: "dribble",
-    title: "Dribble",
+    title: "dribble",
     iconUrl: "/icons/socials/Dribble.svg",
     url: "https://dribbble.com/Rossowka",
   },

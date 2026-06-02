@@ -40,16 +40,20 @@ const Intro = () => {
           },
         });
 
-        tl.to(split.chars, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.8,
-          stagger: 0.03,
-          ease: "power2.out",
-        })
-          .to(label, { y: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, "-=0.6")
-          .to(body, { y: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, "-=0.7")
-          .to(cta, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, "-=0.7");
+        tl.to(label, { y: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }, 0.6)
+          .to(body, { y: 0, autoAlpha: 1, duration: 1.4, ease: "power2.out" }, "<")
+          .to(
+            split.chars,
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.8,
+              stagger: 0.025,
+              ease: "power2.out",
+            },
+            0.8
+          )
+          .to(cta, { y: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }, "<");
 
         split.chars.forEach((char) => {
           char.addEventListener("mouseenter", () => {
@@ -70,17 +74,6 @@ const Intro = () => {
             });
           });
         });
-
-        // gsap.to(cta, {
-        //   y: -80,
-        //   ease: "none",
-        //   scrollTrigger: {
-        //     trigger: sectionRef.current,
-        //     start: "top bottom",
-        //     end: "bottom top",
-        //     scrub: 0.8,
-        //   },
-        // });
       });
 
       // ── MOBILE ───────────────────────────────────────────────
@@ -89,9 +82,6 @@ const Intro = () => {
           type: "words,chars",
           wordsClass: "inline-block",
         });
-
-        // Body split into lines — mirrors Hero's value proposition
-        const bodySplit = SplitText.create(body, { type: "lines" });
 
         gsap.set(heading, { autoAlpha: 1 });
         gsap.set(split.chars, { y: 20, autoAlpha: 0 });
@@ -120,11 +110,11 @@ const Intro = () => {
           .timeline({
             scrollTrigger: {
               trigger: body,
-              start: "top 85%",
+              start: "top 80%",
               once: true,
             },
           })
-          .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
+          .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, 2)
           .to(
             body,
             {
@@ -147,14 +137,14 @@ const Intro = () => {
       className="py-24 px-6 md:py-36 lg:py-48 flex flex-col bg-linen"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-between">
-        <h2 className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight sm:w-1/3 lg:w-5/12">
+        <p className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight sm:w-1/3 lg:w-5/12">
           let's create something stunning together
-        </h2>
+        </p>
 
         <div className="flex flex-col relative gap-10 mt-5 w-full sm:w-1/2 md:w-7/12">
-          <p className="intro-label font-semibold uppercase tracking-widest text-reddishBrown whitespace-nowrap leading-normal text-base">
+          <h2 className="intro-label font-semibold uppercase tracking-widest text-reddishBrown whitespace-nowrap leading-normal text-base">
             what I do
-          </p>
+          </h2>
           <p className="intro-body text-[26px] leading-relaxed max-w-lg">
             I design digital products: web apps, internal tools, e-commerce platforms and solutions
             for complex B2B environments.

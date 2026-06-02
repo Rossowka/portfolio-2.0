@@ -27,7 +27,7 @@ const HeroText = () => {
   );
 
   return (
-    <div className="tracking-tight font-serif font-normal text-6xl leading-none md:text-8xl lg:text-[7rem] z-10">
+    <div className="tracking-tight font-serif font-normal text-[68px] leading-none md:text-[80px] lg:text-[110px] z-10">
       {/* hero text */}
       <div className="-mt-36 sm:mt-0">
         <h1
