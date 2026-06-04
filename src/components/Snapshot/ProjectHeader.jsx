@@ -1,31 +1,52 @@
 "use client";
 
-import { BackButton, ProjectDetails, ProjectTitle } from ".";
-import { motion } from "framer-motion";
-import { fadeInUp } from "@/utils/animations";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ProjectDetails, ProjectTitle } from ".";
+import Image from "next/image";
 
 const ProjectHeader = ({ currentProject }) => {
-  return (
-    <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-      className="max-w-[77.5rem] mx-auto px-4 lg:px-8 flex flex-col"
-    >
-      <BackButton />
-      <div className="bg-f-inverse h-[1px] mb-12"></div>
+  const headerRef = useRef(null);
 
-      {/* section title */}
-      <div className="flex flex-col mb-8 md:mb-20 lg:mb-32">
-        <p className="text-sm pb-5 text-accent font-semibold leading-relaxed tracking-wide">
-          {currentProject.client} | {currentProject.startDate}
-          {currentProject.endDate && " - "}
-          {currentProject.endDate}
-        </p>
+  useGSAP(
+    () => {
+      gsap.set(headerRef.current, { autoAlpha: 1 });
+      gsap.from(headerRef.current, {
+        y: 12,
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    },
+    { scope: headerRef }
+  );
+
+  return (
+    <header
+      ref={headerRef}
+      className="invisible pt-[100px] md:pt-[120px] lg:pt-[186px] px-6 mb-10"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col gap-5">
+        <p className="text-base text-accent font-semibold tracking-wide">{currentProject.client}</p>
         <ProjectTitle currentProject={currentProject} />
+        <p className="text-base text-f-primary/60 tracking-wide">
+          {currentProject.timeToRead} • {currentProject.clientLocation} ©{currentProject.year}
+        </p>
+        <Image
+          src={currentProject.mainShot.src}
+          alt={currentProject.mainShot.alt}
+          className={`object-cover w-full mx-auto h-full object-center`}
+          width={1280}
+          height={720}
+          quality={100}
+          priority
+          fetchPriority="high"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 1176px"
+        />
         <ProjectDetails currentProject={currentProject} />
       </div>
-    </motion.header>
+    </header>
   );
 };
 

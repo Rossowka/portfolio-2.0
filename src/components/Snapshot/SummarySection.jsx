@@ -1,69 +1,84 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "motion/react";
-import { fadeInUp } from "@/utils/animations";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SummarySection = ({ currentProject }) => {
+  const sectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.set(sectionRef.current, { autoAlpha: 1 });
+
+      gsap.from(sectionRef.current, {
+        y: 20,
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true, amount: "some" }}
-      className="max-w-[77.5rem] mx-auto px-4 lg:px-8"
+    <section
+      ref={sectionRef}
+      className="invisible px-6"
     >
       {/* summary text */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-        className="md:ms-[16%] mt-16 mb-10 md:mb-14 lg:mb-28 flex flex-col"
-      >
-        <div className="max-w-3xl">
-          <p className="font-semibold text-f-primary whitespace-nowrap leading-normal text-base mr-12 mb-6 mt-1">
-            Project Summary
-          </p>
-          <p className="text-2xl leading-normal font-medium lg:text-lg lg:leading-relaxed">
-            {currentProject.summary}
-          </p>
-        </div>
-
-        <div className="flex mt-16 gap-8 flex-col md:flex-row">
-          <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
-            <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
-              Product Context
+      <div className="max-w-7xl mx-auto py-20 md:pb-32 flex flex-col">
+        <div className="w-full lg:w-8/12 lg:me-[8%] ml-auto">
+          <div>
+            <p className="text-[26px] leading-normal lg:text-lg lg:leading-relaxed text-pretty">
+              {currentProject.summary}
             </p>
-            <div className="flex flex-wrap gap-2">
-              {currentProject.productTags.map((tag, index) => (
-                <div
-                  key={index}
-                  className="border-s-inverse/10 border-[1px] text-f-primary rounded-lg px-4 py-1 text-sm font-medium"
-                >
-                  {tag}
-                </div>
-              ))}
-            </div>
           </div>
 
-          <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
-            <p className="font-semibold text-f-primary whitespace-nowrap mt-1 mb-2 lg:mb-3 text-xs leading-normal">
-              Focus Areas
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {currentProject.focusAreasTags.map((tag, index) => (
-                <div
-                  key={index}
-                  className="border-s-inverse/10 border-[1px] text-f-primary rounded-lg px-4 py-1 text-sm font-medium"
-                >
-                  {tag}
-                </div>
-              ))}
+          <div className="flex mt-16 gap-8 flex-col md:flex-row">
+            <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
+              <p className="text-f-primary/60  whitespace-nowrap mb-5 text-base tracking-wide">
+                Responsibilities
+              </p>
+              <ul>
+                {currentProject.responsibilities.map((tag, index) => (
+                  <li
+                    key={index}
+                    className="text-f-primary/80 py-1 text-base"
+                  >
+                    → {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
+              <p className="text-f-primary/60  whitespace-nowrap mb-5 text-base tracking-wide">
+                Outcomes
+              </p>
+              <ul>
+                {currentProject.outcomes.map((tag, index) => (
+                  <li
+                    key={index}
+                    className="text-f-primary/80 py-1 text-base"
+                  >
+                    → {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
