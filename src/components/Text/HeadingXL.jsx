@@ -10,15 +10,15 @@ const HeadingXL = ({ headingText, subheadingText, className }) => {
       whileInView="visible"
       variants={fadeInUp}
       viewport={{ once: true, amount: 0.4 }}
-      className="flex flex-col mb-4 md:mb-8 lg:mb-16"
+      className="flex flex-col gap-5"
     >
       {subheadingText && (
-        <p className="whitespace-nowrap uppercase text-xs font-semibold tracking-wider text-accent mb-3 ml-1">
+        <p className="intro-label font-semibold uppercase tracking-widest text-reddishBrown whitespace-nowrap leading-normal text-base">
           {subheadingText}
         </p>
       )}
       <h2
-        className={`font-semibold text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight ${className}`}
+        className={`text-[42px] lg:text-[68px] tracking-tight leading-tight mb-8 lg:mb-10 w-full ${className}`}
       >
         {headingText}
       </h2>

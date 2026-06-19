@@ -1,8 +1,8 @@
 export const navItems = [
-  { id: "goals", label: "01 - Goals" },
-  { id: "challenges", label: "02 - Challenges" },
-  { id: "the-approach", label: "03 - The Approach" },
-  { id: "design", label: "04 - Design" },
-  { id: "operations", label: "05 - Operations" },
-  { id: "results", label: "06 - Results" },
+  { id: "goals", label: "Goals" },
+  { id: "challenges", label: "Challenges" },
+  { id: "the-approach", label: "The Approach" },
+  { id: "design", label: "Design" },
+  { id: "operations", label: "Operations" },
+  { id: "results", label: "Results" },
 ];

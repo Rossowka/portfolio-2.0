@@ -1,28 +1,29 @@
-"use client";
-
-import { fadeInUp } from "@/utils/animations";
 import { HeadingS } from "../Text";
-import { motion } from "motion/react";
+
+const itemVariants = {
+  "1col": "w-full grid grid-cols-[400px_1fr] gap-10",
+  "2col": "sm:flex-[0_0_50%] sm:max-w-[50%] md:border-none px-5 mt-10",
+  "3col":
+    "sm:flex-[0_0_50%] sm:max-w-[50%] md:flex-[0_0_33.333%] md:max-w-[33.333%] md:border-none px-5 mt-10",
+};
 
 const CaseStudyListItem = ({
   title = "placeholder title",
-  text = "placeholder text",
   noBreak,
+  variant = "2col",
+  children,
 }) => {
   return (
-    <motion.li
-      variants={fadeInUp}
-      className="px-5 border-t border-f-primary/10 md:border-none sm:flex-[0_0_50%] sm:max-w-[50%]"
-    >
+    <li className={`invisible border-t border-f-primary/10 ${itemVariants[variant]}`}>
       <HeadingS
         headingText={title}
-        className="font-serif"
         noBreak={noBreak}
+        variant={variant}
       />
-      <p className="pb-5 text-base md:text-sm font-medium leading-relaxed md:leading-relaxed text-f-primary/80 text-balance">
-        {text}
+      <p className="mt-5 mb-10 text-base leading-relaxed text-f-primary/80 text-pretty">
+        {children}
       </p>
-    </motion.li>
+    </li>
   );
 };
 

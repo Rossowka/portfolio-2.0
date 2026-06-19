@@ -1,41 +1,27 @@
 "use client";
 
-import { staggerContainer } from "@/utils/animations";
 import { Button } from "../Button";
-import { motion } from "motion/react";
 
 const UpNext = ({ nextProject }) => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true, amount: 0.4 }}
-      className="max-w-[77.5rem] mx-auto px-4 lg:px-8 p-8 mt-16 -mb-14 border-t-[1px] border-b-[1px] border-f-inverse"
-    >
-      <div className="flex flex-col">
-        <p className="font-semibold uppercase text-accent whitespace-nowrap leading-relaxed text-sm mt-1 mb-6">
-          - up next
+    <section className="max-w-7xl mx-auto px-6 md:px-0 py-20 my-20 border-t-[1px] border-b-[1px] border-f-inverse">
+      <div className="flex flex-col gap-5">
+        <p className="text-base text-accent font-semibold tracking-wider leading-relaxed mt-5">
+          Next project
         </p>
-        <h1 className="font-medium text-[2rem] lg:text-[3rem] tracking-tight leading-tight mb-8 lg:mb-8 text-balance">
-          <span className="font-serif">{nextProject.client} - </span>
+        <h2 className="font-medium font-serif text-[26px] lg:text-[68px] tracking-tight leading-[1.1] mb-5 md:mr-8 text-balance">
+          <span>{nextProject.client} - </span>
           <span>{nextProject.title}</span>
-        </h1>
+        </h2>
       </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={staggerContainer}
-        viewport={{ once: true, amount: 0.2 }}
-        className="mb-8 flex flex-col md:flex-row gap-4"
-      >
+      <div className="my-5">
         <Button
           label="see project"
           href={nextProject.url}
         />
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 

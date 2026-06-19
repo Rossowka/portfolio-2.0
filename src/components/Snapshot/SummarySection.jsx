@@ -45,7 +45,7 @@ const SummarySection = ({ currentProject }) => {
 
           <div className="flex mt-16 gap-8 flex-col md:flex-row">
             <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
-              <p className="text-f-primary/60  whitespace-nowrap mb-5 text-base tracking-wide">
+              <p className="text-f-primary/60  whitespace-nowrap mb-5 text-base tracking-wider leading-relaxed">
                 Responsibilities
               </p>
               <ul>
@@ -61,7 +61,7 @@ const SummarySection = ({ currentProject }) => {
             </div>
 
             <div className="lg:ml-0 md:flex-1 shrink-0 md:max-w-[50%] order-1 md:order-none">
-              <p className="text-f-primary/60  whitespace-nowrap mb-5 text-base tracking-wide">
+              <p className="text-f-primary/60  whitespace-nowrap mb-5 text-base tracking-wider leading-relaxed">
                 Outcomes
               </p>
               <ul>

@@ -19,7 +19,7 @@ const CaseStudyImage = ({ src, alt, caption, aspect = "16/9" }) => {
       className="mt-8 mb-4"
     >
       <div
-        className="relative w-full mb-4 rounded-lg overflow-hidden"
+        className="relative w-full mb-4 overflow-hidden bg-linen"
         style={{ aspectRatio: aspect }}
       >
         <Image
@@ -33,11 +33,7 @@ const CaseStudyImage = ({ src, alt, caption, aspect = "16/9" }) => {
           className="object-cover"
         />
       </div>
-      {caption && (
-        <figcaption className="text-sm text-f-primary/60 ml-[2px]">
-          {caption}
-        </figcaption>
-      )}
+      {caption && <figcaption className="text-sm text-f-primary/60 ml-[2px]">{caption}</figcaption>}
     </motion.figure>
   );
 };

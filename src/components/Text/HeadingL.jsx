@@ -1,28 +1,79 @@
 "use client";
 
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
 const HeadingL = ({ headingText, subheadingText, className }) => {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const subheading = containerRef.current.querySelector("[data-subheading]");
+      const heading = containerRef.current.querySelector("[data-heading]");
+
+      gsap.set([subheading, heading].filter(Boolean), { autoAlpha: 1 });
+
+      const split = new SplitText(heading, {
+        type: "words,chars",
+        wordsClass: "inline-block",
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+      });
+
+      if (subheading) {
+        tl.from(subheading, {
+          autoAlpha: 0,
+          y: 12,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      }
+
+      tl.from(
+        split.chars,
+        {
+          autoAlpha: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.03,
+        },
+        subheading ? "-=0.3" : 0
+      );
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      variants={fadeInUp}
-      viewport={{ once: true, amount: 0.4 }}
-      className="mb-12"
+    <div
+      ref={containerRef}
+      className="mb-[60px]"
     >
       {subheadingText && (
-        <p className="whitespace-nowrap text-xs uppercase font-semibold text-accent mb-4 ml-1 leading-relaxed tracking-wider">
+        <p
+          data-subheading
+          className="invisible whitespace-nowrap text-base text-accent mb-10 ml-1 tracking-wider leading-relaxed"
+        >
           {subheadingText}
         </p>
       )}
-      <h3
-        className={`font-semibold md:font-bold text-5xl tracking-tight leading-tight text-pretty ${className}`}
+      <h2
+        data-heading
+        className={`invisible text-[68px] tracking-tight leading-[1.2] text-balance ${className ?? ""}`}
       >
         {headingText}
-      </h3>
-    </motion.div>
+      </h2>
+    </div>
   );
 };
 

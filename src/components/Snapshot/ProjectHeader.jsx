@@ -28,9 +28,11 @@ const ProjectHeader = ({ currentProject }) => {
       className="invisible pt-[100px] md:pt-[120px] lg:pt-[186px] px-6 mb-10"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-5">
-        <p className="text-base text-accent font-semibold tracking-wide">{currentProject.client}</p>
+        <p className="text-base text-accent font-semibold tracking-wider leading-relaxed">
+          {currentProject.client}
+        </p>
         <ProjectTitle currentProject={currentProject} />
-        <p className="text-base text-f-primary/60 tracking-wide">
+        <p className="text-base text-f-primary/60 tracking-wider leading-relaxed">
           {currentProject.timeToRead} • {currentProject.clientLocation} ©{currentProject.year}
         </p>
         <Image

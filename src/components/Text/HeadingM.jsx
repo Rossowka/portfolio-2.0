@@ -1,23 +1,45 @@
 "use client";
 
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap/all";
+
+gsap.registerPlugin(useGSAP);
 
 const HeadingM = ({ headingText, className }) => {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const heading = containerRef.current.querySelector("h3");
+
+      gsap.set(heading, { autoAlpha: 1 });
+
+      gsap.from(heading, {
+        autoAlpha: 0,
+        y: 20,
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.03,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      variants={fadeInUp}
-      viewport={{ once: true, amount: 0.4 }}
-      className="mt-16 mb-8"
+    <div
+      ref={containerRef}
+      className="mt-20 mb-10"
     >
-      <p
-        className={`font-bold text-3xl tracking-tight leading-tight ${className}`}
-      >
+      <h3 className={`invisible text-[42px] tracking-tight leading-tight ${className ?? ""}`}>
         {headingText}
-      </p>
-    </motion.div>
+      </h3>
+    </div>
   );
 };
 
