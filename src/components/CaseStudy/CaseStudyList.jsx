@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const colVariants = {
   "1col": "flex-col",
-  "2col": "flex-wrap sm:flex-row ml-8 md:-mx-5",
+  "2col": "flex-wrap sm:flex-row ml-8 md:-mx-5  gap-x-20",
   "3col": "flex-wrap sm:flex-row ml-8 md:-mx-5",
 };
 

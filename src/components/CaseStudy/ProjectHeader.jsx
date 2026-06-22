@@ -3,8 +3,8 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ProjectDetails, ProjectTitle } from ".";
 import Image from "next/image";
+import { ProjectDetails, ProjectTitle } from ".";
 
 const ProjectHeader = ({ currentProject }) => {
   const headerRef = useRef(null);
@@ -33,7 +33,8 @@ const ProjectHeader = ({ currentProject }) => {
         </p>
         <ProjectTitle currentProject={currentProject} />
         <p className="text-base text-f-primary/60 tracking-wider leading-relaxed">
-          {currentProject.timeToRead} • {currentProject.clientLocation} ©{currentProject.year}
+          {currentProject.timeToRead} {currentProject.timeToRead && "•"}{" "}
+          {currentProject.clientLocation} ©{currentProject.year}
         </p>
         <Image
           src={currentProject.mainShot.src}

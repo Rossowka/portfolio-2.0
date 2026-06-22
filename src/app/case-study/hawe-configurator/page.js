@@ -5,15 +5,14 @@ import {
   CaseStudyListItem,
   HeadingM,
   CaseStudyParagraph,
-  CaseStudyImage,
+  ProjectHeader,
 } from "@/components";
-import { ProjectHeader } from "@/components/Snapshot";
 import { navItems } from "@/utils/navigationHCSCaseStudy";
 import { PROJECTS } from "@/utils/projects";
 import dynamic from "next/dynamic";
 
-const SummarySection = dynamic(() => import("@/components/Snapshot/SummarySection"));
-const ImageSection = dynamic(() => import("@/components/Snapshot/ImageSection"));
+const SummarySection = dynamic(() => import("@/components/CaseStudy/SummarySection"));
+const ImageSection = dynamic(() => import("@/components/CaseStudy/ImageSection"));
 const CaseStudySection = dynamic(() => import("@/components/CaseStudy/CaseStudySection"));
 
 // exchange all exchange-for-image for images
@@ -37,7 +36,7 @@ const HCSCaseStudy = async () => {
         <CaseStudyNav navItems={navItems} />
 
         {/* the meat of case study goes here */}
-        <div>
+        <article>
           {/* goals */}
           <CaseStudySection
             id={navItems[0].id}
@@ -49,7 +48,7 @@ const HCSCaseStudy = async () => {
               configurations. While competitors provided advanced configuration tools, we were still
               relying on offline interactions.
               <br />
-              <br /> Together with Product and Engineering we reimagined that experience. Based on
+              <br /> Together with Product and Engineering, we reimagined that experience. Based on
               my qualitative research and insights from the discovery phase, we sketched out a
               vision of a digital cartridge configurator.
             </CaseStudyParagraph>
@@ -174,14 +173,14 @@ const HCSCaseStudy = async () => {
               interviews. The groups I designed for: internal engineers, external engineers, and
               internal sales reps — who, despite their technical background, needed less depth than
               engineers — alongside purchasing contacts from client companies, who came with
-              different priorities and less domain fluency
+              different priorities and less domain fluency.
             </CaseStudyParagraph>
             <CaseStudyParagraph title="Splitting the scope">
-              I ran a prioritization workshop with the idea originator and innovation manager to
-              separate what the product had to do from what it could do later. The original brief
-              was a four-step flow: cartridge selection, manifold specification, document upload
-              with analysis, and a bill of materials with pricing. We kept step one and four.
-              Everything else became phase two.
+              I ran a prioritization workshop with the originating stakeholder and innovation
+              manager to separate what the product had to do from what it could do later. The
+              original brief was a four-step flow: cartridge selection, manifold specification,
+              document upload with analysis, and a bill of materials with pricing. We kept step one
+              and four. Everything else became phase two.
             </CaseStudyParagraph>
             <CaseStudyParagraph title="Cross-team alignment">
               Webshop was a separate application being built in parallel. We worked together on
@@ -265,7 +264,7 @@ const HCSCaseStudy = async () => {
               >
                 Between the development and budget constraints and Germany's thoroughness in getting
                 things right, we opted for a controlled rollout. First to US market users and
-                selected internal testers. A soft launch that allowed us for more tests and better
+                selected internal testers. A soft launch that allowed for more testing and better
                 understanding of user behavior.
               </CaseStudyListItem>
             </CaseStudyList>
@@ -286,13 +285,13 @@ Progressive disclosure: Show essential data first, details on demand */}
           >
             <CaseStudyParagraph>
               We launched without a full analytics stack in place. As soon as the tool was live, I
-              brought in data analyst to set up proper tracking. The early signal came through
+              brought in a data analyst to set up proper tracking. The early signal came through
               usability testing and direct user behavior.
             </CaseStudyParagraph>
             <CaseStudyList title="What we achieved:">
               <CaseStudyListItem title="The contract was signed">
                 The primary business goal — acquiring the cartridge manufacturer as a partner — was
-                achieved. The tool was the proof of concept that started conversations .
+                achieved. The tool was the proof of concept that started conversations.
               </CaseStudyListItem>
               <CaseStudyListItem title="First digital orders placed">
                 Post-launch, orders were placed by users outside the controlled test group — the
@@ -391,7 +390,7 @@ Progressive disclosure: Show essential data first, details on demand */}
               Get in touch — I'd like to hear what you're working on.
             </CaseStudyParagraph>
           </CaseStudySection>
-        </div>
+        </article>
       </div>
 
       <UpNext nextProject={nextProject} />

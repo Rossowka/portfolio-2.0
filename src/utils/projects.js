@@ -74,28 +74,44 @@ export const PROJECTS = [
   // hawe-configurator
   {
     id: "hawe-configurator",
-    client: "HAWE",
-    title: "Delivering a partnership-winning product that became blueprint for digital change",
-    startDate: "Apr 2024",
-    endDate: "Dec 2024",
+    client: "HAWE Hydraulik",
+    clientLocation: "Germany",
+    title: "Delivering a partnership-winning product that became a blueprint for digital change",
+    timeToRead: "~10min read",
+    // startDate: "Apr 2024",
+    // endDate: "Dec 2024",
     year: "2024",
-    duration: "(8 months)",
-    role: ["Research", "Strategy", "Design", "Implementation"],
-    productTags: [
-      "Internal & Customer-facing",
-      "E-Commerce Enablement",
-      "Industrial Engineering",
-      "Web App",
-      "MVP",
-      "B2B",
+    // duration: "(8 months)",
+    industry: "Industrial manufacturing",
+    product: "Enterprise software",
+    market: "B2B",
+    links: { liveWebsite: "", figmaSrc: "" },
+    productTags: ["Internal & Customer-facing", "E-Commerce Enablement", "MVP"],
+    impact: [
+      {
+        data: "Acquisition",
+        text: "of a major OEM partnership",
+      },
+      {
+        data: "~ €930k",
+        text: "worth of products introduced to the market",
+      },
     ],
-    focusAreasTags: [
-      "End-To-End Design",
-      "Prototyping",
-      "User Testing",
-      "RITE Method",
-      "Strategy",
-      "Workshop Facilitation",
+    summary:
+      "HAWE Hydraulik needed a digital tool to stay competitive in the market. In just 8 months, I lead the end-to-end design of their first cartridge selection tool. Working as the only designer, I partnered with Product to validate the idea, and shape the product's strategy. I turned one ambitious PRD into two focused MVPs, navigated serious technical constraints, and delivered a tool that won a key OEM partnership",
+    responsibilities: [
+      "ux strategy",
+      "enterprise workflow design",
+      "stakehoder alignment",
+      "workshop facilitation",
+      "collaboration on implementation",
+      "user research & validation",
+      "product design",
+    ],
+    outcomes: [
+      "signed a new client",
+      "internal demand surge",
+      "catalyzed full redesign of a customer portal",
     ],
     team: [
       {
@@ -115,25 +131,14 @@ export const PROJECTS = [
         role: "Developers",
       },
     ],
-    constraints: [
-      "Tight deadline",
-      "Tech trade-off",
-      "Market specific issues",
-      "Missing analytics",
-      "No external user access",
-    ],
-    impact: [
-      {
-        data: "Overwhelming",
-        text: "Positive internal feedback highlighting major usability leap",
-      },
-      {
-        data: "~ €930k",
-        text: "worth of products introduced to the market",
-      },
-    ],
-    summary:
-      "HAWE Hydraulik needed a digital tool to match competitors and win a key cartridge manufacturer partnership. In just 8 months, I designed and launched their first cartridge selection tool. Working as the only designer, I split one ambitious project into two MVPs, navigated tough technical constraints, and delivered the product that reached it's goal. It became the foundation for HAWE digital transformation.",
+    // constraints: [
+    //   "Tight deadline",
+    //   "Tech trade-off",
+    //   "Market specific issues",
+    //   "Missing analytics",
+    //   "No external user access",
+    // ],
+
     url: "/case-study/hawe-configurator",
     onlineUrl: "",
     thumbnail: {
@@ -147,6 +152,11 @@ export const PROJECTS = [
     mainShot: {
       src: "/images/hawe-configurator/main.webp",
       alt: "Product selection page on PC",
+    },
+    video: {
+      src: "",
+      srcMp4: "",
+      alt: "",
     },
     imageShowcase: [
       {
@@ -165,20 +175,52 @@ export const PROJECTS = [
   // hawe-design-system
   {
     id: "hawe-design-system",
-    client: "HAWE",
-    title: "Unifying digital experience across customer platform and crafting a design system",
-    startDate: "Nov 2023",
-    endDate: "Nov 2024",
+    client: "HAWE Hydraulik",
+    clientLocation: "Germany",
+    title: "Creating seamless and on-brand experience across customer platform",
+    timeToRead: "~5min read",
     year: "2024",
-    duration: "1 year",
-    role: ["Research", "Strategy", "Design", "Development"],
-    tags: ["Design System", "Design Process"],
-    productTags: ["Design System", "Industrial Engineering", "B2B"],
-    focusAreasTags: [
-      "Corporate Identity Development",
-      "Component Library",
-      "Documentation",
-      "Cross-Team Alignment",
+    // duration: "1 year",
+    industry: "Industrial manufacturing",
+    product: "Design system",
+    market: "B2B",
+    links: { liveWebsite: "", figmaSrc: "" },
+    productTags: ["Design System, Design Process, Documentation"],
+    impact: [
+      {
+        data: "6+",
+        text: "products aligned under one visual language",
+      },
+      {
+        data: "+",
+        text: "unlocked quick iteration and shortened idea-to-product time",
+      },
+      // {
+      //   data: "~50%",
+      //   text: "Cut in idea-to-product time. The tool became crucial to cross-team collaboration",
+      // },
+      // {
+      //   data: "+",
+      //   text: "Defined processes for design system's governance and maintenance",
+      // },
+    ],
+    summary:
+      "HAWE's platform was growing fast. Teams were moving quickly and independently, creating new applications day by day. The cracks were starting to show. With 13 internal applications and plans to add at least 2 more by the end of next year, the platform needed a scalable and flexible solution. I led the initiative, in close collaboration with the development team, to bring a design system to life.",
+    responsibilities: [
+      "cross-product audit",
+      "creating a figma library",
+      "UI patterns audit",
+      "component documentation",
+      "composing a governance model",
+      "internal cross-function collaboration",
+      "external cross-function collaboration",
+    ],
+    outcomes: [
+      "design system adopted across 6+ products",
+      "first-to-second application delivery: 8 months down to 4",
+      "External dev team reported significant time savings on implementation due to spec quality",
+      "Design time cut by approximately 50% on new feature work, based on observed delivery change",
+      "Unlocked a communication tool for internal cross-functional collaboration",
     ],
     team: [
       {
@@ -198,27 +240,6 @@ export const PROJECTS = [
         role: "Head of CX",
       },
     ],
-    constraints: [
-      "Limited resources",
-      "Evolving corporate identity",
-      "Legacy code",
-      "Tech stack limitations",
-      "Slow adoption",
-    ],
-    impact: [
-      {
-        data: "~50%",
-        text: "Cut in idea-to-product time. The tool became crucial to cross-team collaboration",
-      },
-      {
-        data: "+",
-        text: "Defined processes for design system's governance and maintenance",
-      },
-    ],
-    summary:
-      "As a result of digital transformation and our ongoing efforts to increase customer-centricity in the company, I led the Design System initiative for HAWE. Equipped in a design manual, and atomic design ideology, I carefully planned out  component libraries which constituted the building blocks of the design system. Thanks to close collaboration with development team, we slowly brought the design system, piece by piece, to life.",
-    context:
-      "HAWE Hydraulik is a family-owned German company known for engineering precision in hydraulic components and systems. Its Customer Portal serves as a central hub. It powers up internal teams and customers alike with the tools they need to get things done.",
     url: "/case-study/hawe-design-system",
     onlineUrl: "",
     thumbnail: {
@@ -233,29 +254,57 @@ export const PROJECTS = [
       src: "/images/hawe-design-system/main.webp",
       alt: "Collage of components",
     },
+    video: {
+      src: "",
+      srcMp4: "",
+      alt: "",
+    },
     imageShowcase: [],
     featured: true,
     caseStudy: true,
-    cta: "Explore the time-to-market boost",
+    cta: "Explore this time-to-market boost",
   },
   // hawe-ux-maturity
   {
     id: "hawe-ux-maturity",
-    client: "HAWE",
-    title: "Elevating company's UX maturity and fostering a user-centric culture",
-    startDate: "Nov 2023",
-    endDate: "Apr 2025",
+    client: "HAWE Hydraulik",
+    clientLocation: "Germany",
+    title: "Shaping company's design culture and growing into the strategic layer",
+    timeToRead: "~5min read",
     year: "2024",
-    duration: "1.5 years",
-    role: ["Research", "Strategy"],
-    tags: ["Internal System", "Design Process", "Manufacturing", "B2B"],
-    productTags: ["Internal Platform Tools", "Industrial Engineering", "B2B"],
-    focusAreasTags: [
-      "UX Research",
-      "Workshop Facilitation",
-      "UX Strategy",
-      "Cross-Tool Ecosystem Mapping",
-      "Design Ops",
+    industry: "Industrial manufacturing",
+    product: "Enterprise software",
+    market: "B2B",
+    links: { liveWebsite: "", figmaSrc: "" },
+    // duration: "1.5 years",
+    productTags: ["UX Research", "UX Strategy", "Facilitation"],
+    impact: [
+      {
+        data: "+",
+        text: "Implemented active user research and user-centric design processes",
+      },
+      {
+        data: "++",
+        text: "Initiated a culture shift to validate product ideas with user testing",
+      },
+    ],
+    summary:
+      "Hawe was where I learned in practice what it means to connect design decisions to business outcomes. I came in with strong design craft and left with something harder to teach: an understanding of how to read an organization, identify where design can create real value, and move work through systems that weren't built with design in mind. I hadn't worked in product strategy before and some things I figured out as I went.",
+    responsibilities: [
+      "UX strategy",
+      "shaping design culture",
+      "stakeholder interviews",
+      "enterprise workflow design",
+      "heuristic evaluation",
+      "product validation",
+    ],
+    outcomes: [
+      "weekly UX syncs",
+      "design system implemented across 6+ products",
+      "My first validated tool closed a major client partnership",
+      "design started to have a seat at the table",
+      "overwhelming positive internal feedback highlighting major usability leap",
+      "initiated reach out to gather data from external users",
     ],
     team: [
       {
@@ -275,25 +324,10 @@ export const PROJECTS = [
         role: "Product Managers",
       },
     ],
-    constraints: ["Low UX maturity", "Teams working in silos", "Limited budget", "Slow adoption"],
-    impact: [
-      {
-        data: "+",
-        text: "Implemented active user research and user-centric design processes",
-      },
-      {
-        data: "+",
-        text: "Initiated a culture shift to a more collaborative approach",
-      },
-      {
-        data: "+",
-        text: "Developed a design system and revamped the UI, ensuring consistency and efficiency",
-      },
-    ],
-    summary:
-      "I worked closely with the Head of CX and the Head of Digitalization on a complete redesign of HAWE’s customer platform. At first, created as a hub for our tools and product catalogue it took a life of its own with each new addition. I encouraged collaboration and turned the focus from products to users. This initiated a cultural shift at HAWE. By aligning our strategy with business goals and client needs, I cultivated UX into HAWE’s culture and made it a core part of our decision-making.",
-    context:
-      "HAWE delivers custom hydraulic solutions for every need. Its Customer Portal, above all, enables users to quickly find and configure products that match their hydraulic needs. With over 12,000 registered customers worldwide, HAWE offers dedicated support to each one.",
+    // constraints: ["Low UX maturity", "Teams working in silos", "Limited budget", "Slow adoption"],
+
+    // context:
+    //   "HAWE delivers custom hydraulic solutions for every need. Its Customer Portal, above all, enables users to quickly find and configure products that match their hydraulic needs. With over 12,000 registered customers worldwide, HAWE offers dedicated support to each one.",
     url: "/case-study/hawe-ux-maturity",
     onlineUrl: "",
     thumbnail: {
@@ -308,6 +342,11 @@ export const PROJECTS = [
       src: "/images/hawe-ux-maturity/main.webp",
       alt: "Collage of components",
     },
+    video: {
+      src: "",
+      srcMp4: "",
+      alt: "",
+    },
     imageShowcase: [],
     featured: true,
     caseStudy: true,
@@ -316,16 +355,23 @@ export const PROJECTS = [
   // hawe-pust
   {
     id: "hawe-pust",
-    client: "HAWE",
+    client: "HAWE Hydraulik",
+    clientLocation: "Germany",
     title: "Redesigning Selection Tool for improved recommendation process",
-    startDate: "Dec 2023",
-    endDate: "Mar 2024",
+    // startDate: "Dec 2023",
+    // endDate: "Mar 2024",
     year: "2024",
-    duration: "(4 months)",
-    role: ["Research", "Design"],
-    tags: ["Design System", "Prototype", "Configurator", "Manufacturing", "B2B"],
+    industry: "Industrial manufacturing",
+    product: "Enterprise software",
+    market: "B2B",
+    links: { liveWebsite: "", figmaSrc: "" },
+    // duration: "(4 months)",
     productTags: ["Internal & Customer-facing SaaS", "Prototype", "Industrial Engineering", "B2B"],
-    focusAreasTags: ["User Research", "Prototyping", "User Testing", "Design Systems"],
+    // focusAreasTags: ["User Research", "Prototyping", "User Testing", "Design Systems"],
+    summary:
+      "To improve the user experience, I collaborated with a cross-functional teams to revamp and redesign HAWE's smart recommendation tool. Choosing the right product is now more intuitive and the process is more straightforward.",
+    responsibilities: [],
+    outcomes: [],
     team: [
       {
         count: "2x",
@@ -336,12 +382,12 @@ export const PROJECTS = [
         role: "Head of CX",
       },
     ],
-    constraints: [
-      "Sunsetted project",
-      "Lack of design process",
-      "Lack of development resources",
-      "Low UX maturity",
-    ],
+    // constraints: [
+    //   "Sunsetted project",
+    //   "Lack of design process",
+    //   "Lack of development resources",
+    //   "Low UX maturity",
+    // ],
     impact: [
       {
         data: "+",
@@ -352,8 +398,7 @@ export const PROJECTS = [
         text: "Created design process for improving existing tools",
       },
     ],
-    summary:
-      "To improve the user experience, I collaborated with a cross-functional teams to revamp and redesign HAWE's smart recommendation tool. Choosing the right product is now more intuitive and the process is more straightforward.",
+
     url: "/projects/hawe-pust",
     onlineUrl: "",
     thumbnail: {
@@ -375,17 +420,24 @@ export const PROJECTS = [
   {
     id: "swingin-fireballs",
     client: "Swingin' Fireballs",
+    clientLocation: "Germany",
     title: "Jazzing up branding for a Big Band website",
-    startDate: "Oct 2023",
-    endDate: "",
+    // startDate: "Oct 2023",
+    // endDate: "",
     year: "2023",
-    duration: "",
-    role: ["Design"],
-    tags: ["Concept", "Music Industry"],
+    industry: "Music",
+    product: "Website",
+    market: "",
+    links: { liveWebsite: "", figmaSrc: "" },
+    // duration: "",
+    // role: ["Design"],
+    // tags: ["Concept", "Music Industry"],
     productTags: ["Website", "Concept", "Music", "B2C"],
-    focusAreasTags: ["UX/UI Redesign", "Visual Design", "Responsive Web Design"],
+    // focusAreasTags: ["UX/UI Redesign", "Visual Design", "Responsive Web Design"],
     summary:
       "Swingin' Fireballs brings back the quality entertainment of the '60s. With this website redesign proposition, I defined a new visual identity while staying true to the band's original playful and lighthearted character.",
+    responsibilities: [],
+    outcomes: [],
     url: "/projects/swingin-fireballs",
     onlineUrl: "",
     snapshot: {
@@ -414,22 +466,29 @@ export const PROJECTS = [
   {
     id: "blue-central-records",
     client: "Blue Central Records",
+    clientLocation: "Germany",
     title: "Helping a local record label manifest their digital presence.",
-    startDate: "Oct 2023",
-    endDate: "",
+    // startDate: "Oct 2023",
+    // endDate: "",
     year: "2023",
-    duration: "",
-    role: ["Design", "Development"],
-    tags: ["Concept", "No-Code", "Music Industry"],
+    industry: "Music Production",
+    product: "Website",
+    market: "",
+    links: { liveWebsite: "", figmaSrc: "" },
+    // duration: "",
+    // role: ["Design", "Development"],
+    // tags: ["Concept", "No-Code", "Music Industry"],
     productTags: ["Website", "Music", "B2C"],
-    focusAreasTags: [
-      "UX/UI Redesign",
-      "No-Code Implementation",
-      "Visual Design",
-      "Responsive Web Design",
-    ],
+    // focusAreasTags: [
+    //   "UX/UI Redesign",
+    //   "No-Code Implementation",
+    //   "Visual Design",
+    //   "Responsive Web Design",
+    // ],
     summary:
       "Blue Central Records is a German independent label helping emerging artists gain exposure and succeed in the music industry. They needed a digital business card to mark their presence online. We partnered to design and develop a website to show off their brand and attract new collaborators.",
+    responsibilities: [],
+    outcomes: [],
     url: "/projects/blue-central-records",
     onlineUrl: "",
     snapshot: {

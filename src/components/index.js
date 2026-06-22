@@ -7,6 +7,12 @@ export {
   CaseStudyListItem,
   CaseStudyImage,
   CaseStudyParagraph,
+  UpNext,
+  ImageSection,
+  ProjectDetails,
+  ProjectHeader,
+  ProjectTitle,
+  SummarySection,
 } from "./CaseStudy";
 export { Footer } from "./Footer";
 export { CircularButton } from "./CircularButton";
@@ -15,5 +21,4 @@ export { ArrowIcon } from "./ArrowIcon";
 export { Socials } from "./Socials";
 export { ConsentManager } from "./ConsentManager";
 export { SideMenu } from "./SideMenu";
-export { UpNext } from "./Snapshot";
 export { HeadingXL, HeadingL, HeadingM, HeadingS } from "./Text";
