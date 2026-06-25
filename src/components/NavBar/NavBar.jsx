@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useRef, useState, useCallback } from "react";
 import { useMenuAnimation, useNavBarAnimation } from "./animations";
 import { SideMenu } from "../SideMenu";
-import NavBarEmail from "./NavBarEmail";
 import { CopyEmailButton, UnderlineLink } from ".";
 
 const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) => {
