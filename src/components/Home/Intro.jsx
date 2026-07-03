@@ -19,115 +19,58 @@ const Intro = () => {
 
       if (!heading || !body || !cta) return;
 
-      const mm = gsap.matchMedia();
-
-      // ── DESKTOP ──────────────────────────────────────────────
-      mm.add("(min-width: 768px)", () => {
-        const split = SplitText.create(heading, {
-          type: "words,chars",
-          wordsClass: "inline-block",
-        });
-
-        gsap.set(heading, { autoAlpha: 1 });
-        gsap.set(split.chars, { y: 20, autoAlpha: 0 });
-        gsap.set([label, body, cta], { y: 12, autoAlpha: 0 });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 60%",
-            once: true,
-          },
-        });
-
-        tl.to(label, { y: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }, 0.6)
-          .to(body, { y: 0, autoAlpha: 1, duration: 1.4, ease: "power2.out" }, "<")
-          .to(
-            split.chars,
-            {
-              y: 0,
-              autoAlpha: 1,
-              duration: 0.8,
-              stagger: 0.025,
-              ease: "power2.out",
-            },
-            0.8
-          )
-          .to(cta, { y: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }, "<");
-
-        split.chars.forEach((char) => {
-          char.addEventListener("mouseenter", () => {
-            gsap.to(char, {
-              y: -8,
-              rotationZ: gsap.utils.random(-6, 6),
-              duration: 0.25,
-              ease: "back.out(2)",
-              overwrite: "auto",
-            });
-            gsap.to(char, {
-              y: 0,
-              rotationZ: 0,
-              duration: 0.5,
-              ease: "elastic.out(1, 0.4)",
-              delay: 0.2,
-              overwrite: false,
-            });
-          });
-        });
+      const split = SplitText.create(heading, {
+        type: "words,chars",
+        wordsClass: "inline-block",
       });
 
-      // ── MOBILE ───────────────────────────────────────────────
-      mm.add("(max-width: 767px)", () => {
-        const split = SplitText.create(heading, {
-          type: "words,chars",
-          wordsClass: "inline-block",
-        });
+      gsap.set(heading, { autoAlpha: 1 });
+      gsap.set(split.chars, { y: 20, autoAlpha: 0 });
+      gsap.set([label, body, cta], { y: 12, autoAlpha: 0 });
 
-        gsap.set(heading, { autoAlpha: 1 });
-        gsap.set(split.chars, { y: 20, autoAlpha: 0 });
-        gsap.set(body, { y: 12, autoAlpha: 0 });
-        gsap.set([label, cta], { y: 12, autoAlpha: 0 });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
 
-        // Heading animates on its own trigger
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: heading,
-              start: "top 80%",
-              once: true,
-            },
-          })
-          .to(split.chars, {
+      tl.to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" }, 0.6)
+        .to(body, { y: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" }, "<")
+        .to(
+          split.chars,
+          {
             y: 0,
             autoAlpha: 1,
             duration: 0.8,
-            stagger: 0.03,
-            ease: "power2.out",
-          });
+            stagger: 0.025,
+            ease: "expo.out",
+          },
+          0.8
+        )
+        .to(cta, { y: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" }, "<");
 
-        // Body block animates separately, further down
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: body,
-              start: "top 80%",
-              once: true,
-            },
-          })
-          .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, 2)
-          .to(
-            body,
-            {
-              y: 0,
-              autoAlpha: 1,
-              duration: 1,
-              ease: "power2.out",
-            },
-            "-=0.4"
-          )
-          .to(cta, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, "-=0.6");
+      split.chars.forEach((char) => {
+        char.addEventListener("mouseenter", () => {
+          gsap.to(char, {
+            // ✦ removed stray 0.2 argument
+            y: -8,
+            rotationZ: gsap.utils.random(-6, 6),
+            duration: 0.25,
+            ease: "back.out(2)",
+            overwrite: "auto",
+          });
+          gsap.to(char, {
+            y: 0,
+            rotationZ: 0,
+            duration: 0.5,
+            ease: "elastic.out(1, 0.4)",
+            overwrite: false,
+          });
+        });
       });
-    },
+    }, // ✦ moved closing ); to here
     { scope: sectionRef }
   );
 
@@ -137,11 +80,11 @@ const Intro = () => {
       className="py-24 px-6 md:py-36 lg:py-48 flex flex-col bg-linen"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-between">
-        <p className="intro-heading text-[42px] lg:text-[68px] tracking-tight leading-tight sm:w-1/3 lg:w-5/12">
+        <p className="intro-heading order-2 md:order-1 text-[42px] lg:text-[68px] tracking-tight leading-tight w-2/3 sm:w-1/3 lg:w-5/12">
           let's create something stunning together
         </p>
 
-        <div className="flex flex-col relative gap-10 mt-5 w-full sm:w-1/2 md:w-7/12">
+        <div className="flex flex-col order-1 md:order:2 relative gap-10 mt-5 w-full sm:w-1/2 md:w-7/12">
           <h2 className="intro-label font-semibold uppercase tracking-widest text-reddishBrown whitespace-nowrap leading-normal text-base">
             what I do
           </h2>
@@ -149,7 +92,7 @@ const Intro = () => {
             I design digital products: web apps, internal tools, e-commerce platforms and solutions
             for complex B2B environments.
           </p>
-          <div className="intro-cta self-end absolute  sm:right-8 -bottom-3/4 lg:right-0 lg:-bottom-1/4 overflow-hidden mix-blend-difference">
+          <div className="intro-cta self-end absolute -right-5 -bottom-full lg:right-0 lg:-bottom-1/4 overflow-hidden mix-blend-difference">
             <CircularButton
               text={"Explore my work"}
               radius={85}
