@@ -10,18 +10,22 @@ const HeroValueProposition = () => {
 
   useGSAP(
     () => {
-      const split = new SplitText(paragraphRef.current, { type: "lines" });
+      const split = new SplitText(paragraphRef.current, {
+        type: "lines",
+        mask: "lines",
+        autoSplit: true,
+      });
 
       gsap.set(paragraphRef.current, { autoAlpha: 1 });
 
       gsap.from(split.lines, {
         opacity: 0,
-        y: 12,
+        yPercent: 110,
         x: 1,
-        duration: 1,
-        stagger: 0.08,
-        ease: "power2.out",
-        delay: 1.2,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "expo.out",
+        delay: 0.8,
       });
     },
     { scope: paragraphRef }

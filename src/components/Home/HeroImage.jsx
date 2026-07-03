@@ -17,9 +17,9 @@ const HeroImage = ({ src, alt }) => {
       gsap.from(imageRef.current, {
         opacity: 0,
         scale: 0.97,
-        duration: 1,
-        ease: "power2.out",
-        delay: 0.8,
+        duration: 0.8,
+        ease: "expo.out",
+        delay: 0.6,
       });
     },
     { scope: imageRef }

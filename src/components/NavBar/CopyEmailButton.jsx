@@ -49,7 +49,7 @@ const CopyEmailButton = () => {
     state === "copied" ? "translate-x-0 translate-y-0" : "-translate-x-full translate-y-full";
 
   return (
-    <div className="flex flex-col items-center gap-2 max-w-[400px]">
+    <div className="flex flex-col items-center gap-5 max-w-[400px]">
       <button
         type="button"
         aria-label={state === "copied" ? "Email copied to clipboard!" : "Copy email to clipboard"}
@@ -58,10 +58,10 @@ const CopyEmailButton = () => {
         onMouseLeave={handleMouseLeave}
         onFocus={() => setState("hover")}
         onBlur={handleBlur}
-        className="group flex items-center gap-3 bg-white rounded-md px-4 py-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        className="group flex items-center gap-3 rounded-md focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
       >
         {/* Text stack */}
-        <span className="overflow-hidden h-[1.5em] text-[26px] leading-loose font-medium flex flex-col items-center">
+        <span className="overflow-hidden h-[1.5em] text-base font-medium flex flex-col items-center">
           <span
             className={`flex flex-col items-center whitespace-nowrap transition-transform duration-[450ms] ${textTranslate}`}
             style={{ transitionTimingFunction: "cubic-bezier(0.65,0,0,1)" }}
@@ -73,25 +73,25 @@ const CopyEmailButton = () => {
         </span>
 
         <span
-          className={`relative w-10 h-10 rounded-sm transition-colors duration-200 text-white overflow-hidden shrink-0 ${iconBg}`}
+          className={`relative w-6 h-6 rounded-sm transition-colors duration-200 text-white overflow-hidden shrink-0 ${iconBg}`}
           aria-hidden="true"
         >
           <span
-            className={`absolute inset-0 flex items-center justify-center p-2 ${primaryIconTranslate} transition-transform duration-[450ms] `}
+            className={`absolute inset-0 flex items-center justify-center p-1 ${primaryIconTranslate} transition-transform duration-[450ms] `}
             style={{ transitionTimingFunction: "cubic-bezier(0.65,0,0,1)" }}
           >
             <ArrowIcon />
           </span>
 
           <span
-            className={`absolute inset-0 flex items-center justify-center p-2 ${secondaryIconTranslate} transition-transform duration-[450ms] `}
+            className={`absolute inset-0 flex items-center justify-center p-1 ${secondaryIconTranslate} transition-transform duration-[450ms] `}
             style={{ transitionTimingFunction: "cubic-bezier(0.65,0,0,1)" }}
           >
             <ArrowIcon />
           </span>
 
           <span
-            className={`absolute inset-0 flex items-center justify-center p-2 ${checkIconTranslate} transition-transform duration-[450ms] `}
+            className={`absolute inset-0 flex items-center justify-center p-1 ${checkIconTranslate} transition-transform duration-[450ms] `}
             style={{ transitionTimingFunction: "cubic-bezier(0.65,0,0,1)" }}
           >
             <CheckIcon />

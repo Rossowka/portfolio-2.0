@@ -5,3 +5,5 @@ export { default as HeroImage } from "./HeroImage";
 export { default as HeroText } from "./HeroText";
 export { default as HeroValueProposition } from "./HeroValueProposition";
 export { default as FeaturedProjectsHeader } from "./FeaturedProjectsHeader";
+export { default as VideoScroll } from "./VideoScroll";
+export { default as NakedButton } from "./NakedButton";

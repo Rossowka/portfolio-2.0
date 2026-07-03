@@ -14,6 +14,7 @@ export {
   ProjectTitle,
   SummarySection,
 } from "./CaseStudy";
+export { UnderlineLink, CopyEmailButton } from "./NavBar";
 export { Footer } from "./Footer";
 export { CircularButton } from "./CircularButton";
 export { Button } from "./Button";

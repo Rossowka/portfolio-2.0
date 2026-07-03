@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(SplitText, useGSAP);
 
 const HeroExperience = () => {
   const paragraphRef = useRef(null);
@@ -13,12 +14,12 @@ const HeroExperience = () => {
 
       gsap.from("p", {
         opacity: 0,
-        y: 10,
+        yPercent: 110,
         x: 1,
         duration: 0.8,
-        stagger: 0.08,
-        ease: "power2.out",
-        delay: 1.6,
+        stagger: 0.1,
+        ease: "expo.out",
+        delay: 1.2,
       });
     },
     { scope: paragraphRef }

@@ -1,8 +1,8 @@
 "use client";
 
 import { useGsapScrollTo } from "@/utils/useGsapScrollTo";
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowIcon } from "../Icons";
 
 const CircularButton = ({ text, radius, iconSrc }) => {
   const scrollTo = useGsapScrollTo();
@@ -12,13 +12,11 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   const textPathRadius = radius - textHeight / 2;
   const separator = "-";
 
-  // Handle click for smooth scroll experience
   const handleSmoothScroll = (e) => {
     e.preventDefault();
     scrollTo("featured");
   };
 
-  // Format text with separators
   const formatCircularText = (text) => {
     const spacedSeparator = ` ${separator} `;
     return `${text}${spacedSeparator}${text}${spacedSeparator}`;
@@ -26,18 +24,13 @@ const CircularButton = ({ text, radius, iconSrc }) => {
 
   const formattedText = formatCircularText(text);
 
-  // Calculate spacing adjustment at the end
   const calculateSpacingAdjustment = () => {
-    const baseCharacterWidth = textHeight * 0.6; // Approximate width of a character
-    const letterSpacingWidth = textHeight * letterSpacing; // Convert em to pixels
-
-    // Calculate total space characters that should appear at the end
+    const baseCharacterWidth = textHeight * 0.6;
+    const letterSpacingWidth = textHeight * letterSpacing;
     const totalSpaceAdjustment = baseCharacterWidth + letterSpacingWidth;
-
     return totalSpaceAdjustment;
   };
 
-  // Calculate the circumference and adjust for text distribution
   const circumference = 2 * Math.PI * textPathRadius;
   const spacingAdjustment = calculateSpacingAdjustment();
   const adjustedTextLength = circumference - spacingAdjustment;
@@ -45,16 +38,24 @@ const CircularButton = ({ text, radius, iconSrc }) => {
   return (
     <Link
       href="#featured"
-      className="relative block group hover:scale-105 transition-transform duration-300 overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
-     focus-visible:outline-reddishBrown"
+      aria-label={`${text} — scroll to featured section`}
+      className="relative block group hover:scale-105 transition-transform duration-[450ms] overflow-hidden
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
+        focus-visible:outline-reddishBrown motion-reduce:hover:scale-100 motion-reduce:transition-none"
       style={{
         width: `${diameter}px`,
         height: `${diameter}px`,
+        transitionTimingFunction: "cubic-bezier(0.65,0,0,1)",
       }}
       onClick={handleSmoothScroll}
     >
+      {/* Hidden label for screen readers — the circular SVG text is purely decorative */}
+      <span className="sr-only">{text} — scroll to featured section</span>
+
       <svg
-        className="absolute top-0 left-0 animate-spin-slow"
+        aria-hidden="true"
+        focusable="false"
+        className="absolute top-0 left-0 animate-spin-slow motion-reduce:animate-none"
         viewBox={`0 0 ${diameter} ${diameter}`}
         width={`${diameter}px`}
         height={`${diameter}px`}
@@ -65,11 +66,11 @@ const CircularButton = ({ text, radius, iconSrc }) => {
             fill="none"
             stroke="none"
             d={`
-                M ${radius},${radius} 
-                m -${textPathRadius},0 
-                a ${textPathRadius},${textPathRadius} 0 1,1 ${textPathRadius * 2},0 
-                a ${textPathRadius},${textPathRadius} 0 1,1 -${textPathRadius * 2},0
-                `}
+              M ${radius},${radius} 
+              m -${textPathRadius},0 
+              a ${textPathRadius},${textPathRadius} 0 1,1 ${textPathRadius * 2},0 
+              a ${textPathRadius},${textPathRadius} 0 1,1 -${textPathRadius * 2},0
+            `}
           />
         </defs>
         <text
@@ -92,21 +93,16 @@ const CircularButton = ({ text, radius, iconSrc }) => {
       </svg>
 
       <div
+        aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-        rounded-full flex items-center justify-center
-        bg-paleOak transition-colors duration-300"
+          rounded-full flex items-center justify-center
+          bg-paleOak transition-colors duration-200 p-5"
         style={{
           width: `${radius}px`,
           height: `${radius}px`,
         }}
       >
-        <Image
-          src={iconSrc}
-          className="group-hover:-rotate-45 transform transition-all duration-300 ease-in-out"
-          width={36}
-          height={36}
-          alt=""
-        />
+        <ArrowIcon className="group-hover:rotate-180 transform transition-all duration-[450ms] motion-reduce:transition-none motion-reduce:group-hover:rotate-0" />
       </div>
     </Link>
   );

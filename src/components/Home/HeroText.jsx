@@ -10,17 +10,20 @@ const HeroText = () => {
 
   useGSAP(
     () => {
-      const split = new SplitText(paragraphRef.current, { type: "chars" });
+      const split = new SplitText(paragraphRef.current, {
+        type: "chars",
+        autoSplit: true,
+      });
 
-      gsap.set(paragraphRef.current, { autoAlpha: 1, mask: "chars" });
+      gsap.set(paragraphRef.current, { autoAlpha: 1 });
 
       gsap.from(split.chars, {
         opacity: 0,
-        x: 20,
+        xPercent: 110,
         duration: 0.8,
-        stagger: 0.03,
-        ease: "power2.out",
-        delay: 0.4,
+        stagger: 0.025,
+        ease: "expo.out",
+        delay: 0.2,
       });
     },
     { scope: paragraphRef }
@@ -31,7 +34,7 @@ const HeroText = () => {
       {/* hero text */}
       <div className="-mt-36 sm:mt-0">
         <h1
-          className="slide-up text-f-inverse sm:text-f-primary invisible"
+          className=" text-f-inverse sm:text-f-primary invisible"
           ref={paragraphRef}
         >
           Digital

@@ -21,6 +21,7 @@ const FeaturedProjectsHeader = () => {
 
       const headingSplit = SplitText.create(heading, {
         type: "words,chars",
+        autoSplit: true,
         wordsClass: "inline-block",
       });
 
@@ -33,31 +34,31 @@ const FeaturedProjectsHeader = () => {
         .timeline({
           scrollTrigger: {
             trigger: headerRef.current,
-            start: "top 75%",
+            start: "top 80%",
             once: true,
           },
         })
-        .to(label, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
+        .to(label, { y: 0, autoAlpha: 1, duration: 0.4, ease: "expo.out" })
         .to(
           headingSplit.chars,
           {
             y: 0,
             autoAlpha: 1,
             duration: 0.8,
-            stagger: 0.03,
-            ease: "power2.out",
+            stagger: 0.025,
+            ease: "expo.out",
           },
-          "-=0.6"
+          ">-0.2"
         )
         .to(
           para,
           {
             y: 0,
             autoAlpha: 0.8,
-            duration: 1,
-            ease: "power2.out",
+            duration: 0.8,
+            ease: "expo.out",
           },
-          "-=0.8"
+          ">-0.8"
         );
     },
     { scope: headerRef }
@@ -68,7 +69,7 @@ const FeaturedProjectsHeader = () => {
       ref={headerRef}
       className="max-w-7xl mx-auto flex flex-col mt-20 lg:mb-10"
     >
-      <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
+      <div className="flex flex-col sm:flex-row gap-5 sm:gap-10 md:gap-5">
         <p className="fph-label font-semibold uppercase tracking-widest text-sandyBrown whitespace-nowrap leading-normal text-base pt-4 w-full">
           what I create
         </p>

@@ -92,10 +92,10 @@ export const PROJECTS = [
         data: "Acquisition",
         text: "of a major OEM partnership",
       },
-      {
-        data: "~ €930k",
-        text: "worth of products introduced to the market",
-      },
+      // {
+      //   data: "~ €930k",
+      //   text: "worth of products introduced to the market",
+      // },
     ],
     summary:
       "HAWE Hydraulik needed a digital tool to stay competitive in the market. In just 8 months, I lead the end-to-end design of their first cartridge selection tool. Working as the only designer, I partnered with Product to validate the idea, and shape the product's strategy. I turned one ambitious PRD into two focused MVPs, navigated serious technical constraints, and delivered a tool that won a key OEM partnership",
@@ -131,14 +131,6 @@ export const PROJECTS = [
         role: "Developers",
       },
     ],
-    // constraints: [
-    //   "Tight deadline",
-    //   "Tech trade-off",
-    //   "Market specific issues",
-    //   "Missing analytics",
-    //   "No external user access",
-    // ],
-
     url: "/case-study/hawe-configurator",
     onlineUrl: "",
     thumbnail: {
@@ -146,7 +138,7 @@ export const PROJECTS = [
       alt: "thumbnail",
     },
     snapshot: {
-      src: "/images/hawe-configurator/snapshot.webp",
+      src: "/images/hawe-configurator/configurator-snapshot-desktop@2x.webp",
       alt: "Product selection list from HAWE configuration tool on tablet",
     },
     mainShot: {
@@ -191,10 +183,10 @@ export const PROJECTS = [
         data: "6+",
         text: "products aligned under one visual language",
       },
-      {
-        data: "+",
-        text: "unlocked quick iteration and shortened idea-to-product time",
-      },
+      // {
+      //   data: "+",
+      //   text: "unlocked quick iteration and shortened idea-to-product time",
+      // },
       // {
       //   data: "~50%",
       //   text: "Cut in idea-to-product time. The tool became crucial to cross-team collaboration",
@@ -279,14 +271,14 @@ export const PROJECTS = [
     // duration: "1.5 years",
     productTags: ["UX Research", "UX Strategy", "Facilitation"],
     impact: [
-      {
-        data: "+",
-        text: "Implemented active user research and user-centric design processes",
-      },
-      {
-        data: "++",
-        text: "Initiated a culture shift to validate product ideas with user testing",
-      },
+      // {
+      //   data: "+",
+      //   text: "Implemented active user research and user-centric design processes",
+      // },
+      // {
+      //   data: "++",
+      //   text: "Initiated a culture shift to validate product ideas with user testing",
+      // },
     ],
     summary:
       "Hawe was where I learned in practice what it means to connect design decisions to business outcomes. I came in with strong design craft and left with something harder to teach: an understanding of how to read an organization, identify where design can create real value, and move work through systems that weren't built with design in mind. I hadn't worked in product strategy before and some things I figured out as I went.",
