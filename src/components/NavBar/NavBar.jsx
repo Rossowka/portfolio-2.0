@@ -9,14 +9,19 @@ import { SideMenu } from "../SideMenu";
 import { CopyEmailButton, UnderlineLink } from ".";
 
 const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) => {
-  const menuBtnRef = useRef(null);
+  const menuBtnLabelRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
   const activeTimelineRef = useRef(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { open: openMenu, close: closeMenu } = useMenuAnimation(menuBtnRef, logoRef, headerRef);
+  const { open: openMenu, close: closeMenu } = useMenuAnimation(
+    menuBtnLabelRef,
+    logoRef,
+    headerRef
+  );
+
   useNavBarAnimation(headerRef, isMenuOpen);
 
   const toggleMenu = useCallback(() => {
@@ -38,10 +43,10 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) =>
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors duration-0 px-6 ${
+        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors px-6 ${
           isMenuOpen
-            ? `${textColorClass} bg-transparent`
-            : `${textColorClass} ${bgColorClass} delay-200 duration-500`
+            ? `${textColorClass} bg-transparent duration-0`
+            : `${textColorClass} ${bgColorClass} delay-200 duration-[450ms]`
         }`}
       >
         <div className="lg:max-w-7xl lg:mx-auto flex justify-between">
@@ -99,22 +104,22 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) =>
             <CopyEmailButton />
           </div>
 
-          {/* Mobile menu button — ref moved to <button> */}
           <button
-            ref={menuBtnRef}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="side-menu"
             type="button"
             onClick={toggleMenu}
-            className={`flex py-4 h-full items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm focus-visible:outline-reddishBrown ${
+            className={`flex py-4 h-full items-center self-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm focus-visible:outline-reddishBrown ${
               isMenuOpen ? "" : "lg:hidden"
             }`}
           >
             <div
-              className={`flex flex-col items-end h-7 overflow-hidden justify-start align-bottom transition-colors duration-700 ${
+              ref={menuBtnLabelRef}
+              className={`flex flex-col items-end h-7 overflow-hidden justify-start align-bottom transition-colors  duration-[450ms] relative ${
                 isMenuOpen ? "text-f-inverse" : textColorClass
               }`}
+              style={{ transitionTimingFunction: "cubic-bezier(0.65,0,0,1)" }}
             >
               <p
                 className="text-lg"
@@ -123,7 +128,7 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) =>
                 Menu
               </p>
               <p
-                className="text-lg"
+                className="text-lg text-f-inverse"
                 aria-hidden="true"
               >
                 Close
@@ -139,7 +144,7 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) =>
         handleClick={toggleMenu}
         pathname={pathname}
         logoRef={logoRef}
-        triggerRef={menuBtnRef}
+        triggerRef={menuBtnLabelRef}
       />
     </>
   );

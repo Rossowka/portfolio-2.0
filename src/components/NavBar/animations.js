@@ -1,117 +1,115 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import { useCallback, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CustomEase } from "gsap/CustomEase";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
-// --- Standalone timeline factories (no React, no side-effects) ---
+CustomEase.create("main", "0.65, 0.01, 0.05, 0.99");
 
-export const buildOpenMenuTimeline = (menuBtnRef, logoRef) => {
-  if (!menuBtnRef?.current || !logoRef?.current) return null;
+/*
+ * Animates the "Menu" / "Close" label swap in the toggle button.
+ * Returns { open, close } timeline-builders, called from NavBar's toggleMenu.
+ */
+export function useMenuAnimation(menuBtnLabelRef, logoRef, headerRef) {
+  // logoRef/headerRef are reserved for syncing extra effects (e.g. a logo
+  // color cross-fade timed with the menu) — not needed for the label swap.
+  const { contextSafe } = useGSAP({ scope: headerRef });
 
-  const menuChildren = Array.from(menuBtnRef.current.children);
-  if (menuChildren.length === 0) return null;
+  const open = contextSafe(() => {
+    return gsap
+      .timeline()
+      .to(menuBtnLabelRef.current.children, { yPercent: -100, duration: 0.45, overwrite: true });
+  });
 
-  return (
-    gsap
-      .timeline({
-        defaults: { ease: "power2.out", duration: 0.6 },
-      })
-      // Hard-reset before animating so killed mid-flight state doesn't bleed in
-      .set(menuChildren, { yPercent: 0 })
-      .to(menuChildren, { yPercent: -100, stagger: 0.8 })
-      .to(logoRef.current, { yPercent: -10, opacity: 0 }, "<+=0.15")
-  );
-};
-
-export const buildCloseMenuTimeline = (menuBtnRef, logoRef, headerRef) => {
-  const nav = headerRef?.current?.querySelector("nav");
-  if (!menuBtnRef?.current || !logoRef?.current || !nav) return null;
-
-  const menuChildren = Array.from(menuBtnRef.current.children);
-
-  return gsap
-    .timeline({
-      defaults: { ease: "power2.out", duration: 0.6 },
-    })
-    .set(menuChildren, { yPercent: -100 })
-    .to(menuChildren, { yPercent: 0 })
-    .to(logoRef.current, { yPercent: 0, opacity: 1 }, "<")
-    .fromTo(nav, { yPercent: -100 }, { yPercent: 0 }, "<+=0.15");
-};
-
-// --- Hook: open/close callbacks scoped to the menu container ---
-
-export const useMenuAnimation = (menuBtnRef, logoRef, headerRef) => {
-  const open = useCallback(() => buildOpenMenuTimeline(menuBtnRef, logoRef), [menuBtnRef, logoRef]);
-
-  const close = useCallback(
-    () => buildCloseMenuTimeline(menuBtnRef, logoRef, headerRef),
-    [menuBtnRef, logoRef, headerRef]
-  );
+  const close = contextSafe(() => {
+    return gsap
+      .timeline()
+      .to(menuBtnLabelRef.current.children, { yPercent: 0, duration: 0.45, overwrite: true });
+  });
 
   return { open, close };
-};
+}
 
-// --- Hook: navbar entrance + scroll-hide/show ---
+/*
+ * Hides the header on scroll-down, reveals it on scroll-up.
+ * Forces the header visible whenever the menu is open.
+ */
+export function useNavBarAnimation(headerRef, isMenuOpen) {
+  const isMenuOpenRef = useRef(isMenuOpen);
+  isMenuOpenRef.current = isMenuOpen;
+  /* Why a ref that mirrors state, instead of just reading `isMenuOpen`?
+   * The ScrollTrigger callback below is created once on mount and lives on
+   * inside GSAP — it's not part of React's render cycle, so it doesn't get
+   * recreated when isMenuOpen changes (classic stale closure). Recreating
+   * the whole ScrollTrigger on every open/close would fix that, but it's
+   * overkill for updating one boolean check. So instead: mirror the state
+   * into a ref every render, and have the stable callback read the ref.
+   * Refs always hold the current value, no matter which closure reads them.
+   */
 
-export const useNavBarAnimation = (headerRef, isMenuOpen) => {
-  // Only needed for the enable/disable toggle between renders
-  const scrollTriggerRef = useRef(null);
-
-  // Mount animation + ScrollTrigger — useGSAP auto-reverts on unmount
   useGSAP(
     () => {
-      if (!headerRef.current) return;
+      const mm = gsap.matchMedia();
+      let reduced = false;
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        reduced = true;
+      });
 
+      // Reveal on mount entrance animation
+      // pairs with the `invisible` class in the JSX
       gsap.fromTo(
         headerRef.current,
-        { y: -94, autoAlpha: 0 },
-        {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.6,
-          ease: "power2.out",
-          onComplete: () => {
-            // Register the scroll trigger AFTER the entrance animation
-            const showAnim = gsap
-              .from(headerRef.current, {
-                yPercent: -100,
-                paused: true,
-                duration: 0.3,
-                ease: "power2.out",
-              })
-              .progress(1);
-
-            scrollTriggerRef.current = ScrollTrigger.create({
-              id: "headerScroll",
-              start: "top top",
-              end: "max",
-              onUpdate: (self) => {
-                self.direction === -1 ? showAnim.play() : showAnim.reverse();
-              },
-            });
-          },
-        }
+        { yPercent: -100, autoAlpha: 0 },
+        { yPercent: 0, autoAlpha: 1, duration: reduced ? 0 : 0.6, ease: "main" }
       );
+
+      const show = () =>
+        gsap.to(headerRef.current, {
+          yPercent: 0,
+          duration: reduced ? 0 : 0.6,
+          ease: "main",
+          overwrite: true,
+        });
+
+      const hide = () =>
+        gsap.to(headerRef.current, {
+          yPercent: -100,
+          duration: reduced ? 0 : 0.3,
+          ease: "main",
+          overwrite: true,
+        });
+
+      const trigger = ScrollTrigger.create({
+        start: "top top",
+        end: "max",
+        onUpdate: (self) => {
+          if (isMenuOpenRef.current) return;
+          self.direction === -1 ? show() : hide();
+        },
+      });
+
+      return () => {
+        trigger.kill();
+        mm.revert();
+      };
     },
-    { scope: headerRef, dependencies: [] }
+    { scope: headerRef }
   );
 
-  // Reactively enable/disable scroll behaviour when menu opens/closes
+  // Whenever the menu opens, force the header back into view immediately
   useGSAP(
     () => {
-      const trigger = scrollTriggerRef.current;
-      if (!trigger || !headerRef.current) return;
-
       if (isMenuOpen) {
-        trigger.disable();
-        gsap.to(headerRef.current, { yPercent: 0, duration: 0.3 });
-      } else {
-        trigger.enable();
+        gsap.to(headerRef.current, {
+          yPercent: 0,
+          duration: 0.6,
+          ease: "main",
+          overwrite: true,
+        });
       }
     },
     { dependencies: [isMenuOpen], scope: headerRef }
   );
-};
+}
