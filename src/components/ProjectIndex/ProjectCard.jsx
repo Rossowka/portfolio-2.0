@@ -51,8 +51,8 @@ const ProjectCard = ({ project }) => {
           </div>
           <figcaption>
             <h3 className="pt-5 w-full text-[26px] leading-snug text-pretty">
-              <span className="opacity-50">{project.client} - </span>
-              <span>{project.title}</span>
+              <span className="font-medium">{project.client} - </span>
+              <span className="tracking-tight text-f-inverse/60">{project.title}</span>
             </h3>
           </figcaption>
         </figure>

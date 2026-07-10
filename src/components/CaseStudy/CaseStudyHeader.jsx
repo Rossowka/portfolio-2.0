@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "../Button";
-import { ArrowIcon } from "../ArrowIcon";
+import { ArrowIcon } from "../Icons";
 import { motion } from "motion/react";
 import { fadeInUp } from "@/utils/animations";
 
@@ -28,8 +28,7 @@ const CaseStudyHeader = ({ currentProject }) => {
       {/* section title */}
       <div className="flex flex-col ">
         <p className="text-sm pb-5 text-accent font-bold leading-relaxed">
-          {currentProject.client} | {currentProject.startDate} -{" "}
-          {currentProject.endDate}
+          {currentProject.client} | {currentProject.startDate} - {currentProject.endDate}
         </p>
         <h1 className="font-medium text-[3rem] md:text-[4rem] lg:text-[5rem] tracking-tight leading-tight md:mr-8">
           {currentProject.title}

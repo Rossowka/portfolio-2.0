@@ -53,10 +53,10 @@ const FilteredPortfolio = () => {
   );
 
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
       <div
         ref={chipRowRef}
-        className="max-w-7xl mx-auto flex justify-end gap-3 mb-10 sm:mb-20"
+        className="flex justify-end gap-3 mb-10"
       >
         {FILTER_OPTIONS.map((option) => (
           <FilterChip
@@ -68,7 +68,9 @@ const FilteredPortfolio = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto mb-10 z-0">
+      <div className="bg-white/20 h-[1px]"></div>
+
+      <div className="my-10 z-0">
         <ul
           key={selectedFilter}
           className="-mx-4 md:mb-20 flex flex-wrap justify-between w-auto"
@@ -81,7 +83,7 @@ const FilteredPortfolio = () => {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

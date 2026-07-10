@@ -9,19 +9,19 @@ import {
 
 export const socials = [
   {
-    id: "linkedin",
-    title: "linkedin",
+    id: "Linkedin",
+    title: "inkedin",
     Icon: LinkedinIcon,
     url: "https://www.linkedin.com/in/sararossow",
   },
   {
-    id: "github",
+    id: "Github",
     title: "github",
     Icon: GithubIcon,
     url: "https://github.com/Rossowka",
   },
   {
-    id: "dribble",
+    id: "Dribble",
     title: "dribble",
     Icon: DribbleIcon,
     url: "https://dribbble.com/Rossowka",

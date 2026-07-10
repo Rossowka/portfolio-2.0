@@ -31,19 +31,22 @@ const Bio = () => {
           />
           <div className="text-base md:gap-5 xl:gap-10 hidden md:flex md:flex-col xl:flex-row">
             <div className="whitespace-nowrap">
-              <p className="font-semibold mb-1 xl:mb-0 xl:font-normal">origin:</p>
+              <p className="font-semibold mb-1 xl:mb-0 xl:font-normal">Origin:</p>
               <p className="xl:hidden line-through mr-2">Torun, Poland</p>
               <p className="hidden xl:block font-semibold mb-1 xl:mb-0 xl:font-normal text-f-primary/80">
-                based in:
+                Based in:
+              </p>
+              <p className="hidden xl:block font-semibold mb-1 xl:mb-0 xl:font-normal text-f-primary/60">
+                (between)
               </p>
             </div>
             <div className="w-full">
               <p className="xl:hidden font-semibold mb-1 xl:mb-0 xl:font-normal text-f-primary/80">
-                based in:
+                Based in:
               </p>
               <p className="hidden xl:block line-through mr-2">Torun, Poland</p>
-              <p className="line-through mr-2">Gdansk, Poland</p>
               <p className="line-through mr-2">Gold Coast, Australia</p>
+              <p className="text-f-primary/80 mr-2">Gdansk, Poland</p>
               <p className="text-f-primary/80">Hamburg, Germany</p>
             </div>
           </div>
@@ -57,7 +60,7 @@ const Bio = () => {
           </h1>
 
           <div className="flex flex-col lg:flex-row lg:justify-between mb-10">
-            <p className="font-semibold mb-1 lg:mb-0 lg:font-normal">connect</p>
+            <p className="font-semibold mb-1 lg:mb-0 lg:font-normal">Connect</p>
             <div className="flex lg:w-[400px]">
               {socials.map((item) => (
                 <Fragment key={item.id}>
@@ -86,7 +89,7 @@ const Bio = () => {
                 aria-label={`Link to send Sara an email`}
                 className="underline underline-offset-[4px]"
               >
-                email
+                Email
               </Link>
             </div>
           </div>
@@ -97,7 +100,7 @@ const Bio = () => {
               className="flex flex-col lg:flex-row lg:justify-between mb-10"
             >
               <p className="font-semibold mb-1 lg:mb-0 lg:font-normal">{item.label}</p>
-              <div className="w-full md:w-[400px] lowercase">
+              <div className="w-full md:w-[400px]">
                 {Array.isArray(item.text) ? (
                   item.text.map((entry) => (
                     <div

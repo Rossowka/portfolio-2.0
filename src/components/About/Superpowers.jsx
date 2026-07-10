@@ -11,12 +11,12 @@ const Superpowers = () => {
           what I bring to the team
         </h2>
         <p className="text-[42px] tracking-tight leading-tight">
-          thoughtfulness, clarity, and a spark of optimism
+          Thoughtfulness, clarity, and a spark of optimism
         </p>
       </div>
 
       {/* right side */}
-      <div className="pt-20 lg:px-[110px] w-full lowercase">
+      <div className="pt-20 lg:px-[110px] w-full">
         {whyMe.map((item) => (
           <div
             key={item.heading}
