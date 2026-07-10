@@ -6,9 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import { ArrowIcon } from "../ArrowIcon";
 import Bottom from "./Bottom";
-import NavBarEmail from "../NavBar/NavBarEmail";
+import { CopyEmailButton } from "../NavBar";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
@@ -21,8 +20,7 @@ const Footer = () => {
       const emailRow = footerRef.current.querySelector(".footer-email-row");
       const banner = footerRef.current.querySelector(".footer-banner");
       const getInTouch = footerRef.current.querySelector(".footer-get-in-touch");
-
-      if (!heading || !emailRow || !banner || !getInTouch) return;
+      const bottom = footerRef.current.querySelector(".footer-bottom");
 
       const headingSplit = SplitText.create(heading, {
         type: "words,chars",
@@ -31,7 +29,10 @@ const Footer = () => {
 
       gsap.set(heading, { autoAlpha: 1 });
       gsap.set(headingSplit.chars, { y: 20, autoAlpha: 0 });
-      gsap.set([emailRow, banner, getInTouch], { y: 12, autoAlpha: 0 });
+      gsap.set([emailRow, banner, getInTouch, bottom], {
+        y: 12,
+        autoAlpha: 0,
+      });
 
       // --- Entrance ---
       const entrance = gsap.timeline({
@@ -53,6 +54,16 @@ const Footer = () => {
         .to(emailRow, { y: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, "-=0.6")
         .to(banner, { y: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, "-=0.7")
         .to(getInTouch, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }, "-=0.7")
+        .to(
+          bottom,
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
         .then(() => startIdleWave(headingSplit.chars));
 
       // --- Idle wave: simulates mouse dragging left→right then right→left ---
@@ -108,7 +119,7 @@ const Footer = () => {
         gsap.delayedCall(0.5, runCycle);
       };
 
-      // --- Hover: same animation, coexists with idle wave ---
+      // --- Hover ---
       headingSplit.chars.forEach((char) => {
         char.addEventListener("mouseenter", () => {
           gsap.to(char, {
@@ -143,18 +154,10 @@ const Footer = () => {
           {/* Heading row */}
           <div className="footer-email-row flex flex-col md:flex-row justify-between items-stretch gap-5">
             <h2 className="footer-heading text-[42px] lg:text-[80px] tracking-tight leading-tight invisible">
-              let's work together
+              Let's work together
             </h2>
-            <div className="w-full sm:w-[400px] flex justify-between relative">
-              <NavBarEmail
-                tooltipPosition="top"
-                className="text-[26px] self-end pb-3"
-              />
-              <ArrowIcon
-                className="rotate-[135deg] absolute bottom-1/2 right-0"
-                size="42"
-                aria-hidden="true"
-              />
+            <div className="w-full sm:w-[400px] flex justify-between items-end relative">
+              <CopyEmailButton />
             </div>
           </div>
 
@@ -184,7 +187,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <Bottom />
+      <Bottom className="footer-bottom" />
     </footer>
   );
 };

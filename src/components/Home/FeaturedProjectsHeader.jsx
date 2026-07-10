@@ -17,8 +17,6 @@ const FeaturedProjectsHeader = () => {
       const heading = headerRef.current.querySelector(".fph-heading");
       const para = headerRef.current.querySelector(".fph-para");
 
-      if (!label || !heading || !para) return;
-
       const headingSplit = SplitText.create(heading, {
         type: "words,chars",
         autoSplit: true,
@@ -73,13 +71,13 @@ const FeaturedProjectsHeader = () => {
         <p className="fph-label font-semibold uppercase tracking-widest text-sandyBrown whitespace-nowrap leading-normal text-base pt-4 w-full">
           what I create
         </p>
-        <h2 className="fph-heading text-[42px] lg:text-[68px] tracking-tight leading-tight mb-8 lg:mb-10 w-full">
-          featured work
+        <h2 className="fph-heading text-[42px] lg:text-[68px] tracking-tight leading-tight mb-8 lg:mb-10 w-full sm:me-[16%] whitespace-nowrap">
+          Featured work
         </h2>
       </div>
 
-      <p className="fph-para mb-16 lg:mb-[168px] md:w-5/12 ml-auto text-[26px] leading-normal pl-5 text-pretty">
-        selection of projects focused on turning complex requirements into structured design.
+      <p className="fph-para mb-16 lg:mb-[168px] md:w-5/12 ml-auto text-[26px] leading-normal pl-5 text-pretty sm:me-[8%]">
+        Selection of projects focused on turning complex requirements into structured design.
       </p>
     </header>
   );

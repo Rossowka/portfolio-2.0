@@ -31,7 +31,7 @@ const HeroExperience = () => {
       ref={paragraphRef}
     >
       <p className="text-f-primary leading-normal font-sans text-pretty text-base w-5/6  mt-5 font-bold tracking-widest">
-        available for work
+        Available for work
       </p>
 
       <div className="leading-normal text-base flex flex-col w-5/6 lg:max-w-[290px] text-f-secondary ">

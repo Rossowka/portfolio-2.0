@@ -54,7 +54,6 @@ const Intro = () => {
       split.chars.forEach((char) => {
         char.addEventListener("mouseenter", () => {
           gsap.to(char, {
-            // ✦ removed stray 0.2 argument
             y: -8,
             rotationZ: gsap.utils.random(-6, 6),
             duration: 0.25,
@@ -70,7 +69,7 @@ const Intro = () => {
           });
         });
       });
-    }, // ✦ moved closing ); to here
+    },
     { scope: sectionRef }
   );
 
@@ -79,9 +78,9 @@ const Intro = () => {
       ref={sectionRef}
       className="py-24 px-6 md:py-36 lg:py-48 flex flex-col bg-linen"
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-5 justify-between">
-        <p className="intro-heading order-2 md:order-1 text-[42px] lg:text-[68px] tracking-tight leading-tight w-2/3 sm:w-1/3 lg:w-5/12">
-          let's create something stunning together
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 md:gap-5 justify-between">
+        <p className="intro-heading order-2 md:order-1 text-[42px] lg:text-[68px] tracking-tight leading-tight me-[8%] sm:w-1/3 lg:w-5/12">
+          Let's create something stunning together
         </p>
 
         <div className="flex flex-col order-1 md:order:2 relative gap-10 mt-5 w-full sm:w-1/2 md:w-7/12">
@@ -92,7 +91,7 @@ const Intro = () => {
             I design digital products: web apps, internal tools, e-commerce platforms and solutions
             for complex B2B environments.
           </p>
-          <div className="intro-cta self-end absolute -right-5 -bottom-full lg:right-0 lg:-bottom-1/4 overflow-hidden mix-blend-difference">
+          <div className="intro-cta self-end absolute -right-5 -bottom-[120%] lg:right-0 lg:-bottom-1/4 overflow-hidden mix-blend-difference">
             <CircularButton
               text={"Explore my work"}
               radius={85}

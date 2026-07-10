@@ -43,10 +43,8 @@ const NavBar = ({ pathname, textColorClass, bgColorClass, accentColorClass }) =>
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors px-6 ${
-          isMenuOpen
-            ? `${textColorClass} bg-transparent duration-0`
-            : `${textColorClass} ${bgColorClass} delay-200 duration-[450ms]`
+        className={`fixed top-0 w-screen invisible max-w-full z-50 transition-colors px-6 duration-0 ${
+          isMenuOpen ? `${textColorClass} bg-transparent ` : `${textColorClass} ${bgColorClass} `
         }`}
       >
         <div className="lg:max-w-7xl lg:mx-auto flex justify-between">

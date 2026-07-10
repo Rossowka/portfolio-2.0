@@ -102,7 +102,7 @@ const CircularButton = ({ text, radius, iconSrc }) => {
           height: `${radius}px`,
         }}
       >
-        <ArrowIcon className="group-hover:rotate-180 transform transition-all duration-[450ms] motion-reduce:transition-none motion-reduce:group-hover:rotate-0" />
+        <ArrowIcon className="rotate-180 xl:rotate-0 group-hover:rotate-180 transform transition-all duration-[450ms] motion-reduce:transition-none motion-reduce:group-hover:rotate-0" />
       </div>
     </Link>
   );

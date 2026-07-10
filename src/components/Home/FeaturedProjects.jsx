@@ -24,11 +24,10 @@ const FeaturedProjects = () => {
         ))}
       </ul>
 
-      <div className="max-w-7xl mx-auto flex justify-center -mt-20 sm:-mt-0">
+      <div className="max-w-7xl mx-auto flex justify-center -mt-5 sm:-mt-0">
         <Button
-          label="more work"
+          label="More work"
           sup={PROJECTS.length}
-          className="text-f-inverse"
           href="/projects"
           variant="dark"
         />

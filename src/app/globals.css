@@ -55,17 +55,22 @@
       transition-delay: 0.3s;
     }
   }
-}
 
-@media (hover: hover) and (pointer: fine) {
-  /* existing hover rules */
-}
+  .btn-icon-text {
+    --text-duplicate-distance: 1.5em;
+    text-shadow: 0px var(--text-duplicate-distance) currentColor;
+  }
 
-@media (prefers-reduced-motion: reduce) {
+  @media (hover: hover) and (pointer: fine) {
+    /* existing hover rules */
+  }
 
-  .underline-link-default::before,
-  .underline-link-alt::before,
-  .underline-link-alt::after {
-    transition: none;
+  @media (prefers-reduced-motion: reduce) {
+
+    .underline-link-default::before,
+    .underline-link-alt::before,
+    .underline-link-alt::after {
+      transition: none;
+    }
   }
 }

@@ -2,11 +2,9 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowIcon } from "../ArrowIcon";
 import NakedButton from "./NakedButton";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -97,25 +95,6 @@ const FeaturedProjectCard = ({ project }) => {
           <div className="flex justify-end mt-5 ">
             <NakedButton project={project} />
           </div>
-          {/* <div className="flex justify-end mt-5 sm:mt-0">
-            <Link
-              href={project.url}
-              className="flex justify-end gap-1 px-8 py-4 text-sandyBrown -ml-8 group w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:rounded-sm
-     focus-visible:outline-reddishBrown"
-            >
-              <p className="whitespace-nowrap text-lg leading-relaxed font-medium text-inherit relative overflow-visible">
-                <span className="truncate">{project.cta || "Explore the impact"}</span>
-                underline */}
-          {/* 
-                <span
-                  className={`underline absolute left-0 -bottom-1 w-full h-0.5 transition-transform transform origin-left lg:scale-x-0 group-hover:scale-x-100 bg-sandyBrown`}
-                ></span>
-              </p>
-              <div className="min-w-fit content-center">
-                <ArrowIcon className="text-inherit -rotate-45" />
-              </div>
-            </Link>
-          </div> */}
         </div>
       </li>
     </>

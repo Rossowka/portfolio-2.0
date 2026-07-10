@@ -4,7 +4,7 @@ import { EMAIL } from "@/utils/about";
 import { useState, useCallback } from "react";
 import { ArrowIcon, CheckIcon } from "../Icons";
 
-const CopyEmailButton = () => {
+const CopyEmailButton = ({ className }) => {
   const [state, setState] = useState("idle"); // "idle" | "hover" | "copied"
 
   const handleCopy = useCallback(() => {
@@ -49,7 +49,7 @@ const CopyEmailButton = () => {
     state === "copied" ? "translate-x-0 translate-y-0" : "-translate-x-full translate-y-full";
 
   return (
-    <div className="flex flex-col items-center gap-5 max-w-[400px]">
+    <div className={`flex flex-col items-center gap-5 max-w-[400px] ${className}`}>
       <button
         type="button"
         aria-label={state === "copied" ? "Email copied to clipboard!" : "Copy email to clipboard"}
