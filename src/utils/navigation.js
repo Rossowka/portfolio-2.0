@@ -3,18 +3,18 @@ import { PROJECTS } from "./projects";
 export const navigation = [
   {
     id: "about",
-    title: "about",
+    title: "About",
     url: "/about",
   },
   {
     id: "projects",
-    title: "projects",
+    title: "Work",
     url: "/projects",
     sup: PROJECTS.length,
   },
   {
     id: "playground",
-    title: "playground",
+    title: "Play",
     url: "/playground",
   },
 ];
